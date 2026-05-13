@@ -1,0 +1,83 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTA from '../../components/CTA.astro';
+import RelatedPages from '../../components/RelatedPages.astro';
+import { site } from '../../data/site';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('compare');
+  return articles.map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+const allArticles = await getCollection('compare');
+
+const relatedPages = article.data.relatedSlugs
+  .map((slug) => {
+    const found = allArticles.find((a) => a.id === slug);
+    if (!found) return null;
+    return { slug: found.id, title: found.data.title, collection: 'compare' };
+  })
+  .filter(Boolean) as { slug: string; title: string; collection: string }[];
+
+const schemaNodes: Record<string, unknown>[] = [
+  {
+    '@type': 'Article',
+    '@id': `${site.url}/compare/${article.id}/#article`,
+    headline: article.data.h1,
+    description: article.data.metaDescription,
+    datePublished: article.data.datePublished,
+    dateModified: article.data.dateModified,
+    url: `${site.url}/compare/${article.id}/`,
+    isPartOf: { '@id': `${site.url}/compare/#webpage` },
+    publisher: { '@id': `${site.url}/#organization` },
+    about: 'SEO-optimised website',
+    mainEntityOfPage: `${site.url}/compare/${article.id}/`,
+  },
+];
+
+if (article.data.faqs.length > 0) {
+  schemaNodes.push({
+    '@type': 'FAQPage',
+    '@id': `${site.url}/compare/${article.id}/#faq`,
+    mainEntity: article.data.faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  });
+}
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Compare', href: '/compare/' },
+  { label: article.data.title, href: `/compare/${article.id}/` },
+];
+---
+<Base
+  title={article.data.metaTitle}
+  description={article.data.metaDescription}
+  canonicalPath={`/compare/${article.id}/`}
+  schemaNodes={schemaNodes}
+>
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <Breadcrumb items={breadcrumbs} />
+    <h1 class="text-4xl font-bold text-brand mb-8">{article.data.h1}</h1>
+    <div class="prose prose-lg max-w-none">
+      <Content />
+    </div>
+    {article.data.faqs.length > 0 && <FAQSection faqs={article.data.faqs} />}
+    <div class="flex flex-wrap gap-4 mt-10">
+      <CTA href="/order/" label="Order Your SEO Website" />
+      <CTA href={article.data.hubBacklink.href} label={article.data.hubBacklink.anchor} variant="secondary" />
+    </div>
+    <RelatedPages pages={relatedPages} />
+  </article>
+</Base>

@@ -1,0 +1,21 @@
+---
+interface Props {
+  pages: { slug: string; title: string; collection: string }[];
+}
+
+const { pages } = Astro.props;
+---
+{pages.length > 0 && (
+  <nav aria-label="Related articles" class="py-8 border-t border-border">
+    <h2 class="text-xl font-bold text-brand mb-4">Related Articles</h2>
+    <ul class="space-y-2">
+      {pages.map((page) => (
+        <li>
+          <a href={`/${page.collection}/${page.slug}/`} class="text-brand hover:underline">
+            {page.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
