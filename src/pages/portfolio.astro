@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import PortfolioCard from '../components/PortfolioCard.astro';
+import CTA from '../components/CTA.astro';
+import { site } from '../data/site';
+import { portfolio } from '../data/portfolio';
+
+const schemaNodes = [
+  {
+    '@type': 'CollectionPage',
+    '@id': `${site.url}/portfolio/#page`,
+    name: 'Portfolio: SEO Websites We Have Built',
+    description: 'Examples of SEO-optimised websites built by OptimisedWebsite. Each site features topical authority architecture, per-page schema, and technical SEO foundations.',
+    url: `${site.url}/portfolio/`,
+    isPartOf: { '@id': `${site.url}/#website` },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: portfolio.length,
+      itemListElement: portfolio.map((item, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'CreativeWork',
+          name: item.name,
+          url: item.url,
+          description: item.description,
+          creator: { '@id': `${site.url}/#organization` }
+        }
+      }))
+    }
+  }
+];
+---
+<Base
+  title="Portfolio: SEO Websites We Have Built | OptimisedWebsite"
+  description="Examples of SEO-optimised websites built by OptimisedWebsite. Each site features topical authority architecture, per-page schema, and technical SEO foundations."
+  canonicalPath="/portfolio/"
+  schemaNodes={schemaNodes}
+>
+  <div class="max-w-4xl mx-auto px-4">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Portfolio', href: '/portfolio/' }
+    ]} />
+
+    <section class="py-10">
+      <h1 class="text-3xl md:text-4xl font-bold text-brand">Portfolio: SEO Websites We Have Built</h1>
+      <p class="mt-4 text-lg text-text-muted leading-relaxed">
+        Every site below was built from the ground up with keyword research, topical mapping, and per-page schema markup. These are not redesigns or template installs — each one is a purpose-built SEO asset constructed to rank in its niche.
+      </p>
+    </section>
+
+    <section class="py-10">
+      <div class="grid gap-6 md:grid-cols-2">
+        {portfolio.map(item => (
+          <PortfolioCard item={item} />
+        ))}
+      </div>
+    </section>
+
+    <section class="py-10 text-center">
+      <p class="text-text-muted mb-4">Ready to add your site to this list?</p>
+      <CTA href="/order/" label="Order Your SEO Website" />
+    </section>
+  </div>
+</Base>

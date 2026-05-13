@@ -1,0 +1,164 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTA from '../components/CTA.astro';
+import { site } from '../data/site';
+
+const deliverables = [
+  {
+    category: 'Research & Strategy',
+    items: [
+      'Keyword research (50-200 terms, clustered by intent)',
+      'Topical map with hub-and-spoke architecture',
+      'Competitor gap analysis against top 3 ranking sites',
+      'Content depth ratio targets per cluster',
+      'Internal linking blueprint with anchor text rules'
+    ]
+  },
+  {
+    category: 'Content',
+    items: [
+      '15-50 pages of original, keyword-targeted content',
+      'Unique H1 and meta title/description per page',
+      'Semantic heading structure (H1 > H2 > H3)',
+      'FAQ sections where People Also Ask results exist',
+      'Hub pages with spoke navigation',
+      'About and Contact pages included'
+    ]
+  },
+  {
+    category: 'Technical SEO',
+    items: [
+      'Per-page JSON-LD schema within @graph',
+      'Entity-interconnected schema (Organisation, WebSite, Service, Article, FAQPage, HowTo, BreadcrumbList)',
+      'Canonical URLs on every page',
+      'XML sitemap and sitemap index',
+      'robots.txt, llms.txt, and ai.txt configuration',
+      'Heading hierarchy validation',
+      'Semantic HTML5 landmarks',
+      'Skip-to-content and focus-visible accessibility'
+    ]
+  },
+  {
+    category: 'Internal Linking',
+    items: [
+      'Hub-to-spoke links from every hub page',
+      'Spoke-to-hub backlinks in every spoke',
+      'Sibling cross-links between related spokes',
+      'No links in first paragraph of body content',
+      'Descriptive anchor text (no "click here" or naked URLs)',
+      'Link density kept below 3% of word count'
+    ]
+  },
+  {
+    category: 'Performance & Infrastructure',
+    items: [
+      'Cloudflare Pages CDN deployment (or Vercel)',
+      'Static HTML — no server-side rendering overhead',
+      'Core Web Vitals optimised (LCP, CLS, INP)',
+      'OG images generated per page',
+      'WebP/AVIF image formats where applicable',
+      'Critical CSS inlined, no render-blocking resources',
+      'Mobile-first responsive design',
+      'Configurable brand colours, fonts, and logos'
+    ]
+  },
+  {
+    category: 'Launch & Submission',
+    items: [
+      'GitHub repository with full source code',
+      'Google Search Console verification and sitemap submission',
+      'Bing Webmaster Tools verification and IndexNow ping',
+      'Schema validation report (zero errors)',
+      'Page inventory spreadsheet with URLs, titles, word counts'
+    ]
+  },
+  {
+    category: 'Post-Launch',
+    items: [
+      '30 days of support for content tweaks and schema fixes',
+      'GSC baseline snapshot at day 14 and day 30',
+      'Keyword tracking setup with target positions'
+    ]
+  }
+];
+
+const faqs = [
+  { q: 'Why is there a price range instead of a fixed price?', a: 'The price depends on three factors: the number of pages (15-50), the competitiveness of your niche (which affects research depth), and whether you need custom functionality beyond static content pages. A 15-page local service site costs less than a 50-page affiliate site in a competitive vertical.' },
+  { q: 'Are there any ongoing fees after delivery?', a: 'No. You pay once for the build and own the site outright. There are no monthly hosting fees, CMS licences, or mandatory retainers. Cloudflare Pages and Vercel both offer generous free tiers for static sites. Ongoing SEO support is available as a separate engagement if you want it.' },
+  { q: 'What is not included in the price?', a: 'The price covers everything listed on this page. It does not include paid advertising setup, social media management, link building campaigns, or ongoing content writing beyond the initial build. These are available as separate services.' },
+  { q: 'Can I pay in instalments?', a: 'Yes. For builds over £2,000, we offer a 50/50 split: half on order confirmation, half on delivery. Payment is via bank transfer or Stripe invoice.' }
+];
+
+const schemaNodes = [
+  {
+    '@type': 'Service',
+    '@id': `${site.url}/pricing/#service`,
+    name: 'SEO Website Build',
+    description: 'Ground-up SEO-optimised website build with keyword research, topical mapping, content writing, schema markup, and deployment.',
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: { '@type': 'Country', name: 'United Kingdom' },
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'GBP',
+      lowPrice: '1500',
+      highPrice: '3000',
+      offerCount: 1,
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        minPrice: '1500',
+        maxPrice: '3000',
+        priceCurrency: 'GBP'
+      }
+    }
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${site.url}/pricing/#faq`,
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a }
+    }))
+  }
+];
+---
+<Base
+  title="SEO Website Pricing: £1,500-£3,000 | OptimisedWebsite"
+  description="SEO website builds from £1,500 to £3,000. Includes keyword research, topical mapping, 15-50 pages of content, per-page schema, technical SEO, and deployment."
+  canonicalPath="/pricing/"
+  schemaNodes={schemaNodes}
+>
+  <div class="max-w-4xl mx-auto px-4">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Pricing', href: '/pricing/' }
+    ]} />
+
+    <section class="py-10">
+      <h1 class="text-3xl md:text-4xl font-bold text-brand">SEO Website Pricing</h1>
+      <p class="mt-4 text-lg text-text-muted leading-relaxed">
+        Every build is priced between <strong class="text-text">&pound;1,500</strong> and <strong class="text-text">&pound;3,000</strong> depending on page count, niche competitiveness, and any custom requirements. The price covers everything below — there are no hidden fees, no monthly charges, and no CMS licence costs.
+      </p>
+    </section>
+
+    {deliverables.map(group => (
+      <section class="py-8 border-t border-gray-200">
+        <h2 class="text-2xl font-bold text-brand mb-4">{group.category}</h2>
+        <ul class="space-y-2 text-text-muted leading-relaxed">
+          {group.items.map(item => (
+            <li class="flex gap-2"><span class="text-brand shrink-0">&#10003;</span> {item}</li>
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    <section class="py-10 text-center">
+      <p class="text-text-muted mb-4">All builds include every item listed above. No tiers, no upsells.</p>
+      <CTA href="/order/" label="Order Your SEO Website" />
+    </section>
+
+    <FAQSection faqs={faqs} />
+  </div>
+</Base>

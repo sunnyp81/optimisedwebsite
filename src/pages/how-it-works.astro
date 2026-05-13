@@ -1,0 +1,111 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTA from '../components/CTA.astro';
+import { site } from '../data/site';
+
+const steps = [
+  {
+    name: 'Brief',
+    text: 'You fill in a short order form with your niche, target audience, competitors, and any domain preferences. We review the brief and confirm the scope before any work begins. If your niche requires specific positioning or there are compliance considerations, we flag them here.'
+  },
+  {
+    name: 'Research',
+    text: 'We pull 50-200 keywords from Ahrefs, clustered by search intent — informational, commercial, and transactional. Each keyword gets search volume, keyword difficulty, and SERP feature data. This research document becomes the foundation for every page on the site.'
+  },
+  {
+    name: 'Map',
+    text: 'Keywords are organised into a topical map using hub-and-spoke architecture. Each hub page targets a head term; each spoke targets a supporting long-tail variation. The map defines URL structure, internal linking paths, and content depth ratios across the site.'
+  },
+  {
+    name: 'Generate',
+    text: 'Every page is written against its target keyword with correct heading hierarchy (single H1, logical H2/H3 nesting), unique meta titles under 60 characters, and meta descriptions written for click-through rate. FAQ sections are added where the SERP shows People Also Ask results.'
+  },
+  {
+    name: 'Build',
+    text: 'Pages are assembled into an Astro project with per-page JSON-LD schema (Organisation, WebSite, Service, Article, FAQPage, HowTo, BreadcrumbList — all cross-referenced via @id within an @graph). Technical SEO is configured: canonical URLs, XML sitemap, robots.txt, llms.txt, ai.txt, and heading validation.'
+  },
+  {
+    name: 'Deploy',
+    text: 'The finished site is deployed to Cloudflare Pages or Vercel via a GitHub repository. Core Web Vitals are verified, OG images are generated, and the site is tested across mobile and desktop viewports. You receive the GitHub repo and full ownership of the codebase.'
+  },
+  {
+    name: 'Submit',
+    text: 'We submit the XML sitemap to Google Search Console and Bing Webmaster Tools, trigger IndexNow for immediate crawl requests, and run a schema validation report. A baseline GSC snapshot is taken at day 14 and day 30 so you can track early indexing progress.'
+  }
+];
+
+const faqs = [
+  { q: 'How long does the build take?', a: 'Most builds are delivered within 5-7 working days from brief confirmation. Larger sites (40-50 pages) or niches that require extensive keyword research may take up to 10 working days. We confirm the timeline before starting.' },
+  { q: 'Do I need to provide any content?', a: 'No. You provide your business details, service descriptions, and messaging preferences. We handle all keyword research, content writing, and page structure. If you have existing content you want to keep, we can incorporate it into the build.' },
+  { q: 'What if I want changes after delivery?', a: 'Every build includes 30 days of post-launch support for content tweaks, schema adjustments, and technical fixes. Structural changes (new page clusters, redesigns) are scoped separately.' },
+  { q: 'Can I update the site myself after handover?', a: 'Yes. You receive the full GitHub repository and a handover document explaining how to add pages, edit content, and maintain your schema. The site runs on Astro, which uses standard HTML and Markdown — no proprietary CMS lock-in.' }
+];
+
+const schemaNodes = [
+  {
+    '@type': 'HowTo',
+    '@id': `${site.url}/how-it-works/#howto`,
+    name: 'How We Build SEO Websites',
+    description: 'The 7-step process for building an SEO-optimised website from brief to submission.',
+    step: steps.map((s, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: s.name,
+      text: s.text
+    })),
+    totalTime: 'P7D'
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${site.url}/how-it-works/#faq`,
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a }
+    }))
+  }
+];
+---
+<Base
+  title="How We Build SEO Websites | OptimisedWebsite"
+  description="Our 7-step process for building SEO-optimised websites: brief, research, topical mapping, content generation, build, deploy, and search engine submission."
+  canonicalPath="/how-it-works/"
+  schemaNodes={schemaNodes}
+>
+  <div class="max-w-4xl mx-auto px-4">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'How It Works', href: '/how-it-works/' }
+    ]} />
+
+    <section class="py-10">
+      <h1 class="text-3xl md:text-4xl font-bold text-brand">How We Build SEO Websites</h1>
+      <p class="mt-4 text-lg text-text-muted leading-relaxed">
+        Every build follows the same 7-step process. There are no shortcuts and no template installs. Each step exists because it directly affects how well the finished site ranks, how quickly it gets indexed, and how much organic traffic it captures in its first 90 days.
+      </p>
+    </section>
+
+    <section class="py-10">
+      <ol class="space-y-8">
+        {steps.map((step, i) => (
+          <li class="flex gap-4">
+            <span class="shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-brand text-white font-bold text-lg">{i + 1}</span>
+            <div>
+              <h2 class="text-xl font-bold text-text mb-2">Step {i + 1}: {step.name}</h2>
+              <p class="text-text-muted leading-relaxed">{step.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="py-10 text-center">
+      <p class="text-text-muted mb-4">Ready to start? The process begins with a 5-minute brief.</p>
+      <CTA href="/order/" label="Order Your SEO Website" />
+    </section>
+
+    <FAQSection faqs={faqs} />
+  </div>
+</Base>
