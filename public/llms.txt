@@ -1,0 +1,20 @@
+# OptimisedWebsite
+> SEO-optimised website builds for UK businesses
+
+OptimisedWebsite builds websites designed to rank on Google from day one. Each site includes keyword research, topical authority architecture, per-page schema markup, and technical SEO setup.
+
+## Services
+- SEO Website Build (£1,500-£3,000): /services/seo-website-build/
+- Keyword Research: /services/keyword-research/
+- Schema Markup: /services/schema-markup/
+- Technical SEO Setup: /services/technical-seo-setup/
+- Content Architecture: /services/content-architecture/
+
+## Learn
+- What Is an SEO-Optimised Website: /learn/what-is-an-seo-optimised-website/
+- SEO Website Checklist: /learn/seo-website-checklist/
+- SEO Website Cost UK: /learn/seo-website-cost-uk/
+
+## Contact
+- Order: /order/
+- Email: hello@optimisedwebsite.com
