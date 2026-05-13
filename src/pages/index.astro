@@ -1,14 +1,118 @@
 ---
 import Base from '../layouts/Base.astro';
+import CTA from '../components/CTA.astro';
 import { site } from '../data/site';
+
+const faqs = [
+  {
+    q: 'What is an SEO-optimised website?',
+    a: 'An SEO-optimised website is built from keyword research upward. Every page targets a specific search intent, uses correct heading hierarchy, carries per-page JSON-LD schema, and sits within a hub-and-spoke content architecture designed to build topical authority in your niche.'
+  },
+  {
+    q: 'How long does it take?',
+    a: 'A typical 15-30 page SEO website build takes 5-7 working days from the point we receive your brief. Larger builds of 30-50 pages take 7-10 working days. This includes keyword research, content architecture, schema markup, and technical SEO setup.'
+  },
+  {
+    q: 'How much does it cost?',
+    a: `Builds start from £1,500 for a 15-page site and go up to £3,000 for a 50-page build with full topical authority architecture. The price includes keyword research, content writing, schema markup, and technical SEO — there are no hidden extras.`
+  }
+];
+
+const schemaNodes = [
+  {
+    '@type': 'ProfessionalService',
+    '@id': `${site.url}/#service`,
+    name: site.name,
+    description: site.description,
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: {
+      '@type': 'Country',
+      name: 'United Kingdom'
+    },
+    priceRange: site.priceRange
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${site.url}/#faq`,
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a
+      }
+    }))
+  }
+];
 ---
 <Base
   title={`${site.name} — SEO-Optimised Website Builds for UK Businesses`}
   description={site.description}
   canonicalPath="/"
+  schemaNodes={schemaNodes}
 >
+  <!-- Hero -->
+  <section class="max-w-4xl mx-auto px-4 py-20 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold text-brand">Websites Built to Rank</h1>
+    <p class="mt-6 text-lg text-text-muted max-w-2xl mx-auto leading-relaxed">
+      Every site we build starts with keyword research and ends with a fully deployed, schema-marked, technically sound website designed to earn organic traffic from day one. 15-50 pages, hub-and-spoke architecture, per-page JSON-LD — all included.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <CTA href="/order/" label="Order Your Website" />
+      <CTA href="/how-it-works/" label="See How It Works" variant="secondary" />
+    </div>
+  </section>
+
+  <!-- Three Foundations -->
+  <section class="bg-surface py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-brand text-center mb-10">Three Foundations of Every Build</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-100">
+          <h3 class="text-lg font-semibold text-brand mb-3">Topical Authority Architecture</h3>
+          <p class="text-text-muted leading-relaxed">
+            Your site is structured around hub-and-spoke clusters that signal expertise to search engines. Each hub page links to its spokes, and each spoke links back — building a closed topical loop that strengthens every page in the cluster.
+          </p>
+        </div>
+        <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-100">
+          <h3 class="text-lg font-semibold text-brand mb-3">Per-Page Schema Markup</h3>
+          <p class="text-text-muted leading-relaxed">
+            Every page carries its own JSON-LD schema within an entity-interconnected @graph. Organisation, WebSite, Service, FAQPage, Article, BreadcrumbList — all cross-referenced through @id so search engines understand the relationships between your content.
+          </p>
+        </div>
+        <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-100">
+          <h3 class="text-lg font-semibold text-brand mb-3">Content That Ranks</h3>
+          <p class="text-text-muted leading-relaxed">
+            Content is written against keyword research, not guesswork. Each page targets a specific search intent with the correct heading hierarchy, internal links to related pages, and enough depth to satisfy both users and search engine quality evaluators.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Preview -->
   <section class="max-w-4xl mx-auto px-4 py-16 text-center">
-    <h1 class="text-4xl font-bold text-brand">{site.name}</h1>
-    <p class="mt-4 text-lg text-text-muted">{site.description}</p>
+    <h2 class="text-2xl md:text-3xl font-bold text-brand mb-4">How Much Does an SEO Website Cost?</h2>
+    <p class="text-lg text-text-muted max-w-2xl mx-auto leading-relaxed">
+      Builds range from <strong class="text-text">{site.priceRange}</strong> depending on the number of pages and complexity of your niche. That price covers keyword research, content architecture, content writing, schema markup, technical SEO, and deployment. No retainers, no monthly fees — you own the site outright.
+    </p>
+    <div class="mt-8">
+      <CTA href="/pricing/" label="See Full Pricing" />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-surface py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-brand mb-8">Frequently Asked Questions</h2>
+      <dl class="space-y-8">
+        {faqs.map((faq) => (
+          <div>
+            <dt class="text-lg font-semibold text-text">{faq.q}</dt>
+            <dd class="mt-2 text-text-muted leading-relaxed">{faq.a}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
   </section>
 </Base>
