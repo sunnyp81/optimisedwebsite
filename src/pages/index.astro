@@ -1,15 +1,14 @@
 ---
-import '../styles/global.css';
+import Base from '../layouts/Base.astro';
 import { site } from '../data/site';
 ---
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{site.name}</title>
-    <meta name="description" content={site.description} />
-  </head>
-  <body>
-    <h1>{site.name}</h1>
-  </body>
-</html>
+<Base
+  title={`${site.name} — SEO-Optimised Website Builds for UK Businesses`}
+  description={site.description}
+  canonicalPath="/"
+>
+  <section class="max-w-4xl mx-auto px-4 py-16 text-center">
+    <h1 class="text-4xl font-bold text-brand">{site.name}</h1>
+    <p class="mt-4 text-lg text-text-muted">{site.description}</p>
+  </section>
+</Base>

@@ -1,0 +1,37 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+  nodes?: Record<string, unknown>[];
+}
+
+const { nodes = [] } = Astro.props;
+
+const graph = [
+  {
+    '@type': 'Organization',
+    '@id': `${site.url}/#organization`,
+    name: site.name,
+    url: site.url,
+    areaServed: 'UK',
+    knowsAbout: [
+      'Search Engine Optimisation',
+      'Website Development',
+      'Schema Markup',
+      'Topical Authority',
+      'Content Architecture',
+    ],
+  },
+  {
+    '@type': 'WebSite',
+    '@id': `${site.url}/#website`,
+    url: site.url,
+    name: site.name,
+    publisher: { '@id': `${site.url}/#organization` },
+  },
+  ...nodes,
+];
+
+const schema = { '@context': 'https://schema.org', '@graph': graph };
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
