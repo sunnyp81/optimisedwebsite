@@ -1,0 +1,22 @@
+---
+interface Props {
+  items: { label: string; href: string }[];
+  currentPath: string;
+}
+
+const { items, currentPath } = Astro.props;
+---
+<nav aria-label="Service pages" class="flex flex-wrap gap-2 py-4">
+  {items.map((item) => {
+    const isCurrent = item.href === currentPath;
+    return (
+      <a
+        href={item.href}
+        class={`text-sm px-3 py-1 rounded-full border transition-colors ${isCurrent ? 'bg-brand text-white border-brand' : 'border-gray-300 text-text-muted hover:border-brand hover:text-brand'}`}
+        {...(isCurrent ? { 'aria-current': 'page' } : {})}
+      >
+        {item.label}
+      </a>
+    );
+  })}
+</nav>

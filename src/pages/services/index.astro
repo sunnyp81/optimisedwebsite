@@ -1,0 +1,63 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import { site } from '../../data/site';
+import { services } from '../../data/services';
+
+const schemaNodes = [
+  {
+    '@type': 'Service',
+    '@id': `${site.url}/services/#service`,
+    name: 'SEO Website Services',
+    provider: { '@id': `${site.url}/#organization` },
+    description: 'Professional SEO website services including full builds, keyword research, schema markup, technical SEO, and content architecture.',
+    areaServed: {
+      '@type': 'Country',
+      name: 'United Kingdom'
+    }
+  },
+  {
+    '@type': 'ItemList',
+    '@id': `${site.url}/services/#list`,
+    name: 'SEO Website Services',
+    numberOfItems: services.length,
+    itemListElement: services.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: s.title,
+      url: `${site.url}/services/${s.slug}/`
+    }))
+  }
+];
+---
+<Base
+  title="SEO Website Services — OptimisedWebsite"
+  description="Professional SEO website services: full builds, keyword research, schema markup, technical SEO setup, and content architecture. All built to rank."
+  canonicalPath="/services/"
+  schemaNodes={schemaNodes}
+>
+  <div class="max-w-6xl mx-auto px-4">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services/' }
+    ]} />
+
+    <section class="py-12">
+      <h1 class="text-3xl md:text-4xl font-bold text-brand">SEO Website Services</h1>
+      <p class="mt-4 text-lg text-text-muted max-w-3xl leading-relaxed">
+        Every service we offer is designed to help your website rank in organic search. Whether you need a complete SEO website build or a single component like schema markup or keyword research, each deliverable follows the same methodology: research-driven, technically sound, and architecturally connected.
+      </p>
+    </section>
+
+    <section class="pb-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((s) => (
+        <ServiceCard
+          title={s.title}
+          description={s.shortDescription}
+          href={`/services/${s.slug}/`}
+        />
+      ))}
+    </section>
+  </div>
+</Base>

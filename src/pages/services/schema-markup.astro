@@ -1,0 +1,142 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import HubNav from '../../components/HubNav.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTA from '../../components/CTA.astro';
+import { site } from '../../data/site';
+import { services } from '../../data/services';
+
+const current = services.find(s => s.slug === 'schema-markup')!;
+const siblings = services.filter(s => s.slug !== current.slug).slice(0, 3);
+const hubItems = services.map(s => ({ label: s.title, href: `/services/${s.slug}/` }));
+
+const faqs = [
+  { q: 'What schema types do you implement?', a: 'We implement Organisation, WebSite, WebPage, Service, ProfessionalService, Article, FAQPage, HowTo, BreadcrumbList, Offer, ItemList, and LocalBusiness schema types. Each type is used where it is semantically appropriate — we do not add schema types speculatively or where the page content does not support them.' },
+  { q: 'Do you use a schema plugin or manual JSON-LD?', a: 'We write all schema as manual JSON-LD within an @graph structure. Plugins like Yoast or RankMath generate schema automatically but cannot handle entity interconnection, cross-page @id references, or custom schema types like HowTo with step-level granularity. Manual implementation gives us full control over every node and relationship.' },
+  { q: 'How do you validate the schema after implementation?', a: 'We validate every page through Google Rich Results Test, Schema.org Validator, and manual inspection of the JSON-LD output. We check for missing required properties, incorrect @id references, broken entity relationships, and schema types that do not match the page content. Validation results are included in the handover document.' }
+];
+
+const howToSteps = [
+  { name: 'Audit existing schema', text: 'We crawl your site to identify any existing schema markup, check for errors in current implementations, and document which pages have schema and which do not.' },
+  { name: 'Define the entity graph', text: 'We map out the entities on your site — your organisation, your services, your content types — and define how they connect through @id references within a single @graph per page.' },
+  { name: 'Write per-page JSON-LD', text: 'Each page receives a hand-written JSON-LD block containing the schema types appropriate to its content. Every node references back to the site-wide Organisation and WebSite entities.' },
+  { name: 'Validate and deploy', text: 'All schema is tested through Google Rich Results Test and Schema.org Validator. We fix any warnings or errors before deployment and verify that rich results are eligible where applicable.' }
+];
+
+const schemaNodes = [
+  {
+    '@type': 'Service',
+    '@id': `${site.url}/services/schema-markup/#service`,
+    name: current.h1,
+    description: current.metaDescription,
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: { '@type': 'Country', name: 'United Kingdom' }
+  },
+  {
+    '@type': 'HowTo',
+    '@id': `${site.url}/services/schema-markup/#howto`,
+    name: 'How Entity Linking Works in Schema Markup',
+    step: howToSteps.map((step, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: step.name,
+      text: step.text
+    }))
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${site.url}/services/schema-markup/#faq`,
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a }
+    }))
+  }
+];
+---
+<Base
+  title={current.metaTitle}
+  description={current.metaDescription}
+  canonicalPath="/services/schema-markup/"
+  schemaNodes={schemaNodes}
+>
+  <div class="max-w-4xl mx-auto px-4">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services/' },
+      { label: current.title, href: '/services/schema-markup/' }
+    ]} />
+    <HubNav items={hubItems} currentPath="/services/schema-markup/" />
+
+    <section class="py-10">
+      <h1 class="text-3xl md:text-4xl font-bold text-brand">{current.h1}</h1>
+      <p class="mt-4 text-lg text-text-muted leading-relaxed">
+        Schema markup tells search engines what your content means, not just what it says. A page about plumbing services without schema is just text on a screen. The same page with Service, Organisation, and FAQPage schema is a structured entity that Google can parse, categorise, and surface in rich results.
+      </p>
+      <p class="mt-4 text-text-muted leading-relaxed">
+        We implement schema as hand-written JSON-LD within an entity-interconnected @graph. Every schema node on every page references back to your site-wide Organisation and WebSite entities through @id, creating a web of structured data that reinforces your site's topical identity across every page.
+      </p>
+    </section>
+
+    <section class="py-10">
+      <h2 class="text-2xl font-bold text-brand mb-6">Schema Types We Implement</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-semibold text-text mb-2">Core Entity Types</h3>
+          <ul class="space-y-2 text-text-muted leading-relaxed list-disc list-inside">
+            <li><strong class="text-text">Organisation</strong> — your business entity, referenced by every other schema node on the site through @id.</li>
+            <li><strong class="text-text">WebSite</strong> — your site entity, linked to the Organisation as publisher and used as the parent reference for all WebPage nodes.</li>
+            <li><strong class="text-text">WebPage</strong> — page-level metadata including canonical URL, date published, and date modified.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-text mb-2">Content and Service Types</h3>
+          <ul class="space-y-2 text-text-muted leading-relaxed list-disc list-inside">
+            <li><strong class="text-text">Service / ProfessionalService</strong> — for service pages, with provider linked to your Organisation, area served, and price range where applicable.</li>
+            <li><strong class="text-text">Article</strong> — for blog posts and guides, with author, publisher, and date properties.</li>
+            <li><strong class="text-text">FAQPage / HowTo</strong> — for FAQ sections and step-by-step guides, eligible for rich result display in Google search.</li>
+            <li><strong class="text-text">BreadcrumbList</strong> — navigation path schema on every page, helping search engines understand your site hierarchy.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-10">
+      <h2 class="text-2xl font-bold text-brand mb-6">How Entity Linking Works</h2>
+      <p class="text-text-muted leading-relaxed mb-4">
+        Entity linking is what separates effective schema from checkbox schema. Every schema node on your site carries an @id — a unique identifier that other nodes can reference. When your Service schema references your Organisation through @id, Google understands that this service is provided by this specific business. When your Article references the same Organisation as publisher, that connection is reinforced.
+      </p>
+      <ol class="space-y-4 text-text-muted leading-relaxed">
+        {howToSteps.map((step, i) => (
+          <li><strong class="text-text">Step {i + 1}: {step.name}.</strong> {step.text}</li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="py-10">
+      <h2 class="text-2xl font-bold text-brand mb-6">Schema Validation</h2>
+      <p class="text-text-muted leading-relaxed mb-4">
+        Schema that fails validation is worse than no schema at all — it sends conflicting signals to search engines and can suppress rich results eligibility. We validate every page through three layers: Google Rich Results Test for eligibility checking, Schema.org Validator for specification compliance, and manual JSON-LD inspection for entity relationship integrity.
+      </p>
+      <p class="text-text-muted leading-relaxed">
+        Common issues we catch during validation include missing required properties (Organisation without a name, Article without a datePublished), broken @id references where a node points to an entity that does not exist, and schema types applied to pages where the content does not support them. Every issue is resolved before the schema goes live.
+      </p>
+    </section>
+
+    <div class="py-8 text-center">
+      <CTA href="/order/" label="Order Schema Markup" />
+    </div>
+
+    <FAQSection faqs={faqs} />
+
+    <section class="py-10 border-t border-gray-200">
+      <h2 class="text-xl font-bold text-brand mb-4">Related Services</h2>
+      <ul class="space-y-2">
+        {siblings.map(s => (
+          <li><a href={`/services/${s.slug}/`} class="text-brand hover:text-brand-light transition-colors font-medium">{s.title}</a> — <span class="text-text-muted">{s.shortDescription}</span></li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</Base>

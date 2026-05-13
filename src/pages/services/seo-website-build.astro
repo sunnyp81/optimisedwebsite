@@ -1,0 +1,120 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import HubNav from '../../components/HubNav.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTA from '../../components/CTA.astro';
+import { site } from '../../data/site';
+import { services } from '../../data/services';
+
+const current = services.find(s => s.slug === 'seo-website-build')!;
+const siblings = services.filter(s => s.slug !== current.slug).slice(0, 3);
+const hubItems = services.map(s => ({ label: s.title, href: `/services/${s.slug}/` }));
+
+const faqs = [
+  { q: 'What is included in an SEO website build?', a: 'Every build includes keyword research, topical mapping, content architecture, content writing for all pages, per-page JSON-LD schema markup, technical SEO setup (canonical URLs, XML sitemap, robots.txt, heading hierarchy), and deployment to your hosting platform. You receive a fully live, ranking-ready website.' },
+  { q: 'Do I need to provide content for the website?', a: 'No. We research and write all content based on keyword data and search intent analysis. You provide your business details, service descriptions, and any specific messaging preferences. We handle the rest — from page structure to final copy.' },
+  { q: 'Can I choose my own CMS or hosting platform?', a: 'Yes. We build on Astro by default for maximum performance, but we can deliver on WordPress, Next.js, or any static site generator you prefer. Hosting is typically Cloudflare Pages or Vercel, though we can deploy to your existing infrastructure.' },
+  { q: 'What happens after the website is delivered?', a: 'You own the site outright — there are no ongoing fees or retainers required. We provide a handover document covering how to update content, add pages, and maintain your schema. If you want ongoing SEO support, that is available as a separate engagement.' }
+];
+
+const schemaNodes = [
+  {
+    '@type': 'ProfessionalService',
+    '@id': `${site.url}/services/seo-website-build/#service`,
+    name: current.h1,
+    description: current.metaDescription,
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: { '@type': 'Country', name: 'United Kingdom' },
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'GBP',
+      price: '1500',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        minPrice: '1500',
+        maxPrice: '3000',
+        priceCurrency: 'GBP'
+      }
+    }
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${site.url}/services/seo-website-build/#faq`,
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a }
+    }))
+  }
+];
+---
+<Base
+  title={current.metaTitle}
+  description={current.metaDescription}
+  canonicalPath="/services/seo-website-build/"
+  schemaNodes={schemaNodes}
+>
+  <div class="max-w-4xl mx-auto px-4">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services/' },
+      { label: current.title, href: '/services/seo-website-build/' }
+    ]} />
+    <HubNav items={hubItems} currentPath="/services/seo-website-build/" />
+
+    <section class="py-10">
+      <h1 class="text-3xl md:text-4xl font-bold text-brand">{current.h1}</h1>
+      <p class="mt-4 text-lg text-text-muted leading-relaxed">
+        An SEO website build is not a redesign bolted onto an existing site. It is a ground-up construction where every decision — from URL structure to heading hierarchy to internal linking — is driven by keyword research and search intent data. The result is a website that is architecturally designed to rank, not one that hopes to rank after a few meta tags are added.
+      </p>
+    </section>
+
+    <section class="py-10">
+      <h2 class="text-2xl font-bold text-brand mb-6">What You Receive</h2>
+      <ul class="space-y-3 text-text-muted leading-relaxed">
+        <li class="flex gap-3"><span class="text-brand font-bold">1.</span> <span><strong class="text-text">Keyword research document</strong> — 50-200 terms clustered by intent, with search volume, keyword difficulty, and SERP feature data for your niche.</span></li>
+        <li class="flex gap-3"><span class="text-brand font-bold">2.</span> <span><strong class="text-text">Topical map</strong> — hub-and-spoke architecture showing how pages connect, which clusters they belong to, and the internal linking structure between them.</span></li>
+        <li class="flex gap-3"><span class="text-brand font-bold">3.</span> <span><strong class="text-text">15-50 fully written pages</strong> — each targeting a specific keyword with correct heading hierarchy (H1 > H2 > H3), unique meta title and description, and at least 500 words of original content.</span></li>
+        <li class="flex gap-3"><span class="text-brand font-bold">4.</span> <span><strong class="text-text">Per-page JSON-LD schema</strong> — Organisation, WebSite, Service, Article, FAQPage, HowTo, and BreadcrumbList types deployed where appropriate, all cross-referenced through @id within an @graph.</span></li>
+        <li class="flex gap-3"><span class="text-brand font-bold">5.</span> <span><strong class="text-text">Technical SEO setup</strong> — canonical URLs, XML sitemap, robots.txt, heading validation, image alt attributes, and Core Web Vitals optimisation.</span></li>
+        <li class="flex gap-3"><span class="text-brand font-bold">6.</span> <span><strong class="text-text">Deployment and submission</strong> — live deployment to Cloudflare Pages or Vercel, sitemap submission to Google Search Console and Bing Webmaster Tools.</span></li>
+      </ul>
+    </section>
+
+    <section class="py-10">
+      <h2 class="text-2xl font-bold text-brand mb-6">How the Build Works</h2>
+      <ol class="space-y-4 text-text-muted leading-relaxed">
+        <li><strong class="text-text">Step 1: Brief and niche analysis.</strong> You tell us about your business, target audience, and competitors. We analyse the SERP landscape in your niche to identify where the ranking opportunities are.</li>
+        <li><strong class="text-text">Step 2: Keyword research.</strong> We pull 50-200 keywords from Ahrefs, cluster them by search intent (informational, commercial, transactional), and identify the head terms and long-tail variations that will form your page targets.</li>
+        <li><strong class="text-text">Step 3: Topical mapping.</strong> Keywords are organised into hub-and-spoke clusters. Each hub becomes a pillar page; each spoke targets a supporting keyword. The map defines the URL structure and internal linking blueprint.</li>
+        <li><strong class="text-text">Step 4: Content writing.</strong> Every page is written from scratch against its target keyword. We follow heading hierarchy rules (single H1, logical H2/H3 nesting), write unique meta titles under 60 characters, and craft meta descriptions that drive clicks.</li>
+        <li><strong class="text-text">Step 5: Schema markup.</strong> Each page receives its own JSON-LD block within an @graph that connects to the site-wide Organisation and WebSite entities. Service pages get Service schema, articles get Article, FAQ sections get FAQPage.</li>
+        <li><strong class="text-text">Step 6: Technical SEO.</strong> We configure canonical URLs, generate the XML sitemap, write robots.txt directives, validate heading hierarchy across all pages, optimise images, and test Core Web Vitals.</li>
+        <li><strong class="text-text">Step 7: Deployment and submission.</strong> The site is deployed to your hosting platform, the sitemap is submitted to Google Search Console and Bing Webmaster Tools, and we verify indexing is progressing correctly.</li>
+      </ol>
+    </section>
+
+    <section class="py-10 bg-surface -mx-4 px-4 rounded-lg">
+      <h2 class="text-2xl font-bold text-brand mb-4">Pricing</h2>
+      <p class="text-text-muted leading-relaxed">
+        SEO website builds start at <strong class="text-text">£1,500</strong> for a 15-page site and scale up to <strong class="text-text">£3,000</strong> for a 50-page build with full topical authority architecture. The price depends on the number of pages, the competitiveness of your niche, and whether you need custom functionality beyond static content pages. Every build includes keyword research, content writing, schema markup, technical SEO, and deployment — there are no hidden fees.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4">
+        <CTA href="/order/" label="Order Your Build" />
+        <CTA href="/pricing/" label="See Full Pricing" variant="secondary" />
+      </div>
+    </section>
+
+    <FAQSection faqs={faqs} />
+
+    <section class="py-10 border-t border-gray-200">
+      <h2 class="text-xl font-bold text-brand mb-4">Related Services</h2>
+      <ul class="space-y-2">
+        {siblings.map(s => (
+          <li><a href={`/services/${s.slug}/`} class="text-brand hover:text-brand-light transition-colors font-medium">{s.title}</a> — <span class="text-text-muted">{s.shortDescription}</span></li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</Base>

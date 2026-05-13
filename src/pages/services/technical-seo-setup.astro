@@ -1,0 +1,152 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import HubNav from '../../components/HubNav.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTA from '../../components/CTA.astro';
+import { site } from '../../data/site';
+import { services } from '../../data/services';
+
+const current = services.find(s => s.slug === 'technical-seo-setup')!;
+const siblings = services.filter(s => s.slug !== current.slug).slice(0, 3);
+const hubItems = services.map(s => ({ label: s.title, href: `/services/${s.slug}/` }));
+
+const faqs = [
+  { q: 'What is technical SEO and why does it matter?', a: 'Technical SEO covers the infrastructure that allows search engines to crawl, index, and rank your pages. Without correct canonical URLs, a valid XML sitemap, and a properly configured robots.txt, search engines may miss pages, index duplicates, or waste crawl budget on URLs that should not be indexed. Technical SEO is the plumbing — invisible when it works, catastrophic when it does not.' },
+  { q: 'What Core Web Vitals targets do you aim for?', a: 'We target Largest Contentful Paint under 2.5 seconds, Interaction to Next Paint under 200 milliseconds, and Cumulative Layout Shift under 0.1. These are Google\'s "good" thresholds. Our Astro builds typically achieve LCP under 1.5 seconds and CLS of zero because static HTML with no client-side JavaScript does not shift layout or delay interactivity.' },
+  { q: 'Do you submit the site to search engines?', a: 'Yes. We submit your XML sitemap to both Google Search Console and Bing Webmaster Tools, verify site ownership, and monitor initial indexing progress. For new sites, we also use IndexNow where supported to accelerate Bing and Yandex discovery of new URLs.' }
+];
+
+const howToSteps = [
+  { name: 'Canonical URL configuration', text: 'We set a self-referencing canonical tag on every page and ensure that trailing slashes, www/non-www, and HTTP/HTTPS variants all resolve to a single canonical version. This prevents duplicate content issues that dilute ranking signals.' },
+  { name: 'XML sitemap generation', text: 'We generate an XML sitemap that includes all indexable pages with correct lastmod dates. The sitemap excludes noindex pages, redirects, and utility pages that should not appear in search results.' },
+  { name: 'Robots.txt configuration', text: 'We write a robots.txt that allows search engine crawlers access to all indexable content while blocking admin pages, staging URLs, and any directories that should not be crawled.' },
+  { name: 'Heading hierarchy validation', text: 'Every page is checked for a single H1 that matches the target keyword, logical H2/H3 nesting without skipped levels, and no duplicate H1 tags. Heading hierarchy directly affects how search engines understand the topic structure of each page.' },
+  { name: 'Core Web Vitals optimisation', text: 'We optimise images (WebP format, correct dimensions, lazy loading below the fold), minimise CSS and JavaScript, eliminate render-blocking resources, and test every page through PageSpeed Insights and WebPageTest.' }
+];
+
+const schemaNodes = [
+  {
+    '@type': 'Service',
+    '@id': `${site.url}/services/technical-seo-setup/#service`,
+    name: current.h1,
+    description: current.metaDescription,
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: { '@type': 'Country', name: 'United Kingdom' }
+  },
+  {
+    '@type': 'HowTo',
+    '@id': `${site.url}/services/technical-seo-setup/#howto`,
+    name: 'How We Set Up Technical SEO for a New Website',
+    step: howToSteps.map((step, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: step.name,
+      text: step.text
+    }))
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${site.url}/services/technical-seo-setup/#faq`,
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a }
+    }))
+  }
+];
+---
+<Base
+  title={current.metaTitle}
+  description={current.metaDescription}
+  canonicalPath="/services/technical-seo-setup/"
+  schemaNodes={schemaNodes}
+>
+  <div class="max-w-4xl mx-auto px-4">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services/' },
+      { label: current.title, href: '/services/technical-seo-setup/' }
+    ]} />
+    <HubNav items={hubItems} currentPath="/services/technical-seo-setup/" />
+
+    <section class="py-10">
+      <h1 class="text-3xl md:text-4xl font-bold text-brand">{current.h1}</h1>
+      <p class="mt-4 text-lg text-text-muted leading-relaxed">
+        Technical SEO is the infrastructure layer that determines whether search engines can find, crawl, and index your pages correctly. A site with brilliant content and no technical SEO is like a shop with no front door — the products exist but customers cannot reach them.
+      </p>
+      <p class="mt-4 text-text-muted leading-relaxed">
+        Every website we build includes a complete technical SEO setup covering canonical URLs, XML sitemaps, robots.txt, heading hierarchy validation, Core Web Vitals optimisation, and search engine submission. These are not optional extras — they are the baseline requirements for any site that intends to rank.
+      </p>
+    </section>
+
+    <section class="py-10">
+      <h2 class="text-2xl font-bold text-brand mb-6">What Technical SEO Covers</h2>
+      <ol class="space-y-4 text-text-muted leading-relaxed">
+        {howToSteps.map((step, i) => (
+          <li><strong class="text-text">Step {i + 1}: {step.name}.</strong> {step.text}</li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="py-10">
+      <h2 class="text-2xl font-bold text-brand mb-6">Core Web Vitals Targets</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b-2 border-gray-200">
+              <th class="py-3 pr-4 font-semibold text-text">Metric</th>
+              <th class="py-3 pr-4 font-semibold text-text">Google "Good" Threshold</th>
+              <th class="py-3 font-semibold text-text">Our Typical Result</th>
+            </tr>
+          </thead>
+          <tbody class="text-text-muted">
+            <tr class="border-b border-gray-100">
+              <td class="py-3 pr-4">Largest Contentful Paint (LCP)</td>
+              <td class="py-3 pr-4">Under 2.5s</td>
+              <td class="py-3">Under 1.5s</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 pr-4">Interaction to Next Paint (INP)</td>
+              <td class="py-3 pr-4">Under 200ms</td>
+              <td class="py-3">Under 50ms</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4">Cumulative Layout Shift (CLS)</td>
+              <td class="py-3 pr-4">Under 0.1</td>
+              <td class="py-3">0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-text-muted leading-relaxed">
+        Our Astro builds achieve these results because they ship static HTML with zero client-side JavaScript by default. There is no framework hydration delay, no layout shift from dynamically loaded components, and no render-blocking scripts. The browser receives pre-rendered HTML and displays it immediately.
+      </p>
+    </section>
+
+    <section class="py-10">
+      <h2 class="text-2xl font-bold text-brand mb-6">Search Engine Submission</h2>
+      <p class="text-text-muted leading-relaxed mb-4">
+        Deploying a site without submitting it to search engines means waiting for crawlers to discover it organically, which can take weeks. We accelerate this process by submitting your XML sitemap directly to Google Search Console and Bing Webmaster Tools on the day of deployment.
+      </p>
+      <p class="text-text-muted leading-relaxed">
+        For Bing and Yandex, we also implement IndexNow — a protocol that notifies search engines of new and updated URLs in real time. When a new page is published or an existing page is modified, IndexNow pings the search engine immediately rather than waiting for the next scheduled crawl. This is particularly valuable for new sites where establishing an initial crawl cadence quickly determines how fast your pages enter the index.
+      </p>
+    </section>
+
+    <div class="py-8 text-center">
+      <CTA href="/order/" label="Order Technical SEO Setup" />
+    </div>
+
+    <FAQSection faqs={faqs} />
+
+    <section class="py-10 border-t border-gray-200">
+      <h2 class="text-xl font-bold text-brand mb-4">Related Services</h2>
+      <ul class="space-y-2">
+        {siblings.map(s => (
+          <li><a href={`/services/${s.slug}/`} class="text-brand hover:text-brand-light transition-colors font-medium">{s.title}</a> — <span class="text-text-muted">{s.shortDescription}</span></li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</Base>

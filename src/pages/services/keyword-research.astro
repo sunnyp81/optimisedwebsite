@@ -1,0 +1,130 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import HubNav from '../../components/HubNav.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTA from '../../components/CTA.astro';
+import { site } from '../../data/site';
+import { services } from '../../data/services';
+
+const current = services.find(s => s.slug === 'keyword-research')!;
+const siblings = services.filter(s => s.slug !== current.slug).slice(0, 3);
+const hubItems = services.map(s => ({ label: s.title, href: `/services/${s.slug}/` }));
+
+const faqs = [
+  { q: 'How many keywords do you research?', a: 'We research 50-200 keywords per project depending on the size of your niche. Each keyword is validated against search volume, keyword difficulty, and SERP feature presence before being included in the final deliverable. We do not pad the list with irrelevant terms to inflate the count.' },
+  { q: 'What tools do you use for keyword research?', a: 'We use Ahrefs as our primary keyword research tool, supplemented by Google Search Console data where available and manual SERP analysis. Ahrefs provides accurate UK search volume data, keyword difficulty scores, and click-through rate estimates that free tools cannot match.' },
+  { q: 'What is the difference between keyword research and topical mapping?', a: 'Keyword research identifies the terms people search for. Topical mapping organises those terms into clusters based on semantic relationships and maps them onto a site architecture. You need both — keywords without a topical map produce a flat site with no internal linking logic, and a topical map without keyword data targets the wrong terms.' }
+];
+
+const howToSteps = [
+  { name: 'Seed keyword extraction', text: 'We start with 5-10 seed keywords from your business description and competitor analysis, then expand them through Ahrefs keyword explorer to generate a raw list of 500-2,000 potential terms.' },
+  { name: 'Search volume and difficulty filtering', text: 'The raw list is filtered by UK search volume (minimum threshold depends on your niche) and keyword difficulty. We remove terms that are too competitive for a new site and those with negligible search demand.' },
+  { name: 'Intent classification', text: 'Every surviving keyword is classified by search intent: informational (looking for answers), commercial investigation (comparing options), transactional (ready to buy), or navigational (looking for a specific brand or page).' },
+  { name: 'Semantic clustering', text: 'Keywords are grouped into clusters where they share the same parent topic. Each cluster becomes a hub-and-spoke group with one pillar keyword and several supporting long-tail variations.' },
+  { name: 'Page-to-keyword mapping', text: 'Each cluster is mapped to a page on the site. The pillar keyword becomes the hub page target, and the supporting terms become spoke page targets. This produces the URL structure and content architecture for the entire site.' }
+];
+
+const schemaNodes = [
+  {
+    '@type': 'Service',
+    '@id': `${site.url}/services/keyword-research/#service`,
+    name: current.h1,
+    description: current.metaDescription,
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: { '@type': 'Country', name: 'United Kingdom' }
+  },
+  {
+    '@type': 'HowTo',
+    '@id': `${site.url}/services/keyword-research/#howto`,
+    name: 'How We Cluster Keywords Into a Topical Map',
+    step: howToSteps.map((step, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: step.name,
+      text: step.text
+    }))
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${site.url}/services/keyword-research/#faq`,
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a }
+    }))
+  }
+];
+---
+<Base
+  title={current.metaTitle}
+  description={current.metaDescription}
+  canonicalPath="/services/keyword-research/"
+  schemaNodes={schemaNodes}
+>
+  <div class="max-w-4xl mx-auto px-4">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Services', href: '/services/' },
+      { label: current.title, href: '/services/keyword-research/' }
+    ]} />
+    <HubNav items={hubItems} currentPath="/services/keyword-research/" />
+
+    <section class="py-10">
+      <h1 class="text-3xl md:text-4xl font-bold text-brand">{current.h1}</h1>
+      <p class="mt-4 text-lg text-text-muted leading-relaxed">
+        Keyword research is the foundation of every SEO website we build. Without it, you are guessing which pages to create, which terms to target, and how to structure your site. With it, every page has a clear purpose, a measurable target, and a defined position within your site's topical architecture.
+      </p>
+      <p class="mt-4 text-text-muted leading-relaxed">
+        Our keyword research goes beyond generating a list of terms with search volumes. We cluster keywords by intent, group them into topical hubs, and map them directly onto a site architecture that tells search engines exactly what your site is about and why it deserves to rank.
+      </p>
+    </section>
+
+    <section class="py-10">
+      <h2 class="text-2xl font-bold text-brand mb-6">What Keyword Research Includes</h2>
+      <p class="text-text-muted leading-relaxed mb-4">
+        Every keyword research project delivers three core outputs: a validated keyword list, an intent-classified cluster map, and a page-to-keyword mapping document that becomes the blueprint for your site's content architecture.
+      </p>
+      <ul class="space-y-3 text-text-muted leading-relaxed list-disc list-inside">
+        <li><strong class="text-text">Validated keyword list</strong> — 50-200 terms with UK search volume, keyword difficulty, CPC data, and SERP feature indicators (featured snippets, People Also Ask, local packs).</li>
+        <li><strong class="text-text">Intent classification</strong> — every keyword tagged as informational, commercial, transactional, or navigational so that page content matches what searchers actually want.</li>
+        <li><strong class="text-text">Competitor gap analysis</strong> — keywords your top 3-5 competitors rank for that you currently do not, prioritised by traffic potential and difficulty.</li>
+        <li><strong class="text-text">SERP feature opportunities</strong> — terms where featured snippets, FAQ boxes, or knowledge panels are achievable with correctly structured content and schema markup.</li>
+      </ul>
+    </section>
+
+    <section class="py-10">
+      <h2 class="text-2xl font-bold text-brand mb-6">How We Cluster Keywords</h2>
+      <ol class="space-y-4 text-text-muted leading-relaxed">
+        {howToSteps.map((step, i) => (
+          <li><strong class="text-text">Step {i + 1}: {step.name}.</strong> {step.text}</li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="py-10">
+      <h2 class="text-2xl font-bold text-brand mb-6">From Keywords to Pages</h2>
+      <p class="text-text-muted leading-relaxed mb-4">
+        The final deliverable is a page-to-keyword mapping document that translates the keyword research into a concrete site plan. Each row specifies the target URL, primary keyword, secondary keywords, search intent, parent hub, and the internal links that page should carry.
+      </p>
+      <p class="text-text-muted leading-relaxed">
+        This document becomes the content brief for every page on your site. Writers know exactly which term to target, which heading structure to follow, and which pages to link to. There is no ambiguity and no room for keyword cannibalisation because every page has a single, clearly defined primary keyword that no other page on the site targets.
+      </p>
+    </section>
+
+    <div class="py-8 text-center">
+      <CTA href="/order/" label="Order Keyword Research" />
+    </div>
+
+    <FAQSection faqs={faqs} />
+
+    <section class="py-10 border-t border-gray-200">
+      <h2 class="text-xl font-bold text-brand mb-4">Related Services</h2>
+      <ul class="space-y-2">
+        {siblings.map(s => (
+          <li><a href={`/services/${s.slug}/`} class="text-brand hover:text-brand-light transition-colors font-medium">{s.title}</a> — <span class="text-text-muted">{s.shortDescription}</span></li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</Base>
