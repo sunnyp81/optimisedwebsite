@@ -497,7 +497,7 @@ const schemaNodes = [
           fObs.unobserve(fg);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.05 });
     fObs.observe(fg);
   }
 
@@ -506,7 +506,7 @@ const schemaNodes = [
   if (pt) {
     const pObs = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { pt.classList.add('visible'); pObs.unobserve(pt); } });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.05 });
     pObs.observe(pt);
   }
 
