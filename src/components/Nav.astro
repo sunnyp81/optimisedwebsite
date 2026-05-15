@@ -2,19 +2,35 @@
 import { site } from '../data/site';
 import { mainNav } from '../data/navigation';
 ---
-<header id="siteNav" class="fixed top-3.5 left-1/2 -translate-x-1/2 z-[100] max-w-[720px] w-[calc(100%-32px)] h-[50px] px-5 flex items-center justify-between rounded-full border border-line-2 transition-all duration-400" style="background: rgba(5,10,18,0.6); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);">
-  <a href="/" class="font-extrabold text-text text-sm tracking-[-0.03em] flex items-center no-underline">
-    {site.name}<span class="w-[5px] h-[5px] rounded-full bg-brand ml-[1px]" style="box-shadow: 0 0 10px var(--color-brand-glow);"></span>
+<header id="siteNav" class="fixed top-0 left-0 right-0 z-[100] h-[64px] px-6 flex items-center justify-between transition-all duration-300 border-b" style="background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-color: rgba(10,19,48,0.06);">
+  <a href="/" class="flex items-center gap-2.5 no-underline">
+    <!-- Signal-graph mark: blue rect with green trend line -->
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <rect x="2" y="2" width="24" height="24" rx="6" fill="#1e4dff"/>
+      <polyline points="7,19 12,14 16,16 21,9" stroke="#16c47a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+    <span class="font-display text-[18px] text-text tracking-[-0.02em]">Optimised</span>
   </a>
 
-  <div class="hidden md:flex items-center gap-5">
+  <div class="hidden md:flex items-center gap-1">
     {mainNav.map((item) => (
-      <a href={item.href} class="text-[13px] font-semibold text-text-muted no-underline transition-colors duration-200 hover:text-text">
+      <a href={item.href} class="text-[14px] font-medium text-text-muted no-underline px-3.5 py-1.5 rounded-full transition-all duration-200 hover:text-text hover:bg-blue-soft">
         {item.label}
       </a>
     ))}
-    <a href="/order/" class="text-xs font-bold bg-brand text-bg px-[18px] py-2 rounded-full no-underline transition-all duration-250" style="box-shadow: 0 0 20px rgba(16,185,129,0.2);">
-      Start a project
+    <div class="w-px h-5 bg-line mx-2"></div>
+    <button data-theme-toggle type="button" class="p-2 rounded-full text-text-dim hover:text-text hover:bg-blue-soft transition-all duration-200" aria-label="Toggle dark mode">
+      <!-- Sun icon (shown in dark mode) -->
+      <svg class="w-[18px] h-[18px] hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <!-- Moon icon (shown in light mode) -->
+      <svg class="w-[18px] h-[18px] block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+    <a href="/order/" class="text-[14px] font-bold bg-blue text-white px-5 py-2 rounded-full no-underline transition-all duration-250 ml-1 hover:bg-blue-2" style="box-shadow: 0 2px 16px rgba(30,77,255,0.2);">
+      Get a Quote
     </a>
   </div>
 
@@ -34,15 +50,21 @@ import { mainNav } from '../data/navigation';
   </button>
 </header>
 
-<nav id="mobile-menu" class="hidden md:hidden fixed top-16 left-1/2 -translate-x-1/2 z-[99] w-[calc(100%-32px)] max-w-[720px] rounded-2xl border border-line-2 py-4 px-6" style="background: rgba(5,10,18,0.95); backdrop-filter: blur(24px);" aria-label="Mobile">
+<nav id="mobile-menu" class="hidden md:hidden fixed top-[64px] left-0 right-0 z-[99] border-b py-4 px-6" style="background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-color: rgba(10,19,48,0.06);" aria-label="Mobile">
   {mainNav.map((item) => (
-    <a href={item.href} class="block py-2.5 text-sm font-semibold text-text-muted hover:text-text no-underline transition-colors duration-200">
+    <a href={item.href} class="block py-2.5 text-sm font-medium text-text-muted hover:text-text no-underline transition-colors duration-200">
       {item.label}
     </a>
   ))}
-  <a href="/order/" class="block mt-3 text-center px-4 py-2.5 text-sm font-bold text-bg bg-brand rounded-lg no-underline transition-[filter] duration-200 hover:brightness-110">
-    Start a project
-  </a>
+  <div class="flex items-center gap-3 mt-3">
+    <button data-theme-toggle type="button" class="p-2 rounded-full text-text-dim hover:text-text hover:bg-blue-soft transition-all duration-200" aria-label="Toggle dark mode">
+      <svg class="w-[18px] h-[18px] hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="w-[18px] h-[18px] block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <a href="/order/" class="flex-1 text-center px-4 py-2.5 text-sm font-bold text-white bg-blue rounded-full no-underline transition-all duration-200 hover:bg-blue-2">
+      Get a Quote
+    </a>
+  </div>
 </nav>
 
 <script>
@@ -50,18 +72,41 @@ import { mainNav } from '../data/navigation';
   const toggle = document.getElementById('mobile-toggle');
   const menu = document.getElementById('mobile-menu');
 
-  window.addEventListener('scroll', () => {
+  const isDark = () => document.documentElement.classList.contains('dark');
+
+  const updateNavBg = () => {
     if (!nav) return;
-    if (window.scrollY > 60) {
-      nav.style.background = 'rgba(5,10,18,0.88)';
-      nav.style.borderColor = 'rgba(255,255,255,0.1)';
-      nav.style.boxShadow = '0 8px 32px rgba(0,0,0,0.5)';
+    const scrolled = window.scrollY > 10;
+    if (isDark()) {
+      nav.style.background = scrolled ? 'rgba(7,11,34,0.92)' : 'rgba(7,11,34,0.85)';
+      nav.style.borderColor = scrolled ? 'rgba(240,243,255,0.08)' : 'rgba(240,243,255,0.04)';
     } else {
-      nav.style.background = 'rgba(5,10,18,0.6)';
-      nav.style.borderColor = 'rgba(255,255,255,0.08)';
-      nav.style.boxShadow = 'none';
+      nav.style.background = scrolled ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.85)';
+      nav.style.borderColor = scrolled ? 'rgba(10,19,48,0.1)' : 'rgba(10,19,48,0.06)';
     }
-  });
+    nav.style.boxShadow = scrolled ? '0 1px 12px rgba(10,19,48,0.06)' : 'none';
+  };
+
+  window.addEventListener('scroll', updateNavBg);
+  // Re-run on theme change
+  const observer = new MutationObserver(updateNavBg);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+  // Also update mobile menu bg
+  const updateMobileBg = () => {
+    if (!menu) return;
+    if (isDark()) {
+      menu.style.background = 'rgba(7,11,34,0.95)';
+      menu.style.borderColor = 'rgba(240,243,255,0.06)';
+    } else {
+      menu.style.background = 'rgba(255,255,255,0.95)';
+      menu.style.borderColor = 'rgba(10,19,48,0.06)';
+    }
+  };
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  const origObserverCb = updateNavBg;
+  const mo2 = new MutationObserver(() => { updateNavBg(); updateMobileBg(); });
+  mo2.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
   toggle?.addEventListener('click', () => {
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
