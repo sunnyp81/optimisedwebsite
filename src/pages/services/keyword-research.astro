@@ -62,7 +62,7 @@ const schemaNodes = [
   canonicalPath="/services/keyword-research/"
   schemaNodes={schemaNodes}
 >
-  <div class="max-w-4xl mx-auto px-4">
+  <div class="max-w-[1100px] mx-auto px-10 pt-28 pb-20">
     <Breadcrumb items={[
       { label: 'Home', href: '/' },
       { label: 'Services', href: '/services/' },
@@ -71,9 +71,9 @@ const schemaNodes = [
     <HubNav items={hubItems} currentPath="/services/keyword-research/" />
 
     <section class="py-10">
-      <h1 class="text-3xl md:text-4xl font-bold text-brand">{current.h1}</h1>
+      <h1 class="section-title">{current.h1}</h1>
       <p class="mt-4 text-lg text-text-muted leading-relaxed">
-        Keyword research is the foundation of every SEO website we build. Without it, you are guessing which pages to create, which terms to target, and how to structure your site. With it, every page has a clear purpose, a measurable target, and a defined position within your site's topical architecture.
+        Without keyword research, every page you create is a guess. Keyword research gives each page a clear purpose, a measurable target, and a defined position within your site's topical architecture.
       </p>
       <p class="mt-4 text-text-muted leading-relaxed">
         Our keyword research goes beyond generating a list of terms with search volumes. We cluster keywords by intent, group them into topical hubs, and map them directly onto a site architecture that tells search engines exactly what your site is about and why it deserves to rank.
@@ -81,7 +81,7 @@ const schemaNodes = [
     </section>
 
     <section class="py-10">
-      <h2 class="text-2xl font-bold text-brand mb-6">What Keyword Research Includes</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">What Keyword Research Includes</h2>
       <p class="text-text-muted leading-relaxed mb-4">
         Every keyword research project delivers three core outputs: a validated keyword list, an intent-classified cluster map, and a page-to-keyword mapping document that becomes the blueprint for your site's content architecture.
       </p>
@@ -94,7 +94,7 @@ const schemaNodes = [
     </section>
 
     <section class="py-10">
-      <h2 class="text-2xl font-bold text-brand mb-6">How We Cluster Keywords</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">How We Cluster Keywords</h2>
       <ol class="space-y-4 text-text-muted leading-relaxed">
         {howToSteps.map((step, i) => (
           <li><strong class="text-text">Step {i + 1}: {step.name}.</strong> {step.text}</li>
@@ -103,12 +103,12 @@ const schemaNodes = [
     </section>
 
     <section class="py-10">
-      <h2 class="text-2xl font-bold text-brand mb-6">From Keywords to Pages</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">From Keywords to Pages</h2>
       <p class="text-text-muted leading-relaxed mb-4">
         The final deliverable is a page-to-keyword mapping document that translates the keyword research into a concrete site plan. Each row specifies the target URL, primary keyword, secondary keywords, search intent, parent hub, and the internal links that page should carry.
       </p>
       <p class="text-text-muted leading-relaxed">
-        This document becomes the content brief for every page on your site. Writers know exactly which term to target, which heading structure to follow, and which pages to link to. There is no ambiguity and no room for keyword cannibalisation because every page has a single, clearly defined primary keyword that no other page on the site targets.
+        This document becomes the content brief for every page on your site. Writers know exactly which term to target, which heading structure to follow, and which pages to link to. Every page has a single primary keyword. No two pages target the same term. Keyword cannibalisation is structurally impossible.
       </p>
     </section>
 
@@ -118,13 +118,16 @@ const schemaNodes = [
 
     <FAQSection faqs={faqs} />
 
-    <section class="py-10 border-t border-gray-200">
-      <h2 class="text-xl font-bold text-brand mb-4">Related Services</h2>
-      <ul class="space-y-2">
+    <section class="py-10 border-t border-line reveal">
+      <h2 class="text-xl font-bold tracking-[-0.02em] mb-5">Related Services</h2>
+      <div class="grid md:grid-cols-3 gap-4">
         {siblings.map(s => (
-          <li><a href={`/services/${s.slug}/`} class="text-brand hover:text-brand-light transition-colors font-medium">{s.title}</a> — <span class="text-text-muted">{s.shortDescription}</span></li>
+          <a href={`/services/${s.slug}/`} class="block bg-bg-2 border border-line rounded-[16px] p-6 hover:border-brand-border transition-all duration-300">
+            <h3 class="font-bold text-text mb-1.5">{s.title}</h3>
+            <p class="text-sm text-text-muted">{s.shortDescription}</p>
+          </a>
         ))}
-      </ul>
+      </div>
     </section>
   </div>
 </Base>

@@ -3,13 +3,20 @@ interface Props {
   href: string;
   label: string;
   variant?: 'primary' | 'secondary';
+  size?: 'default' | 'large';
+  fullWidth?: boolean;
 }
 
-const { href, label, variant = 'primary' } = Astro.props;
+const { href, label, variant = 'primary', size = 'default', fullWidth = false } = Astro.props;
 
-const base = 'inline-block px-6 py-3 rounded-md font-semibold transition-colors';
+const sizeClasses = size === 'large' ? 'px-7 py-3.5 text-base' : 'px-5 py-3 text-[15px]';
+const widthClass = fullWidth ? 'w-full justify-center' : '';
+
 const styles = variant === 'primary'
-  ? 'bg-brand text-white hover:bg-brand-light'
-  : 'border border-brand text-brand hover:bg-brand hover:text-white';
+  ? `btn-glow font-bold rounded-xl tracking-tight transition-all duration-200 ${sizeClasses} ${widthClass}`
+  : `btn-glass font-bold rounded-xl tracking-tight transition-all duration-200 ${sizeClasses} ${widthClass}`;
 ---
-<a href={href} class={`${base} ${styles}`}>{label}</a>
+<a href={href} class={`inline-flex items-center gap-2 no-underline ${styles}`}>
+  {label}
+  {variant === 'primary' && <span class="arr">&rarr;</span>}
+</a>

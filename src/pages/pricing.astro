@@ -130,22 +130,23 @@ const schemaNodes = [
   canonicalPath="/pricing/"
   schemaNodes={schemaNodes}
 >
-  <div class="max-w-4xl mx-auto px-4">
+  <div class="max-w-[1100px] mx-auto px-10 pt-28 pb-20">
     <Breadcrumb items={[
       { label: 'Home', href: '/' },
       { label: 'Pricing', href: '/pricing/' }
     ]} />
 
-    <section class="py-10">
-      <h1 class="text-3xl md:text-4xl font-bold text-brand">SEO Website Pricing</h1>
+    <section class="py-12">
+      <div class="section-tag">Pricing</div>
+      <h1 class="section-title">SEO Website Pricing</h1>
       <p class="mt-4 text-lg text-text-muted leading-relaxed">
         Every build is priced between <strong class="text-text">&pound;1,500</strong> and <strong class="text-text">&pound;3,000</strong> depending on page count, niche competitiveness, and any custom requirements. The price covers everything below — there are no hidden fees, no monthly charges, and no CMS licence costs.
       </p>
     </section>
 
     {deliverables.map(group => (
-      <section class="py-8 border-t border-gray-200">
-        <h2 class="text-2xl font-bold text-brand mb-4">{group.category}</h2>
+      <section class="py-8 border-t border-line reveal">
+        <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">{group.category}</h2>
         <ul class="space-y-2 text-text-muted leading-relaxed">
           {group.items.map(item => (
             <li class="flex gap-2"><span class="text-brand shrink-0">&#10003;</span> {item}</li>

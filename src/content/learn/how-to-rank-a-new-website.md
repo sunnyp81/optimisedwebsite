@@ -23,7 +23,7 @@ datePublished: "2026-05-13"
 dateModified: "2026-05-13"
 ---
 
-Ranking a brand new website requires a specific sequence of actions that differ from optimising an established site. An SEO-optimised website built on solid foundations will index and rank faster than a generic build, but the domain still needs to earn its place in search results through content quality, topical coverage, and technical precision.
+Ranking a brand new website requires a specific sequence of actions that differ from optimising an established site. An SEO-optimised website built on solid foundations will index and rank faster than a generic build. The domain still needs to earn its place in search results through content quality, topical coverage, and technical precision.
 
 This guide walks through the process from domain registration to first rankings, based on what actually works for new sites launching in 2026.
 
@@ -45,13 +45,13 @@ For a personal finance website, the architecture might include:
 - `/savings/cash-isa-rules/` — informational supporting content
 - `/savings/emergency-fund-guide/` — informational supporting content
 
-This structure tells Google that your site covers the savings topic comprehensively. The hub page targets the broadest keyword, and supporting pages target specific queries within that topic. Internal links between these pages reinforce the topical cluster.
+This structure tells Google that your site covers the savings topic in full. The hub page targets the broadest keyword, and supporting pages target specific queries within that topic. Internal links between these pages reinforce the topical cluster.
 
 ## Launch with Sufficient Content Volume
 
 A common mistake is launching with five pages and planning to "add content later". New domains need enough content at launch to demonstrate topical coverage. Google's systems assess whether a site has the depth to be considered authoritative on a subject, and five pages rarely pass that threshold.
 
-Aim to launch with at least 15-25 pages covering your core topic cluster comprehensively. Each page should target a specific keyword, contain original content that matches the search intent, and link to related pages within the cluster.
+Aim to launch with at least 15-25 pages covering your core topic cluster in depth. Each page should target a specific keyword, contain original content that matches the search intent, and link to related pages within the cluster.
 
 This does not mean publishing thin filler content to hit a page count. Each page must provide genuine value and answer the query it targets thoroughly. Quality and quantity are both necessary — you need enough pages to establish topical authority, and each page needs enough depth to satisfy user intent.
 

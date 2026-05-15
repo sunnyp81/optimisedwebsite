@@ -55,7 +55,7 @@ The technical layer of an SEO-optimised website covers several areas that standa
 
 ## Content Depth and Topical Authority
 
-Search engines reward websites that demonstrate expertise across a topic. An SEO-optimised website achieves this through topical authority — covering a subject comprehensively across multiple interlinked pages rather than trying to rank a single page for everything.
+Search engines reward websites that demonstrate expertise across a topic. An SEO-optimised website achieves this through topical authority — covering a subject in full across multiple interlinked pages rather than trying to rank a single page for everything.
 
 For a plumbing business, this might mean separate pages for each service (boiler installation, emergency plumbing, bathroom fitting), each location served, and supporting content explaining related topics (how combi boilers work, signs your boiler needs replacing, what to expect during a bathroom refit). Together, these pages form a topical cluster that signals to Google that the site is an authoritative source on the subject.
 

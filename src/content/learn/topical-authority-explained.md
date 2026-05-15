@@ -12,7 +12,7 @@ hubBacklink:
   href: "/learn/"
 faqs:
   - q: "How many pages do I need to establish topical authority?"
-    a: "There is no fixed number. A narrow topic like 'dog harnesses' might need 15-20 pages. A broad topic like 'personal finance' could require hundreds. The benchmark is whether your site covers the topic as comprehensively as or more thoroughly than competing sites that currently rank."
+    a: "There is no fixed number. A narrow topic like 'dog harnesses' might need 15-20 pages. A broad topic like 'personal finance' could require hundreds. The benchmark is whether your site covers the topic as thoroughly as or more thoroughly than competing sites that currently rank."
   - q: "Can a small website have topical authority?"
     a: "Yes, if it focuses on a narrow niche. A 30-page website covering everything about heat pump installation in the UK can have stronger topical authority on that subject than a 500-page general home improvement site that covers heat pumps in a single article."
   - q: "How do I measure topical authority?"
@@ -29,7 +29,7 @@ This concept has become central to modern SEO because Google's ranking systems h
 
 ## Why Google Cares About Topical Coverage
 
-Google's mission is to return the most helpful results for every query. A site that covers a topic comprehensively signals to Google's algorithms that it is likely to have accurate, detailed information on any individual subtopic within that area.
+Google's mission is to return the most helpful results for every query. A site that covers a topic in depth signals to Google's algorithms that it is likely to have accurate, detailed information on any individual subtopic within that area.
 
 Consider two websites competing for the keyword "how to install underfloor heating". Website A has one page on the topic, surrounded by unrelated content about home decor and gardening. Website B has 25 pages covering underfloor heating — types of systems, costs by room size, compatibility with different floor materials, running costs, installation guides for specific systems, and comparisons between manufacturers.
 
@@ -55,11 +55,11 @@ Within each cluster, start with the most specific, lowest-competition supporting
 
 ## Content Depth Requirements
 
-Topical authority requires depth at both the site level and the page level. At the site level, you need enough pages to cover the topic comprehensively. At the page level, each individual page needs sufficient content to thoroughly address its target query.
+Topical authority requires depth at both the site level and the page level. At the site level, you need enough pages to cover the topic in full. At the page level, each individual page needs sufficient content to thoroughly address its target query.
 
 A 300-word page on "how much does a new kitchen cost" does not demonstrate expertise. The topic demands coverage of different kitchen sizes, material quality tiers, regional price variations, labour costs, and common additional expenses. A 1,500-word guide covering all of these aspects matches the depth that Google's quality evaluators expect from authoritative content.
 
-This does not mean padding content with unnecessary words. Every sentence should add information or context. If a topic can be covered thoroughly in 800 words, writing 2,000 words of repetitive content actually harms the user experience and dilutes the page's focus.
+Padding content with unnecessary words harms quality. Every sentence should add information or context. If a topic can be covered thoroughly in 800 words, writing 2,000 words of repetitive content actually harms the user experience and dilutes the page's focus.
 
 ## The Role of Entity Relationships
 
@@ -89,4 +89,4 @@ Since Google does not publish a topical authority score, you need proxy metrics 
 
 **Missing internal links** break the semantic connections between pages. If supporting pages do not link back to the hub or to related pages, Google cannot easily identify the topical relationships. Consistent, descriptive internal linking is essential for the cluster to function as a cohesive unit.
 
-**Ignoring informational content** in favour of only commercial pages limits your topical coverage. Google expects authoritative sites to cover both commercial and informational queries within their niche. A kitchen company that only has product pages but no guides on materials, costs, or planning is missing half the topical landscape.
+**Ignoring informational content** in favour of only commercial pages limits your topical coverage. Google expects authoritative sites to cover both commercial and informational queries within their niche. A kitchen company that only has product pages but no guides on materials, costs, or planning is missing half the topical picture.

@@ -62,7 +62,7 @@ const schemaNodes = [
   canonicalPath="/services/technical-seo-setup/"
   schemaNodes={schemaNodes}
 >
-  <div class="max-w-4xl mx-auto px-4">
+  <div class="max-w-[1100px] mx-auto px-10 pt-28 pb-20">
     <Breadcrumb items={[
       { label: 'Home', href: '/' },
       { label: 'Services', href: '/services/' },
@@ -71,9 +71,9 @@ const schemaNodes = [
     <HubNav items={hubItems} currentPath="/services/technical-seo-setup/" />
 
     <section class="py-10">
-      <h1 class="text-3xl md:text-4xl font-bold text-brand">{current.h1}</h1>
+      <h1 class="section-title">{current.h1}</h1>
       <p class="mt-4 text-lg text-text-muted leading-relaxed">
-        Technical SEO is the infrastructure layer that determines whether search engines can find, crawl, and index your pages correctly. A site with brilliant content and no technical SEO is like a shop with no front door — the products exist but customers cannot reach them.
+        Technical SEO is the infrastructure layer that determines whether search engines can find, crawl, and index your pages correctly. Without it, search engines cannot reliably discover or index your pages, regardless of content quality.
       </p>
       <p class="mt-4 text-text-muted leading-relaxed">
         Every website we build includes a complete technical SEO setup covering canonical URLs, XML sitemaps, robots.txt, heading hierarchy validation, Core Web Vitals optimisation, and search engine submission. These are not optional extras — they are the baseline requirements for any site that intends to rank.
@@ -81,7 +81,7 @@ const schemaNodes = [
     </section>
 
     <section class="py-10">
-      <h2 class="text-2xl font-bold text-brand mb-6">What Technical SEO Covers</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">What Technical SEO Covers</h2>
       <ol class="space-y-4 text-text-muted leading-relaxed">
         {howToSteps.map((step, i) => (
           <li><strong class="text-text">Step {i + 1}: {step.name}.</strong> {step.text}</li>
@@ -90,31 +90,31 @@ const schemaNodes = [
     </section>
 
     <section class="py-10">
-      <h2 class="text-2xl font-bold text-brand mb-6">Core Web Vitals Targets</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">Core Web Vitals Targets</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse">
           <thead>
-            <tr class="border-b-2 border-gray-200">
+            <tr class="border-b-2 border-line">
               <th class="py-3 pr-4 font-semibold text-text">Metric</th>
               <th class="py-3 pr-4 font-semibold text-text">Google "Good" Threshold</th>
               <th class="py-3 font-semibold text-text">Our Typical Result</th>
             </tr>
           </thead>
           <tbody class="text-text-muted">
-            <tr class="border-b border-gray-100">
+            <tr class="border-b border-line/50">
               <td class="py-3 pr-4">Largest Contentful Paint (LCP)</td>
               <td class="py-3 pr-4">Under 2.5s</td>
-              <td class="py-3">Under 1.5s</td>
+              <td class="py-3 text-brand font-semibold">Under 1.5s</td>
             </tr>
-            <tr class="border-b border-gray-100">
+            <tr class="border-b border-line/50">
               <td class="py-3 pr-4">Interaction to Next Paint (INP)</td>
               <td class="py-3 pr-4">Under 200ms</td>
-              <td class="py-3">Under 50ms</td>
+              <td class="py-3 text-brand font-semibold">Under 50ms</td>
             </tr>
             <tr>
               <td class="py-3 pr-4">Cumulative Layout Shift (CLS)</td>
               <td class="py-3 pr-4">Under 0.1</td>
-              <td class="py-3">0</td>
+              <td class="py-3 text-brand font-semibold">0</td>
             </tr>
           </tbody>
         </table>
@@ -125,12 +125,12 @@ const schemaNodes = [
     </section>
 
     <section class="py-10">
-      <h2 class="text-2xl font-bold text-brand mb-6">Search Engine Submission</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">Search Engine Submission</h2>
       <p class="text-text-muted leading-relaxed mb-4">
-        Deploying a site without submitting it to search engines means waiting for crawlers to discover it organically, which can take weeks. We accelerate this process by submitting your XML sitemap directly to Google Search Console and Bing Webmaster Tools on the day of deployment.
+        Sites submitted directly to Search Console and Bing Webmaster Tools enter the index faster than sites waiting for organic discovery. We submit your XML sitemap on the day of deployment.
       </p>
       <p class="text-text-muted leading-relaxed">
-        For Bing and Yandex, we also implement IndexNow — a protocol that notifies search engines of new and updated URLs in real time. When a new page is published or an existing page is modified, IndexNow pings the search engine immediately rather than waiting for the next scheduled crawl. This is particularly valuable for new sites where establishing an initial crawl cadence quickly determines how fast your pages enter the index.
+        IndexNow notifies Bing and Yandex of new and updated URLs in real time. IndexNow pings the search engine the moment a page is published or modified, eliminating the wait for the next scheduled crawl. New sites benefit most — early crawl cadence determines how fast your pages enter the index.
       </p>
     </section>
 
@@ -140,13 +140,16 @@ const schemaNodes = [
 
     <FAQSection faqs={faqs} />
 
-    <section class="py-10 border-t border-gray-200">
-      <h2 class="text-xl font-bold text-brand mb-4">Related Services</h2>
-      <ul class="space-y-2">
+    <section class="py-10 border-t border-line reveal">
+      <h2 class="text-xl font-bold tracking-[-0.02em] mb-5">Related Services</h2>
+      <div class="grid md:grid-cols-3 gap-4">
         {siblings.map(s => (
-          <li><a href={`/services/${s.slug}/`} class="text-brand hover:text-brand-light transition-colors font-medium">{s.title}</a> — <span class="text-text-muted">{s.shortDescription}</span></li>
+          <a href={`/services/${s.slug}/`} class="block bg-bg-2 border border-line rounded-[16px] p-6 hover:border-brand-border transition-all duration-300">
+            <h3 class="font-bold text-text mb-1.5">{s.title}</h3>
+            <p class="text-sm text-text-muted">{s.shortDescription}</p>
+          </a>
         ))}
-      </ul>
+      </div>
     </section>
   </div>
 </Base>

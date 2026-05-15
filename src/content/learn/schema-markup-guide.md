@@ -31,7 +31,7 @@ This guide covers the schema types most relevant to business and content website
 
 HTML tells a browser how to display content. Schema markup tells a search engine what that content represents. A paragraph of text might describe a business, but without schema, Google must interpret the text to extract structured information. Schema removes the guesswork.
 
-When Google understands your content at a structured level, two things happen. First, your pages become eligible for rich results — enhanced search listings with star ratings, FAQ dropdowns, breadcrumb trails, price ranges, and other visual elements that increase click-through rates. Second, Google's Knowledge Graph can incorporate your entity data, strengthening your site's association with specific topics, services, and locations.
+Two things happen when Google processes your structured data. First, your pages become eligible for rich results — enhanced search listings with star ratings, FAQ dropdowns, breadcrumb trails, price ranges, and other visual elements that increase click-through rates. Second, Google's Knowledge Graph can incorporate your entity data, strengthening your site's association with specific topics, services, and locations.
 
 ## JSON-LD: The Recommended Format
 
@@ -89,7 +89,7 @@ Individual schema types become more powerful when they reference each other thro
 
 The pattern works like this: Organization schema on the homepage has `@id: "https://yourdomain.com/#organization"`. Every Service schema references this `@id` in its `provider` property. Every Article schema references it in its `publisher` property. CollectionPage schemas reference the parent WebSite schema. Articles reference their parent CollectionPage.
 
-This graph structure mirrors the conceptual relationships between your business, your services, and your content. It gives search engines a complete picture of your site's entity landscape rather than disconnected fragments of structured data.
+This graph structure mirrors the conceptual relationships between your business, your services, and your content. It gives search engines a complete picture of your site's entity coverage rather than disconnected fragments of structured data.
 
 ## Validation and Testing
 

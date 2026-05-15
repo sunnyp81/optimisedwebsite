@@ -29,7 +29,7 @@ The reality is more nuanced. Some pre-built SEO sites deliver genuine value by a
 
 ## How Pre-Built SEO Websites Work
 
-A pre-built provider selects a niche (plumbing, accounting, dental, landscaping), researches the keyword landscape, and builds a complete website targeting those keywords. The site includes service pages, informational articles, FAQ sections, schema markup, and internal linking — all structured around the niche's search demand.
+A pre-built provider selects a niche (plumbing, accounting, dental, landscaping), researches the keyword data, and builds a complete website targeting those keywords. The site includes service pages, informational articles, FAQ sections, schema markup, and internal linking — all structured around the niche's search demand.
 
 When a buyer purchases the site, the provider customises it with the buyer's business name, location, contact details, and any specific service variations. The site is deployed on the buyer's domain and submitted to search engines.
 
@@ -63,7 +63,7 @@ Not all pre-built sites are equal. Several markers distinguish genuine products 
 
 **Cost**: Pre-built sites cost £500-3,000 depending on quality. Custom builds cost £1,500-5,000+ for comparable page counts. The cost saving is real but varies with content originality — the cheapest pre-built options often save money by recycling content.
 
-**Keyword precision**: Custom builds research keywords specifically for your business, considering your exact services, location, competitor landscape, and business goals. Pre-built sites target the most common keywords in a niche, which may not align perfectly with your specific offerings.
+**Keyword precision**: Custom builds research keywords specifically for your business, considering your exact services, location, competitive picture, and business goals. Pre-built sites target the most common keywords in a niche, which may not align perfectly with your specific offerings.
 
 **Content relevance**: Custom content addresses your specific services, processes, pricing, and differentiators. Pre-built content covers the niche broadly but may not reflect what makes your business distinctive. This matters for conversion — a visitor who reads generic content about plumbing is less likely to call than one who reads content specifically describing your services and service area.
 

@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://optimisedwebsite.com/sitemap-index.xml
+Disallow: /api/
 
 User-agent: GPTBot
 Allow: /
@@ -13,3 +13,11 @@ Allow: /
 
 User-agent: Google-Extended
 Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://optimisedwebsite.com/sitemap-index.xml

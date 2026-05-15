@@ -11,11 +11,30 @@ const current = services.find(s => s.slug === 'seo-website-build')!;
 const siblings = services.filter(s => s.slug !== current.slug).slice(0, 3);
 const hubItems = services.map(s => ({ label: s.title, href: `/services/${s.slug}/` }));
 
+const deliverables = [
+  { title: 'Keyword research document', desc: '50-200 terms clustered by intent with search volume, keyword difficulty, and SERP feature data for your niche.' },
+  { title: 'Topical map', desc: 'Hub-and-spoke architecture showing page connections, cluster assignments, and the internal linking blueprint.' },
+  { title: '15-50 fully written pages', desc: 'Each targeting a specific keyword with correct heading hierarchy, unique meta title and description, and at least 500 words of original content.' },
+  { title: 'Per-page JSON-LD schema', desc: 'Organisation, WebSite, Service, Article, FAQPage, HowTo, and BreadcrumbList types all cross-referenced through @id within an @graph.' },
+  { title: 'Technical SEO setup', desc: 'Canonical URLs, XML sitemap, robots.txt, heading validation, image alt attributes, and Core Web Vitals optimisation.' },
+  { title: 'Deployment and submission', desc: 'Live deployment to Cloudflare Pages, sitemap submission to Google Search Console and Bing Webmaster Tools.' },
+];
+
+const steps = [
+  { title: 'Brief and niche analysis', desc: 'You tell us about your business, target audience, and competitors. We analyse the SERPs to identify ranking opportunities.' },
+  { title: 'Keyword research', desc: 'We pull 50-200 keywords from Ahrefs, cluster them by search intent, and identify head terms and long-tail variations for your page targets.' },
+  { title: 'Topical mapping', desc: 'Keywords are organised into hub-and-spoke clusters. Each hub becomes a pillar page; each spoke targets a supporting keyword.' },
+  { title: 'Content writing', desc: 'Every page is written from scratch against its target keyword. Single H1, logical H2/H3 nesting, unique meta titles under 60 characters.' },
+  { title: 'Schema markup', desc: 'Each page receives its own JSON-LD block within an @graph connecting to site-wide Organisation and WebSite entities.' },
+  { title: 'Technical SEO', desc: 'Canonical URLs, XML sitemap, robots.txt, heading hierarchy validation, image optimisation, Core Web Vitals testing.' },
+  { title: 'Deployment and submission', desc: 'Deployed to your hosting platform, sitemap submitted to Search Console and Bing, indexing verified.' },
+];
+
 const faqs = [
-  { q: 'What is included in an SEO website build?', a: 'Every build includes keyword research, topical mapping, content architecture, content writing for all pages, per-page JSON-LD schema markup, technical SEO setup (canonical URLs, XML sitemap, robots.txt, heading hierarchy), and deployment to your hosting platform. You receive a fully live, ranking-ready website.' },
-  { q: 'Do I need to provide content for the website?', a: 'No. We research and write all content based on keyword data and search intent analysis. You provide your business details, service descriptions, and any specific messaging preferences. We handle the rest — from page structure to final copy.' },
-  { q: 'Can I choose my own CMS or hosting platform?', a: 'Yes. We build on Astro by default for maximum performance, but we can deliver on WordPress, Next.js, or any static site generator you prefer. Hosting is typically Cloudflare Pages or Vercel, though we can deploy to your existing infrastructure.' },
-  { q: 'What happens after the website is delivered?', a: 'You own the site outright — there are no ongoing fees or retainers required. We provide a handover document covering how to update content, add pages, and maintain your schema. If you want ongoing SEO support, that is available as a separate engagement.' }
+  { q: 'What is included in an SEO website build?', a: 'Every build includes keyword research, topical mapping, content architecture, content writing for all pages, per-page JSON-LD schema markup, technical SEO setup, and deployment to your hosting platform. You receive a fully live, ranking-ready website.' },
+  { q: 'Do I need to provide content for the website?', a: 'No. We research and write all content based on keyword data and search intent analysis. You provide your business details, service descriptions, and messaging preferences. We handle everything else.' },
+  { q: 'Can I choose my own CMS or hosting platform?', a: 'Yes. We build on Astro by default for maximum performance. We can also deliver on WordPress, Next.js, or any static site generator. Hosting is typically Cloudflare Pages or Vercel.' },
+  { q: 'What happens after the website is delivered?', a: 'You own the site outright — no ongoing fees or retainers. We provide a handover document covering how to update content, add pages, and maintain your schema.' },
 ];
 
 const schemaNodes = [
@@ -30,22 +49,13 @@ const schemaNodes = [
       '@type': 'Offer',
       priceCurrency: 'GBP',
       price: '1500',
-      priceSpecification: {
-        '@type': 'PriceSpecification',
-        minPrice: '1500',
-        maxPrice: '3000',
-        priceCurrency: 'GBP'
-      }
+      priceSpecification: { '@type': 'PriceSpecification', minPrice: '1500', maxPrice: '3000', priceCurrency: 'GBP' }
     }
   },
   {
     '@type': 'FAQPage',
     '@id': `${site.url}/services/seo-website-build/#faq`,
-    mainEntity: faqs.map(faq => ({
-      '@type': 'Question',
-      name: faq.q,
-      acceptedAnswer: { '@type': 'Answer', text: faq.a }
-    }))
+    mainEntity: faqs.map(faq => ({ '@type': 'Question', name: faq.q, acceptedAnswer: { '@type': 'Answer', text: faq.a } }))
   }
 ];
 ---
@@ -55,7 +65,7 @@ const schemaNodes = [
   canonicalPath="/services/seo-website-build/"
   schemaNodes={schemaNodes}
 >
-  <div class="max-w-4xl mx-auto px-4">
+  <div class="max-w-[1100px] mx-auto px-10 pt-28 pb-20">
     <Breadcrumb items={[
       { label: 'Home', href: '/' },
       { label: 'Services', href: '/services/' },
@@ -63,58 +73,77 @@ const schemaNodes = [
     ]} />
     <HubNav items={hubItems} currentPath="/services/seo-website-build/" />
 
-    <section class="py-10">
-      <h1 class="text-3xl md:text-4xl font-bold text-brand">{current.h1}</h1>
-      <p class="mt-4 text-lg text-text-muted leading-relaxed">
-        An SEO website build is not a redesign bolted onto an existing site. It is a ground-up construction where every decision — from URL structure to heading hierarchy to internal linking — is driven by keyword research and search intent data. The result is a website that is architecturally designed to rank, not one that hopes to rank after a few meta tags are added.
+    <section class="py-12">
+      <h1 class="section-title">{current.h1}</h1>
+      <p class="text-lg text-text-muted leading-relaxed max-w-3xl mt-4">
+        An SEO website build is not a redesign bolted onto an existing site. Every decision — URL structure, heading hierarchy, internal linking — follows keyword research and search intent data. The result is a website architecturally designed to rank.
       </p>
     </section>
 
-    <section class="py-10">
-      <h2 class="text-2xl font-bold text-brand mb-6">What You Receive</h2>
-      <ul class="space-y-3 text-text-muted leading-relaxed">
-        <li class="flex gap-3"><span class="text-brand font-bold">1.</span> <span><strong class="text-text">Keyword research document</strong> — 50-200 terms clustered by intent, with search volume, keyword difficulty, and SERP feature data for your niche.</span></li>
-        <li class="flex gap-3"><span class="text-brand font-bold">2.</span> <span><strong class="text-text">Topical map</strong> — hub-and-spoke architecture showing how pages connect, which clusters they belong to, and the internal linking structure between them.</span></li>
-        <li class="flex gap-3"><span class="text-brand font-bold">3.</span> <span><strong class="text-text">15-50 fully written pages</strong> — each targeting a specific keyword with correct heading hierarchy (H1 > H2 > H3), unique meta title and description, and at least 500 words of original content.</span></li>
-        <li class="flex gap-3"><span class="text-brand font-bold">4.</span> <span><strong class="text-text">Per-page JSON-LD schema</strong> — Organisation, WebSite, Service, Article, FAQPage, HowTo, and BreadcrumbList types deployed where appropriate, all cross-referenced through @id within an @graph.</span></li>
-        <li class="flex gap-3"><span class="text-brand font-bold">5.</span> <span><strong class="text-text">Technical SEO setup</strong> — canonical URLs, XML sitemap, robots.txt, heading validation, image alt attributes, and Core Web Vitals optimisation.</span></li>
-        <li class="flex gap-3"><span class="text-brand font-bold">6.</span> <span><strong class="text-text">Deployment and submission</strong> — live deployment to Cloudflare Pages or Vercel, sitemap submission to Google Search Console and Bing Webmaster Tools.</span></li>
-      </ul>
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-8">What You Receive</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        {deliverables.map((d, i) => (
+          <div class="bg-bg-2 border border-line rounded-[16px] p-7 transition-all duration-300 hover:border-brand-border">
+            <div class="flex items-start gap-4">
+              <span class="text-brand font-extrabold text-lg mt-0.5">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3 class="font-bold text-text mb-1.5">{d.title}</h3>
+                <p class="text-sm text-text-muted leading-relaxed">{d.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
 
-    <section class="py-10">
-      <h2 class="text-2xl font-bold text-brand mb-6">How the Build Works</h2>
-      <ol class="space-y-4 text-text-muted leading-relaxed">
-        <li><strong class="text-text">Step 1: Brief and niche analysis.</strong> You tell us about your business, target audience, and competitors. We analyse the SERP landscape in your niche to identify where the ranking opportunities are.</li>
-        <li><strong class="text-text">Step 2: Keyword research.</strong> We pull 50-200 keywords from Ahrefs, cluster them by search intent (informational, commercial, transactional), and identify the head terms and long-tail variations that will form your page targets.</li>
-        <li><strong class="text-text">Step 3: Topical mapping.</strong> Keywords are organised into hub-and-spoke clusters. Each hub becomes a pillar page; each spoke targets a supporting keyword. The map defines the URL structure and internal linking blueprint.</li>
-        <li><strong class="text-text">Step 4: Content writing.</strong> Every page is written from scratch against its target keyword. We follow heading hierarchy rules (single H1, logical H2/H3 nesting), write unique meta titles under 60 characters, and craft meta descriptions that drive clicks.</li>
-        <li><strong class="text-text">Step 5: Schema markup.</strong> Each page receives its own JSON-LD block within an @graph that connects to the site-wide Organisation and WebSite entities. Service pages get Service schema, articles get Article, FAQ sections get FAQPage.</li>
-        <li><strong class="text-text">Step 6: Technical SEO.</strong> We configure canonical URLs, generate the XML sitemap, write robots.txt directives, validate heading hierarchy across all pages, optimise images, and test Core Web Vitals.</li>
-        <li><strong class="text-text">Step 7: Deployment and submission.</strong> The site is deployed to your hosting platform, the sitemap is submitted to Google Search Console and Bing Webmaster Tools, and we verify indexing is progressing correctly.</li>
-      </ol>
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-8">How the Build Works</h2>
+      <div class="space-y-4">
+        {steps.map((s, i) => (
+          <div class="flex gap-5 items-start">
+            <div class="w-10 h-10 rounded-full bg-brand-dim border border-brand-border flex items-center justify-center text-brand font-bold text-sm shrink-0 mt-0.5">
+              {i + 1}
+            </div>
+            <div>
+              <h3 class="font-bold text-text mb-1">{s.title}</h3>
+              <p class="text-sm text-text-muted leading-relaxed">{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
 
-    <section class="py-10 bg-surface -mx-4 px-4 rounded-lg">
-      <h2 class="text-2xl font-bold text-brand mb-4">Pricing</h2>
-      <p class="text-text-muted leading-relaxed">
-        SEO website builds start at <strong class="text-text">£1,500</strong> for a 15-page site and scale up to <strong class="text-text">£3,000</strong> for a 50-page build with full topical authority architecture. The price depends on the number of pages, the competitiveness of your niche, and whether you need custom functionality beyond static content pages. Every build includes keyword research, content writing, schema markup, technical SEO, and deployment — there are no hidden fees.
-      </p>
-      <div class="mt-6 flex flex-wrap gap-4">
-        <CTA href="/order/" label="Order Your Build" />
-        <CTA href="/pricing/" label="See Full Pricing" variant="secondary" />
+    <section class="py-12 reveal">
+      <div class="bg-bg-2 border border-brand-border rounded-[20px] p-10 relative overflow-hidden">
+        <div class="absolute -top-[40%] right-[-20%] w-[400px] h-[400px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(16,185,129,0.06), transparent 55%);"></div>
+        <div class="relative">
+          <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">Pricing</h2>
+          <p class="text-text-muted leading-relaxed max-w-2xl">
+            SEO website builds start at <strong class="text-text">£1,500</strong> for a 15-page site and scale up to <strong class="text-text">£3,000</strong> for a 50-page build with full topical authority architecture. Every build includes keyword research, content writing, schema markup, technical SEO, and deployment — no hidden fees.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <CTA href="/order/" label="Order Your Build" />
+            <CTA href="/pricing/" label="See Full Pricing" variant="secondary" />
+          </div>
+        </div>
       </div>
     </section>
 
     <FAQSection faqs={faqs} />
 
-    <section class="py-10 border-t border-gray-200">
-      <h2 class="text-xl font-bold text-brand mb-4">Related Services</h2>
-      <ul class="space-y-2">
+    <section class="py-10 border-t border-line reveal">
+      <h2 class="text-xl font-bold tracking-[-0.02em] mb-5">Related Services</h2>
+      <div class="grid md:grid-cols-3 gap-4">
         {siblings.map(s => (
-          <li><a href={`/services/${s.slug}/`} class="text-brand hover:text-brand-light transition-colors font-medium">{s.title}</a> — <span class="text-text-muted">{s.shortDescription}</span></li>
+          <a href={`/services/${s.slug}/`} class="block bg-bg-2 border border-line rounded-[16px] p-6 hover:border-brand-border transition-all duration-300">
+            <h3 class="font-bold text-text mb-1.5">{s.title}</h3>
+            <p class="text-sm text-text-muted">{s.shortDescription}</p>
+          </a>
         ))}
-      </ul>
+      </div>
     </section>
   </div>
 </Base>

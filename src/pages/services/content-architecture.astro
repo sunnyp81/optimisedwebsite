@@ -13,12 +13,12 @@ const hubItems = services.map(s => ({ label: s.title, href: `/services/${s.slug}
 
 const faqs = [
   { q: 'What is hub-and-spoke content architecture?', a: 'Hub-and-spoke architecture organises your site into topic clusters. Each cluster has one hub page targeting a broad keyword and several spoke pages targeting related long-tail keywords. The hub links down to every spoke, every spoke links back up to the hub, and spokes link sideways to their siblings. This creates a closed topical loop that signals depth and authority to search engines.' },
-  { q: 'How many hubs and spokes does a typical site need?', a: 'A 15-page site typically has 2-3 hubs with 4-5 spokes each. A 50-page site may have 5-8 hubs with varying spoke counts depending on the keyword landscape. The number is determined by keyword research — we create as many clusters as the data supports, no more. Padding a site with thin spoke pages to inflate the page count damages authority rather than building it.' },
+  { q: 'How many hubs and spokes does a typical site need?', a: 'A 15-page site typically has 2-3 hubs with 4-5 spokes each. A 50-page site may have 5-8 hubs with varying spoke counts depending on keyword data. The number is determined by keyword research — we create as many clusters as the data supports, no more. Padding a site with thin spoke pages to inflate the page count damages authority rather than building it.' },
   { q: 'Can content architecture be applied to an existing site?', a: 'Yes, but it requires restructuring the URL hierarchy, rewriting internal links, and potentially consolidating or splitting existing pages to match the cluster model. We audit the existing content, map it against keyword data, identify gaps and overlaps, and produce a migration plan that preserves existing ranking equity while establishing the hub-and-spoke structure.' }
 ];
 
 const howToSteps = [
-  { name: 'Identify topic clusters from keyword data', text: 'Using the keyword research output, we group semantically related terms into clusters. Each cluster represents a topic your site will cover comprehensively — the goal is to own the entire topic, not just individual keywords.' },
+  { name: 'Identify topic clusters from keyword data', text: 'Using the keyword research output, we group semantically related terms into clusters. Each cluster represents a topic your site will cover in full — the goal is to own the entire topic, not just individual keywords.' },
   { name: 'Designate hub and spoke pages', text: 'The broadest keyword in each cluster becomes the hub page target. The remaining keywords become spoke page targets. Hub pages provide comprehensive coverage of the topic; spoke pages go deep on specific subtopics.' },
   { name: 'Define the internal linking blueprint', text: 'We map every internal link the site needs: hub-to-spoke links, spoke-to-hub links, sibling links between spokes in the same cluster, and cross-hub links where two clusters share semantic overlap. Every link has a defined anchor text derived from the target page keyword.' },
   { name: 'Implement and validate', text: 'The architecture is built into the site with contextual in-content links (not just navigation menus). We validate the link structure by crawling the site and confirming that every page is reachable within 3 clicks of the homepage and that no orphan pages exist.' }
@@ -61,7 +61,7 @@ const schemaNodes = [
   canonicalPath="/services/content-architecture/"
   schemaNodes={schemaNodes}
 >
-  <div class="max-w-4xl mx-auto px-4">
+  <div class="max-w-[1100px] mx-auto px-10 pt-28 pb-20">
     <Breadcrumb items={[
       { label: 'Home', href: '/' },
       { label: 'Services', href: '/services/' },
@@ -70,17 +70,17 @@ const schemaNodes = [
     <HubNav items={hubItems} currentPath="/services/content-architecture/" />
 
     <section class="py-10">
-      <h1 class="text-3xl md:text-4xl font-bold text-brand">{current.h1}</h1>
+      <h1 class="section-title">{current.h1}</h1>
       <p class="mt-4 text-lg text-text-muted leading-relaxed">
         Content architecture determines how your pages connect to each other and how search engines understand the topical relationships between them. A site without content architecture is a collection of disconnected pages. A site with content architecture is a structured knowledge base that demonstrates expertise through the relationships between its pages.
       </p>
       <p class="mt-4 text-text-muted leading-relaxed">
-        We use hub-and-spoke architecture because it mirrors how search engines evaluate topical authority. When a hub page about "plumbing services" links to spoke pages about "boiler installation", "pipe repair", and "emergency plumber", and each spoke links back to the hub, Google sees a site that covers plumbing comprehensively — not just one page that mentions plumbing once.
+        Hub-and-spoke architecture mirrors how search engines evaluate topical authority. A hub page about "plumbing services" links to spoke pages about "boiler installation", "pipe repair", and "emergency plumber". Each spoke links back to the hub. Google sees a site that covers plumbing in depth — not a single page that mentions it once.
       </p>
     </section>
 
     <section class="py-10">
-      <h2 class="text-2xl font-bold text-brand mb-6">Hub-and-Spoke Structure</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">Hub-and-Spoke Structure</h2>
       <p class="text-text-muted leading-relaxed mb-4">
         Every hub-and-spoke cluster follows the same structural rules. The hub page sits at the top of the cluster and targets the broadest keyword. It provides a comprehensive overview of the topic and links contextually to every spoke page in the cluster. Each spoke page targets a more specific keyword, covers that subtopic in depth, and links back to its hub page.
       </p>
@@ -93,7 +93,7 @@ const schemaNodes = [
     </section>
 
     <section class="py-10">
-      <h2 class="text-2xl font-bold text-brand mb-6">Internal Linking Rules</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">Internal Linking Rules</h2>
       <p class="text-text-muted leading-relaxed mb-4">
         Internal links are not navigation — they are editorial signals that tell search engines which pages are related and how they relate. We follow strict rules for internal linking:
       </p>
@@ -107,14 +107,14 @@ const schemaNodes = [
     </section>
 
     <section class="py-10">
-      <h2 class="text-2xl font-bold text-brand mb-6">How Content Architecture Ranks</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">How Content Architecture Ranks</h2>
       <ol class="space-y-4 text-text-muted leading-relaxed">
         {howToSteps.map((step, i) => (
           <li><strong class="text-text">Step {i + 1}: {step.name}.</strong> {step.text}</li>
         ))}
       </ol>
       <p class="mt-6 text-text-muted leading-relaxed">
-        The result is a site where search engines can crawl every page efficiently, understand the topical relationships between pages, and evaluate the site's depth of coverage on each topic. Sites with proper content architecture consistently outrank larger competitors who have more pages but no structural organisation — because authority is built through connections, not volume.
+        Authority is built through connections, not volume. Sites with proper content architecture consistently outrank larger competitors who have more pages but no structural organisation. Search engines crawl every page efficiently, understand the topical relationships between pages, and evaluate your site's depth of coverage on each topic.
       </p>
     </section>
 
@@ -124,13 +124,16 @@ const schemaNodes = [
 
     <FAQSection faqs={faqs} />
 
-    <section class="py-10 border-t border-gray-200">
-      <h2 class="text-xl font-bold text-brand mb-4">Related Services</h2>
-      <ul class="space-y-2">
+    <section class="py-10 border-t border-line reveal">
+      <h2 class="text-xl font-bold tracking-[-0.02em] mb-5">Related Services</h2>
+      <div class="grid md:grid-cols-3 gap-4">
         {siblings.map(s => (
-          <li><a href={`/services/${s.slug}/`} class="text-brand hover:text-brand-light transition-colors font-medium">{s.title}</a> — <span class="text-text-muted">{s.shortDescription}</span></li>
+          <a href={`/services/${s.slug}/`} class="block bg-bg-2 border border-line rounded-[16px] p-6 hover:border-brand-border transition-all duration-300">
+            <h3 class="font-bold text-text mb-1.5">{s.title}</h3>
+            <p class="text-sm text-text-muted">{s.shortDescription}</p>
+          </a>
         ))}
-      </ul>
+      </div>
     </section>
   </div>
 </Base>

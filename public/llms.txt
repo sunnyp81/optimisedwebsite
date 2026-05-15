@@ -1,20 +1,25 @@
 # OptimisedWebsite
-> SEO-optimised website builds for UK businesses
 
-OptimisedWebsite builds websites designed to rank on Google from day one. Each site includes keyword research, topical authority architecture, per-page schema markup, and technical SEO setup.
+## About
+OptimisedWebsite builds SEO-optimised Astro 5 websites for UK businesses. 15-50 pages with topical authority architecture, entity-linked JSON-LD schema, and perfect Core Web Vitals. Fixed price £1,500-£3,000. 5-7 day delivery.
 
 ## Services
-- SEO Website Build (£1,500-£3,000): /services/seo-website-build/
-- Keyword Research: /services/keyword-research/
-- Schema Markup: /services/schema-markup/
-- Technical SEO Setup: /services/technical-seo-setup/
-- Content Architecture: /services/content-architecture/
+- SEO Website Build: Complete Astro 5 site with hub-and-spoke architecture
+- Keyword Research: Niche analysis, keyword clustering, topical mapping
+- Schema Markup: Entity-interconnected JSON-LD (7-12 types per site)
+- Technical SEO: Sitemap, robots.txt, canonicals, Core Web Vitals
+- Content Architecture: Internal linking strategy, heading hierarchy
 
-## Learn
-- What Is an SEO-Optimised Website: /learn/what-is-an-seo-optimised-website/
-- SEO Website Checklist: /learn/seo-website-checklist/
-- SEO Website Cost UK: /learn/seo-website-cost-uk/
+## Key Pages
+- Homepage: https://optimisedwebsite.com/
+- Services: https://optimisedwebsite.com/services/
+- Portfolio: https://optimisedwebsite.com/portfolio/
+- Pricing: https://optimisedwebsite.com/pricing/
+- Learn: https://optimisedwebsite.com/learn/
+- Compare: https://optimisedwebsite.com/compare/
+- Industries: https://optimisedwebsite.com/industry/
+- Order: https://optimisedwebsite.com/order/
 
 ## Contact
-- Order: /order/
-- Email: hello@optimisedwebsite.com
+Email: hello@optimisedwebsite.com
+Website: https://optimisedwebsite.com

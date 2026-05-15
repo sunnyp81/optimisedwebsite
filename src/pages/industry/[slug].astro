@@ -1,0 +1,175 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import CTA from '../../components/CTA.astro';
+import { site } from '../../data/site';
+import { industries } from '../../data/industries';
+import { portfolio } from '../../data/portfolio';
+
+export function getStaticPaths() {
+  return industries.map((ind) => ({
+    params: { slug: ind.slug },
+    props: { industry: ind }
+  }));
+}
+
+const { industry } = Astro.props;
+
+const matchedPortfolio = industry.portfolioSite
+  ? portfolio.find(p => p.url.includes(industry.portfolioSite!))
+  : null;
+
+const schemaNodes = [
+  {
+    '@type': 'Article',
+    '@id': `${site.url}/industry/${industry.slug}/#article`,
+    headline: industry.h1,
+    description: industry.metaDescription,
+    author: { '@id': `${site.url}/#organization` },
+    publisher: { '@id': `${site.url}/#organization` },
+    isPartOf: { '@id': `${site.url}/#website` }
+  },
+  {
+    '@type': 'Service',
+    '@id': `${site.url}/industry/${industry.slug}/#service`,
+    name: `SEO Website Build — ${industry.name}`,
+    description: industry.description,
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: { '@type': 'Country', name: 'United Kingdom' },
+    serviceType: 'SEO Website Build'
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${site.url}/industry/${industry.slug}/#faq`,
+    mainEntity: industry.faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a }
+    }))
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${site.url}/industry/${industry.slug}/#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Industries', item: `${site.url}/industry/` },
+      { '@type': 'ListItem', position: 3, name: industry.name, item: `${site.url}/industry/${industry.slug}/` }
+    ]
+  }
+];
+---
+<Base
+  title={`${industry.h1} | OptimisedWebsite`}
+  description={industry.metaDescription}
+  canonicalPath={`/industry/${industry.slug}/`}
+  schemaNodes={schemaNodes}
+>
+  <div class="max-w-[1100px] mx-auto px-4">
+
+    <!-- Hero -->
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Industries', href: '/industry/' },
+      { label: industry.name, href: `/industry/${industry.slug}/` }
+    ]} />
+
+    <section class="py-12">
+      <div class="section-tag">{industry.name}</div>
+      <h1 class="section-title">{industry.h1}</h1>
+      <p class="section-desc max-w-3xl">{industry.metaDescription}</p>
+    </section>
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <!-- Intro -->
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">Why {industry.name} needs SEO architecture</h2>
+      <p class="text-text-muted leading-relaxed max-w-3xl">{industry.intro}</p>
+    </section>
+
+    <!-- Challenges vs Solutions -->
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-8">The problem — and how we fix it</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="compare-col old">
+          <h3 class="text-lg font-bold mb-4">Without SEO architecture</h3>
+          <ul class="space-y-3">
+            {industry.challenges.map((c) => (
+              <li class="flex gap-3 text-text-muted text-sm leading-relaxed">
+                <span class="text-red-400 font-bold shrink-0">&times;</span>
+                <span>{c}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="compare-col ours">
+          <h3 class="text-lg font-bold mb-4">With OptimisedWebsite</h3>
+          <ul class="space-y-3">
+            {industry.solutions.map((s) => (
+              <li class="flex gap-3 text-text-muted text-sm leading-relaxed">
+                <span class="text-brand font-bold shrink-0">&check;</span>
+                <span>{s}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <!-- Portfolio proof -->
+    {matchedPortfolio && (
+      <section class="py-12 reveal">
+        <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">Live proof: {matchedPortfolio.name}</h2>
+        <div class="feat-card">
+          <div class="flex flex-wrap gap-8 items-start">
+            <div class="flex-1 min-w-[250px]">
+              <p class="text-text-muted leading-relaxed mb-4">{matchedPortfolio.description}</p>
+              <ul class="space-y-2 text-sm text-text-muted">
+                <li><strong class="text-text">Niche:</strong> {matchedPortfolio.niche}</li>
+                <li><strong class="text-text">Pages:</strong> {matchedPortfolio.pageCount.toLocaleString()}</li>
+                <li><strong class="text-text">Key metric:</strong> {matchedPortfolio.metric}</li>
+              </ul>
+            </div>
+            <div class="flex flex-col gap-3">
+              <CTA href="/portfolio/" label="See full portfolio" />
+              <CTA href={matchedPortfolio.url} label="Visit live site" variant="secondary" />
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- FAQ -->
+    <FAQSection faqs={industry.faqs} />
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <!-- CTA -->
+    <section class="py-16 text-center reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">Ready to rank in {industry.name.toLowerCase()}?</h2>
+      <p class="text-text-muted leading-relaxed max-w-xl mx-auto mb-8">
+        Get a website built from the ground up for your industry — keyword research, content, schema, and deployment included.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <CTA href="/services/seo-website-build/" label="Start your build" size="large" />
+        <CTA href="/pricing/" label="See pricing" variant="secondary" size="large" />
+      </div>
+    </section>
+
+    <!-- Related industries -->
+    <section class="py-12 border-t border-line reveal">
+      <h2 class="text-xl font-bold tracking-[-0.02em] mb-5">Other industries we build for</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {industries.filter(i => i.slug !== industry.slug).slice(0, 6).map(i => (
+          <a href={`/industry/${i.slug}/`} class="block bg-bg-2 border border-line rounded-[16px] p-5 hover:border-brand-border transition-all duration-300">
+            <h3 class="font-bold text-text mb-1">{i.name}</h3>
+            <p class="text-xs text-text-muted">{i.keyword}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</Base>

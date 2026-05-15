@@ -31,9 +31,9 @@ The appeal is straightforward: you receive an SEO-optimised website without mana
 
 A legitimate turnkey SEO offering covers the full build pipeline.
 
-**Keyword research and topical mapping** identify the search queries your site will target. The provider analyses search volumes, keyword difficulty, and competitor landscapes for your specific niche and location. The output is a structured map of pages, each assigned to a keyword cluster.
+**Keyword research and topical mapping** identify the search queries your site will target. The provider analyses search volumes, keyword difficulty, and competition for your specific niche and location. The output is a structured map of pages, each assigned to a keyword cluster.
 
-**Content creation** produces original copy for every page. Each piece of content matches the search intent behind its target keyword — informational pages explain topics in depth, service pages detail what you offer, and commercial pages compare options or present pricing. Word counts typically range from 800-2,000 per page depending on the competitive landscape.
+**Content creation** produces original copy for every page. Each piece of content matches the search intent behind its target keyword — informational pages explain topics in depth, service pages detail what you offer, and commercial pages compare options or present pricing. Word counts typically range from 800-2,000 per page depending on keyword difficulty.
 
 **Information architecture** organises pages into a logical hierarchy with hub pages, supporting content, and deliberate internal linking. The site structure reflects topical clusters rather than arbitrary menu categories.
 

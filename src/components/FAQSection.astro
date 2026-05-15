@@ -6,13 +6,18 @@ interface Props {
 const { faqs } = Astro.props;
 ---
 <section class="py-12">
-  <h2 class="text-2xl font-bold text-brand mb-6">Frequently Asked Questions</h2>
-  <dl class="space-y-6">
+  <h2 class="text-2xl font-bold tracking-[-0.02em] mb-8">Frequently Asked Questions</h2>
+  <div class="max-w-[640px]">
     {faqs.map((faq) => (
-      <div>
-        <dt class="text-lg font-semibold text-text">{faq.q}</dt>
-        <dd class="mt-2 text-text-muted leading-relaxed">{faq.a}</dd>
+      <div class="faq-item">
+        <button class="faq-question">
+          {faq.q}
+          <div class="faq-icon"><span class="fh"></span><span class="fv"></span></div>
+        </button>
+        <div class="faq-answer">
+          <p class="pb-6 text-text-muted text-[15px] leading-[1.7]">{faq.a}</p>
+        </div>
       </div>
     ))}
-  </dl>
+  </div>
 </section>

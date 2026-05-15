@@ -61,7 +61,7 @@ const schemaNodes = [
   canonicalPath="/services/schema-markup/"
   schemaNodes={schemaNodes}
 >
-  <div class="max-w-4xl mx-auto px-4">
+  <div class="max-w-[1100px] mx-auto px-10 pt-28 pb-20">
     <Breadcrumb items={[
       { label: 'Home', href: '/' },
       { label: 'Services', href: '/services/' },
@@ -70,9 +70,9 @@ const schemaNodes = [
     <HubNav items={hubItems} currentPath="/services/schema-markup/" />
 
     <section class="py-10">
-      <h1 class="text-3xl md:text-4xl font-bold text-brand">{current.h1}</h1>
+      <h1 class="section-title">{current.h1}</h1>
       <p class="mt-4 text-lg text-text-muted leading-relaxed">
-        Schema markup tells search engines what your content means, not just what it says. A page about plumbing services without schema is just text on a screen. The same page with Service, Organisation, and FAQPage schema is a structured entity that Google can parse, categorise, and surface in rich results.
+        Schema markup tells search engines what your content means, not just what it says. A plumbing service page without schema is plain text. The same page with Service, Organisation, and FAQPage schema is a structured entity Google can parse, categorise, and surface in rich results.
       </p>
       <p class="mt-4 text-text-muted leading-relaxed">
         We implement schema as hand-written JSON-LD within an entity-interconnected @graph. Every schema node on every page references back to your site-wide Organisation and WebSite entities through @id, creating a web of structured data that reinforces your site's topical identity across every page.
@@ -80,7 +80,7 @@ const schemaNodes = [
     </section>
 
     <section class="py-10">
-      <h2 class="text-2xl font-bold text-brand mb-6">Schema Types We Implement</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">Schema Types We Implement</h2>
       <div class="grid md:grid-cols-2 gap-6">
         <div>
           <h3 class="font-semibold text-text mb-2">Core Entity Types</h3>
@@ -103,7 +103,7 @@ const schemaNodes = [
     </section>
 
     <section class="py-10">
-      <h2 class="text-2xl font-bold text-brand mb-6">How Entity Linking Works</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">How Entity Linking Works</h2>
       <p class="text-text-muted leading-relaxed mb-4">
         Entity linking is what separates effective schema from checkbox schema. Every schema node on your site carries an @id — a unique identifier that other nodes can reference. When your Service schema references your Organisation through @id, Google understands that this service is provided by this specific business. When your Article references the same Organisation as publisher, that connection is reinforced.
       </p>
@@ -115,12 +115,12 @@ const schemaNodes = [
     </section>
 
     <section class="py-10">
-      <h2 class="text-2xl font-bold text-brand mb-6">Schema Validation</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">Schema Validation</h2>
       <p class="text-text-muted leading-relaxed mb-4">
         Schema that fails validation is worse than no schema at all — it sends conflicting signals to search engines and can suppress rich results eligibility. We validate every page through three layers: Google Rich Results Test for eligibility checking, Schema.org Validator for specification compliance, and manual JSON-LD inspection for entity relationship integrity.
       </p>
       <p class="text-text-muted leading-relaxed">
-        Common issues we catch during validation include missing required properties (Organisation without a name, Article without a datePublished), broken @id references where a node points to an entity that does not exist, and schema types applied to pages where the content does not support them. Every issue is resolved before the schema goes live.
+        Common validation failures: missing required properties (Organisation without a name, Article without a datePublished); broken @id references; schema types applied where page content does not support them. Every issue is resolved before the schema goes live.
       </p>
     </section>
 
@@ -130,13 +130,16 @@ const schemaNodes = [
 
     <FAQSection faqs={faqs} />
 
-    <section class="py-10 border-t border-gray-200">
-      <h2 class="text-xl font-bold text-brand mb-4">Related Services</h2>
-      <ul class="space-y-2">
+    <section class="py-10 border-t border-line reveal">
+      <h2 class="text-xl font-bold tracking-[-0.02em] mb-5">Related Services</h2>
+      <div class="grid md:grid-cols-3 gap-4">
         {siblings.map(s => (
-          <li><a href={`/services/${s.slug}/`} class="text-brand hover:text-brand-light transition-colors font-medium">{s.title}</a> — <span class="text-text-muted">{s.shortDescription}</span></li>
+          <a href={`/services/${s.slug}/`} class="block bg-bg-2 border border-line rounded-[16px] p-6 hover:border-brand-border transition-all duration-300">
+            <h3 class="font-bold text-text mb-1.5">{s.title}</h3>
+            <p class="text-sm text-text-muted">{s.shortDescription}</p>
+          </a>
         ))}
-      </ul>
+      </div>
     </section>
   </div>
 </Base>

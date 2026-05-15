@@ -1,5 +1,6 @@
 export const mainNav = [
   { label: 'Services', href: '/services/' },
+  { label: 'Industries', href: '/industry/' },
   { label: 'Learn', href: '/learn/' },
   { label: 'Compare', href: '/compare/' },
   { label: 'Portfolio', href: '/portfolio/' },
@@ -16,13 +17,14 @@ export const footerNav = {
   ],
   learn: [
     { label: 'What Is an SEO Website', href: '/learn/what-is-an-seo-optimised-website/' },
+    { label: 'How Google Ranks Sites', href: '/learn/how-google-ranks-websites/' },
     { label: 'SEO Website Checklist', href: '/learn/seo-website-checklist/' },
-    { label: 'SEO Website Cost UK', href: '/learn/seo-website-cost-uk/' },
-    { label: 'Topical Authority', href: '/learn/topical-authority-explained/' },
+    { label: 'E-E-A-T Guide', href: '/learn/eeat-and-trust-signals/' },
   ],
   company: [
     { label: 'About', href: '/about/' },
     { label: 'Portfolio', href: '/portfolio/' },
+    { label: 'Case Studies', href: '/case-studies/' },
     { label: 'Contact', href: '/contact/' },
   ],
 } as const;

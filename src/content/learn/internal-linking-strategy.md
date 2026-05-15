@@ -25,7 +25,7 @@ dateModified: "2026-05-13"
 
 Internal linking is the practice of connecting pages within your own website through hyperlinks. For an SEO-optimised website, internal links serve as the primary mechanism for distributing page authority, establishing topical relationships between pages, and guiding search engine crawlers through your content.
 
-Despite being entirely within your control — unlike backlinks, which depend on external websites — internal linking is one of the most neglected aspects of SEO. Most websites have some internal links, but very few have a deliberate strategy that maximises the SEO value of every link.
+Internal linking gives you complete control over one of SEO's most neglected ranking levers.
 
 ## Why Internal Links Matter for SEO
 
@@ -57,7 +57,7 @@ The anchor text — the clickable words in a hyperlink — tells Google what the
 
 **Use descriptive, keyword-relevant phrases.** Instead of "learn more", use "our guide to corporation tax filing". Instead of "click here", use "how capital allowances reduce your tax bill". The anchor should describe the content the reader will find at the destination.
 
-**Vary your anchors naturally.** While internal links are less susceptible to over-optimisation penalties than external backlinks, using the exact same anchor text for every link to a page looks unnatural. Use variations: "corporation tax services", "our corporation tax team", "filing your corporation tax return" — all pointing to the same page.
+**Vary your anchors naturally.** Using the exact same anchor text for every link to a page looks unnatural. Internal links face fewer over-optimisation penalties than external backlinks, but variation still matters. Use variations: "corporation tax services", "our corporation tax team", "filing your corporation tax return" — all pointing to the same page.
 
 **Keep anchors concise.** Two to six words is typical. Anchoring an entire sentence or paragraph dilutes the signal because Google must determine which part of the text is most relevant.
 

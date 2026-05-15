@@ -12,7 +12,7 @@ const { items, currentPath } = Astro.props;
     return (
       <a
         href={item.href}
-        class={`text-sm px-3 py-1 rounded-full border transition-colors ${isCurrent ? 'bg-brand text-white border-brand' : 'border-gray-300 text-text-muted hover:border-brand hover:text-brand'}`}
+        class={`text-sm px-3.5 py-1.5 rounded-full border transition-all duration-200 ${isCurrent ? 'bg-brand text-bg border-brand font-semibold' : 'border-line text-text-muted hover:border-brand-border hover:text-brand'}`}
         {...(isCurrent ? { 'aria-current': 'page' } : {})}
       >
         {item.label}

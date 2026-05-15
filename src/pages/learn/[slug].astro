@@ -67,10 +67,10 @@ const breadcrumbs = [
   canonicalPath={`/learn/${article.id}/`}
   schemaNodes={schemaNodes}
 >
-  <article class="max-w-3xl mx-auto px-4 py-12">
+  <article class="max-w-[800px] mx-auto px-10 pt-28 pb-20">
     <Breadcrumb items={breadcrumbs} />
-    <h1 class="text-4xl font-bold text-brand mb-8">{article.data.h1}</h1>
-    <div class="prose prose-lg max-w-none">
+    <h1 class="section-title mb-8">{article.data.h1}</h1>
+    <div class="prose prose-lg prose-invert max-w-none">
       <Content />
     </div>
     {article.data.faqs.length > 0 && <FAQSection faqs={article.data.faqs} />}

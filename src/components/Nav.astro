@@ -2,52 +2,67 @@
 import { site } from '../data/site';
 import { mainNav } from '../data/navigation';
 ---
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-200">
-  <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-    <a href="/" class="text-xl font-bold text-brand">{site.name}</a>
+<header id="siteNav" class="fixed top-3.5 left-1/2 -translate-x-1/2 z-[100] max-w-[720px] w-[calc(100%-32px)] h-[50px] px-5 flex items-center justify-between rounded-full border border-line-2 transition-all duration-400" style="background: rgba(5,10,18,0.6); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);">
+  <a href="/" class="font-extrabold text-text text-sm tracking-[-0.03em] flex items-center no-underline">
+    {site.name}<span class="w-[5px] h-[5px] rounded-full bg-brand ml-[1px]" style="box-shadow: 0 0 10px var(--color-brand-glow);"></span>
+  </a>
 
-    <nav class="hidden md:flex items-center gap-6" aria-label="Main">
-      {mainNav.map((item) => (
-        <a href={item.href} class="text-sm font-medium text-text-muted hover:text-brand transition-colors">
-          {item.label}
-        </a>
-      ))}
-      <a href="/order/" class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-brand hover:bg-brand-light rounded-lg transition-colors">
-        Order
+  <div class="hidden md:flex items-center gap-5">
+    {mainNav.map((item) => (
+      <a href={item.href} class="text-[13px] font-semibold text-text-muted no-underline transition-colors duration-200 hover:text-text">
+        {item.label}
       </a>
-    </nav>
-
-    <button
-      id="mobile-toggle"
-      type="button"
-      class="md:hidden p-2 text-text-muted hover:text-brand"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-      aria-label="Toggle menu"
-    >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
+    ))}
+    <a href="/order/" class="text-xs font-bold bg-brand text-bg px-[18px] py-2 rounded-full no-underline transition-all duration-250" style="box-shadow: 0 0 20px rgba(16,185,129,0.2);">
+      Start a project
+    </a>
   </div>
 
-  <nav id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white" aria-label="Mobile">
-    <div class="px-4 py-3 space-y-1">
-      {mainNav.map((item) => (
-        <a href={item.href} class="block py-2 text-sm font-medium text-text-muted hover:text-brand">
-          {item.label}
-        </a>
-      ))}
-      <a href="/order/" class="block mt-2 text-center px-4 py-2 text-sm font-semibold text-white bg-brand hover:bg-brand-light rounded-lg transition-colors">
-        Order
-      </a>
-    </div>
-  </nav>
+  <button
+    id="mobile-toggle"
+    type="button"
+    class="md:hidden p-2 text-text-muted hover:text-text"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+    aria-label="Toggle menu"
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <line x1="3" y1="12" x2="21" y2="12" />
+      <line x1="3" y1="18" x2="21" y2="18" />
+    </svg>
+  </button>
 </header>
 
+<nav id="mobile-menu" class="hidden md:hidden fixed top-16 left-1/2 -translate-x-1/2 z-[99] w-[calc(100%-32px)] max-w-[720px] rounded-2xl border border-line-2 py-4 px-6" style="background: rgba(5,10,18,0.95); backdrop-filter: blur(24px);" aria-label="Mobile">
+  {mainNav.map((item) => (
+    <a href={item.href} class="block py-2.5 text-sm font-semibold text-text-muted hover:text-text no-underline transition-colors duration-200">
+      {item.label}
+    </a>
+  ))}
+  <a href="/order/" class="block mt-3 text-center px-4 py-2.5 text-sm font-bold text-bg bg-brand rounded-lg no-underline transition-[filter] duration-200 hover:brightness-110">
+    Start a project
+  </a>
+</nav>
+
 <script>
+  const nav = document.getElementById('siteNav');
   const toggle = document.getElementById('mobile-toggle');
   const menu = document.getElementById('mobile-menu');
+
+  window.addEventListener('scroll', () => {
+    if (!nav) return;
+    if (window.scrollY > 60) {
+      nav.style.background = 'rgba(5,10,18,0.88)';
+      nav.style.borderColor = 'rgba(255,255,255,0.1)';
+      nav.style.boxShadow = '0 8px 32px rgba(0,0,0,0.5)';
+    } else {
+      nav.style.background = 'rgba(5,10,18,0.6)';
+      nav.style.borderColor = 'rgba(255,255,255,0.08)';
+      nav.style.boxShadow = 'none';
+    }
+  });
+
   toggle?.addEventListener('click', () => {
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!expanded));

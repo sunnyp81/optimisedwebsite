@@ -12,7 +12,7 @@ hubBacklink:
   href: "/learn/"
 faqs:
   - q: "What is the minimum number of pages an SEO website needs?"
-    a: "There is no fixed minimum, but most effective SEO websites have at least 15-20 pages to establish topical coverage. A five-page brochure site rarely competes against competitors with deeper content. The right number depends on your industry and the keyword landscape."
+    a: "There is no fixed minimum, but most effective SEO websites have at least 15-20 pages to establish topical coverage. A five-page brochure site rarely competes against competitors with deeper content. The right number depends on your industry and the keyword data."
   - q: "Does every page need its own schema markup?"
     a: "Yes. Each page should carry schema relevant to its content type — Article for blog posts, ProfessionalService for service pages, FAQPage for FAQ sections, LocalBusiness or Organization for the homepage. Generic sitewide schema misses the specificity that search engines value."
   - q: "Should I include a blog on my SEO website?"
@@ -21,7 +21,7 @@ datePublished: "2026-05-13"
 dateModified: "2026-05-13"
 ---
 
-An SEO-optimised website requires specific technical, structural, and content elements working together. Missing any one of these components weakens the whole system, because search engines evaluate sites holistically rather than page by page.
+An SEO-optimised website requires specific technical, structural, and content elements working together. Missing any one of these components weakens the whole system. Search engines evaluate sites holistically rather than page by page.
 
 This guide covers the concrete elements your site needs, ordered by their impact on ranking performance. If you are planning a new build or auditing an existing site, use this as a reference for what to prioritise.
 

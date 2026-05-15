@@ -45,7 +45,7 @@ Understanding the cost breakdown helps you evaluate quotes and avoid overpaying 
 
 ### Keyword Research and Topical Mapping (10-15% of total cost)
 
-Before any content is written or code is deployed, the entire keyword landscape for your niche needs researching. This involves analysing search volumes, keyword difficulty scores, search intent patterns, and competitor content.
+Before any content is written or code is deployed, the entire keyword space for your niche needs researching. This involves analysing search volumes, keyword difficulty scores, search intent patterns, and competitor content.
 
 The output is a topical map — a structured plan showing every page the site will have, what keyword each page targets, how pages relate to each other, and the internal linking strategy. This map is the blueprint for the entire build.
 
@@ -57,7 +57,7 @@ Content is typically the single largest cost element. Each page needs original, 
 
 A 20-page site with an average of 1,200 words per page requires 24,000 words of original content. At professional SEO copywriting rates of £0.10-0.20 per word, that represents £2,400-£4,800 in content costs alone.
 
-AI-generated content can reduce this cost, but it requires careful editing and fact-checking to meet quality standards. Google's helpful content system penalises sites with obviously automated content that lacks genuine expertise. The best approach uses AI as a drafting tool with human expertise guiding the strategy and reviewing the output.
+AI-generated content can reduce this cost. It requires careful editing and fact-checking to meet quality standards. Google's helpful content system penalises sites with obviously automated content that lacks genuine expertise. The best approach uses AI as a drafting tool with human expertise guiding the strategy and reviewing the output.
 
 ### Design and Development (25-35% of total cost)
 

@@ -7,7 +7,10 @@ interface Props {
 
 const { title, description, href } = Astro.props;
 ---
-<a href={href} class="block border border-gray-200 rounded-lg p-6 hover:border-brand hover:shadow-md transition-all group">
-  <h3 class="text-lg font-semibold text-brand group-hover:text-brand-light transition-colors">{title}</h3>
-  <p class="mt-2 text-sm text-text-muted leading-relaxed">{description}</p>
+<a href={href} class="block bg-bg-2 border border-line rounded-[20px] p-8 hover:border-brand-border hover:shadow-[0_0_30px_rgba(16,185,129,0.06)] transition-all duration-300 group">
+  <h3 class="text-lg font-bold text-text tracking-[-0.02em] group-hover:text-brand transition-colors duration-200">{title}</h3>
+  <p class="mt-2.5 text-sm text-text-muted leading-relaxed">{description}</p>
+  <span class="inline-flex items-center gap-1.5 mt-4 text-sm font-semibold text-brand opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+    Learn more <span class="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+  </span>
 </a>
