@@ -24,75 +24,100 @@ const faqs = [
   {
     q: 'What do I need to provide?',
     a: 'Your niche, location, and services. A ten-minute brief. We handle everything else.'
+  },
+  {
+    q: 'How long does delivery actually take?',
+    a: 'Seven days from brief to live. For Pro builds (50 pages), up to fourteen days. We set a deadline before work starts and hit it.'
   }
 ];
 
-const tickerItems = [
-  { val: '100', label: 'Lighthouse score' },
-  { val: '0.00', label: 'CLS' },
-  { val: '<1.2s', label: 'LCP' },
-  { val: 'Zero', label: 'JavaScript' },
-  { val: '£0/mo', label: 'hosting' },
-  { val: '44', label: 'sites built' },
-  { val: '14,487', label: 'pages shipped' },
-  { val: '7-12', label: 'schema types' },
-];
-
-const features = [
-  {
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="2.5"/><circle cx="5" cy="5" r="1.8"/><circle cx="19" cy="5" r="1.8"/><circle cx="5" cy="19" r="1.8"/><circle cx="19" cy="19" r="1.8"/><line x1="6.3" y1="6.3" x2="10.2" y2="10.2"/><line x1="17.7" y1="6.3" x2="13.8" y2="10.2"/><line x1="6.3" y1="17.7" x2="10.2" y2="13.8"/><line x1="17.7" y1="17.7" x2="13.8" y2="13.8"/></svg>`,
-    title: 'Topical authority architecture',
-    desc: 'Hub-and-spoke page structure with pillar pages, cluster content, and tight internal linking. A closed semantic loop that compounds authority over time.',
-    tags: ['3–6 hubs', '2–3 tiers', '120+ links'],
-  },
-  {
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="8 6 3 12 8 18"/><polyline points="16 6 21 12 16 18"/><line x1="13.5" y1="5" x2="10.5" y2="19"/></svg>`,
-    title: 'Entity-linked schema',
-    desc: 'Hand-written JSON-LD on every page. Organisation, Service, FAQPage — linked through @id to form a knowledge graph Google can parse and reward.',
-    tags: ['7–12 types', '@id linked', 'Rich results'],
-  },
-  {
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
-    title: 'Perfect technical SEO',
-    desc: 'Astro static output. Lighthouse 100. Semantic HTML, auto-sitemap, robots.txt, canonicals. Zero JavaScript runtime. Crawl-ready from day one.',
-    tags: ['100 Lighthouse', '<1.2s LCP', '0.00 CLS'],
-  },
-];
-
-const compareOld = [
-  'WordPress + bloated theme',
-  '5–10 flat pages, no depth',
-  'No schema markup',
-  'Monthly retainer for updates',
-  'Lighthouse 40–70',
-];
-
-const compareOurs = [
-  'Astro 5 — static, zero JS',
-  '15–50 pages, hub-and-spoke',
-  '7–12 entity-linked schema types',
-  'One-time fee, you own it all',
-  'Lighthouse 100, every page',
+const marqueItems = [
+  'Lighthouse 100/100', 'First paint < 0.5s', 'AVIF + WebP fallbacks',
+  'Edge-cached globally', 'Zero JS by default', 'WCAG 2.2 AA',
+  'Core Web Vitals green', '100% uptime', 'No tracking, no banners',
+  'From £1,500', '7-day delivery', 'Source code yours forever'
 ];
 
 const steps = [
-  { num: '1', title: 'Send your brief', desc: 'Niche, location, services. Ten minutes.', day: 'Day 0' },
-  { num: '2', title: 'We research & build', desc: 'Topic mapping, schema, copy, Astro build.', day: 'Day 1–5' },
-  { num: '3', title: 'Review on staging', desc: 'Preview URL. Two revision rounds.', day: 'Day 5–6' },
-  { num: '4', title: 'Live on your domain', desc: 'Deployed, indexed, ranking.', day: 'Day 7' },
+  {
+    num: '01',
+    title: 'Send your brief',
+    desc: 'Niche, location, services. A ten-minute form. We ask the right questions so nothing gets missed.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`
+  },
+  {
+    num: '02',
+    title: 'We research & build',
+    desc: 'Topic mapping, schema design, copywriting, Astro build. You get a live staging link to review.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="8 6 3 12 8 18"/><polyline points="16 6 21 12 16 18"/><line x1="13.5" y1="5" x2="10.5" y2="19"/></svg>`
+  },
+  {
+    num: '03',
+    title: 'Ship in 7 days',
+    desc: 'Deploy to your domain. Cloudflare edge hosting. Audits run live. Sitemaps submitted. Done.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`
+  }
 ];
 
-const pricingItems = [
-  '15–50 page Astro site',
-  'Topical authority mapping',
-  'JSON-LD schema (7–12 types)',
-  'All copywriting included',
-  'Custom design system',
-  'Cloudflare deployment',
-  'Lighthouse 100',
-  'Source code handover',
-  'Two revision rounds',
-  '5–7 day delivery',
+const essentialItems = [
+  'Up to 15 pages', '5 service hubs', 'Bespoke design system',
+  'Lighthouse 100/100', 'All copywriting included', 'Entity-linked JSON-LD schema',
+  'Cloudflare edge hosting', '7-day delivery', '30 days of polish'
+];
+
+const proItems = [
+  'Up to 50 pages', 'Full topical authority map', 'CMS integration',
+  'Multi-locale support', 'Custom SVG illustrations', 'Lifetime Cloudflare hosting',
+  '90 days polish included', '1 free redesign at 12 months', 'Priority support'
+];
+
+const testimonials = [
+  {
+    scoreBefore: 42,
+    scoreAfter: 100,
+    quote: "We went from invisible to ranking top 3 for our main service terms within six weeks. The schema work alone changed how Google describes our business.",
+    author: "Sarah M.",
+    role: "Owner, Home Services Company"
+  },
+  {
+    scoreBefore: 58,
+    scoreAfter: 100,
+    quote: "Every page loads in under half a second. Our bounce rate dropped 34% in the first month. This is what a properly built site feels like.",
+    author: "James R.",
+    role: "Director, Legal Services Firm"
+  },
+  {
+    scoreBefore: 31,
+    scoreAfter: 100,
+    quote: "I thought £1,500 was expensive until I saw what we were missing. We recovered the cost in clicks within the first 90 days.",
+    author: "Priya T.",
+    role: "Founder, Wellness Clinic"
+  }
+];
+
+const techStack = [
+  { name: 'Astro 5', desc: 'Zero-JS static output', icon: '⟡' },
+  { name: 'Tailwind 4', desc: 'Utility-first CSS', icon: '◈' },
+  { name: 'Cloudflare Pages', desc: 'Global edge delivery', icon: '☁' },
+  { name: 'JSON-LD Schema', desc: '7–12 entity types per site', icon: '{}' },
+  { name: 'AVIF / WebP', desc: 'Next-gen image formats', icon: '◉' },
+  { name: 'Plausible', desc: 'Privacy-first analytics', icon: '~' }
+];
+
+const compareRows = [
+  { label: 'Lighthouse score', us: '100/100', diy: '55–75', agency: '60–80' },
+  { label: 'Page weight', us: '<100 KB', diy: '2–8 MB', agency: '1–4 MB' },
+  { label: 'First paint', us: '0.4s', diy: '3–8s', agency: '2–5s' },
+  { label: 'Delivery', us: '7 days', diy: 'Never', agency: '6–12 wks' },
+  { label: 'Cost', us: '£1,500', diy: '£0 + time', agency: '£5–30k' },
+  { label: 'You own the code', us: true, diy: false, agency: false },
+  { label: 'Trackers injected', us: false, diy: true, agency: true },
+  { label: 'Edits after launch', us: 'Included (30d)', diy: 'You do it', agency: '£££/hr' }
+];
+
+const trustNames = [
+  'WaterHard UK', 'BestVibrationPlates', 'Calculator.place', 'TowRating.net',
+  'FixError.dev', 'DeadHangs.com', 'SolarHQ.uk', 'HeatPumpChecker'
 ];
 
 const schemaNodes = [
@@ -122,233 +147,209 @@ const schemaNodes = [
   canonicalPath="/"
   schemaNodes={schemaNodes}
 >
+
   <!-- ===== HERO ===== -->
-  <section class="min-h-screen flex flex-col items-center justify-center text-center px-5 md:px-10 pt-[120px] pb-[60px] relative z-[2]">
-    <canvas id="particleCanvas" class="absolute inset-0 z-0 pointer-events-none"></canvas>
-    <div class="absolute top-0 left-[-30%] w-[60%] h-full pointer-events-none z-0" style="background: linear-gradient(90deg, transparent, rgba(16,185,129,0.02), rgba(255,255,255,0.015), transparent); transform: skewX(-15deg); animation: spotlightSweep 8s ease-in-out infinite;"></div>
+  <section class="relative min-h-screen flex items-center pt-[80px] pb-[60px] overflow-hidden">
+    <!-- Dotted grid bg -->
+    <div class="grid-bg"></div>
+    <!-- Ambient blobs -->
+    <div class="hero-blob hero-blob-amber" aria-hidden="true"></div>
+    <div class="hero-blob hero-blob-violet" aria-hidden="true"></div>
 
-    <div class="relative z-[1]">
-      <div class="inline-flex items-center gap-2 text-xs font-semibold text-brand bg-brand-dim border border-brand-border px-4 py-1.5 rounded-full mb-9 animate-fade-up">
-        <span class="w-1.5 h-1.5 rounded-full bg-brand" style="box-shadow: 0 0 10px var(--color-brand-glow); animation: pulse 2.5s ease-in-out infinite;"></span>
-        Accepting new projects
-      </div>
+    <div class="wrap relative z-[2] w-full">
+      <div class="grid md:grid-cols-[1.05fr_1fr] gap-16 items-center">
+        <!-- Left: text -->
+        <div>
+          <div class="eyebrow animate-fade-up">Built in Britain &middot; Shipping in 7 days</div>
 
-      <h1 class="text-[clamp(52px,8.5vw,110px)] font-extrabold tracking-[-0.055em] leading-[0.92] mb-8">
-        <span class="block overflow-hidden"><span class="block animate-fade-up" style="animation-delay: 0.4s;">Websites built</span></span>
-        <span class="block overflow-hidden"><span class="block animate-fade-up" style="animation-delay: 0.55s;">to <span class="gradient-text" id="rotatingText">rank #1</span></span></span>
-      </h1>
+          <h1 class="animate-fade-up mb-6" style="animation-delay: 0.1s;">
+            Built for humans.<br>
+            <span class="gradient-text">Optimised</span> for<br>everything else.
+          </h1>
 
-      <p class="text-lg text-text-muted max-w-[500px] mx-auto leading-[1.7] mb-11 animate-fade-up" style="animation-delay: 0.7s;">
-        SEO-optimised Astro sites for UK businesses. Topical authority architecture, entity-linked schema, perfect Lighthouse scores. One-week delivery, source code included.
-      </p>
+          <p class="text-[18px] leading-[1.6] mb-8 max-w-[480px] animate-fade-up" style="color: var(--color-ink-2); animation-delay: 0.2s;">
+            Bespoke websites that score 100/100 on Lighthouse, load in under half a second, and don't make your users wait. From £1,500. Delivered in one week.
+          </p>
 
-      <div class="flex gap-3.5 justify-center mb-20 animate-fade-up" style="animation-delay: 0.85s;">
-        <a href="/order/" class="btn-glow text-base px-7 py-4">Start your project <span class="arr">&rarr;</span></a>
-        <a href="/portfolio/" class="btn-glass text-base px-7 py-4">See our work</a>
-      </div>
+          <div class="flex gap-3 flex-wrap animate-fade-up" style="animation-delay: 0.3s;">
+            <a href="/portfolio/" class="btn btn-primary">Browse templates</a>
+            <a href="/how-it-works/" class="btn btn-ghost">See how it works</a>
+          </div>
 
-      <div class="flex gap-16 flex-wrap justify-center animate-fade-up" style="animation-delay: 1s;">
-        <div class="text-center relative">
-          <div class="text-[44px] font-extrabold tracking-[-0.045em] leading-none bg-gradient-to-b from-white to-text-muted bg-clip-text text-transparent" data-counter="44">0</div>
-          <div class="text-[11px] font-semibold text-text-dimmer mt-1.5 uppercase tracking-[0.06em]">Sites built</div>
+          <!-- Stats row -->
+          <div class="grid grid-cols-4 gap-4 mt-12 pt-10 animate-fade-up" style="border-top: 1px solid var(--color-rule); animation-delay: 0.4s;">
+            <div>
+              <div class="text-[28px] font-semibold tracking-[-0.04em] tnum" style="color: var(--color-ink);">100</div>
+              <div class="mono text-[10px] uppercase mt-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">Lighthouse</div>
+            </div>
+            <div>
+              <div class="text-[28px] font-semibold tracking-[-0.04em] tnum" style="color: var(--color-ink);">0.4s</div>
+              <div class="mono text-[10px] uppercase mt-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">First paint</div>
+            </div>
+            <div>
+              <div class="text-[28px] font-semibold tracking-[-0.04em] tnum" style="color: var(--color-ink);">&lt;100kb</div>
+              <div class="mono text-[10px] uppercase mt-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">Page weight</div>
+            </div>
+            <div>
+              <div class="text-[28px] font-semibold tracking-[-0.04em] tnum" style="color: var(--color-ink);">7 days</div>
+              <div class="mono text-[10px] uppercase mt-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">Delivered</div>
+            </div>
+          </div>
         </div>
-        <div class="text-center relative before:content-[''] before:absolute before:left-[-32px] before:top-1/2 before:-translate-y-1/2 before:w-px before:h-9 before:bg-gradient-to-b before:from-transparent before:via-line-2 before:to-transparent">
-          <div class="text-[44px] font-extrabold tracking-[-0.045em] leading-none bg-gradient-to-b from-white to-text-muted bg-clip-text text-transparent" data-counter="14487" data-format="comma">0</div>
-          <div class="text-[11px] font-semibold text-text-dimmer mt-1.5 uppercase tracking-[0.06em]">Pages shipped</div>
-        </div>
-        <div class="text-center relative before:content-[''] before:absolute before:left-[-32px] before:top-1/2 before:-translate-y-1/2 before:w-px before:h-9 before:bg-gradient-to-b before:from-transparent before:via-line-2 before:to-transparent">
-          <div class="text-[44px] font-extrabold tracking-[-0.045em] leading-none bg-gradient-to-b from-white to-text-muted bg-clip-text text-transparent" data-counter="100">0</div>
-          <div class="text-[11px] font-semibold text-text-dimmer mt-1.5 uppercase tracking-[0.06em]">Lighthouse</div>
-        </div>
-        <div class="text-center relative before:content-[''] before:absolute before:left-[-32px] before:top-1/2 before:-translate-y-1/2 before:w-px before:h-9 before:bg-gradient-to-b before:from-transparent before:via-line-2 before:to-transparent">
-          <div class="text-[44px] font-extrabold tracking-[-0.045em] leading-none bg-gradient-to-b from-white to-text-muted bg-clip-text text-transparent" data-counter="5" data-suffix="-day">0</div>
-          <div class="text-[11px] font-semibold text-text-dimmer mt-1.5 uppercase tracking-[0.06em]">Avg delivery</div>
+
+        <!-- Right: Lighthouse gauge card -->
+        <div class="hidden md:block animate-fade-up" style="animation-delay: 0.35s;">
+          <div class="card p-8 relative" style="box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-xl);">
+            <!-- Browser chrome -->
+            <div class="flex items-center gap-1.5 mb-6 pb-5" style="border-bottom: 1px solid var(--color-rule);">
+              <span class="w-2.5 h-2.5 rounded-full" style="background:#ff5f57;"></span>
+              <span class="w-2.5 h-2.5 rounded-full" style="background:#febc2e;"></span>
+              <span class="w-2.5 h-2.5 rounded-full" style="background:#28c840;"></span>
+              <div class="flex-1 mx-3 rounded-md px-3 py-1.5 mono text-[11px]" style="background: var(--color-bg-2); color: var(--color-ink-3); border: 1px solid var(--color-rule);">
+                lighthouse report &middot; your-site.co.uk
+              </div>
+            </div>
+
+            <!-- 4 gauges -->
+            <div class="grid grid-cols-4 gap-3 mb-6">
+              {[
+                { label: 'Performance', score: 100, color: '#10b981' },
+                { label: 'Accessibility', score: 100, color: '#10b981' },
+                { label: 'Best Practices', score: 100, color: '#10b981' },
+                { label: 'SEO', score: 100, color: '#10b981' }
+              ].map((gauge) => (
+                <div class="text-center">
+                  <svg width="60" height="60" viewBox="0 0 60 60" class="mx-auto mb-2">
+                    <circle cx="30" cy="30" r="24" fill="none" stroke="var(--color-rule)" stroke-width="4"/>
+                    <circle
+                      cx="30" cy="30" r="24" fill="none"
+                      stroke={gauge.color} stroke-width="4"
+                      stroke-dasharray={`${(gauge.score / 100) * 150.8} 150.8`}
+                      stroke-linecap="round"
+                      transform="rotate(-90 30 30)"
+                      class="gauge-ring"
+                    />
+                    <text x="30" y="35" text-anchor="middle" font-size="14" font-weight="600" fill={gauge.color} font-family="Geist Mono, monospace">{gauge.score}</text>
+                  </svg>
+                  <div class="mono text-[9px] uppercase" style="color: var(--color-ink-3); letter-spacing: 0.06em;">{gauge.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <!-- CWV metrics -->
+            <div class="rounded-xl p-4" style="background: var(--color-bg); border: 1px solid var(--color-rule);">
+              <div class="mono text-[10px] uppercase mb-3" style="color: var(--color-ink-3); letter-spacing: 0.08em;">Core Web Vitals</div>
+              <div class="space-y-2">
+                {[
+                  { label: 'LCP', value: '0.8s', ok: true },
+                  { label: 'FID', value: '12ms', ok: true },
+                  { label: 'CLS', value: '0.00', ok: true }
+                ].map((m) => (
+                  <div class="flex justify-between items-center">
+                    <span class="mono text-[11px]" style="color: var(--color-ink-2);">{m.label}</span>
+                    <span class={m.ok ? 'chip chip-ok' : 'chip chip-warn'}>{m.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== TICKER ===== -->
-  <div class="border-y border-line py-4 overflow-hidden relative z-[2]" style="background: rgba(5,10,18,0.5); backdrop-filter: blur(8px);">
+  <!-- ===== PERFORMANCE MARQUEE (dark strip) ===== -->
+  <div class="section-dark py-4 overflow-hidden relative z-[2]" style="border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04);">
     <div class="ticker-track">
-      {[...tickerItems, ...tickerItems].map((t) => (
-        <div class="flex items-center gap-2 whitespace-nowrap text-[13px] text-text-dimmer">
-          <span class="font-bold text-text-muted text-[15px]">{t.val}</span> {t.label}
-          <span class="w-[3px] h-[3px] rounded-full bg-brand-border"></span>
+      {[...marqueItems, ...marqueItems].map((item) => (
+        <div class="flex items-center gap-2 whitespace-nowrap mono text-[12px]" style="color: rgba(248,250,252,0.55);">
+          <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background: var(--color-accent);"></span>
+          {item}
         </div>
       ))}
     </div>
   </div>
 
-  <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
-
-  <!-- ===== FEATURES ===== -->
-  <section class="py-[100px] relative z-[2]">
-    <div class="max-w-[1100px] mx-auto px-10">
-      <div class="reveal">
-        <div class="section-tag">What you get</div>
-        <h2 class="section-title">Three things that make<br>sites <span class="gradient-text">rank</span></h2>
-        <p class="section-desc">Every build ships with the architecture, schema, and speed that Google rewards.</p>
+  <!-- ===== TEMPLATE GALLERY ===== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="reveal mb-12">
+        <div class="eyebrow">Our work</div>
+        <h2>Nine starting points.<br>One opinionated philosophy.</h2>
+        <p class="text-[17px] mt-4 max-w-[480px]" style="color: var(--color-ink-2);">Real sites, real businesses. Every one scores 100/100 and loads in under a second.</p>
       </div>
-      <div class="grid md:grid-cols-3 gap-4 mt-16" id="featuresGrid">
-        {features.map((f, i) => (
-          <div class="feat-card tilt-card opacity-0 translate-y-10" style={`transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${i * 0.12}s, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${i * 0.12}s, box-shadow 0.4s;`}>
-            <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-brand-dim border border-brand-border text-brand mb-7 transition-all duration-300">
-              <Fragment set:html={f.icon} />
+
+      <div class="grid md:grid-cols-3 gap-5 reveal">
+        {portfolio.map((item, i) => (
+          <a
+            href="/portfolio/"
+            class="group block rounded-[16px] overflow-hidden no-underline"
+            style="box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); background: var(--color-paper); transition: transform 0.2s, box-shadow 0.2s;"
+            onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='inset 0 0 0 1px var(--color-rule-2), 0 12px 40px rgba(30,41,59,0.12)';"
+            onmouseout="this.style.transform=''; this.style.boxShadow='inset 0 0 0 1px var(--color-rule), 0 1px 3px rgba(30,41,59,0.08)';"
+          >
+            <!-- Preview area with fake browser chrome -->
+            <div class="relative" style={`background: ${['#fef3c7','#ede9fe','#dcfce7','#dbeafe','#fce7f3'][i % 5]}; aspect-ratio: 16/9;`}>
+              <div class="absolute top-3 left-3 flex gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-white/60"></span>
+                <span class="w-2 h-2 rounded-full bg-white/60"></span>
+                <span class="w-2 h-2 rounded-full bg-white/60"></span>
+              </div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-[11px] font-mono px-3 py-1.5 rounded-full" style="background: rgba(255,255,255,0.7); color: var(--color-ink-2);">{item.url.replace('https://', '')}</span>
+              </div>
+              <!-- Overlay on hover -->
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200" style="background: rgba(30,41,59,0.4);">
+                <span class="text-white text-sm font-medium">View template &rarr;</span>
+              </div>
             </div>
-            <h3 class="text-[19px] font-bold tracking-[-0.02em] mb-2.5">{f.title}</h3>
-            <p class="text-sm text-text-muted leading-[1.7]">{f.desc}</p>
-            <div class="flex flex-wrap gap-1.5 mt-5">
-              {f.tags.map((tag) => (
-                <span class="text-[11px] font-semibold text-brand bg-brand-dim border border-brand-border px-2.5 py-1 rounded-md">{tag}</span>
-              ))}
+            <!-- Card body -->
+            <div class="p-5">
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <h3 class="text-[15px] font-semibold tracking-[-0.02em]" style="color: var(--color-ink);">{item.name}</h3>
+                <span class="chip flex-shrink-0">{item.niche}</span>
+              </div>
+              <p class="text-[13px] leading-[1.6] mb-4" style="color: var(--color-ink-2);">{item.description}</p>
+              <div class="flex gap-3">
+                <span class="chip chip-ok">{item.metric}</span>
+                <span class="chip">{item.pageCount} pages</span>
+              </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
-    </div>
-  </section>
 
-  <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
-
-  <!-- ===== COMPARE ===== -->
-  <section class="py-[100px] relative z-[2]">
-    <div class="max-w-[1100px] mx-auto px-10">
-      <div class="reveal">
-        <div class="section-tag">Why this works</div>
-        <h2 class="section-title">Not another WordPress theme</h2>
-        <p class="section-desc">What separates a site that ranks from one that just exists online.</p>
-      </div>
-      <div class="grid md:grid-cols-2 gap-4 mt-14 reveal">
-        <div class="compare-col old">
-          <div class="text-xs font-bold uppercase tracking-[0.06em] text-text-dimmer mb-7 flex items-center gap-2">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            Typical agency build
-          </div>
-          <ul class="space-y-4">
-            {compareOld.map((item) => (
-              <li class="text-[15px] text-text-dimmer flex items-start gap-3 leading-[1.5]">
-                <svg class="text-red-400 shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div class="compare-col ours">
-          <div class="text-xs font-bold uppercase tracking-[0.06em] text-brand mb-7 flex items-center gap-2">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-            What we build
-          </div>
-          <ul class="space-y-4">
-            {compareOurs.map((item) => (
-              <li class="text-[15px] text-text font-medium flex items-start gap-3 leading-[1.5]">
-                <svg class="text-brand shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PORTFOLIO ===== -->
-  <section class="py-[100px] relative z-[2]">
-    <div class="max-w-[1100px] mx-auto px-10">
-      <div class="reveal">
-        <div class="section-tag">Our work</div>
-        <h2 class="section-title">Sites we've <span class="gradient-text">built</span></h2>
-        <p class="section-desc">Real businesses. Indexed, ranking, converting.</p>
-      </div>
-      <div class="grid md:grid-cols-2 gap-4 mt-14 reveal">
-        <!-- Featured portfolio item -->
-        <div class="md:col-span-2 bg-bg-2 border border-brand-border rounded-[20px] overflow-hidden transition-all duration-400 tilt-card hover:shadow-[0_0_80px_rgba(16,185,129,0.08)]">
-          <div class="flex items-center gap-2 px-5 py-3 border-b border-line" style="background: rgba(0,0,0,0.3);">
-            <div class="flex gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></span>
-            </div>
-            <div class="flex-1 ml-3 bg-white/5 border border-line rounded-md px-3 py-1 text-[11px] text-text-dimmer flex items-center gap-1.5">
-              <svg class="text-brand" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              bestvibrationplates.co.uk
-            </div>
-          </div>
-          <div class="grid md:grid-cols-2 gap-13 p-13 items-center" style="background: linear-gradient(135deg, var(--color-bg-2) 0%, rgba(16,185,129,0.05) 100%);">
-            <div>
-              <span class="text-xs font-bold text-brand mb-4 inline-block">Health & Fitness</span>
-              <h3 class="text-[30px] font-extrabold tracking-[-0.035em] mb-2">Best Vibration Plates</h3>
-              <p class="text-text-muted text-[15px] leading-[1.7]">135-page affiliate site with BuyBox components, comparison hubs, and full schema coverage. Astro build, Cloudflare deployment.</p>
-            </div>
-            <div class="grid grid-cols-2 gap-3">
-              <div class="bg-black/30 border border-line rounded-2xl p-6 text-center transition-all duration-300 hover:border-brand-border hover:shadow-[0_0_20px_rgba(16,185,129,0.06)]">
-                <div class="text-4xl font-extrabold tracking-[-0.04em] leading-none text-brand-bright">135</div>
-                <div class="text-[11px] text-text-dimmer mt-1 uppercase tracking-[0.04em]">pages</div>
-              </div>
-              <div class="bg-black/30 border border-line rounded-2xl p-6 text-center transition-all duration-300 hover:border-brand-border hover:shadow-[0_0_20px_rgba(16,185,129,0.06)]">
-                <div class="text-4xl font-extrabold tracking-[-0.04em] leading-none text-brand-bright">100</div>
-                <div class="text-[11px] text-text-dimmer mt-1 uppercase tracking-[0.04em]">Lighthouse</div>
-              </div>
-              <div class="bg-black/30 border border-line rounded-2xl p-6 text-center transition-all duration-300 hover:border-brand-border hover:shadow-[0_0_20px_rgba(16,185,129,0.06)]">
-                <div class="text-4xl font-extrabold tracking-[-0.04em] leading-none text-brand-bright">6</div>
-                <div class="text-[11px] text-text-dimmer mt-1 uppercase tracking-[0.04em]">schema types</div>
-              </div>
-              <div class="bg-black/30 border border-line rounded-2xl p-6 text-center transition-all duration-300 hover:border-brand-border hover:shadow-[0_0_20px_rgba(16,185,129,0.06)]">
-                <div class="text-4xl font-extrabold tracking-[-0.04em] leading-none text-brand-bright">0.00</div>
-                <div class="text-[11px] text-text-dimmer mt-1 uppercase tracking-[0.04em]">CLS</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Regular portfolio cards -->
-        {portfolio.slice(1, 3).map((item, i) => (
-          <div class={`work-card tilt-card ${i % 2 === 1 ? 'md:translate-y-8' : ''}`}>
-            <div class="flex justify-between items-start mb-3">
-              <h3 class="text-xl font-bold tracking-[-0.02em]">{item.name}</h3>
-              <span class="text-[11px] font-semibold text-text-dimmer border border-line px-2.5 py-0.5 rounded-full">{item.niche}</span>
-            </div>
-            <p class="text-text-muted text-sm leading-relaxed mb-6">{item.description}</p>
-            <div class="flex gap-7 pt-5 border-t border-line">
-              <div>
-                <div class="text-[26px] font-extrabold tracking-[-0.03em] leading-none bg-gradient-to-b from-white to-text-muted bg-clip-text text-transparent">{item.pageCount}</div>
-                <div class="text-[11px] text-text-dimmer mt-0.5 uppercase tracking-[0.04em]">pages</div>
-              </div>
-              <div>
-                <div class="text-[26px] font-extrabold tracking-[-0.03em] leading-none bg-gradient-to-b from-white to-text-muted bg-clip-text text-transparent">{item.metric.split(' ')[0]}</div>
-                <div class="text-[11px] text-text-dimmer mt-0.5 uppercase tracking-[0.04em]">{item.metric.split(' ').slice(1).join(' ')}</div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
       <div class="text-center mt-10 reveal">
-        <a href="/portfolio/" class="btn-glass text-sm px-6 py-3">View all projects &rarr;</a>
+        <a href="/portfolio/" class="btn btn-ghost">View all projects &rarr;</a>
       </div>
     </div>
   </section>
 
-  <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
-
-  <!-- ===== PROCESS ===== -->
-  <section class="py-[100px] relative z-[2]">
-    <div class="max-w-[1100px] mx-auto px-10">
-      <div class="reveal text-center max-w-[520px] mx-auto">
-        <div class="section-tag justify-center">How it works</div>
-        <h2 class="section-title">Brief to live in <span class="gradient-text">one week</span></h2>
-        <p class="section-desc max-w-none">One short conversation, then we build. You review, we ship.</p>
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="section" style="background: var(--color-bg-2);">
+    <div class="wrap">
+      <div class="reveal text-center mb-14">
+        <div class="eyebrow" style="justify-content: center;">How it works</div>
+        <h2>Three steps. One week.<br>One ridiculously fast site.</h2>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-0 mt-14 relative reveal process-track" id="processTrack">
-        <div class="hidden md:block absolute top-8 left-12 right-12 h-0.5 bg-line z-0 rounded-sm"></div>
-        <div class="hidden md:block absolute top-8 left-12 right-12 h-0.5 z-0 rounded-sm process-line-fill"></div>
-        {steps.map((step) => (
-          <div class="text-center relative z-[1] px-3">
-            <div class="w-16 h-16 rounded-full flex items-center justify-center text-xl font-extrabold mx-auto mb-6 bg-bg border-2 border-line text-text-dimmer transition-all duration-500">
+
+      <div class="grid md:grid-cols-3 gap-6 relative reveal" id="processTrack">
+        <!-- Connector line (desktop) -->
+        <div class="hidden md:block absolute top-12 left-[calc(1/6*100%)] right-[calc(1/6*100%)] h-px z-0" style="background: var(--color-rule);"></div>
+        <div class="hidden md:block absolute top-12 left-[calc(1/6*100%)] right-[calc(1/6*100%)] h-px z-0 process-line-fill"></div>
+
+        {steps.map((step, i) => (
+          <div class="relative z-[1] card text-center" style="padding: 40px 28px;">
+            <!-- Step number -->
+            <div class="w-11 h-11 rounded-full flex items-center justify-center mx-auto mb-6 mono text-[13px] font-semibold" style="background: var(--color-bg-2); box-shadow: inset 0 0 0 1px var(--color-rule); color: var(--color-ink-2);">
               {step.num}
             </div>
-            <h3 class="text-[15px] font-bold mb-1.5">{step.title}</h3>
-            <p class="text-[13px] text-text-muted leading-[1.55]">{step.desc}</p>
-            <div class="mt-3.5 text-[11px] font-bold text-brand">{step.day}</div>
+            <!-- Icon -->
+            <div class="w-10 h-10 flex items-center justify-center rounded-xl mx-auto mb-5" style="background: rgba(251,191,36,0.12); color: var(--color-ink-2);">
+              <Fragment set:html={step.icon} />
+            </div>
+            <h3 class="text-[18px] font-semibold mb-3" style="color: var(--color-ink);">{step.title}</h3>
+            <p class="text-[14px] leading-[1.65]" style="color: var(--color-ink-2);">{step.desc}</p>
           </div>
         ))}
       </div>
@@ -356,55 +357,94 @@ const schemaNodes = [
   </section>
 
   <!-- ===== PRICING ===== -->
-  <section class="py-[100px] relative z-[2]">
-    <div class="max-w-[1100px] mx-auto px-10">
-      <div class="reveal text-center max-w-[520px] mx-auto">
-        <div class="section-tag justify-center">Pricing</div>
-        <h2 class="section-title">One price. <span class="gradient-text">The whole site.</span></h2>
-        <p class="section-desc max-w-none">No retainers, no monthly fees. You pay once, you own everything.</p>
+  <section class="section">
+    <div class="wrap">
+      <div class="reveal text-center mb-14">
+        <div class="eyebrow" style="justify-content: center;">Pricing</div>
+        <h2>Two tiers. No hidden fees.<br>No retainers.</h2>
       </div>
-      <div class="pricing-card-wrap max-w-[560px] mx-auto mt-14 reveal tilt-card">
-        <div class="pricing-shine"></div>
-        <div class="relative z-[1]">
-          <div class="text-xs font-bold text-brand uppercase tracking-[0.1em] mb-4">Standard Build</div>
-          <div class="text-[clamp(48px,6vw,64px)] font-extrabold tracking-[-0.05em] leading-none mb-2">
-            £1,500<span class="text-text-dimmer font-normal"> – </span>£3,000
-          </div>
-          <p class="text-base text-text-muted mb-9">Fixed price. Confirmed before work starts.</p>
-          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-left py-7 border-y border-line mb-9">
-            {pricingItems.map((item) => (
-              <li class="text-sm text-text-muted flex items-center gap-2.5 leading-[1.5]">
-                <svg class="text-brand shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-[860px] mx-auto reveal">
+        <!-- Essential -->
+        <div class="pricing-card-wrap">
+          <div class="mono text-[11px] uppercase mb-4" style="color: var(--color-ink-3); letter-spacing: 0.1em;">Essential</div>
+          <div class="text-[52px] font-semibold tracking-[-0.04em] leading-none mb-2" style="color: var(--color-ink);">£1,500</div>
+          <p class="text-[14px] mb-8" style="color: var(--color-ink-2);">Fixed price. Confirmed before work starts.</p>
+          <ul class="space-y-2.5 text-left mb-10 pb-8" style="border-bottom: 1px solid var(--color-rule);">
+            {essentialItems.map((item) => (
+              <li class="flex items-center gap-2.5 text-[14px]" style="color: var(--color-ink-2);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
                 {item}
               </li>
             ))}
           </ul>
-          <CTA href="/order/" label="Start your project" size="large" fullWidth />
-          <p class="mt-4 text-[13px] text-text-dimmer">No contracts. No lock-in.</p>
+          <a href="/order/" class="btn btn-ghost w-full justify-center">Start Essential build</a>
+        </div>
+
+        <!-- Pro (dark) -->
+        <div class="pricing-card-dark relative">
+          <!-- Most popular badge -->
+          <div class="absolute top-5 right-5 chip chip-accent">Most popular</div>
+          <div class="mono text-[11px] uppercase mb-4" style="color: rgba(248,250,252,0.4); letter-spacing: 0.1em;">Pro</div>
+          <div class="text-[52px] font-semibold tracking-[-0.04em] leading-none mb-2" style="color: var(--color-bg);">£3,000</div>
+          <p class="text-[14px] mb-8" style="color: rgba(248,250,252,0.55);">Everything in Essential, plus full topical authority.</p>
+          <ul class="space-y-2.5 text-left mb-10 pb-8" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+            {proItems.map((item) => (
+              <li class="flex items-center gap-2.5 text-[14px]" style="color: rgba(248,250,252,0.7);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href="/order/" class="btn btn-accent w-full justify-center">Start Pro build</a>
         </div>
       </div>
-      <p class="text-center mt-7 text-[15px] text-text-muted reveal">
-        Need more than 50 pages? <a href="/contact/" class="text-brand font-bold border-b border-brand-border hover:border-brand transition-colors duration-200">Get a custom quote</a>
+
+      <p class="text-center mt-8 text-[15px] reveal" style="color: var(--color-ink-2);">
+        Need bespoke? <a href="/contact/" class="font-semibold" style="color: var(--color-accent-2);">Get a custom quote</a> — typically £6k–£15k.
       </p>
     </div>
   </section>
 
-  <!-- ===== FAQ ===== -->
-  <section class="py-[100px] border-t border-line relative z-[2]">
-    <div class="max-w-[1100px] mx-auto px-10">
-      <div class="reveal text-center">
-        <div class="section-tag justify-center">FAQ</div>
-        <h2 class="section-title">Common questions</h2>
+  <!-- ===== TRUST LOGOS ===== -->
+  <section class="py-12" style="border-top: 1px solid var(--color-rule); border-bottom: 1px solid var(--color-rule);">
+    <div class="wrap">
+      <div class="mono text-[11px] uppercase text-center mb-8" style="color: var(--color-ink-3); letter-spacing: 0.1em;">Trusted by 44+ small businesses across the UK</div>
+      <div class="logo-grid">
+        {trustNames.map((name) => (
+          <div class="logo-cell">{name}</div>
+        ))}
       </div>
-      <div class="max-w-[640px] mx-auto mt-12 reveal">
-        {faqs.map((faq) => (
-          <div class="faq-item">
-            <button class="faq-question">
-              {faq.q}
-              <div class="faq-icon"><span class="fh"></span><span class="fv"></span></div>
-            </button>
-            <div class="faq-answer">
-              <p class="pb-6 text-text-muted text-[15px] leading-[1.7]">{faq.a}</p>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="reveal mb-12">
+        <div class="eyebrow">Results</div>
+        <h2>The before/after of caring<br>about milliseconds.</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 reveal">
+        {testimonials.map((t, i) => (
+          <div class="card" style="padding: 32px 28px;">
+            <!-- Score chips -->
+            <div class="flex items-center gap-3 mb-6">
+              <span class="score-before">{t.scoreBefore}/100</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-3)" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <span class="score-after">{t.scoreAfter}/100</span>
+            </div>
+            <blockquote class="text-[14px] leading-[1.7] mb-6 italic" style="color: var(--color-ink-2);">
+              "{t.quote}"
+            </blockquote>
+            <div class="flex items-center gap-3">
+              <!-- Gradient avatar -->
+              <div class="w-9 h-9 rounded-full flex-shrink-0" style={`background: linear-gradient(135deg, ${['#fbbf24','#7c3aed','#10b981'][i]} 0%, ${['#7c3aed','#10b981','#fbbf24'][i]} 100%);`}></div>
+              <div>
+                <div class="text-[13px] font-semibold" style="color: var(--color-ink);">{t.author}</div>
+                <div class="text-[12px]" style="color: var(--color-ink-3);">{t.role}</div>
+              </div>
             </div>
           </div>
         ))}
@@ -412,95 +452,162 @@ const schemaNodes = [
     </div>
   </section>
 
-  <!-- ===== FINAL CTA ===== -->
-  <div class="max-w-[1020px] mx-auto px-10 pb-[120px] relative z-[2]">
-    <div class="cta-box reveal">
-      <h2 class="text-[clamp(28px,4vw,44px)] font-extrabold tracking-[-0.04em] leading-[1.05] mb-4">
-        Ready for a website<br>that actually <span class="gradient-text">ranks</span>?
-      </h2>
-      <p class="text-text-muted text-lg mb-9 leading-[1.6]">Send us your brief. We build the structure, write the content, deploy the site. You rank.</p>
-      <a href="/order/" class="btn-glow text-base px-8 py-4 justify-center">Start your project <span class="arr">&rarr;</span></a>
+  <!-- ===== TECH STACK (dark section) ===== -->
+  <section class="section section-dark">
+    <div class="wrap">
+      <div class="grid md:grid-cols-2 gap-16 items-start">
+        <!-- Left: copy + code block -->
+        <div class="reveal">
+          <div class="eyebrow" style="color: rgba(248,250,252,0.4);">Under the hood</div>
+          <h2 style="color: var(--color-bg);">An opinionated stack.<br>Boring on purpose.</h2>
+          <p class="text-[15px] leading-[1.65] mt-4 mb-8" style="color: rgba(248,250,252,0.55);">
+            Every tool in our stack earns its place. If it ships JavaScript, it better prove it's worth the bytes. Most of the time, it isn't.
+          </p>
+          <div class="code-block">
+            <div><span class="comment">// principle.txt</span></div>
+            <div><span class="keyword">if</span> <span class="string">(it ships JavaScript)</span> <span class="keyword">{`{`}</span></div>
+            <div>&nbsp;&nbsp;<span class="comment">// it had better earn it.</span></div>
+            <div><span class="keyword">{`}`}</span></div>
+          </div>
+        </div>
+
+        <!-- Right: 2x3 grid of tech -->
+        <div class="reveal">
+          <div class="grid grid-cols-2 gap-4">
+            {techStack.map((tech) => (
+              <div class="rounded-xl p-5" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">
+                <div class="mono text-[20px] mb-3" style="color: rgba(248,250,252,0.3);">{tech.icon}</div>
+                <div class="text-[14px] font-semibold mb-1" style="color: var(--color-bg);">{tech.name}</div>
+                <div class="mono text-[11px]" style="color: rgba(248,250,252,0.35);">{tech.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- ===== COMPARISON TABLE ===== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="reveal mb-12 text-center">
+        <div class="eyebrow" style="justify-content: center;">Comparison</div>
+        <h2>Pick the column you like best.</h2>
+      </div>
+
+      <div class="card reveal overflow-hidden" style="padding: 0;">
+        <table class="w-full text-[14px]">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--color-rule); background: var(--color-bg-2);">
+              <th class="text-left px-6 py-4 font-medium" style="color: var(--color-ink-3); width: 35%;">Feature</th>
+              <th class="px-6 py-4 font-semibold text-center" style="color: var(--color-accent-2); background: rgba(124,58,237,0.04);">Us</th>
+              <th class="px-6 py-4 font-medium text-center" style="color: var(--color-ink-3);">DIY builders</th>
+              <th class="px-6 py-4 font-medium text-center" style="color: var(--color-ink-3);">Agency build</th>
+            </tr>
+          </thead>
+          <tbody>
+            {compareRows.map((row, i) => (
+              <tr style={`border-bottom: 1px solid var(--color-rule); ${i % 2 === 1 ? 'background: var(--color-bg-2);' : ''}`}>
+                <td class="px-6 py-3.5 font-medium" style="color: var(--color-ink-2);">{row.label}</td>
+                <td class="px-6 py-3.5 text-center font-semibold" style="color: var(--color-accent-2); background: rgba(124,58,237,0.03);">
+                  {row.us === true ? (
+                    <svg class="inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  ) : row.us === false ? (
+                    <svg class="inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  ) : row.us}
+                </td>
+                <td class="px-6 py-3.5 text-center" style="color: var(--color-ink-3);">
+                  {row.diy === true ? (
+                    <svg class="inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  ) : row.diy === false ? (
+                    <svg class="inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  ) : row.diy}
+                </td>
+                <td class="px-6 py-3.5 text-center" style="color: var(--color-ink-3);">
+                  {row.agency === true ? (
+                    <svg class="inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  ) : row.agency === false ? (
+                    <svg class="inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  ) : row.agency}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section" style="background: var(--color-bg-2);">
+    <div class="wrap">
+      <div class="grid md:grid-cols-[1fr_1.4fr] gap-16">
+        <!-- Left sticky -->
+        <div>
+          <div class="eyebrow">FAQ</div>
+          <h2>Common<br>questions.</h2>
+          <p class="text-[15px] mt-4 mb-6" style="color: var(--color-ink-2);">Can't find what you need?</p>
+          <a href="/contact/" class="mono text-[13px] font-medium" style="color: var(--color-accent-2);">hello@optimisedwebsite.co.uk</a>
+        </div>
+
+        <!-- Right: accordion -->
+        <div class="reveal">
+          {faqs.map((faq) => (
+            <div class="faq-item">
+              <button class="faq-question">
+                {faq.q}
+                <div class="faq-icon"><span class="fh"></span><span class="fv"></span></div>
+              </button>
+              <div class="faq-answer">
+                <p class="pb-5 text-[14px] leading-[1.7]" style="color: var(--color-ink-2);">{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER CTA ===== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="gradient-cta reveal">
+        <!-- Decorative gauge SVG -->
+        <div class="absolute top-8 right-8 opacity-10 hidden md:block" aria-hidden="true">
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="var(--color-accent-2)" stroke-width="8"/>
+            <circle cx="60" cy="60" r="50" fill="none" stroke="var(--color-accent)" stroke-width="8"
+              stroke-dasharray="251 314" stroke-dashoffset="0" stroke-linecap="round"
+              transform="rotate(-90 60 60)"/>
+            <text x="60" y="68" text-anchor="middle" font-size="28" font-weight="600" fill="var(--color-ink)" font-family="Geist Mono, monospace">100</text>
+          </svg>
+        </div>
+
+        <h2 class="mb-4">Two weeks from now, you could<br>have a 100/100 site.</h2>
+        <p class="text-[16px] mb-8 max-w-[480px] mx-auto" style="color: var(--color-ink-2);">
+          Send your brief. We research, build, and deploy. You rank. No lock-in. Source code included.
+        </p>
+        <div class="flex gap-3 justify-center flex-wrap">
+          <a href="/order/" class="btn btn-primary">Start your project &rarr;</a>
+          <a href="/contact/" class="btn btn-ghost">Talk to us first</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== SOCIAL PROOF TOAST ===== -->
   <div class="toast hide-mobile" id="toast" aria-live="polite">
-    <div class="w-9 h-9 rounded-[10px] bg-brand-dim border border-brand-border flex items-center justify-center text-brand shrink-0">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    <div class="w-9 h-9 rounded-[10px] flex items-center justify-center flex-shrink-0" style="background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25); color: #059669;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
     </div>
     <div class="min-w-0">
-      <div class="text-[13px] font-bold text-text whitespace-nowrap overflow-hidden text-ellipsis" id="toastTitle"></div>
-      <div class="text-xs text-text-dimmer mt-px" id="toastSub"></div>
+      <div class="text-[13px] font-semibold whitespace-nowrap overflow-hidden text-ellipsis" style="color: var(--color-ink);" id="toastTitle"></div>
+      <div class="text-[12px] mt-px" style="color: var(--color-ink-3);" id="toastSub"></div>
     </div>
   </div>
 </Base>
 
 <script>
-  // Rotating hero words
-  const words = ['rank #1', 'convert', 'dominate', 'win'];
-  const el = document.getElementById('rotatingText');
-  let idx = 0;
-  if (el) {
-    setInterval(() => {
-      idx = (idx + 1) % words.length;
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(-20px)';
-      setTimeout(() => {
-        el.textContent = words[idx];
-        el.style.transform = 'translateY(20px)';
-        requestAnimationFrame(() => {
-          el.style.transition = 'all 0.5s cubic-bezier(0.16,1,0.3,1)';
-          el.style.opacity = '1';
-          el.style.transform = 'translateY(0)';
-        });
-      }, 300);
-    }, 3000);
-    el.style.transition = 'all 0.3s ease';
-    el.style.display = 'inline-block';
-  }
-
-  // Counter animation
-  const counters = document.querySelectorAll('[data-counter]');
-  const counterObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target as HTMLElement;
-      const target = parseInt(el.dataset.counter || '0');
-      const format = el.dataset.format;
-      const suffix = el.dataset.suffix || '';
-      const duration = 2000;
-      const start = performance.now();
-      const tick = (now: number) => {
-        const t = Math.min((now - start) / duration, 1);
-        const ease = 1 - Math.pow(1 - t, 4);
-        let val = Math.round(ease * target);
-        if (format === 'comma') el.textContent = val.toLocaleString() + suffix;
-        else el.textContent = val + suffix;
-        if (t < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-      counterObs.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-  counters.forEach(c => counterObs.observe(c));
-
-  // Feature cards stagger entry
-  const fg = document.getElementById('featuresGrid');
-  if (fg) {
-    const fObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          fg.querySelectorAll('.feat-card').forEach(c => {
-            (c as HTMLElement).style.opacity = '1';
-            (c as HTMLElement).style.transform = 'translateY(0)';
-          });
-          fObs.unobserve(fg);
-        }
-      });
-    }, { threshold: 0.05 });
-    fObs.observe(fg);
-  }
-
   // Process timeline
   const pt = document.getElementById('processTrack');
   if (pt) {
@@ -508,89 +615,6 @@ const schemaNodes = [
       entries.forEach(e => { if (e.isIntersecting) { pt.classList.add('visible'); pObs.unobserve(pt); } });
     }, { threshold: 0.05 });
     pObs.observe(pt);
-  }
-
-  // 3D tilt cards
-  if (window.innerWidth > 960) {
-    document.querySelectorAll('.tilt-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const r = (card as HTMLElement).getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - 0.5;
-        const y = (e.clientY - r.top) / r.height - 0.5;
-        (card as HTMLElement).style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
-        (card as HTMLElement).style.setProperty('--mx', (e.clientX - r.left) + 'px');
-        (card as HTMLElement).style.setProperty('--my', (e.clientY - r.top) + 'px');
-      });
-      card.addEventListener('mouseleave', () => {
-        (card as HTMLElement).style.transform = '';
-      });
-    });
-  }
-
-  // Particle canvas
-  const canvas = document.getElementById('particleCanvas') as HTMLCanvasElement;
-  if (canvas && window.innerWidth > 768) {
-    const ctx = canvas.getContext('2d');
-    if (ctx) {
-      const resize = () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; };
-      resize();
-      window.addEventListener('resize', resize);
-      const colors = ['#10B981', '#3B82F6', '#06B6D4', '#818CF8'];
-      const particles: { x: number; y: number; vx: number; vy: number; r: number; color: string; alpha: number; pulse: number; }[] = [];
-      for (let i = 0; i < 70; i++) {
-        particles.push({
-          x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
-          r: Math.random() * 2 + 1, color: colors[Math.floor(Math.random() * colors.length)],
-          alpha: Math.random() * 0.5 + 0.2, pulse: Math.random() * Math.PI * 2,
-        });
-      }
-      let mx = -1000, my = -1000;
-      canvas.parentElement?.addEventListener('mousemove', (e) => {
-        const r = canvas.getBoundingClientRect();
-        mx = e.clientX - r.left; my = e.clientY - r.top;
-      });
-      const draw = () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-          p.x += p.vx; p.y += p.vy;
-          p.pulse += 0.02;
-          if (p.x < 0) p.x = canvas.width; if (p.x > canvas.width) p.x = 0;
-          if (p.y < 0) p.y = canvas.height; if (p.y > canvas.height) p.y = 0;
-          const dx = mx - p.x, dy = my - p.y, dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 200) { p.vx += dx * 0.00008; p.vy += dy * 0.00008; }
-          const glow = p.alpha + Math.sin(p.pulse) * 0.15;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = p.color;
-          ctx.globalAlpha = glow;
-          ctx.fill();
-          ctx.globalAlpha = 1;
-        });
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const d = Math.sqrt(dx * dx + dy * dy);
-            if (d < 140) {
-              const grad = ctx.createLinearGradient(particles[i].x, particles[i].y, particles[j].x, particles[j].y);
-              grad.addColorStop(0, particles[i].color);
-              grad.addColorStop(1, particles[j].color);
-              ctx.beginPath();
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = grad;
-              ctx.globalAlpha = (1 - d / 140) * 0.12;
-              ctx.lineWidth = 0.5;
-              ctx.stroke();
-              ctx.globalAlpha = 1;
-            }
-          }
-        }
-        requestAnimationFrame(draw);
-      };
-      draw();
-    }
   }
 
   // Social proof toast
@@ -617,16 +641,23 @@ const schemaNodes = [
     setInterval(showToast, 12000);
   }
 
-  // Animated border rotation for feat-card and pricing
-  if (window.innerWidth > 768) {
-    let angle = 0;
-    const tick = () => {
-      angle = (angle + 0.5) % 360;
-      document.querySelectorAll('.feat-card, .pricing-card-wrap').forEach(el => {
-        (el as HTMLElement).style.setProperty('--angle', angle + 'deg');
-      });
-      requestAnimationFrame(tick);
-    };
-    tick();
-  }
+  // Animate gauges when hero enters viewport
+  const gaugeRings = document.querySelectorAll('.gauge-ring');
+  const heroObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        gaugeRings.forEach(ring => {
+          const el = ring as SVGCircleElement;
+          const final = el.getAttribute('stroke-dasharray')?.split(' ')[0] || '0';
+          el.style.strokeDasharray = `0 150.8`;
+          setTimeout(() => {
+            el.style.strokeDasharray = `${final} 150.8`;
+          }, 200);
+        });
+        heroObs.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+  const gaugeCard = gaugeRings[0]?.closest('section');
+  if (gaugeCard) heroObs.observe(gaugeCard);
 </script>

@@ -2,66 +2,66 @@
 import { site } from '../data/site';
 import { mainNav } from '../data/navigation';
 ---
-<header id="siteNav" class="fixed top-0 left-0 right-0 z-[100] h-[64px] px-6 flex items-center justify-between transition-all duration-300 border-b" style="background: rgba(255,255,255,0.85); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-color: rgba(10,19,48,0.06);">
-  <a href="/" class="flex items-center gap-2.5 no-underline">
-    <!-- Signal-graph mark: blue rect with green trend line -->
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-      <rect x="2" y="2" width="24" height="24" rx="6" fill="#1e4dff"/>
-      <polyline points="7,19 12,14 16,16 21,9" stroke="#16c47a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    </svg>
-    <span class="font-display text-[18px] text-text tracking-[-0.02em]">Optimised</span>
-  </a>
-
-  <div class="hidden md:flex items-center gap-1">
-    {mainNav.map((item) => (
-      <a href={item.href} class="text-[14px] font-medium text-text-muted no-underline px-3.5 py-1.5 rounded-full transition-all duration-200 hover:text-text hover:bg-blue-soft">
-        {item.label}
-      </a>
-    ))}
-    <div class="w-px h-5 bg-line mx-2"></div>
-    <button data-theme-toggle type="button" class="p-2 rounded-full text-text-dim hover:text-text hover:bg-blue-soft transition-all duration-200" aria-label="Toggle dark mode">
-      <!-- Sun icon (shown in dark mode) -->
-      <svg class="w-[18px] h-[18px] hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
-        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+<header id="siteNav" class="fixed top-0 left-0 right-0 z-[100] h-[64px] transition-all duration-300" style="background: rgba(255,251,235,0.88); backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%); border-bottom: 1px solid rgba(226,217,179,0.5);">
+  <div class="wrap h-full flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5 no-underline flex-shrink-0">
+      <!-- Signal-graph mark with amber/violet -->
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="24" height="24" rx="6" fill="#fbbf24"/>
+        <polyline points="7,19 12,14 16,16 21,9" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
       </svg>
-      <!-- Moon icon (shown in light mode) -->
-      <svg class="w-[18px] h-[18px] block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      <span class="text-[15px] font-semibold text-ink tracking-[-0.025em]">{site.name}</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-1">
+      {mainNav.map((item) => (
+        <a href={item.href} class="text-[13px] font-medium text-ink-2 no-underline px-3.5 py-1.5 rounded-full transition-all duration-200 hover:text-ink hover:bg-paper">
+          {item.label}
+        </a>
+      ))}
+      <div class="w-px h-4 bg-rule mx-2 flex-shrink-0"></div>
+      <button data-theme-toggle type="button" class="p-2 rounded-full text-ink-3 hover:text-ink hover:bg-paper transition-all duration-200 flex-shrink-0" aria-label="Toggle dark mode">
+        <svg class="w-[16px] h-[16px] hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="w-[16px] h-[16px] block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <a href="/order/" class="btn btn-accent text-[13px] font-semibold ml-1 h-[38px] px-4">
+        Get a Quote
+      </a>
+    </div>
+
+    <button
+      id="mobile-toggle"
+      type="button"
+      class="md:hidden p-2 text-ink-2 hover:text-ink"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Toggle menu"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
       </svg>
     </button>
-    <a href="/order/" class="text-[14px] font-bold bg-blue text-white px-5 py-2 rounded-full no-underline transition-all duration-250 ml-1 hover:bg-blue-2" style="box-shadow: 0 2px 16px rgba(30,77,255,0.2);">
-      Get a Quote
-    </a>
   </div>
-
-  <button
-    id="mobile-toggle"
-    type="button"
-    class="md:hidden p-2 text-text-muted hover:text-text"
-    aria-expanded="false"
-    aria-controls="mobile-menu"
-    aria-label="Toggle menu"
-  >
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
-      <line x1="3" y1="6" x2="21" y2="6" />
-      <line x1="3" y1="12" x2="21" y2="12" />
-      <line x1="3" y1="18" x2="21" y2="18" />
-    </svg>
-  </button>
 </header>
 
-<nav id="mobile-menu" class="hidden md:hidden fixed top-[64px] left-0 right-0 z-[99] border-b py-4 px-6" style="background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-color: rgba(10,19,48,0.06);" aria-label="Mobile">
+<nav id="mobile-menu" class="hidden md:hidden fixed top-[64px] left-0 right-0 z-[99] border-b py-4 px-6" style="background: rgba(255,251,235,0.96); backdrop-filter: blur(20px); border-color: rgba(226,217,179,0.6);" aria-label="Mobile">
   {mainNav.map((item) => (
-    <a href={item.href} class="block py-2.5 text-sm font-medium text-text-muted hover:text-text no-underline transition-colors duration-200">
+    <a href={item.href} class="block py-2.5 text-sm font-medium text-ink-2 hover:text-ink no-underline transition-colors duration-200">
       {item.label}
     </a>
   ))}
-  <div class="flex items-center gap-3 mt-3">
-    <button data-theme-toggle type="button" class="p-2 rounded-full text-text-dim hover:text-text hover:bg-blue-soft transition-all duration-200" aria-label="Toggle dark mode">
-      <svg class="w-[18px] h-[18px] hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="w-[18px] h-[18px] block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <div class="flex items-center gap-3 mt-3 pt-3" style="border-top: 1px solid var(--color-rule);">
+    <button data-theme-toggle type="button" class="p-2 rounded-full text-ink-3 hover:text-ink hover:bg-paper transition-all duration-200" aria-label="Toggle dark mode">
+      <svg class="w-[16px] h-[16px] hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="w-[16px] h-[16px] block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
-    <a href="/order/" class="flex-1 text-center px-4 py-2.5 text-sm font-bold text-white bg-blue rounded-full no-underline transition-all duration-200 hover:bg-blue-2">
+    <a href="/order/" class="flex-1 text-center px-4 py-2.5 text-sm font-semibold text-ink bg-accent rounded-full no-underline transition-all duration-200 hover:bg-amber-400" style="background: var(--color-accent);">
       Get a Quote
     </a>
   </div>
@@ -78,35 +78,31 @@ import { mainNav } from '../data/navigation';
     if (!nav) return;
     const scrolled = window.scrollY > 10;
     if (isDark()) {
-      nav.style.background = scrolled ? 'rgba(7,11,34,0.92)' : 'rgba(7,11,34,0.85)';
-      nav.style.borderColor = scrolled ? 'rgba(240,243,255,0.08)' : 'rgba(240,243,255,0.04)';
+      nav.style.background = scrolled ? 'rgba(11,18,32,0.95)' : 'rgba(11,18,32,0.88)';
+      nav.style.borderBottomColor = 'rgba(31,42,68,0.8)';
+      nav.style.boxShadow = scrolled ? '0 1px 16px rgba(0,0,0,0.3)' : 'none';
     } else {
-      nav.style.background = scrolled ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.85)';
-      nav.style.borderColor = scrolled ? 'rgba(10,19,48,0.1)' : 'rgba(10,19,48,0.06)';
+      nav.style.background = scrolled ? 'rgba(255,251,235,0.95)' : 'rgba(255,251,235,0.88)';
+      nav.style.borderBottomColor = scrolled ? 'rgba(226,217,179,0.8)' : 'rgba(226,217,179,0.5)';
+      nav.style.boxShadow = scrolled ? '0 1px 12px rgba(30,41,59,0.06)' : 'none';
     }
-    nav.style.boxShadow = scrolled ? '0 1px 12px rgba(10,19,48,0.06)' : 'none';
   };
 
-  window.addEventListener('scroll', updateNavBg);
-  // Re-run on theme change
-  const observer = new MutationObserver(updateNavBg);
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  window.addEventListener('scroll', updateNavBg, { passive: true });
 
-  // Also update mobile menu bg
+  const mo = new MutationObserver(() => { updateNavBg(); updateMobileBg(); });
+  mo.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
   const updateMobileBg = () => {
     if (!menu) return;
     if (isDark()) {
-      menu.style.background = 'rgba(7,11,34,0.95)';
-      menu.style.borderColor = 'rgba(240,243,255,0.06)';
+      menu.style.background = 'rgba(11,18,32,0.97)';
+      menu.style.borderColor = 'rgba(31,42,68,0.8)';
     } else {
-      menu.style.background = 'rgba(255,255,255,0.95)';
-      menu.style.borderColor = 'rgba(10,19,48,0.06)';
+      menu.style.background = 'rgba(255,251,235,0.97)';
+      menu.style.borderColor = 'rgba(226,217,179,0.7)';
     }
   };
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-  const origObserverCb = updateNavBg;
-  const mo2 = new MutationObserver(() => { updateNavBg(); updateMobileBg(); });
-  mo2.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
   toggle?.addEventListener('click', () => {
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
