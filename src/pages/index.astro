@@ -164,7 +164,7 @@ const schemaNodes = [
 
           <h1 class="animate-fade-up mb-6" style="animation-delay: 0.1s;">
             Built for humans.<br>
-            <span class="gradient-text">Optimised</span> for<br>everything else.
+            <span class="gradient-text-hero">Optimised</span> for<br>everything else.
           </h1>
 
           <p class="text-[18px] leading-[1.6] mb-8 max-w-[480px] animate-fade-up" style="color: var(--color-ink-2); animation-delay: 0.2s;">
@@ -199,7 +199,7 @@ const schemaNodes = [
 
         <!-- Right: Lighthouse gauge card -->
         <div class="hidden md:block animate-fade-up" style="animation-delay: 0.35s;">
-          <div class="card p-8 relative" style="box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-xl);">
+          <div class="card p-8 relative hero-gauge-card" style="box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-xl);">
             <!-- Browser chrome -->
             <div class="flex items-center gap-1.5 mb-6 pb-5" style="border-bottom: 1px solid var(--color-rule);">
               <span class="w-2.5 h-2.5 rounded-full" style="background:#ff5f57;"></span>
@@ -259,11 +259,11 @@ const schemaNodes = [
   </section>
 
   <!-- ===== PERFORMANCE MARQUEE (dark strip) ===== -->
-  <div class="section-dark py-4 overflow-hidden relative z-[2]" style="border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04);">
+  <div class="section-dark py-5 overflow-hidden relative z-[2]" style="border-top: 1px solid rgba(251,191,36,0.1); border-bottom: 1px solid rgba(251,191,36,0.1);">
     <div class="ticker-track">
-      {[...marqueItems, ...marqueItems].map((item) => (
-        <div class="flex items-center gap-2 whitespace-nowrap mono text-[12px]" style="color: rgba(248,250,252,0.55);">
-          <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background: var(--color-accent);"></span>
+      {[...marqueItems, ...marqueItems].map((item, i) => (
+        <div class="flex items-center gap-2.5 whitespace-nowrap mono text-[12px] font-medium" style="color: rgba(248,250,252,0.7);">
+          <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style={`background: ${i % 3 === 0 ? 'var(--color-accent)' : i % 3 === 1 ? 'var(--color-ok)' : 'var(--color-accent-2)'};`}></span>
           {item}
         </div>
       ))}
@@ -290,13 +290,24 @@ const schemaNodes = [
           >
             <!-- Preview area with fake browser chrome -->
             <div class="relative" style={`background: ${['#fef3c7','#ede9fe','#dcfce7','#dbeafe','#fce7f3'][i % 5]}; aspect-ratio: 16/9;`}>
-              <div class="absolute top-3 left-3 flex gap-1.5">
+              <div class="absolute top-3 left-3 right-3 flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-white/60"></span>
                 <span class="w-2 h-2 rounded-full bg-white/60"></span>
                 <span class="w-2 h-2 rounded-full bg-white/60"></span>
+                <div class="flex-1 h-4 rounded-md ml-2" style="background: rgba(255,255,255,0.5);"></div>
               </div>
-              <div class="absolute inset-0 flex items-center justify-center">
-                <span class="text-[11px] font-mono px-3 py-1.5 rounded-full" style="background: rgba(255,255,255,0.7); color: var(--color-ink-2);">{item.url.replace('https://', '')}</span>
+              <!-- Wireframe mockup -->
+              <div class="absolute inset-x-4 top-9 bottom-3 rounded-md flex flex-col gap-1.5 p-2" style="background: rgba(255,255,255,0.4);">
+                <div class="h-2 w-3/4 rounded" style="background: rgba(0,0,0,0.08);"></div>
+                <div class="h-1.5 w-1/2 rounded" style="background: rgba(0,0,0,0.05);"></div>
+                <div class="flex-1 grid grid-cols-3 gap-1 mt-1">
+                  <div class="rounded" style="background: rgba(0,0,0,0.04);"></div>
+                  <div class="rounded" style="background: rgba(0,0,0,0.04);"></div>
+                  <div class="rounded" style="background: rgba(0,0,0,0.04);"></div>
+                </div>
+              </div>
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2">
+                <span class="text-[10px] font-mono px-2.5 py-1 rounded-full" style="background: rgba(255,255,255,0.8); color: var(--color-ink-2);">{item.url.replace('https://', '')}</span>
               </div>
               <!-- Overlay on hover -->
               <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200" style="background: rgba(30,41,59,0.4);">
@@ -382,7 +393,7 @@ const schemaNodes = [
         </div>
 
         <!-- Pro (dark) -->
-        <div class="pricing-card-dark relative">
+        <div class="pricing-card-dark relative" style="box-shadow: inset 0 0 0 1px rgba(251,191,36,0.2), 0 20px 60px rgba(30,41,59,0.2), 0 0 60px rgba(251,191,36,0.08);">
           <!-- Most popular badge -->
           <div class="absolute top-5 right-5 chip chip-accent">Most popular</div>
           <div class="mono text-[11px] uppercase mb-4" style="color: rgba(248,250,252,0.4); letter-spacing: 0.1em;">Pro</div>
@@ -407,12 +418,19 @@ const schemaNodes = [
   </section>
 
   <!-- ===== TRUST LOGOS ===== -->
-  <section class="py-12" style="border-top: 1px solid var(--color-rule); border-bottom: 1px solid var(--color-rule);">
+  <section class="py-16" style="border-top: 1px solid var(--color-rule); border-bottom: 1px solid var(--color-rule);">
     <div class="wrap">
-      <div class="mono text-[11px] uppercase text-center mb-8" style="color: var(--color-ink-3); letter-spacing: 0.1em;">Trusted by 44+ small businesses across the UK</div>
-      <div class="logo-grid">
-        {trustNames.map((name) => (
-          <div class="logo-cell">{name}</div>
+      <div class="flex items-center justify-center gap-3 mb-10">
+        <div class="h-px flex-1 max-w-[80px]" style="background: linear-gradient(90deg, transparent, var(--color-rule));"></div>
+        <div class="mono text-[11px] uppercase" style="color: var(--color-ink-3); letter-spacing: 0.1em;">44+ sites built &middot; all scoring 100/100</div>
+        <div class="h-px flex-1 max-w-[80px]" style="background: linear-gradient(90deg, var(--color-rule), transparent);"></div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        {trustNames.map((name, i) => (
+          <div class="flex items-center justify-center gap-2 py-4 px-5 rounded-xl" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule); transition: all 0.2s;">
+            <span class="w-2 h-2 rounded-full flex-shrink-0" style={`background: ${['#fbbf24','#7c3aed','#10b981','#3b82f6','#f59e0b','#8b5cf6','#059669','#2563eb'][i]};`}></span>
+            <span class="mono text-[12px] font-medium" style="color: var(--color-ink-2);">{name}</span>
+          </div>
         ))}
       </div>
     </div>
@@ -513,7 +531,7 @@ const schemaNodes = [
                   {row.us === true ? (
                     <svg class="inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
                   ) : row.us === false ? (
-                    <svg class="inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                    <svg class="inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                   ) : row.us}
                 </td>
                 <td class="px-6 py-3.5 text-center" style="color: var(--color-ink-3);">
@@ -571,25 +589,22 @@ const schemaNodes = [
   <!-- ===== FOOTER CTA ===== -->
   <section class="section">
     <div class="wrap">
-      <div class="gradient-cta reveal">
-        <!-- Decorative gauge SVG -->
-        <div class="absolute top-8 right-8 opacity-10 hidden md:block" aria-hidden="true">
-          <svg width="120" height="120" viewBox="0 0 120 120">
-            <circle cx="60" cy="60" r="50" fill="none" stroke="var(--color-accent-2)" stroke-width="8"/>
-            <circle cx="60" cy="60" r="50" fill="none" stroke="var(--color-accent)" stroke-width="8"
-              stroke-dasharray="251 314" stroke-dashoffset="0" stroke-linecap="round"
-              transform="rotate(-90 60 60)"/>
-            <text x="60" y="68" text-anchor="middle" font-size="28" font-weight="600" fill="var(--color-ink)" font-family="Geist Mono, monospace">100</text>
-          </svg>
-        </div>
-
-        <h2 class="mb-4">Two weeks from now, you could<br>have a 100/100 site.</h2>
-        <p class="text-[16px] mb-8 max-w-[480px] mx-auto" style="color: var(--color-ink-2);">
-          Send your brief. We research, build, and deploy. You rank. No lock-in. Source code included.
-        </p>
-        <div class="flex gap-3 justify-center flex-wrap">
-          <a href="/order/" class="btn btn-primary">Start your project &rarr;</a>
-          <a href="/contact/" class="btn btn-ghost">Talk to us first</a>
+      <div class="cta-final reveal">
+        <div class="cta-final-glow" aria-hidden="true"></div>
+        <div class="relative z-[1]">
+          <div class="flex items-center justify-center gap-2 mb-6">
+            <span class="chip chip-ok">Lighthouse 100</span>
+            <span class="chip chip-accent">7-day delivery</span>
+            <span class="chip chip-violet">Source code yours</span>
+          </div>
+          <h2 class="mb-4">Two weeks from now, you could<br>have a 100/100 site.</h2>
+          <p class="text-[16px] mb-8 max-w-[480px] mx-auto" style="color: var(--color-ink-2);">
+            Send your brief. We research, build, and deploy. You rank. No lock-in. No retainer.
+          </p>
+          <div class="flex gap-3 justify-center flex-wrap">
+            <a href="/order/" class="btn btn-accent">Start your project &rarr;</a>
+            <a href="/contact/" class="btn btn-ghost">Talk to us first</a>
+          </div>
         </div>
       </div>
     </div>
