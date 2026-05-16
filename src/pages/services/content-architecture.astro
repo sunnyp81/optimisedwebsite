@@ -71,49 +71,49 @@ const schemaNodes = [
 
     <section class="py-10">
       <h1 class="section-title">{current.h1}</h1>
-      <p class="mt-4 text-lg text-text-muted leading-relaxed">
+      <p class="mt-4 text-lg leading-relaxed" style="color: var(--color-ink-2);">
         Content architecture determines how your pages connect to each other and how search engines understand the topical relationships between them. A site without content architecture is a collection of disconnected pages. A site with content architecture is a structured knowledge base that demonstrates expertise through the relationships between its pages.
       </p>
-      <p class="mt-4 text-text-muted leading-relaxed">
+      <p class="mt-4 leading-relaxed" style="color: var(--color-ink-2);">
         Hub-and-spoke architecture mirrors how search engines evaluate topical authority. A hub page about "plumbing services" links to spoke pages about "boiler installation", "pipe repair", and "emergency plumber". Each spoke links back to the hub. Google sees a site that covers plumbing in depth — not a single page that mentions it once.
       </p>
     </section>
 
     <section class="py-10">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">Hub-and-Spoke Structure</h2>
-      <p class="text-text-muted leading-relaxed mb-4">
+      <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
         Every hub-and-spoke cluster follows the same structural rules. The hub page sits at the top of the cluster and targets the broadest keyword. It provides a comprehensive overview of the topic and links contextually to every spoke page in the cluster. Each spoke page targets a more specific keyword, covers that subtopic in depth, and links back to its hub page.
       </p>
-      <p class="text-text-muted leading-relaxed mb-4">
+      <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
         The critical element that most sites miss is sibling linking — spoke pages linking to other spoke pages within the same cluster. If your hub is "kitchen renovation" and your spokes are "kitchen worktops", "kitchen flooring", and "kitchen lighting", then the worktops page should link to flooring and lighting because a person reading about worktops is likely also interested in those related topics. These sibling links keep users within the cluster and reinforce the topical connection for search engines.
       </p>
-      <p class="text-text-muted leading-relaxed">
+      <p class="leading-relaxed" style="color: var(--color-ink-2);">
         Cross-hub linking is used sparingly where two clusters share genuine semantic overlap. If you have a "bathroom renovation" hub and a "plumbing services" hub, there are natural connection points — a spoke about "bathroom plumbing" in the renovation cluster can link to the plumbing hub, and a spoke about "bathroom installation" in the plumbing cluster can link to the renovation hub. These cross-links must be editorially justified, not forced.
       </p>
     </section>
 
     <section class="py-10">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">Internal Linking Rules</h2>
-      <p class="text-text-muted leading-relaxed mb-4">
+      <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
         Internal links are not navigation — they are editorial signals that tell search engines which pages are related and how they relate. We follow strict rules for internal linking:
       </p>
-      <ul class="space-y-3 text-text-muted leading-relaxed list-disc list-inside">
-        <li><strong class="text-text">Every spoke links to its hub</strong> with anchor text derived from the hub page's primary keyword. This is a mandatory upward link that reinforces the cluster structure.</li>
-        <li><strong class="text-text">Every hub links to all its spokes</strong> with anchor text derived from each spoke's primary keyword. These links appear within the body content, not in a sidebar widget or footer list.</li>
-        <li><strong class="text-text">Spokes link to at least two siblings</strong> within the same cluster. The linked siblings are chosen based on semantic proximity — the most closely related subtopics, not random selections.</li>
-        <li><strong class="text-text">Anchor text matches the target page keyword</strong> or a close semantic variant. We never use "click here" or "read more" as anchor text because those phrases carry no topical signal for search engines.</li>
-        <li><strong class="text-text">No orphan pages</strong> — every page on the site is reachable through at least one contextual in-content link in addition to any navigation menu links. Pages that only appear in navigation are effectively invisible to crawlers following content-level link signals.</li>
+      <ul class="space-y-3 leading-relaxed list-disc list-inside" style="color: var(--color-ink-2);">
+        <li><strong style="color: var(--color-ink);">Every spoke links to its hub</strong> with anchor text derived from the hub page's primary keyword. This is a mandatory upward link that reinforces the cluster structure.</li>
+        <li><strong style="color: var(--color-ink);">Every hub links to all its spokes</strong> with anchor text derived from each spoke's primary keyword. These links appear within the body content, not in a sidebar widget or footer list.</li>
+        <li><strong style="color: var(--color-ink);">Spokes link to at least two siblings</strong> within the same cluster. The linked siblings are chosen based on semantic proximity — the most closely related subtopics, not random selections.</li>
+        <li><strong style="color: var(--color-ink);">Anchor text matches the target page keyword</strong> or a close semantic variant. We never use "click here" or "read more" as anchor text because those phrases carry no topical signal for search engines.</li>
+        <li><strong style="color: var(--color-ink);">No orphan pages</strong> — every page on the site is reachable through at least one contextual in-content link in addition to any navigation menu links. Pages that only appear in navigation are effectively invisible to crawlers following content-level link signals.</li>
       </ul>
     </section>
 
     <section class="py-10">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">How Content Architecture Ranks</h2>
-      <ol class="space-y-4 text-text-muted leading-relaxed">
+      <ol class="space-y-4 leading-relaxed" style="color: var(--color-ink-2);">
         {howToSteps.map((step, i) => (
-          <li><strong class="text-text">Step {i + 1}: {step.name}.</strong> {step.text}</li>
+          <li><strong style="color: var(--color-ink);">Step {i + 1}: {step.name}.</strong> {step.text}</li>
         ))}
       </ol>
-      <p class="mt-6 text-text-muted leading-relaxed">
+      <p class="mt-6 leading-relaxed" style="color: var(--color-ink-2);">
         Authority is built through connections, not volume. Sites with proper content architecture consistently outrank larger competitors who have more pages but no structural organisation. Search engines crawl every page efficiently, understand the topical relationships between pages, and evaluate your site's depth of coverage on each topic.
       </p>
     </section>
@@ -124,13 +124,15 @@ const schemaNodes = [
 
     <FAQSection faqs={faqs} />
 
-    <section class="py-10 border-t border-line reveal">
+    <section class="py-10 reveal" style="border-top: 1px solid var(--color-rule);">
       <h2 class="text-xl font-bold tracking-[-0.02em] mb-5">Related Services</h2>
       <div class="grid md:grid-cols-3 gap-4">
         {siblings.map(s => (
-          <a href={`/services/${s.slug}/`} class="block bg-bg-2 border border-line rounded-[16px] p-6 hover:border-brand-border transition-all duration-300">
-            <h3 class="font-bold text-text mb-1.5">{s.title}</h3>
-            <p class="text-sm text-text-muted">{s.shortDescription}</p>
+          <a href={`/services/${s.slug}/`} class="block rounded-[16px] p-6 no-underline transition-all duration-300" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);"
+            onmouseover="this.style.boxShadow='inset 0 0 0 1px rgba(124,58,237,0.3), 0 4px 16px rgba(30,41,59,0.1)'; this.style.transform='translateY(-2px)';"
+            onmouseout="this.style.boxShadow='inset 0 0 0 1px var(--color-rule), 0 1px 3px rgba(30,41,59,0.08)'; this.style.transform='';">
+            <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">{s.title}</h3>
+            <p class="text-sm" style="color: var(--color-ink-2);">{s.shortDescription}</p>
           </a>
         ))}
       </div>

@@ -75,21 +75,21 @@ const schemaNodes = [
 
     <section class="py-12">
       <h1 class="section-title">{current.h1}</h1>
-      <p class="text-lg text-text-muted leading-relaxed max-w-3xl mt-4">
+      <p class="text-[17px] leading-relaxed max-w-3xl mt-4" style="color: var(--color-ink-2);">
         An SEO website build is not a redesign bolted onto an existing site. Every decision — URL structure, heading hierarchy, internal linking — follows keyword research and search intent data. The result is a website architecturally designed to rank.
       </p>
     </section>
 
     <section class="py-12 reveal">
-      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-8">What You Receive</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-8" style="color: var(--color-ink);">What You Receive</h2>
       <div class="grid md:grid-cols-2 gap-4">
         {deliverables.map((d, i) => (
-          <div class="bg-bg-2 border border-line rounded-[16px] p-7 transition-all duration-300 hover:border-brand-border">
+          <div class="rounded-[16px] p-7 transition-all duration-300" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
             <div class="flex items-start gap-4">
-              <span class="text-brand font-extrabold text-lg mt-0.5">{String(i + 1).padStart(2, '0')}</span>
+              <span class="font-extrabold text-lg mt-0.5" style="color: var(--color-accent-2);">{String(i + 1).padStart(2, '0')}</span>
               <div>
-                <h3 class="font-bold text-text mb-1.5">{d.title}</h3>
-                <p class="text-sm text-text-muted leading-relaxed">{d.desc}</p>
+                <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">{d.title}</h3>
+                <p class="text-[14px] leading-relaxed" style="color: var(--color-ink-2);">{d.desc}</p>
               </div>
             </div>
           </div>
@@ -100,16 +100,16 @@ const schemaNodes = [
     <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
 
     <section class="py-12 reveal">
-      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-8">How the Build Works</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-8" style="color: var(--color-ink);">How the Build Works</h2>
       <div class="space-y-4">
         {steps.map((s, i) => (
           <div class="flex gap-5 items-start">
-            <div class="w-10 h-10 rounded-full bg-brand-dim border border-brand-border flex items-center justify-center text-brand font-bold text-sm shrink-0 mt-0.5">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm shrink-0 mt-0.5" style="background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.25); color: var(--color-accent-2);">
               {i + 1}
             </div>
             <div>
-              <h3 class="font-bold text-text mb-1">{s.title}</h3>
-              <p class="text-sm text-text-muted leading-relaxed">{s.desc}</p>
+              <h3 class="font-bold mb-1" style="color: var(--color-ink);">{s.title}</h3>
+              <p class="text-[14px] leading-relaxed" style="color: var(--color-ink-2);">{s.desc}</p>
             </div>
           </div>
         ))}
@@ -117,12 +117,12 @@ const schemaNodes = [
     </section>
 
     <section class="py-12 reveal">
-      <div class="bg-bg-2 border border-brand-border rounded-[20px] p-10 relative overflow-hidden">
-        <div class="absolute -top-[40%] right-[-20%] w-[400px] h-[400px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(16,185,129,0.06), transparent 55%);"></div>
+      <div class="rounded-[20px] p-10 relative overflow-hidden" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px rgba(124,58,237,0.25), var(--shadow-lg);">
+        <div class="absolute -top-[40%] right-[-20%] w-[400px] h-[400px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(124,58,237,0.06), transparent 55%);"></div>
         <div class="relative">
-          <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">Pricing</h2>
-          <p class="text-text-muted leading-relaxed max-w-2xl">
-            SEO website builds start at <strong class="text-text">£1,500</strong> for a 15-page site and scale up to <strong class="text-text">£3,000</strong> for a 50-page build with full topical authority architecture. Every build includes keyword research, content writing, schema markup, technical SEO, and deployment — no hidden fees.
+          <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">Pricing</h2>
+          <p class="leading-relaxed max-w-2xl" style="color: var(--color-ink-2);">
+            SEO website builds start at <strong style="color: var(--color-ink);">£1,500</strong> for a 15-page site and scale up to <strong style="color: var(--color-ink);">£3,000</strong> for a 50-page build with full topical authority architecture. Every build includes keyword research, content writing, schema markup, technical SEO, and deployment — no hidden fees.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
             <CTA href="/order/" label="Order Your Build" />
@@ -134,13 +134,19 @@ const schemaNodes = [
 
     <FAQSection faqs={faqs} />
 
-    <section class="py-10 border-t border-line reveal">
-      <h2 class="text-xl font-bold tracking-[-0.02em] mb-5">Related Services</h2>
+    <section class="py-10 reveal" style="border-top: 1px solid var(--color-rule);">
+      <h2 class="text-xl font-bold tracking-[-0.02em] mb-5" style="color: var(--color-ink);">Related Services</h2>
       <div class="grid md:grid-cols-3 gap-4">
         {siblings.map(s => (
-          <a href={`/services/${s.slug}/`} class="block bg-bg-2 border border-line rounded-[16px] p-6 hover:border-brand-border transition-all duration-300">
-            <h3 class="font-bold text-text mb-1.5">{s.title}</h3>
-            <p class="text-sm text-text-muted">{s.shortDescription}</p>
+          <a
+            href={`/services/${s.slug}/`}
+            class="block rounded-[16px] p-6 no-underline transition-all duration-300"
+            style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);"
+            onmouseover="this.style.boxShadow='inset 0 0 0 1px rgba(124,58,237,0.3), 0 4px 16px rgba(30,41,59,0.1)'; this.style.transform='translateY(-2px)';"
+            onmouseout="this.style.boxShadow='inset 0 0 0 1px var(--color-rule), 0 1px 3px rgba(30,41,59,0.08)'; this.style.transform='';"
+          >
+            <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">{s.title}</h3>
+            <p class="text-[13px]" style="color: var(--color-ink-2);">{s.shortDescription}</p>
           </a>
         ))}
       </div>

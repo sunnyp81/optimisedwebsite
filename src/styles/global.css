@@ -1,40 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  /* New warm-cream design system */
+  /* Warm-cream design system — contrast-checked */
   --color-bg: #fffbeb;
-  --color-bg-2: #fef3c7;
-  --color-ink: #1e293b;
-  --color-ink-2: #475569;
-  --color-ink-3: #94a3b8;
-  --color-rule: #e2d9b3;
-  --color-rule-2: #cbd5e1;
+  --color-bg-2: #fbecc5;
+  --color-ink: #1a202c;
+  --color-ink-2: #374151;
+  --color-ink-3: #6b7280;
+  --color-rule: #d4c896;
+  --color-rule-2: #9ca3af;
   --color-accent: #fbbf24;
   --color-accent-2: #7c3aed;
   --color-ok: #10b981;
   --color-warn: #ef4444;
   --color-paper: #ffffff;
 
-  /* Legacy aliases for components that still use these */
+  /* Aliases for inner page components */
   --color-text: var(--color-ink);
   --color-text-muted: var(--color-ink-2);
   --color-text-dim: var(--color-ink-3);
   --color-text-dimmer: var(--color-ink-3);
   --color-line: var(--color-rule);
   --color-line-2: var(--color-rule-2);
-  --color-line-soft: rgba(226, 217, 179, 0.4);
+  --color-line-soft: rgba(212, 200, 150, 0.5);
   --color-surface: var(--color-paper);
   --color-brand: var(--color-accent-2);
   --color-brand-bright: #9333ea;
-  --color-brand-dim: rgba(124, 58, 237, 0.08);
-  --color-brand-border: rgba(124, 58, 237, 0.2);
+  --color-brand-dim: rgba(124, 58, 237, 0.1);
+  --color-brand-border: rgba(124, 58, 237, 0.3);
   --color-brand-glow: rgba(124, 58, 237, 0.25);
   --color-blue: var(--color-accent-2);
   --color-blue-2: #9333ea;
-  --color-blue-soft: rgba(124, 58, 237, 0.06);
+  --color-blue-soft: rgba(124, 58, 237, 0.08);
   --color-green: var(--color-ok);
-  --color-accent-dim: rgba(16, 185, 129, 0.08);
-  --color-accent-border: rgba(16, 185, 129, 0.2);
+  --color-accent-dim: rgba(16, 185, 129, 0.1);
+  --color-accent-border: rgba(16, 185, 129, 0.25);
   --color-accent-glow: rgba(16, 185, 129, 0.25);
 
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
@@ -672,6 +672,48 @@ html.dark .section-dark {
   color: #059669;
   box-shadow: inset 0 0 0 1px rgba(16,185,129,0.3);
 }
+
+/* PROSE (article body text) */
+.prose h2 {
+  font-size: 24px; font-weight: 700; letter-spacing: -0.02em;
+  margin-top: 2.5em; margin-bottom: 0.8em;
+  color: var(--color-ink);
+}
+.prose h3 {
+  font-size: 18px; font-weight: 700; letter-spacing: -0.01em;
+  margin-top: 2em; margin-bottom: 0.6em;
+  color: var(--color-ink);
+}
+.prose p {
+  color: var(--color-ink-2); line-height: 1.75;
+  margin-bottom: 1.2em;
+}
+.prose ul, .prose ol {
+  color: var(--color-ink-2); line-height: 1.75;
+  padding-left: 1.5em; margin-bottom: 1.2em;
+}
+.prose li { margin-bottom: 0.4em; }
+.prose a {
+  color: var(--color-accent-2); text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose a:hover { color: #9333ea; }
+.prose strong { color: var(--color-ink); font-weight: 600; }
+.prose blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1em; margin: 1.5em 0;
+  color: var(--color-ink-2); font-style: italic;
+}
+.prose code {
+  font-family: var(--font-mono); font-size: 0.875em;
+  background: var(--color-bg-2); padding: 2px 6px; border-radius: 4px;
+  color: var(--color-ink);
+}
+.prose pre {
+  background: #0f172a; border-radius: 12px; padding: 20px;
+  overflow-x: auto; margin: 1.5em 0;
+}
+.prose pre code { background: none; padding: 0; color: #94a3b8; }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {

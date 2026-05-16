@@ -139,24 +139,24 @@ const schemaNodes = [
     <section class="py-12">
       <div class="section-tag">Pricing</div>
       <h1 class="section-title">SEO Website Pricing</h1>
-      <p class="mt-4 text-lg text-text-muted leading-relaxed">
-        Every build is priced between <strong class="text-text">&pound;1,500</strong> and <strong class="text-text">&pound;3,000</strong> depending on page count, niche competitiveness, and any custom requirements. The price covers everything below — there are no hidden fees, no monthly charges, and no CMS licence costs.
+      <p class="mt-4 text-lg leading-relaxed" style="color: var(--color-ink-2);">
+        Every build is priced between <strong style="color: var(--color-ink);">&pound;1,500</strong> and <strong style="color: var(--color-ink);">&pound;3,000</strong> depending on page count, niche competitiveness, and any custom requirements. The price covers everything below — there are no hidden fees, no monthly charges, and no CMS licence costs.
       </p>
     </section>
 
     {deliverables.map(group => (
-      <section class="py-8 border-t border-line">
+      <section class="py-8" style="border-top: 1px solid var(--color-rule);">
         <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">{group.category}</h2>
-        <ul class="space-y-2 text-text-muted leading-relaxed">
+        <ul class="space-y-2 leading-relaxed" style="color: var(--color-ink-2);">
           {group.items.map(item => (
-            <li class="flex gap-2"><span class="text-brand shrink-0">&#10003;</span> {item}</li>
+            <li class="flex gap-2"><span class="shrink-0" style="color: var(--color-accent-2);">&#10003;</span> {item}</li>
           ))}
         </ul>
       </section>
     ))}
 
     <section class="py-10 text-center">
-      <p class="text-text-muted mb-4">All builds include every item listed above. No tiers, no upsells.</p>
+      <p class="mb-4" style="color: var(--color-ink-2);">All builds include every item listed above. No tiers, no upsells.</p>
       <CTA href="/order/" label="Order Your SEO Website" />
     </section>
 

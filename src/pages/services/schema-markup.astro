@@ -71,10 +71,10 @@ const schemaNodes = [
 
     <section class="py-10">
       <h1 class="section-title">{current.h1}</h1>
-      <p class="mt-4 text-lg text-text-muted leading-relaxed">
+      <p class="mt-4 text-lg leading-relaxed" style="color: var(--color-ink-2);">
         Schema markup tells search engines what your content means, not just what it says. A plumbing service page without schema is plain text. The same page with Service, Organisation, and FAQPage schema is a structured entity Google can parse, categorise, and surface in rich results.
       </p>
-      <p class="mt-4 text-text-muted leading-relaxed">
+      <p class="mt-4 leading-relaxed" style="color: var(--color-ink-2);">
         We implement schema as hand-written JSON-LD within an entity-interconnected @graph. Every schema node on every page references back to your site-wide Organisation and WebSite entities through @id, creating a web of structured data that reinforces your site's topical identity across every page.
       </p>
     </section>
@@ -83,20 +83,20 @@ const schemaNodes = [
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">Schema Types We Implement</h2>
       <div class="grid md:grid-cols-2 gap-6">
         <div>
-          <h3 class="font-semibold text-text mb-2">Core Entity Types</h3>
-          <ul class="space-y-2 text-text-muted leading-relaxed list-disc list-inside">
-            <li><strong class="text-text">Organisation</strong> — your business entity, referenced by every other schema node on the site through @id.</li>
-            <li><strong class="text-text">WebSite</strong> — your site entity, linked to the Organisation as publisher and used as the parent reference for all WebPage nodes.</li>
-            <li><strong class="text-text">WebPage</strong> — page-level metadata including canonical URL, date published, and date modified.</li>
+          <h3 class="font-semibold mb-2" style="color: var(--color-ink);">Core Entity Types</h3>
+          <ul class="space-y-2 leading-relaxed list-disc list-inside" style="color: var(--color-ink-2);">
+            <li><strong style="color: var(--color-ink);">Organisation</strong> — your business entity, referenced by every other schema node on the site through @id.</li>
+            <li><strong style="color: var(--color-ink);">WebSite</strong> — your site entity, linked to the Organisation as publisher and used as the parent reference for all WebPage nodes.</li>
+            <li><strong style="color: var(--color-ink);">WebPage</strong> — page-level metadata including canonical URL, date published, and date modified.</li>
           </ul>
         </div>
         <div>
-          <h3 class="font-semibold text-text mb-2">Content and Service Types</h3>
-          <ul class="space-y-2 text-text-muted leading-relaxed list-disc list-inside">
-            <li><strong class="text-text">Service / ProfessionalService</strong> — for service pages, with provider linked to your Organisation, area served, and price range where applicable.</li>
-            <li><strong class="text-text">Article</strong> — for blog posts and guides, with author, publisher, and date properties.</li>
-            <li><strong class="text-text">FAQPage / HowTo</strong> — for FAQ sections and step-by-step guides, eligible for rich result display in Google search.</li>
-            <li><strong class="text-text">BreadcrumbList</strong> — navigation path schema on every page, helping search engines understand your site hierarchy.</li>
+          <h3 class="font-semibold mb-2" style="color: var(--color-ink);">Content and Service Types</h3>
+          <ul class="space-y-2 leading-relaxed list-disc list-inside" style="color: var(--color-ink-2);">
+            <li><strong style="color: var(--color-ink);">Service / ProfessionalService</strong> — for service pages, with provider linked to your Organisation, area served, and price range where applicable.</li>
+            <li><strong style="color: var(--color-ink);">Article</strong> — for blog posts and guides, with author, publisher, and date properties.</li>
+            <li><strong style="color: var(--color-ink);">FAQPage / HowTo</strong> — for FAQ sections and step-by-step guides, eligible for rich result display in Google search.</li>
+            <li><strong style="color: var(--color-ink);">BreadcrumbList</strong> — navigation path schema on every page, helping search engines understand your site hierarchy.</li>
           </ul>
         </div>
       </div>
@@ -104,22 +104,22 @@ const schemaNodes = [
 
     <section class="py-10">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">How Entity Linking Works</h2>
-      <p class="text-text-muted leading-relaxed mb-4">
+      <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
         Entity linking is what separates effective schema from checkbox schema. Every schema node on your site carries an @id — a unique identifier that other nodes can reference. When your Service schema references your Organisation through @id, Google understands that this service is provided by this specific business. When your Article references the same Organisation as publisher, that connection is reinforced.
       </p>
-      <ol class="space-y-4 text-text-muted leading-relaxed">
+      <ol class="space-y-4 leading-relaxed" style="color: var(--color-ink-2);">
         {howToSteps.map((step, i) => (
-          <li><strong class="text-text">Step {i + 1}: {step.name}.</strong> {step.text}</li>
+          <li><strong style="color: var(--color-ink);">Step {i + 1}: {step.name}.</strong> {step.text}</li>
         ))}
       </ol>
     </section>
 
     <section class="py-10">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">Schema Validation</h2>
-      <p class="text-text-muted leading-relaxed mb-4">
+      <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
         Schema that fails validation is worse than no schema at all — it sends conflicting signals to search engines and can suppress rich results eligibility. We validate every page through three layers: Google Rich Results Test for eligibility checking, Schema.org Validator for specification compliance, and manual JSON-LD inspection for entity relationship integrity.
       </p>
-      <p class="text-text-muted leading-relaxed">
+      <p class="leading-relaxed" style="color: var(--color-ink-2);">
         Common validation failures: missing required properties (Organisation without a name, Article without a datePublished); broken @id references; schema types applied where page content does not support them. Every issue is resolved before the schema goes live.
       </p>
     </section>
@@ -130,13 +130,15 @@ const schemaNodes = [
 
     <FAQSection faqs={faqs} />
 
-    <section class="py-10 border-t border-line reveal">
+    <section class="py-10 reveal" style="border-top: 1px solid var(--color-rule);">
       <h2 class="text-xl font-bold tracking-[-0.02em] mb-5">Related Services</h2>
       <div class="grid md:grid-cols-3 gap-4">
         {siblings.map(s => (
-          <a href={`/services/${s.slug}/`} class="block bg-bg-2 border border-line rounded-[16px] p-6 hover:border-brand-border transition-all duration-300">
-            <h3 class="font-bold text-text mb-1.5">{s.title}</h3>
-            <p class="text-sm text-text-muted">{s.shortDescription}</p>
+          <a href={`/services/${s.slug}/`} class="block rounded-[16px] p-6 no-underline transition-all duration-300" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);"
+            onmouseover="this.style.boxShadow='inset 0 0 0 1px rgba(124,58,237,0.3), 0 4px 16px rgba(30,41,59,0.1)'; this.style.transform='translateY(-2px)';"
+            onmouseout="this.style.boxShadow='inset 0 0 0 1px var(--color-rule), 0 1px 3px rgba(30,41,59,0.08)'; this.style.transform='';">
+            <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">{s.title}</h3>
+            <p class="text-sm" style="color: var(--color-ink-2);">{s.shortDescription}</p>
           </a>
         ))}
       </div>

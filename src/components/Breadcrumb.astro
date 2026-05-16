@@ -25,15 +25,15 @@ const schema = {
   itemListElement: schemaItems,
 };
 ---
-<nav aria-label="Breadcrumb" class="text-sm text-text-dimmer py-4">
+<nav aria-label="Breadcrumb" class="text-[13px] py-4" style="color: var(--color-ink-3);">
   <ol class="flex flex-wrap gap-1.5">
     {items.map((item, i) => (
       <li class="flex items-center gap-1.5">
-        {i > 0 && <span aria-hidden="true" class="text-text-dimmer">/</span>}
+        {i > 0 && <span aria-hidden="true" style="color: var(--color-ink-3);">/</span>}
         {i === items.length - 1 ? (
-          <span aria-current="page" class="text-text-muted">{item.label}</span>
+          <span aria-current="page" style="color: var(--color-ink-2);">{item.label}</span>
         ) : (
-          <a href={item.href} class="hover:text-brand transition-colors duration-200">{item.label}</a>
+          <a href={item.href} class="no-underline transition-colors duration-200" style="color: var(--color-ink-3);" onmouseover="this.style.color='var(--color-accent-2)'" onmouseout="this.style.color='var(--color-ink-3)'">{item.label}</a>
         )}
       </li>
     ))}

@@ -83,7 +83,7 @@ const schemaNodes = [
     <section class="py-12">
       <div class="section-tag">Process</div>
       <h1 class="section-title">How We Build SEO Websites</h1>
-      <p class="mt-4 text-lg text-text-muted leading-relaxed">
+      <p class="mt-4 text-lg leading-relaxed" style="color: var(--color-ink-2);">
         Every build follows the same 7-step process. There are no shortcuts and no template installs. Each step exists because it directly affects how well the finished site ranks, how quickly it gets indexed, and how much organic traffic it captures in its first 90 days.
       </p>
     </section>
@@ -92,12 +92,12 @@ const schemaNodes = [
       <div class="space-y-6">
         {steps.map((step, i) => (
           <div class="flex gap-5 items-start">
-            <div class="w-10 h-10 rounded-full bg-brand-dim border border-brand-border flex items-center justify-center text-brand font-bold text-sm shrink-0 mt-0.5">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm shrink-0 mt-0.5" style="background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.25); color: var(--color-accent-2);">
               {i + 1}
             </div>
             <div>
-              <h2 class="text-xl font-bold text-text mb-1">Step {i + 1}: {step.name}</h2>
-              <p class="text-text-muted leading-relaxed">{step.text}</p>
+              <h2 class="text-xl font-bold mb-1" style="color: var(--color-ink);">Step {i + 1}: {step.name}</h2>
+              <p class="leading-relaxed" style="color: var(--color-ink-2);">{step.text}</p>
             </div>
           </div>
         ))}
@@ -105,7 +105,7 @@ const schemaNodes = [
     </section>
 
     <section class="py-10 text-center">
-      <p class="text-text-muted mb-4">Ready to start? The process begins with a 5-minute brief.</p>
+      <p class="mb-4" style="color: var(--color-ink-2);">Ready to start? The process begins with a 5-minute brief.</p>
       <CTA href="/order/" label="Order Your SEO Website" />
     </section>
 

@@ -85,7 +85,7 @@ const schemaNodes = [
     <!-- Intro -->
     <section class="py-12 reveal">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">Why {industry.name} needs SEO architecture</h2>
-      <p class="text-text-muted leading-relaxed max-w-3xl">{industry.intro}</p>
+      <p class="leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">{industry.intro}</p>
     </section>
 
     <!-- Challenges vs Solutions -->
@@ -96,7 +96,7 @@ const schemaNodes = [
           <h3 class="text-lg font-bold mb-4">Without SEO architecture</h3>
           <ul class="space-y-3">
             {industry.challenges.map((c) => (
-              <li class="flex gap-3 text-text-muted text-sm leading-relaxed">
+              <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-ink-2);">
                 <span class="text-red-400 font-bold shrink-0">&times;</span>
                 <span>{c}</span>
               </li>
@@ -107,8 +107,8 @@ const schemaNodes = [
           <h3 class="text-lg font-bold mb-4">With OptimisedWebsite</h3>
           <ul class="space-y-3">
             {industry.solutions.map((s) => (
-              <li class="flex gap-3 text-text-muted text-sm leading-relaxed">
-                <span class="text-brand font-bold shrink-0">&check;</span>
+              <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-ink-2);">
+                <span class="font-bold shrink-0" style="color: var(--color-accent-2);">&check;</span>
                 <span>{s}</span>
               </li>
             ))}
@@ -126,11 +126,11 @@ const schemaNodes = [
         <div class="feat-card">
           <div class="flex flex-wrap gap-8 items-start">
             <div class="flex-1 min-w-[250px]">
-              <p class="text-text-muted leading-relaxed mb-4">{matchedPortfolio.description}</p>
-              <ul class="space-y-2 text-sm text-text-muted">
-                <li><strong class="text-text">Niche:</strong> {matchedPortfolio.niche}</li>
-                <li><strong class="text-text">Pages:</strong> {matchedPortfolio.pageCount.toLocaleString()}</li>
-                <li><strong class="text-text">Key metric:</strong> {matchedPortfolio.metric}</li>
+              <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">{matchedPortfolio.description}</p>
+              <ul class="space-y-2 text-sm" style="color: var(--color-ink-2);">
+                <li><strong style="color: var(--color-ink);">Niche:</strong> {matchedPortfolio.niche}</li>
+                <li><strong style="color: var(--color-ink);">Pages:</strong> {matchedPortfolio.pageCount.toLocaleString()}</li>
+                <li><strong style="color: var(--color-ink);">Key metric:</strong> {matchedPortfolio.metric}</li>
               </ul>
             </div>
             <div class="flex flex-col gap-3">
@@ -150,7 +150,7 @@ const schemaNodes = [
     <!-- CTA -->
     <section class="py-16 text-center reveal">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">Ready to rank in {industry.name.toLowerCase()}?</h2>
-      <p class="text-text-muted leading-relaxed max-w-xl mx-auto mb-8">
+      <p class="leading-relaxed max-w-xl mx-auto mb-8" style="color: var(--color-ink-2);">
         Get a website built from the ground up for your industry — keyword research, content, schema, and deployment included.
       </p>
       <div class="flex flex-wrap gap-4 justify-center">
@@ -160,13 +160,15 @@ const schemaNodes = [
     </section>
 
     <!-- Related industries -->
-    <section class="py-12 border-t border-line reveal">
+    <section class="py-12 reveal" style="border-top: 1px solid var(--color-rule);">
       <h2 class="text-xl font-bold tracking-[-0.02em] mb-5">Other industries we build for</h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {industries.filter(i => i.slug !== industry.slug).slice(0, 6).map(i => (
-          <a href={`/industry/${i.slug}/`} class="block bg-bg-2 border border-line rounded-[16px] p-5 hover:border-brand-border transition-all duration-300">
-            <h3 class="font-bold text-text mb-1">{i.name}</h3>
-            <p class="text-xs text-text-muted">{i.keyword}</p>
+          <a href={`/industry/${i.slug}/`} class="block rounded-[16px] p-5 no-underline transition-all duration-300" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);"
+            onmouseover="this.style.boxShadow='inset 0 0 0 1px rgba(124,58,237,0.3), 0 4px 16px rgba(30,41,59,0.1)'; this.style.transform='translateY(-2px)';"
+            onmouseout="this.style.boxShadow='inset 0 0 0 1px var(--color-rule), 0 1px 3px rgba(30,41,59,0.08)'; this.style.transform='';">
+            <h3 class="font-bold mb-1" style="color: var(--color-ink);">{i.name}</h3>
+            <p class="text-xs" style="color: var(--color-ink-2);">{i.keyword}</p>
           </a>
         ))}
       </div>

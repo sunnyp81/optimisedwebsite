@@ -12,7 +12,11 @@ const { items, currentPath } = Astro.props;
     return (
       <a
         href={item.href}
-        class={`text-sm px-3.5 py-1.5 rounded-full border transition-all duration-200 ${isCurrent ? 'bg-brand text-bg border-brand font-semibold' : 'border-line text-text-muted hover:border-brand-border hover:text-brand'}`}
+        class="text-[13px] px-3.5 py-1.5 rounded-full no-underline transition-all duration-200"
+        style={isCurrent
+          ? `background: var(--color-accent-2); color: #fff; font-weight: 600;`
+          : `background: transparent; color: var(--color-ink-2); box-shadow: inset 0 0 0 1px var(--color-rule);`
+        }
         {...(isCurrent ? { 'aria-current': 'page' } : {})}
       >
         {item.label}

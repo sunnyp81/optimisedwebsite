@@ -72,42 +72,42 @@ const schemaNodes = [
 
     <section class="py-10">
       <h1 class="section-title">{current.h1}</h1>
-      <p class="mt-4 text-lg text-text-muted leading-relaxed">
+      <p class="mt-4 text-lg leading-relaxed" style="color: var(--color-ink-2);">
         Without keyword research, every page you create is a guess. Keyword research gives each page a clear purpose, a measurable target, and a defined position within your site's topical architecture.
       </p>
-      <p class="mt-4 text-text-muted leading-relaxed">
+      <p class="mt-4 leading-relaxed" style="color: var(--color-ink-2);">
         Our keyword research goes beyond generating a list of terms with search volumes. We cluster keywords by intent, group them into topical hubs, and map them directly onto a site architecture that tells search engines exactly what your site is about and why it deserves to rank.
       </p>
     </section>
 
     <section class="py-10">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">What Keyword Research Includes</h2>
-      <p class="text-text-muted leading-relaxed mb-4">
+      <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
         Every keyword research project delivers three core outputs: a validated keyword list, an intent-classified cluster map, and a page-to-keyword mapping document that becomes the blueprint for your site's content architecture.
       </p>
-      <ul class="space-y-3 text-text-muted leading-relaxed list-disc list-inside">
-        <li><strong class="text-text">Validated keyword list</strong> — 50-200 terms with UK search volume, keyword difficulty, CPC data, and SERP feature indicators (featured snippets, People Also Ask, local packs).</li>
-        <li><strong class="text-text">Intent classification</strong> — every keyword tagged as informational, commercial, transactional, or navigational so that page content matches what searchers actually want.</li>
-        <li><strong class="text-text">Competitor gap analysis</strong> — keywords your top 3-5 competitors rank for that you currently do not, prioritised by traffic potential and difficulty.</li>
-        <li><strong class="text-text">SERP feature opportunities</strong> — terms where featured snippets, FAQ boxes, or knowledge panels are achievable with correctly structured content and schema markup.</li>
+      <ul class="space-y-3 leading-relaxed list-disc list-inside" style="color: var(--color-ink-2);">
+        <li><strong style="color: var(--color-ink);">Validated keyword list</strong> — 50-200 terms with UK search volume, keyword difficulty, CPC data, and SERP feature indicators (featured snippets, People Also Ask, local packs).</li>
+        <li><strong style="color: var(--color-ink);">Intent classification</strong> — every keyword tagged as informational, commercial, transactional, or navigational so that page content matches what searchers actually want.</li>
+        <li><strong style="color: var(--color-ink);">Competitor gap analysis</strong> — keywords your top 3-5 competitors rank for that you currently do not, prioritised by traffic potential and difficulty.</li>
+        <li><strong style="color: var(--color-ink);">SERP feature opportunities</strong> — terms where featured snippets, FAQ boxes, or knowledge panels are achievable with correctly structured content and schema markup.</li>
       </ul>
     </section>
 
     <section class="py-10">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">How We Cluster Keywords</h2>
-      <ol class="space-y-4 text-text-muted leading-relaxed">
+      <ol class="space-y-4 leading-relaxed" style="color: var(--color-ink-2);">
         {howToSteps.map((step, i) => (
-          <li><strong class="text-text">Step {i + 1}: {step.name}.</strong> {step.text}</li>
+          <li><strong style="color: var(--color-ink);">Step {i + 1}: {step.name}.</strong> {step.text}</li>
         ))}
       </ol>
     </section>
 
     <section class="py-10">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">From Keywords to Pages</h2>
-      <p class="text-text-muted leading-relaxed mb-4">
+      <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
         The final deliverable is a page-to-keyword mapping document that translates the keyword research into a concrete site plan. Each row specifies the target URL, primary keyword, secondary keywords, search intent, parent hub, and the internal links that page should carry.
       </p>
-      <p class="text-text-muted leading-relaxed">
+      <p class="leading-relaxed" style="color: var(--color-ink-2);">
         This document becomes the content brief for every page on your site. Writers know exactly which term to target, which heading structure to follow, and which pages to link to. Every page has a single primary keyword. No two pages target the same term. Keyword cannibalisation is structurally impossible.
       </p>
     </section>
@@ -118,13 +118,15 @@ const schemaNodes = [
 
     <FAQSection faqs={faqs} />
 
-    <section class="py-10 border-t border-line reveal">
+    <section class="py-10 reveal" style="border-top: 1px solid var(--color-rule);">
       <h2 class="text-xl font-bold tracking-[-0.02em] mb-5">Related Services</h2>
       <div class="grid md:grid-cols-3 gap-4">
         {siblings.map(s => (
-          <a href={`/services/${s.slug}/`} class="block bg-bg-2 border border-line rounded-[16px] p-6 hover:border-brand-border transition-all duration-300">
-            <h3 class="font-bold text-text mb-1.5">{s.title}</h3>
-            <p class="text-sm text-text-muted">{s.shortDescription}</p>
+          <a href={`/services/${s.slug}/`} class="block rounded-[16px] p-6 no-underline transition-all duration-300" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);"
+            onmouseover="this.style.boxShadow='inset 0 0 0 1px rgba(124,58,237,0.3), 0 4px 16px rgba(30,41,59,0.1)'; this.style.transform='translateY(-2px)';"
+            onmouseout="this.style.boxShadow='inset 0 0 0 1px var(--color-rule), 0 1px 3px rgba(30,41,59,0.08)'; this.style.transform='';">
+            <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">{s.title}</h3>
+            <p class="text-sm" style="color: var(--color-ink-2);">{s.shortDescription}</p>
           </a>
         ))}
       </div>
