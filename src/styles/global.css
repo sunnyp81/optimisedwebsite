@@ -355,13 +355,17 @@ html.dark .pricing-card-wrap {
 
 /* Dark pricing card variant */
 .pricing-card-dark {
-  background: var(--color-ink);
-  color: var(--color-bg);
+  background: #1a202c;
+  color: #f8fafc;
   border-radius: 20px;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08), var(--shadow-xl);
   padding: 48px 40px;
   text-align: center;
   position: relative; overflow: hidden;
+}
+html.dark .pricing-card-dark {
+  background: #0f172a;
+  box-shadow: inset 0 0 0 1px rgba(251,191,36,0.15), 0 20px 60px rgba(0,0,0,0.5);
 }
 
 /* GRADIENT TEXT */
@@ -770,7 +774,11 @@ html.dark .hero-blob-violet {
   isolation: isolate;
 }
 .cta-final h2 { color: #f8fafc; }
-.cta-final p { color: rgba(248,250,252,0.6) !important; }
+.cta-final p { color: rgba(248,250,252,0.65) !important; }
+.cta-final .chip { background: rgba(255,255,255,0.08); color: rgba(248,250,252,0.85); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12); }
+.cta-final .chip-ok { background: rgba(16,185,129,0.15); color: #6ee7b7; box-shadow: inset 0 0 0 1px rgba(16,185,129,0.3); }
+.cta-final .chip-accent { background: rgba(251,191,36,0.15); color: #fcd34d; box-shadow: inset 0 0 0 1px rgba(251,191,36,0.3); }
+.cta-final .chip-violet { background: rgba(124,58,237,0.15); color: #c4b5fd; box-shadow: inset 0 0 0 1px rgba(124,58,237,0.3); }
 .cta-final-glow {
   position: absolute; inset: 0; pointer-events: none;
   background:

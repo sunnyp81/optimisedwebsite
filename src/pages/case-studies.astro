@@ -85,14 +85,14 @@ const schemaNodes = [
   canonicalPath="/case-studies/"
   schemaNodes={schemaNodes}
 >
-  <div class="max-w-[1100px] mx-auto px-4">
+  <div class="max-w-[1100px] mx-auto px-5 md:px-10 pt-28 pb-20">
     <Breadcrumb items={[
       { label: 'Home', href: '/' },
       { label: 'Case Studies', href: '/case-studies/' },
     ]} />
 
     <section class="py-10">
-      <p class="section-tag">Case Studies</p>
+      <div class="section-tag">Case Studies</div>
       <h1 class="section-title">SEO Website <span class="gradient-text">Case Studies</span></h1>
       <p class="section-desc">
         Each site below was built as a purpose-built SEO asset. These breakdowns cover architecture decisions, schema implementation, content structure, and measurable outcomes.
@@ -111,7 +111,7 @@ const schemaNodes = [
             </div>
             <div class="flex gap-3">
               <span class="text-xs font-bold px-3 py-1.5 rounded-lg" style="background: rgba(124,58,237,0.1); color: var(--color-accent-2);">{study.pageCount} pages</span>
-              <span class="text-xs font-bold bg-blue/10 text-blue px-3 py-1.5 rounded-lg">{study.metric}</span>
+              <span class="text-xs font-bold px-3 py-1.5 rounded-lg" style="background: rgba(124,58,237,0.1); color: var(--color-accent-2);">{study.metric}</span>
             </div>
           </div>
 
@@ -145,11 +145,11 @@ const schemaNodes = [
                   Lighthouse: {study.lighthouse}/100
                 </li>
                 <li class="flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-cyan shrink-0"></span>
+                  <span class="w-2 h-2 rounded-full shrink-0" style="background: var(--color-ok);"></span>
                   Schema: {study.schemaCoverage}
                 </li>
                 <li class="flex items-center gap-2">
-                  <span class="w-2 h-2 rounded-full bg-blue shrink-0"></span>
+                  <span class="w-2 h-2 rounded-full shrink-0" style="background: var(--color-accent);"></span>
                   {study.indexing}
                 </li>
               </ul>
