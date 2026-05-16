@@ -9,16 +9,26 @@ const schemaNodes = [
     '@type': 'AboutPage',
     '@id': `${site.url}/about/#page`,
     name: 'About OptimisedWebsite',
-    description: 'OptimisedWebsite is a specialist studio that builds SEO-first websites for UK businesses. Every site is constructed from keyword research and topical authority architecture.',
+    description: 'OptimisedWebsite is run by Sunny Patel, an SEO consultant based in Reading, UK. 44+ sites built, all scoring 100/100 on Lighthouse.',
     url: `${site.url}/about/`,
     isPartOf: { '@id': `${site.url}/#website` },
     mainEntity: { '@id': `${site.url}/#organization` }
+  },
+  {
+    '@type': 'Person',
+    '@id': `${site.url}/about/#founder`,
+    name: 'Sunny Patel',
+    jobTitle: 'SEO Consultant & Founder',
+    url: 'https://sunnypatel.co.uk',
+    worksFor: { '@id': `${site.url}/#organization` },
+    knowsAbout: ['SEO', 'Technical SEO', 'Schema Markup', 'Astro', 'Cloudflare Pages', 'Topical Authority'],
+    sameAs: ['https://sunnypatel.co.uk']
   }
 ];
 ---
 <Base
-  title="About OptimisedWebsite | SEO-First Website Studio"
-  description="OptimisedWebsite is a specialist studio that builds SEO-first websites for UK businesses. Every site is constructed from keyword research and topical authority architecture."
+  title="About OptimisedWebsite | Sunny Patel, SEO Consultant"
+  description="OptimisedWebsite is run by Sunny Patel — SEO consultant based in Reading, UK. 44+ sites built, all scoring 100/100 on Lighthouse. From £1,500."
   canonicalPath="/about/"
   schemaNodes={schemaNodes}
 >
@@ -30,10 +40,41 @@ const schemaNodes = [
 
     <section class="py-12">
       <div class="section-tag">About</div>
-      <h1 class="section-title">About OptimisedWebsite</h1>
-      <p class="mt-4 text-lg leading-relaxed" style="color: var(--color-ink-2);">
-        OptimisedWebsite is a specialist studio that builds websites designed to rank. Not redesigns, not template installs, not WordPress themes with a few plugins bolted on. Every site we deliver is constructed from the ground up using keyword research, topical authority architecture, and per-page schema markup.
-      </p>
+      <h1 class="section-title">Built by Sunny Patel</h1>
+      <div class="grid md:grid-cols-[200px_1fr] gap-8 mt-8 items-start">
+        <div class="w-[200px] h-[200px] rounded-2xl flex items-center justify-center" style="background: linear-gradient(135deg, #fbbf24 0%, #7c3aed 100%);">
+          <span class="text-[64px] font-bold" style="color: white;">SP</span>
+        </div>
+        <div>
+          <p class="text-lg leading-relaxed mb-4" style="color: var(--color-ink-2);">
+            I'm Sunny Patel — an SEO consultant based in Reading, UK. I build websites that rank. Not redesigns, not template installs, not WordPress themes with plugins bolted on.
+          </p>
+          <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
+            Over the last two years I've built and ranked 44+ sites across health, automotive, home services, developer tools, food, and SaaS verticals. Every one scores 100/100 on Lighthouse and is structured for topical authority from day one.
+          </p>
+          <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
+            I also run <a href="https://sunnypatel.co.uk" style="color: var(--color-accent-2);">sunnypatel.co.uk</a> — my SEO consultancy serving UK businesses. OptimisedWebsite is the productised arm: fixed-price builds with a 7-day turnaround.
+          </p>
+          <div class="flex flex-wrap gap-4 mt-6">
+            <div class="text-center">
+              <div class="text-[24px] font-bold" style="color: var(--color-ink);">44+</div>
+              <div class="text-[11px] uppercase font-mono" style="color: var(--color-ink-3);">Sites built</div>
+            </div>
+            <div class="text-center">
+              <div class="text-[24px] font-bold" style="color: var(--color-ink);">100/100</div>
+              <div class="text-[11px] uppercase font-mono" style="color: var(--color-ink-3);">Lighthouse</div>
+            </div>
+            <div class="text-center">
+              <div class="text-[24px] font-bold" style="color: var(--color-ink);">7 days</div>
+              <div class="text-[11px] uppercase font-mono" style="color: var(--color-ink-3);">Delivery</div>
+            </div>
+            <div class="text-center">
+              <div class="text-[24px] font-bold" style="color: var(--color-ink);">Reading</div>
+              <div class="text-[11px] uppercase font-mono" style="color: var(--color-ink-3);">Based in</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="py-10">
@@ -42,37 +83,31 @@ const schemaNodes = [
         Most websites retrofit SEO after design is complete — adding meta tags, fixing headings, writing alt text. The result looks polished but lacks the structural foundations search engines need to rank content properly.
       </p>
       <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
-        SEO-first reverses that sequence. Keyword research, topical mapping, internal linking architecture, and schema planning all happen before a single line of HTML is written. Every URL, every heading, and every internal link exists because the data justified it. Design serves the structure.
+        SEO-first reverses that sequence. Keyword research, topical mapping, internal linking architecture, and schema planning all happen before a single line of HTML is written. Every URL, every heading, and every internal link exists because the data justified it.
       </p>
     </section>
 
     <section class="py-10">
-      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">How Topical Authority Works</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">What You Get</h2>
       <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
-        Search engines rank websites that demonstrate deep coverage of a subject. A single "vibration plates" page loses to a site with dedicated pages for reviews, comparisons, buying guides, exercise routines, and health benefits — all interlinked through a hub-and-spoke structure.
-      </p>
-      <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
-        Topical authority is not about publishing more pages. It is about publishing the right pages, targeting the right keywords, and connecting them with the right internal links. Our topical maps typically contain 15-50 pages organised into 3-7 clusters, each covering a subtopic within your niche at sufficient depth that search engines treat your site as the go-to resource.
-      </p>
-    </section>
-
-    <section class="py-10">
-      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">What Makes Our Builds Different</h2>
-      <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
-        Three things separate our builds from a typical web agency deliverable. First, every page carries its own JSON-LD schema block within a site-wide @graph — Organisation, WebSite, Service, Article, FAQPage, HowTo, and BreadcrumbList types are deployed where the data supports them, cross-referenced through @id for entity coherence.
-      </p>
-      <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
-        Second, we build on Astro and deploy to CDN edge networks (Cloudflare Pages or Vercel). Static HTML ships with zero server-side rendering overhead. Sub-second page loads. Core Web Vitals scores that beat WordPress competitors still loading jQuery and twelve plugins.
+        Every page carries its own JSON-LD schema block within a site-wide @graph — Organisation, WebSite, Service, Article, FAQPage, HowTo, and BreadcrumbList types deployed where the data supports them. Sites are built on Astro and deployed to Cloudflare's edge network. Static HTML, zero JavaScript overhead, sub-second loads.
       </p>
       <p class="leading-relaxed" style="color: var(--color-ink-2);">
-        Third, you own everything. The GitHub repository, the domain, the hosting account, and the content. No proprietary CMS. No vendor lock-in. No recurring platform fee. Walk away and manage the site yourself — we hand over a complete codebase with documentation.
+        You own everything. The GitHub repository, the domain, the hosting account, and the content. No proprietary CMS. No vendor lock-in. No recurring platform fee. Walk away and manage the site yourself — I hand over a complete codebase.
+      </p>
+    </section>
+
+    <section class="py-10">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">Satisfaction Guarantee</h2>
+      <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
+        You review on a live staging link before anything goes live. Revisions are included: 30 days for Essential builds, 90 days for Pro. If the final site doesn't meet the agreed brief, I rebuild the pages in question at no extra cost. You're never locked in — source code is yours from day one.
       </p>
     </section>
 
     <section class="py-12 text-center">
       <div class="flex flex-wrap gap-3 justify-center">
-        <CTA href="/portfolio/" label="View Our Portfolio" />
-        <CTA href="/order/" label="Order a Build" variant="secondary" />
+        <CTA href="/portfolio/" label="View Portfolio" />
+        <CTA href="/order/" label="Start a Build" variant="secondary" />
       </div>
     </section>
   </div>

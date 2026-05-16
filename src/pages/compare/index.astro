@@ -54,6 +54,64 @@ const breadcrumbs = [
       </p>
     </section>
 
+    <!-- Quick comparison table -->
+    <section class="pb-12 reveal">
+      <div class="card overflow-hidden" style="padding: 0;">
+        <div class="overflow-x-auto">
+          <table class="w-full text-[14px] min-w-[600px]">
+            <thead>
+              <tr style="border-bottom: 1px solid var(--color-rule); background: var(--color-bg-2);">
+                <th class="text-left px-6 py-4 font-medium" style="color: var(--color-ink-3); width: 35%;">Feature</th>
+                <th class="px-6 py-4 font-semibold text-center" style="color: var(--color-accent-2); background: rgba(124,58,237,0.04);">OptimisedWebsite</th>
+                <th class="px-6 py-4 font-medium text-center" style="color: var(--color-ink-3);">DIY builders</th>
+                <th class="px-6 py-4 font-medium text-center" style="color: var(--color-ink-3);">Traditional agency</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--color-rule);">
+                <td class="px-6 py-3.5 font-medium" style="color: var(--color-ink-2);">Lighthouse score</td>
+                <td class="px-6 py-3.5 text-center font-semibold" style="color: var(--color-accent-2);">100/100</td>
+                <td class="px-6 py-3.5 text-center" style="color: var(--color-ink-3);">55–75</td>
+                <td class="px-6 py-3.5 text-center" style="color: var(--color-ink-3);">60–80</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-rule); background: var(--color-bg-2);">
+                <td class="px-6 py-3.5 font-medium" style="color: var(--color-ink-2);">Page weight</td>
+                <td class="px-6 py-3.5 text-center font-semibold" style="color: var(--color-accent-2);">&lt;100 KB</td>
+                <td class="px-6 py-3.5 text-center" style="color: var(--color-ink-3);">2–8 MB</td>
+                <td class="px-6 py-3.5 text-center" style="color: var(--color-ink-3);">1–4 MB</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-rule);">
+                <td class="px-6 py-3.5 font-medium" style="color: var(--color-ink-2);">Delivery time</td>
+                <td class="px-6 py-3.5 text-center font-semibold" style="color: var(--color-accent-2);">7 days</td>
+                <td class="px-6 py-3.5 text-center" style="color: var(--color-ink-3);">Never (ongoing)</td>
+                <td class="px-6 py-3.5 text-center" style="color: var(--color-ink-3);">6–12 weeks</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-rule); background: var(--color-bg-2);">
+                <td class="px-6 py-3.5 font-medium" style="color: var(--color-ink-2);">Cost</td>
+                <td class="px-6 py-3.5 text-center font-semibold" style="color: var(--color-accent-2);">£1,500–£3,000</td>
+                <td class="px-6 py-3.5 text-center" style="color: var(--color-ink-3);">£0 + your time</td>
+                <td class="px-6 py-3.5 text-center" style="color: var(--color-ink-3);">£5,000–£30,000</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--color-rule);">
+                <td class="px-6 py-3.5 font-medium" style="color: var(--color-ink-2);">You own the code</td>
+                <td class="px-6 py-3.5 text-center font-semibold" style="color: #10b981;">Yes</td>
+                <td class="px-6 py-3.5 text-center" style="color: #ef4444;">No</td>
+                <td class="px-6 py-3.5 text-center" style="color: #ef4444;">Rarely</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-3.5 font-medium" style="color: var(--color-ink-2);">SEO architecture included</td>
+                <td class="px-6 py-3.5 text-center font-semibold" style="color: #10b981;">Yes</td>
+                <td class="px-6 py-3.5 text-center" style="color: #ef4444;">No</td>
+                <td class="px-6 py-3.5 text-center" style="color: var(--color-ink-3);">Sometimes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="text-xl font-bold mb-6" style="color: var(--color-ink);">Detailed comparisons</h2>
+
     <section class="pb-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 reveal">
       {articles.map((article) => (
         <a

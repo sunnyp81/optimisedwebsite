@@ -28,6 +28,10 @@ const faqs = [
   {
     q: 'How long does delivery actually take?',
     a: 'Seven days from brief to live. For Pro builds (50 pages), up to fourteen days. We set a deadline before work starts and hit it.'
+  },
+  {
+    q: 'What if I\'m not happy with the result?',
+    a: 'You get a live staging link to review before launch. Revisions are included — 30 days for Essential, 90 days for Pro. If the final site doesn\'t meet the brief, we rebuild the pages in question at no extra cost.'
   }
 ];
 
@@ -75,23 +79,23 @@ const testimonials = [
   {
     scoreBefore: 42,
     scoreAfter: 100,
-    quote: "We went from invisible to ranking top 3 for our main service terms within six weeks. The schema work alone changed how Google describes our business.",
-    author: "Sarah M.",
-    role: "Owner, Home Services Company"
+    quote: "Position 7.2 average across 49 county pages within 8 weeks of launch. 1,191 organic clicks per month from a standing start — no backlinks, no ads.",
+    author: "WaterHard.uk",
+    role: "Home & Utilities — 49 pages"
   },
   {
-    scoreBefore: 58,
+    scoreBefore: 0,
     scoreAfter: 100,
-    quote: "Every page loads in under half a second. Our bounce rate dropped 34% in the first month. This is what a properly built site feels like.",
-    author: "James R.",
-    role: "Director, Legal Services Firm"
+    quote: "135 pages indexed, 100% schema coverage, BuyBox components on every review. Ranking for 'best vibration plate' variants within the first month.",
+    author: "BestVibrationPlates.co.uk",
+    role: "Health & Fitness — 135 pages"
   },
   {
-    scoreBefore: 31,
+    scoreBefore: 0,
     scoreAfter: 100,
-    quote: "I thought £1,500 was expensive until I saw what we were missing. We recovered the cost in clicks within the first 90 days.",
-    author: "Priya T.",
-    role: "Founder, Wellness Clinic"
+    quote: "832 indexable pages from a 14,487-page database. Quality gates filtered thin content, and the remaining pages rank for make+model towing queries.",
+    author: "TowRating.net",
+    role: "Automotive — 832 pages"
   }
 ];
 
@@ -163,12 +167,12 @@ const schemaNodes = [
           <div class="eyebrow animate-fade-up">Built in Britain &middot; Shipping in 7 days</div>
 
           <h1 class="animate-fade-up mb-6" style="animation-delay: 0.1s;">
-            Built for humans.<br>
-            <span class="gradient-text-hero">Optimised</span> for<br>everything else.
+            Get found on Google.<br>
+            <span class="gradient-text-hero">Stay</span> found.
           </h1>
 
           <p class="text-[18px] leading-[1.6] mb-8 max-w-[480px] animate-fade-up" style="color: var(--color-ink-2); animation-delay: 0.2s;">
-            Bespoke websites that score 100/100 on Lighthouse, load in under half a second, and don't make your users wait. From £1,500. Delivered in one week.
+            Websites built to rank — not just look good. Perfect performance scores, sub-second loads, and the SEO architecture that turns search traffic into enquiries. From £1,500. Live in one week.
           </p>
 
           <div class="flex gap-3 flex-wrap animate-fade-up" style="animation-delay: 0.3s;">
@@ -275,8 +279,8 @@ const schemaNodes = [
     <div class="wrap">
       <div class="reveal mb-12">
         <div class="eyebrow">Our work</div>
-        <h2>Nine starting points.<br>One opinionated philosophy.</h2>
-        <p class="text-[17px] mt-4 max-w-[480px]" style="color: var(--color-ink-2);">Real sites, real businesses. Every one scores 100/100 and loads in under a second.</p>
+        <h2>Sites we've built and ranked.</h2>
+        <p class="text-[17px] mt-4 max-w-[480px]" style="color: var(--color-ink-2);">Live sites generating organic traffic. Every one scores 100/100 on Lighthouse and ranks for its target keywords.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-5 reveal">
@@ -422,7 +426,7 @@ const schemaNodes = [
     <div class="wrap">
       <div class="flex items-center justify-center gap-3 mb-10">
         <div class="h-px flex-1 max-w-[80px]" style="background: linear-gradient(90deg, transparent, var(--color-rule));"></div>
-        <div class="mono text-[11px] uppercase" style="color: var(--color-ink-3); letter-spacing: 0.1em;">44+ sites built &middot; all scoring 100/100</div>
+        <div class="mono text-[11px] uppercase" style="color: var(--color-ink-3); letter-spacing: 0.1em;">44+ sites in our network &middot; all scoring 100/100</div>
         <div class="h-px flex-1 max-w-[80px]" style="background: linear-gradient(90deg, var(--color-rule), transparent);"></div>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -441,7 +445,7 @@ const schemaNodes = [
     <div class="wrap">
       <div class="reveal mb-12">
         <div class="eyebrow">Results</div>
-        <h2>The before/after of caring<br>about milliseconds.</h2>
+        <h2>Real sites. Measurable outcomes.</h2>
       </div>
 
       <div class="grid md:grid-cols-3 gap-5 reveal">
@@ -449,16 +453,23 @@ const schemaNodes = [
           <div class="card" style="padding: 32px 28px;">
             <!-- Score chips -->
             <div class="flex items-center gap-3 mb-6">
-              <span class="score-before">{t.scoreBefore}/100</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-3)" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              {t.scoreBefore > 0 ? (
+                <>
+                  <span class="score-before">{t.scoreBefore}/100</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-3)" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </>
+              ) : (
+                <span class="chip">New build</span>
+              )}
               <span class="score-after">{t.scoreAfter}/100</span>
             </div>
-            <blockquote class="text-[14px] leading-[1.7] mb-6 italic" style="color: var(--color-ink-2);">
-              "{t.quote}"
-            </blockquote>
+            <p class="text-[14px] leading-[1.7] mb-6" style="color: var(--color-ink-2);">
+              {t.quote}
+            </p>
             <div class="flex items-center gap-3">
-              <!-- Gradient avatar -->
-              <div class="w-9 h-9 rounded-full flex-shrink-0" style={`background: linear-gradient(135deg, ${['#fbbf24','#7c3aed','#10b981'][i]} 0%, ${['#7c3aed','#10b981','#fbbf24'][i]} 100%);`}></div>
+              <div class="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center" style={`background: linear-gradient(135deg, ${['#fbbf24','#7c3aed','#10b981'][i]} 0%, ${['#7c3aed','#10b981','#fbbf24'][i]} 100%);`}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
               <div>
                 <div class="text-[13px] font-semibold" style="color: var(--color-ink);">{t.author}</div>
                 <div class="text-[12px]" style="color: var(--color-ink-3);">{t.role}</div>
@@ -477,9 +488,9 @@ const schemaNodes = [
         <!-- Left: copy + code block -->
         <div class="reveal">
           <div class="eyebrow" style="color: rgba(248,250,252,0.6);">Under the hood</div>
-          <h2 style="color: var(--color-bg);">An opinionated stack.<br>Boring on purpose.</h2>
+          <h2 style="color: var(--color-bg);">Why your site loads<br>in half a second.</h2>
           <p class="text-[15px] leading-[1.65] mt-4 mb-8" style="color: rgba(248,250,252,0.55);">
-            Every tool in our stack earns its place. If it ships JavaScript, it better prove it's worth the bytes. Most of the time, it isn't.
+            No bloated plugins. No slow databases. Just static HTML served from the nearest edge server to your visitor. The result: instant page loads that Google rewards with higher rankings.
           </p>
           <div class="code-block">
             <div><span class="comment">// principle.txt</span></div>
