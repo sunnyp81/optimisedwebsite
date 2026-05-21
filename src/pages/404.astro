@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Page Not Found — OptimisedWebsite"
+  description="The page you're looking for doesn't exist or has been moved."
+  canonicalPath="/404/"
+  noindex={true}
+>
+  <section class="section">
+    <div class="wrap" style="max-width: 640px;">
+      <h1 class="text-4xl font-bold tracking-tight mb-4" style="font-size: clamp(32px, 5vw, 48px);">Page not found</h1>
+      <p class="mb-8" style="color: var(--color-ink-2); line-height: 1.7;">
+        The page you're looking for doesn't exist or has been moved. Try one of the links below.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/" class="btn btn-primary">Homepage</a>
+        <a href="/portfolio/" class="btn btn-ghost">Portfolio</a>
+        <a href="/pricing/" class="btn btn-ghost">Pricing</a>
+        <a href="/contact/" class="btn btn-ghost">Contact</a>
+      </div>
+    </div>
+  </section>
+</Base>

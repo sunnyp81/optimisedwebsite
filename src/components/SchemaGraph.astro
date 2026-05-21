@@ -13,7 +13,12 @@ const graph = [
     '@id': `${site.url}/#organization`,
     name: site.name,
     url: site.url,
-    areaServed: 'UK',
+    areaServed: { '@type': 'Country', name: 'United Kingdom' },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'hello@optimisedwebsite.co.uk',
+      contactType: 'sales',
+    },
     knowsAbout: [
       'Search Engine Optimisation',
       'Website Development',

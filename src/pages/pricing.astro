@@ -7,7 +7,8 @@ import { site } from '../data/site';
 
 const deliverables = [
   {
-    category: 'Research & Strategy',
+    category: 'Keyword Research and Competitive Strategy',
+    prose: 'Every build starts with competitive keyword research. We identify 50–200 viable target terms, cluster them by search intent, and map them into a hub-and-spoke site architecture.',
     items: [
       'Keyword research (50-200 terms, clustered by intent)',
       'Topical map with hub-and-spoke architecture',
@@ -17,7 +18,8 @@ const deliverables = [
     ]
   },
   {
-    category: 'Content',
+    category: 'Content Writing: 15–50 Pages Included',
+    prose: 'All copy is written from scratch against your target keywords. Each page has a unique H1, meta title under 60 characters, and heading hierarchy designed for both readers and crawlers.',
     items: [
       '15-50 pages of original, keyword-targeted content',
       'Unique H1 and meta title/description per page',
@@ -28,7 +30,8 @@ const deliverables = [
     ]
   },
   {
-    category: 'Technical SEO',
+    category: 'Technical SEO Setup and Schema Markup',
+    prose: 'Schema markup covers 7–12 entity types per site including Organization, WebSite, Article, FAQPage, and BreadcrumbList. Every page validates against Google’s Rich Results Test.',
     items: [
       'Per-page JSON-LD schema within @graph',
       'Entity-interconnected schema (Organisation, WebSite, Service, Article, FAQPage, HowTo, BreadcrumbList)',
@@ -41,7 +44,8 @@ const deliverables = [
     ]
   },
   {
-    category: 'Internal Linking',
+    category: 'Internal Linking Architecture',
+    prose: 'Pages link to their parent hub using descriptive anchor text. This distributes ranking authority and helps crawlers discover your full site structure.',
     items: [
       'Hub-to-spoke links from every hub page',
       'Spoke-to-hub backlinks in every spoke',
@@ -52,7 +56,8 @@ const deliverables = [
     ]
   },
   {
-    category: 'Performance & Infrastructure',
+    category: 'Site Performance and Edge Hosting',
+    prose: 'Sites deploy to Cloudflare’s global edge network with sub-second first paint. Every page ships under 100KB with zero client-side JavaScript by default.',
     items: [
       'Cloudflare Pages CDN deployment (or Vercel)',
       'Static HTML — no server-side rendering overhead',
@@ -65,7 +70,8 @@ const deliverables = [
     ]
   },
   {
-    category: 'Launch & Submission',
+    category: 'Deployment and Search Engine Submission',
+    prose: 'We submit your sitemap to Google Search Console and Bing Webmaster Tools on launch day. IndexNow pings accelerate Bing discovery.',
     items: [
       'GitHub repository with full source code',
       'Google Search Console verification and sitemap submission',
@@ -75,7 +81,8 @@ const deliverables = [
     ]
   },
   {
-    category: 'Post-Launch',
+    category: 'Post-Launch Support and Revision Window',
+    prose: 'Essential builds include 30 days of revisions. Pro builds include 90 days plus one free redesign at 12 months.',
     items: [
       '30 days of support for content tweaks and schema fixes',
       'GSC baseline snapshot at day 14 and day 30',
@@ -147,6 +154,7 @@ const schemaNodes = [
     {deliverables.map(group => (
       <section class="py-8" style="border-top: 1px solid var(--color-rule);">
         <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">{group.category}</h2>
+        <p class="text-[15px] leading-[1.65] mb-6" style="color: var(--color-ink-2);">{group.prose}</p>
         <ul class="space-y-2 leading-relaxed" style="color: var(--color-ink-2);">
           {group.items.map(item => (
             <li class="flex gap-2"><span class="shrink-0" style="color: var(--color-accent-2);">&#10003;</span> {item}</li>
