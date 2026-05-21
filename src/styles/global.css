@@ -3,7 +3,7 @@
 @theme {
   /* Warm-cream design system — contrast-checked */
   --color-bg: #fffbeb;
-  --color-bg-2: #fbecc5;
+  --color-bg-2: #f5e6b8;
   --color-ink: #1a202c;
   --color-ink-2: #374151;
   --color-ink-3: #6b7280;
@@ -38,7 +38,7 @@
   --color-accent-glow: rgba(16, 185, 129, 0.25);
 
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", "Georgia", ui-serif, serif;
   --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
 
   /* Shadows */
@@ -131,6 +131,7 @@ html.dark .grid-bg { opacity: 0.3; }
 
 /* TYPOGRAPHY */
 h1 {
+  font-family: var(--font-display);
   font-size: clamp(44px, 7vw, 88px);
   line-height: 0.96;
   letter-spacing: -0.035em;
@@ -138,6 +139,7 @@ h1 {
   text-wrap: balance;
 }
 h2 {
+  font-family: var(--font-display);
   font-size: clamp(32px, 4vw, 52px);
   line-height: 1.02;
   letter-spacing: -0.03em;
@@ -185,6 +187,7 @@ p { text-wrap: pretty; }
   flex-shrink: 0;
 }
 .section-title {
+  font-family: var(--font-display);
   font-size: clamp(30px, 4vw, 52px);
   font-weight: 600; letter-spacing: -0.03em;
   line-height: 1.02; margin-bottom: 16px;
@@ -202,7 +205,7 @@ p { text-wrap: pretty; }
   border-radius: 999px; height: 44px; padding: 0 20px;
   font-size: 14px; font-weight: 500;
   text-decoration: none; border: none; cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  transition: background 0.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s cubic-bezier(0.4,0,0.2,1), transform 0.2s cubic-bezier(0.4,0,0.2,1);
   white-space: nowrap;
 }
 .btn-primary {
@@ -249,7 +252,7 @@ html.dark .btn-primary {
   background: var(--color-ink); color: var(--color-bg);
   box-shadow: 0 4px 20px rgba(30,41,59,0.25);
   position: relative; overflow: hidden;
-  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  transition: background 0.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s cubic-bezier(0.4,0,0.2,1), transform 0.2s cubic-bezier(0.4,0,0.2,1);
   text-decoration: none;
 }
 .btn-glow:hover {
@@ -266,7 +269,7 @@ html.dark .btn-primary {
   padding: 0 24px; height: 44px; border-radius: 999px;
   background: transparent; color: var(--color-ink);
   box-shadow: inset 0 0 0 1px var(--color-rule-2);
-  transition: all 0.2s;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
   text-decoration: none;
 }
 .btn-glass:hover {
@@ -503,7 +506,7 @@ html.dark .gradient-cta {
   border-radius: 50%; background: var(--color-bg-2);
   box-shadow: inset 0 0 0 1px var(--color-rule);
   display: flex; align-items: center; justify-content: center;
-  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+  transition: background 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s cubic-bezier(0.16,1,0.3,1), transform 0.3s cubic-bezier(0.16,1,0.3,1), color 0.3s cubic-bezier(0.16,1,0.3,1);
   color: var(--color-ink-3);
 }
 .faq-item.open .faq-toggle {
@@ -519,7 +522,7 @@ html.dark .gradient-cta {
   position: absolute; left: 50%; top: 50%;
   width: 14px; height: 1.5px;
   background: var(--color-ink-3);
-  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+  transition: background 0.3s cubic-bezier(0.16,1,0.3,1), transform 0.3s cubic-bezier(0.16,1,0.3,1);
 }
 .faq-icon .fh { transform: translate(-50%, -50%); }
 .faq-icon .fv { transform: translate(-50%, -50%) rotate(90deg); }
@@ -572,7 +575,7 @@ html.dark .gradient-cta {
   border-radius: 14px; padding: 14px 20px;
   display: flex; align-items: center; gap: 12px;
   transform: translateY(120px); opacity: 0;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   max-width: 340px; pointer-events: none;
 }
 .toast.show { transform: translateY(0); opacity: 1; }

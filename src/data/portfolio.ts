@@ -9,43 +9,43 @@ export interface PortfolioItem {
 
 export const portfolio: PortfolioItem[] = [
   {
-    name: 'Best Vibration Plates',
-    url: 'https://bestvibrationplates.co.uk',
-    niche: 'Health & Fitness',
-    pageCount: 135,
-    metric: '100% schema coverage',
-    description: '135-page affiliate site with BuyBox components, comparison pages, and full BreadcrumbList + Article + FAQPage schema.'
-  },
-  {
     name: 'Water Hardness UK',
     url: 'https://waterhard.uk',
     niche: 'Home & Utilities',
     pageCount: 49,
-    metric: '1,191 clicks/month',
-    description: '49 county-level pages with BreadcrumbList schema, direct affiliate links, and FAQ sections. Position 7.2 average.'
+    metric: '1,082 clicks/month',
+    description: '49 area and water-company pages ranking for "water hardness" queries across every UK region. Position 8.0 average, 60.8k impressions/month.'
   },
   {
-    name: 'Calculator Place',
-    url: 'https://calculator.place',
-    niche: 'Tools & Utilities',
-    pageCount: 60,
-    metric: '450 unique H2s',
-    description: '60 calculator pages with unique content per page, HowTo schema, and meta rewrites for CTR optimisation.'
+    name: 'She Cooks She Eats',
+    url: 'https://shecookssheeats.co.uk',
+    niche: 'Food & Diet',
+    pageCount: 211,
+    metric: '85.8k impressions/mo',
+    description: '211 Slimming World syns pages and takeaway guides. 512 clicks/month, ranking for hundreds of "how many syns in" long-tail queries.'
   },
   {
-    name: 'Tow Rating',
-    url: 'https://towrating.net',
-    niche: 'Automotive',
-    pageCount: 832,
-    metric: '14,487 total pages',
-    description: '832 indexable vehicle pages with Article schema, trimmed from 14,487 for quality. Full BreadcrumbList navigation.'
+    name: 'Dead Hangs',
+    url: 'https://deadhangs.com',
+    niche: 'Health & Fitness',
+    pageCount: 53,
+    metric: '437 clicks/month',
+    description: '53 pages covering dead hang standards, world records, and training programmes. Top page ranks position 7.0 for "dead hang time by age" — 22.8k impressions alone.'
   },
   {
-    name: 'Fix Error Dev',
-    url: 'https://fixerror.dev',
-    niche: 'Developer Tools',
-    pageCount: 125,
-    metric: '33 curated errors',
-    description: '125 pages covering error codes across 11 services. TechArticle + HowTo + FAQPage schema. AI crawler rules configured.'
+    name: 'Rental Yield UK',
+    url: 'https://rentalyield.uk',
+    niche: 'Property & Finance',
+    pageCount: 120,
+    metric: '37.9k impressions/mo',
+    description: '120 area-level rental yield pages with postcode data. 98 clicks/month at position 9.3 — growing steadily from a standing start.'
+  },
+  {
+    name: 'Best Vibration Plates',
+    url: 'https://bestvibrationplates.co.uk',
+    niche: 'Health & Fitness',
+    pageCount: 135,
+    metric: '6.7k impressions/mo',
+    description: '135-page affiliate site with BuyBox components, comparison pages, and full schema coverage. Ranking for long-tail health queries.'
   },
 ];

@@ -79,23 +79,23 @@ const testimonials = [
   {
     scoreBefore: 42,
     scoreAfter: 100,
-    quote: "Position 7.2 average across 49 county pages within 8 weeks of launch. 1,191 organic clicks per month from a standing start — no backlinks, no ads.",
+    quote: "1,082 organic clicks/month and 60.8k impressions across 49 area pages. Position 8.0 average — ranking for 'water hardness' queries in every UK region. No backlinks, no ads.",
     author: "WaterHard.uk",
     role: "Home & Utilities — 49 pages"
   },
   {
     scoreBefore: 0,
     scoreAfter: 100,
-    quote: "135 pages indexed, 100% schema coverage, BuyBox components on every review. Ranking for 'best vibration plate' variants within the first month.",
-    author: "BestVibrationPlates.co.uk",
-    role: "Health & Fitness — 135 pages"
+    quote: "437 clicks/month from 36.2k impressions. Top page ranks position 7.0 for 'dead hang time by age' with 22.8k impressions alone. 53 pages, all indexing within weeks.",
+    author: "DeadHangs.com",
+    role: "Health & Fitness — 53 pages"
   },
   {
     scoreBefore: 0,
     scoreAfter: 100,
-    quote: "832 indexable pages from a 14,487-page database. Quality gates filtered thin content, and the remaining pages rank for make+model towing queries.",
-    author: "TowRating.net",
-    role: "Automotive — 832 pages"
+    quote: "85.8k impressions/month across 211 pages — the largest impression volume in our network. 512 clicks/month ranking for hundreds of long-tail Slimming World queries.",
+    author: "SheCooksSheEats.co.uk",
+    role: "Food & Diet — 211 pages"
   }
 ];
 
@@ -120,8 +120,8 @@ const compareRows = [
 ];
 
 const trustNames = [
-  'WaterHard UK', 'BestVibrationPlates', 'Calculator.place', 'TowRating.net',
-  'FixError.dev', 'DeadHangs.com', 'SolarHQ.uk', 'HeatPumpChecker'
+  'WaterHard.uk', 'SheCooksSheEats', 'DeadHangs.com', 'RentalYield.uk',
+  'BestVibrationPlates', 'HeatPumpChecker', 'SolarHQ.uk', 'KnotweedCheck'
 ];
 
 const schemaNodes = [
@@ -176,8 +176,8 @@ const schemaNodes = [
           </p>
 
           <div class="flex gap-3 flex-wrap animate-fade-up" style="animation-delay: 0.3s;">
-            <a href="/portfolio/" class="btn btn-primary">Browse templates</a>
-            <a href="/how-it-works/" class="btn btn-ghost">See how it works</a>
+            <a href="/order/" class="btn btn-primary">Start your build &rarr;</a>
+            <a href="#processTrack" class="btn btn-ghost">See how it works</a>
           </div>
 
           <!-- Stats row -->
@@ -292,30 +292,28 @@ const schemaNodes = [
             onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='inset 0 0 0 1px var(--color-rule-2), 0 12px 40px rgba(30,41,59,0.12)';"
             onmouseout="this.style.transform=''; this.style.boxShadow='inset 0 0 0 1px var(--color-rule), 0 1px 3px rgba(30,41,59,0.08)';"
           >
-            <!-- Preview area with fake browser chrome -->
-            <div class="relative" style={`background: ${['#fef3c7','#ede9fe','#dcfce7','#dbeafe','#fce7f3'][i % 5]}; aspect-ratio: 16/9;`}>
-              <div class="absolute top-3 left-3 right-3 flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-white/60"></span>
-                <span class="w-2 h-2 rounded-full bg-white/60"></span>
-                <span class="w-2 h-2 rounded-full bg-white/60"></span>
-                <div class="flex-1 h-4 rounded-md ml-2" style="background: rgba(255,255,255,0.5);"></div>
-              </div>
-              <!-- Wireframe mockup -->
-              <div class="absolute inset-x-4 top-9 bottom-3 rounded-md flex flex-col gap-1.5 p-2" style="background: rgba(255,255,255,0.4);">
-                <div class="h-2 w-3/4 rounded" style="background: rgba(0,0,0,0.08);"></div>
-                <div class="h-1.5 w-1/2 rounded" style="background: rgba(0,0,0,0.05);"></div>
-                <div class="flex-1 grid grid-cols-3 gap-1 mt-1">
-                  <div class="rounded" style="background: rgba(0,0,0,0.04);"></div>
-                  <div class="rounded" style="background: rgba(0,0,0,0.04);"></div>
-                  <div class="rounded" style="background: rgba(0,0,0,0.04);"></div>
+            <!-- Preview area -->
+            <div class="relative overflow-hidden" style={`background: linear-gradient(135deg, ${['#fef3c7,#fde68a','#ede9fe,#c4b5fd','#dcfce7,#86efac','#dbeafe,#93c5fd','#fce7f3,#f9a8d4'][i % 5]}); aspect-ratio: 16/10;`}>
+              <!-- Browser chrome -->
+              <div class="absolute top-0 left-0 right-0 flex items-center gap-1.5 px-3 py-2" style="background: rgba(255,255,255,0.7); backdrop-filter: blur(8px);">
+                <span class="w-2 h-2 rounded-full" style="background:#ff5f57;"></span>
+                <span class="w-2 h-2 rounded-full" style="background:#febc2e;"></span>
+                <span class="w-2 h-2 rounded-full" style="background:#28c840;"></span>
+                <div class="flex-1 h-5 rounded-md ml-2 flex items-center px-2" style="background: rgba(0,0,0,0.05);">
+                  <span class="text-[10px] font-mono" style="color: var(--color-ink-3);">{item.url.replace('https://', '')}</span>
                 </div>
               </div>
-              <div class="absolute bottom-2 left-1/2 -translate-x-1/2">
-                <span class="text-[10px] font-mono px-2.5 py-1 rounded-full" style="background: rgba(255,255,255,0.8); color: var(--color-ink-2);">{item.url.replace('https://', '')}</span>
+              <!-- Site name as display element -->
+              <div class="absolute inset-0 flex flex-col items-center justify-center pt-6">
+                <div class="text-[20px] font-semibold tracking-[-0.03em]" style="color: rgba(0,0,0,0.12);">{item.name}</div>
+                <div class="flex items-center gap-2 mt-2">
+                  <span class="chip chip-ok text-[10px]" style="transform: scale(0.85);">100/100</span>
+                  <span class="chip text-[10px]" style="transform: scale(0.85);">{item.pageCount} pages</span>
+                </div>
               </div>
               <!-- Overlay on hover -->
-              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200" style="background: rgba(30,41,59,0.4);">
-                <span class="text-white text-sm font-medium">View template &rarr;</span>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200" style="background: rgba(30,41,59,0.5); backdrop-filter: blur(4px);">
+                <span class="text-white text-sm font-medium px-4 py-2 rounded-full" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);">View project &rarr;</span>
               </div>
             </div>
             <!-- Card body -->
@@ -431,7 +429,7 @@ const schemaNodes = [
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
         {trustNames.map((name, i) => (
-          <div class="flex items-center justify-center gap-2 py-4 px-5 rounded-xl" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule); transition: all 0.2s;">
+          <div class="flex items-center justify-center gap-2 py-4 px-5 rounded-xl" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule); transition: box-shadow 0.2s, transform 0.2s;">
             <span class="w-2 h-2 rounded-full flex-shrink-0" style={`background: ${['#fbbf24','#7c3aed','#10b981','#3b82f6','#f59e0b','#8b5cf6','#059669','#2563eb'][i]};`}></span>
             <span class="mono text-[12px] font-medium" style="color: var(--color-ink-2);">{name}</span>
           </div>
@@ -615,8 +613,8 @@ const schemaNodes = [
             Send your brief. We research, build, and deploy. You rank. No lock-in. No retainer.
           </p>
           <div class="flex gap-3 justify-center flex-wrap">
-            <a href="/order/" class="btn btn-accent">Start your project &rarr;</a>
-            <a href="/contact/" class="btn btn-ghost">Talk to us first</a>
+            <a href="/order/" class="btn btn-accent">Start your build &rarr;</a>
+            <a href="/contact/" class="btn btn-ghost" style="color: rgba(248,250,252,0.85); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);">Talk to us first</a>
           </div>
         </div>
       </div>
@@ -647,11 +645,11 @@ const schemaNodes = [
 
   // Social proof toast
   const toasts = [
-    { title: 'bestvibrationplates.co.uk', sub: '135 pages · Lighthouse 100' },
-    { title: 'waterhard.uk', sub: '49 pages · 1,191 clicks/mo' },
-    { title: 'calculator.place', sub: '60 pages · 450 unique H2s' },
-    { title: 'towrating.net', sub: '832 pages · Full schema' },
-    { title: 'fixerror.dev', sub: '125 pages · AI crawler ready' },
+    { title: 'waterhard.uk', sub: '1,082 clicks/mo · pos 8.0' },
+    { title: 'shecookssheeats.co.uk', sub: '85.8k impressions/mo · 211 pages' },
+    { title: 'deadhangs.com', sub: '437 clicks/mo · pos 7.6' },
+    { title: 'rentalyield.uk', sub: '37.9k impressions/mo · growing' },
+    { title: 'bestvibrationplates.co.uk', sub: '135 pages · 6.7k impr/mo' },
   ];
   const toast = document.getElementById('toast');
   const tTitle = document.getElementById('toastTitle');
