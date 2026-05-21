@@ -2,9 +2,12 @@
 import Base from '../layouts/Base.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import PortfolioCard from '../components/PortfolioCard.astro';
+import GrowthChart from '../components/GrowthChart.astro';
 import CTA from '../components/CTA.astro';
 import { site } from '../data/site';
 import { portfolio } from '../data/portfolio';
+
+const chartColors = ['#10b981', '#7c3aed', '#3b82f6', '#f59e0b', '#ef4444'];
 
 const schemaNodes = [
   {
@@ -53,9 +56,14 @@ const schemaNodes = [
     </section>
 
     <section class="pb-16">
-      <div class="grid gap-4 md:grid-cols-2">
-        {portfolio.map(item => (
-          <PortfolioCard item={item} />
+      <div class="grid gap-6 md:grid-cols-2">
+        {portfolio.map((item, i) => (
+          <div>
+            <PortfolioCard item={item} />
+            <div class="mt-[-1px] mx-1 rounded-b-[16px] p-4" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule); border-top: none;">
+              <GrowthChart data={item.growth} label={`${item.name} — impressions (k/mo)`} color={chartColors[i % chartColors.length]} />
+            </div>
+          </div>
         ))}
       </div>
     </section>
@@ -66,3 +74,17 @@ const schemaNodes = [
     </section>
   </div>
 </Base>
+
+<script>
+  document.querySelectorAll('.growth-chart-wrap').forEach(wrap => {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          (e.target as HTMLElement).classList.add('drawn');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    obs.observe(wrap);
+  });
+</script>

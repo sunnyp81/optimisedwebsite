@@ -1,0 +1,155 @@
+---
+interface Props {
+  data: number[];
+  label: string;
+  color?: string;
+  height?: number;
+}
+const { data, label, color = '#10b981', height = 120 } = Astro.props;
+
+const max = Math.max(...data);
+const w = 280;
+const h = height;
+const pad = { top: 10, right: 10, bottom: 24, left: 40 };
+const chartW = w - pad.left - pad.right;
+const chartH = h - pad.top - pad.bottom;
+
+const points = data.map((v, i) => ({
+  x: pad.left + (i / (data.length - 1)) * chartW,
+  y: pad.top + chartH - (v / max) * chartH,
+  val: v,
+}));
+
+const linePath = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+const areaPath = `${linePath} L${points[points.length - 1].x.toFixed(1)},${pad.top + chartH} L${points[0].x.toFixed(1)},${pad.top + chartH} Z`;
+
+const months = ['J','F','M','A','M','J','J','A','S','O','N','D'];
+const yTicks = [0, Math.round(max / 2), Math.round(max)];
+---
+<div class="growth-chart-wrap">
+  <svg viewBox={`0 0 ${w} ${h}`} class="growth-chart" preserveAspectRatio="xMidYMid meet" role="img" aria-label={`Growth chart: ${label}`}>
+    <!-- Grid lines -->
+    {yTicks.map(tick => {
+      const y = pad.top + chartH - (tick / max) * chartH;
+      return (
+        <g>
+          <line x1={pad.left} y1={y} x2={w - pad.right} y2={y} stroke="var(--color-rule)" stroke-width="0.5" stroke-dasharray="2,3" />
+          <text x={pad.left - 4} y={y + 3} text-anchor="end" font-size="7" fill="var(--color-ink-3)" font-family="Geist Mono, monospace">
+            {tick >= 1000 ? `${(tick / 1000).toFixed(0)}k` : tick}
+          </text>
+        </g>
+      );
+    })}
+
+    <!-- X-axis labels -->
+    {data.map((_, i) => {
+      if (i % 3 !== 0 && i !== data.length - 1) return null;
+      const x = pad.left + (i / (data.length - 1)) * chartW;
+      return (
+        <text x={x} y={h - 4} text-anchor="middle" font-size="7" fill="var(--color-ink-3)" font-family="Geist Mono, monospace">
+          {months[i]}
+        </text>
+      );
+    })}
+
+    <!-- Area fill -->
+    <path d={areaPath} fill={`url(#grad-${label.replace(/\s/g, '')})`} class="chart-area" />
+
+    <!-- Gradient def -->
+    <defs>
+      <linearGradient id={`grad-${label.replace(/\s/g, '')}`} x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color={color} stop-opacity="0.2" />
+        <stop offset="100%" stop-color={color} stop-opacity="0" />
+      </linearGradient>
+    </defs>
+
+    <!-- Line -->
+    <path d={linePath} fill="none" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chart-line" />
+
+    <!-- End dot -->
+    <circle cx={points[points.length - 1].x} cy={points[points.length - 1].y} r="3.5" fill={color} class="chart-dot" />
+    <circle cx={points[points.length - 1].x} cy={points[points.length - 1].y} r="6" fill={color} opacity="0.2" class="chart-dot-glow" />
+
+    <!-- Hover targets -->
+    {points.map((p, i) => (
+      <g class="chart-point" data-idx={i}>
+        <circle cx={p.x} cy={p.y} r="10" fill="transparent" class="chart-hover-target" />
+        <circle cx={p.x} cy={p.y} r="3" fill={color} opacity="0" class="chart-hover-dot" />
+        <g class="chart-tooltip" opacity="0" transform={`translate(${p.x},${p.y - 14})`}>
+          <rect x="-20" y="-10" width="40" height="16" rx="4" fill="var(--color-ink)" />
+          <text x="0" y="1" text-anchor="middle" font-size="7.5" fill="white" font-family="Geist Mono, monospace" font-weight="600">
+            {p.val >= 1000 ? `${(p.val / 1000).toFixed(1)}k` : p.val.toFixed(1)}
+          </text>
+        </g>
+      </g>
+    ))}
+  </svg>
+  <div class="chart-label">{label}</div>
+</div>
+
+<style>
+  .growth-chart-wrap {
+    position: relative;
+    width: 100%;
+    margin-top: 0.75rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-rule);
+  }
+  .growth-chart {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .chart-line {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .chart-area {
+    opacity: 0;
+    transition: opacity 0.8s ease 0.5s;
+  }
+  .chart-dot, .chart-dot-glow {
+    opacity: 0;
+    transition: opacity 0.3s ease 1.4s;
+  }
+  .growth-chart-wrap.drawn .chart-line {
+    stroke-dashoffset: 0;
+  }
+  .growth-chart-wrap.drawn .chart-area {
+    opacity: 1;
+  }
+  .growth-chart-wrap.drawn .chart-dot,
+  .growth-chart-wrap.drawn .chart-dot-glow {
+    opacity: 1;
+  }
+  .chart-dot-glow {
+    animation: none;
+  }
+  .growth-chart-wrap.drawn .chart-dot-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.2; r: 6; }
+    50% { opacity: 0.4; r: 8; }
+  }
+  .chart-hover-dot, .chart-tooltip {
+    transition: opacity 0.15s;
+    pointer-events: none;
+  }
+  .chart-point:hover .chart-hover-dot {
+    opacity: 1 !important;
+  }
+  .chart-point:hover .chart-tooltip {
+    opacity: 1 !important;
+  }
+  .chart-label {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-3);
+    text-align: center;
+    margin-top: 0.25rem;
+  }
+</style>

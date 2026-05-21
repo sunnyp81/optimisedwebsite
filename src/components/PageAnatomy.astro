@@ -1,0 +1,308 @@
+---
+const layers = [
+  {
+    id: 'schema',
+    label: 'Schema Markup',
+    color: '#7c3aed',
+    y: 0,
+    description: 'JSON-LD structured data tells search engines exactly what your page is about. We add 7-12 entity types per site — Organization, WebPage, Article, FAQPage, BreadcrumbList, and more.',
+    metric: '7-12 entity types'
+  },
+  {
+    id: 'heading',
+    label: 'Heading Architecture',
+    color: '#fbbf24',
+    y: 1,
+    description: 'One H1 per page, keyword-bearing H2s in logical order, H3s nested correctly. Every heading targets a different search intent. No fluff, no filler.',
+    metric: 'Unique H2 per intent'
+  },
+  {
+    id: 'content',
+    label: 'Semantic Content',
+    color: '#10b981',
+    y: 2,
+    description: 'Content starts with answers, not preambles. Sentences use specification and benefit patterns. Zero LLM fluff words. Every paragraph earns its place.',
+    metric: '95%+ answer-first'
+  },
+  {
+    id: 'internal',
+    label: 'Internal Linking',
+    color: '#3b82f6',
+    y: 3,
+    description: 'Strategic link placement — never in the first paragraph, max one per section, anchor text matches the target query. Supplementary pages get more links than pillar pages.',
+    metric: 'Max 1 link/section'
+  },
+  {
+    id: 'technical',
+    label: 'Technical Foundation',
+    color: '#ef4444',
+    y: 4,
+    description: 'Sub-second TTFB, zero layout shift, no render-blocking JS, AVIF images with WebP fallback, preconnected fonts, edge-cached HTML. Every millisecond counts.',
+    metric: '<100KB total weight'
+  },
+  {
+    id: 'crawl',
+    label: 'Crawl & Index Signals',
+    color: '#f59e0b',
+    y: 5,
+    description: 'Clean canonical tags, XML sitemap with lastmod dates, robots.txt allowing all search bots plus AI crawlers (GPTBot, ClaudeBot, PerplexityBot). IndexNow for instant discovery.',
+    metric: 'All bots welcomed'
+  }
+];
+---
+<div class="anatomy-wrap" id="pageAnatomy">
+  <div class="anatomy-visual">
+    <div class="anatomy-page">
+      <div class="anatomy-browser-chrome">
+        <span class="abc-dot" style="background:#ff5f57;"></span>
+        <span class="abc-dot" style="background:#febc2e;"></span>
+        <span class="abc-dot" style="background:#28c840;"></span>
+        <span class="abc-url">your-site.co.uk/service-page</span>
+      </div>
+      <div class="anatomy-layers">
+        {layers.map((layer, i) => (
+          <button
+            class="anatomy-layer"
+            data-layer={layer.id}
+            style={`--layer-color: ${layer.color}; animation-delay: ${i * 0.1}s;`}
+            aria-controls={`anatomy-detail-${layer.id}`}
+            aria-expanded="false"
+          >
+            <span class="al-indicator" style={`background: ${layer.color};`}></span>
+            <span class="al-label">{layer.label}</span>
+            <span class="al-metric">{layer.metric}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+  <div class="anatomy-detail" id="anatomyDetail">
+    <div class="ad-placeholder">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-3)" stroke-width="1.5" stroke-linecap="round"><path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"/></svg>
+      <p>Click a layer to explore what makes an SEO page rank.</p>
+    </div>
+    {layers.map(layer => (
+      <div class="ad-content" id={`anatomy-detail-${layer.id}`} aria-hidden="true" data-layer={layer.id}>
+        <div class="ad-header">
+          <span class="ad-dot" style={`background: ${layer.color};`}></span>
+          <h4 class="ad-title">{layer.label}</h4>
+        </div>
+        <p class="ad-desc">{layer.description}</p>
+        <div class="ad-metric-box">
+          <span class="ad-metric-label">Standard</span>
+          <span class="ad-metric-value" style={`color: ${layer.color};`}>{layer.metric}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .anatomy-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  @media (max-width: 768px) {
+    .anatomy-wrap {
+      grid-template-columns: 1fr;
+    }
+  }
+  .anatomy-page {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-lg);
+    background: var(--color-paper);
+  }
+  .anatomy-browser-chrome {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    background: var(--color-bg-2);
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .abc-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  .abc-url {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.65rem;
+    color: var(--color-ink-3);
+    margin-left: 8px;
+    background: var(--color-bg);
+    padding: 3px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--color-rule);
+  }
+  .anatomy-layers {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 6px;
+  }
+  .anatomy-layer {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 10px 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    font-family: inherit;
+    text-align: left;
+    transition: background 0.2s, transform 0.15s;
+    width: 100%;
+  }
+  .anatomy-layer:hover {
+    background: var(--color-bg-2);
+    transform: translateX(4px);
+  }
+  .anatomy-layer.active {
+    background: var(--color-bg-2);
+    box-shadow: inset 0 0 0 1px var(--layer-color, var(--color-rule));
+  }
+  .al-indicator {
+    width: 4px;
+    height: 28px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    opacity: 0.4;
+    transition: opacity 0.2s, height 0.2s;
+  }
+  .anatomy-layer.active .al-indicator {
+    opacity: 1;
+    height: 32px;
+  }
+  .al-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    flex: 1;
+  }
+  .al-metric {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.65rem;
+    color: var(--color-ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .anatomy-detail {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: var(--color-paper);
+    box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ad-placeholder {
+    text-align: center;
+    color: var(--color-ink-3);
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .ad-content {
+    display: none;
+    width: 100%;
+    animation: fadeSlideUp 0.3s ease;
+  }
+  .ad-content.visible {
+    display: block;
+  }
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .ad-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.75rem;
+  }
+  .ad-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .ad-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    margin: 0;
+  }
+  .ad-desc {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--color-ink-2);
+    margin: 0 0 1rem;
+  }
+  .ad-metric-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    background: var(--color-bg-2);
+    border: 1px solid var(--color-rule);
+  }
+  .ad-metric-label {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-3);
+  }
+  .ad-metric-value {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+</style>
+
+<script>
+  const anatomy = document.getElementById('pageAnatomy');
+  if (anatomy) {
+    const buttons = anatomy.querySelectorAll('.anatomy-layer');
+    const placeholder = anatomy.querySelector('.ad-placeholder') as HTMLElement;
+    const panels = anatomy.querySelectorAll('.ad-content');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const layerId = (btn as HTMLElement).dataset.layer;
+        const wasActive = btn.classList.contains('active');
+
+        buttons.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-expanded', 'false');
+        });
+        panels.forEach(p => {
+          p.classList.remove('visible');
+          p.setAttribute('aria-hidden', 'true');
+        });
+
+        if (!wasActive && layerId) {
+          btn.classList.add('active');
+          btn.setAttribute('aria-expanded', 'true');
+          if (placeholder) placeholder.style.display = 'none';
+          const panel = anatomy.querySelector(`.ad-content[data-layer="${layerId}"]`);
+          if (panel) {
+            panel.classList.add('visible');
+            panel.setAttribute('aria-hidden', 'false');
+          }
+        } else {
+          if (placeholder) placeholder.style.display = '';
+        }
+      });
+    });
+  }
+</script>

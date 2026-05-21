@@ -1,0 +1,259 @@
+---
+interface TimelineStep {
+  num: string;
+  title: string;
+  summary: string;
+  details: string[];
+  duration: string;
+}
+interface Props {
+  steps: TimelineStep[];
+}
+const { steps } = Astro.props;
+---
+<div class="timeline-wrap" id="interactiveTimeline">
+  <div class="timeline-line" aria-hidden="true">
+    <div class="timeline-line-fill"></div>
+  </div>
+  {steps.map((step, i) => (
+    <div class="tl-step" data-step={i}>
+      <button class="tl-node" aria-expanded="false" aria-controls={`tl-panel-${i}`}>
+        <span class="tl-dot">
+          <span class="tl-dot-inner"></span>
+        </span>
+        <div class="tl-header">
+          <span class="tl-num">{step.num}</span>
+          <h3 class="tl-title">{step.title}</h3>
+          <span class="tl-duration">{step.duration}</span>
+          <svg class="tl-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </button>
+      <div class="tl-panel" id={`tl-panel-${i}`} aria-hidden="true">
+        <p class="tl-summary">{step.summary}</p>
+        <ul class="tl-details">
+          {step.details.map(d => (
+            <li>{d}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .timeline-wrap {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 1rem 0 1rem 2.5rem;
+  }
+  .timeline-line {
+    position: absolute;
+    left: 11px;
+    top: 2rem;
+    bottom: 2rem;
+    width: 2px;
+    background: var(--color-rule);
+    border-radius: 1px;
+  }
+  .timeline-line-fill {
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(180deg, var(--color-accent), var(--color-accent-2));
+    border-radius: 1px;
+    transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .tl-step {
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+  .tl-node {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.75rem 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+  }
+  .tl-dot {
+    position: absolute;
+    left: -2.5rem;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--color-paper);
+    border: 2px solid var(--color-rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    z-index: 1;
+  }
+  .tl-dot-inner {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-rule);
+    transition: background 0.3s, transform 0.3s;
+  }
+  .tl-step.active .tl-dot {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(251,191,36,0.15);
+  }
+  .tl-step.active .tl-dot-inner {
+    background: var(--color-accent);
+    transform: scale(1.2);
+  }
+  .tl-step.completed .tl-dot {
+    border-color: var(--color-ok);
+    background: var(--color-ok);
+  }
+  .tl-step.completed .tl-dot-inner {
+    background: white;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    clip-path: polygon(20% 50%, 40% 70%, 80% 30%, 85% 35%, 40% 80%, 15% 55%);
+  }
+  .tl-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+  }
+  .tl-num {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.7rem;
+    color: var(--color-ink-3);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+  .tl-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    flex: 1;
+    margin: 0;
+    font-family: var(--font-sans), sans-serif;
+  }
+  .tl-duration {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-3);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    background: var(--color-bg-2);
+    flex-shrink: 0;
+  }
+  .tl-chevron {
+    color: var(--color-ink-3);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+  .tl-step.active .tl-chevron {
+    transform: rotate(180deg);
+    color: var(--color-accent);
+  }
+  .tl-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+    opacity: 0;
+    padding-left: 0;
+  }
+  .tl-step.active .tl-panel {
+    opacity: 1;
+  }
+  .tl-summary {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--color-ink-2);
+    margin: 0 0 0.75rem;
+    padding-top: 0.25rem;
+  }
+  .tl-details {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    display: grid;
+    gap: 0.4rem;
+  }
+  .tl-details li {
+    font-size: 0.82rem;
+    color: var(--color-ink-2);
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .tl-details li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.5;
+  }
+  @media (max-width: 640px) {
+    .timeline-wrap { padding-left: 2rem; }
+    .tl-dot { left: -2rem; width: 20px; height: 20px; }
+    .timeline-line { left: 9px; }
+    .tl-duration { display: none; }
+  }
+</style>
+
+<script>
+  const tl = document.getElementById('interactiveTimeline');
+  if (tl) {
+    const steps = tl.querySelectorAll('.tl-step');
+    const lineFill = tl.querySelector('.timeline-line-fill') as HTMLElement;
+
+    steps.forEach((step, i) => {
+      const btn = step.querySelector('.tl-node') as HTMLButtonElement;
+      const panel = step.querySelector('.tl-panel') as HTMLElement;
+
+      btn.addEventListener('click', () => {
+        const isActive = step.classList.contains('active');
+
+        steps.forEach(s => {
+          s.classList.remove('active');
+          const p = s.querySelector('.tl-panel') as HTMLElement;
+          const b = s.querySelector('.tl-node') as HTMLButtonElement;
+          if (p) p.style.maxHeight = '0';
+          if (b) b.setAttribute('aria-expanded', 'false');
+          const pn = s.querySelector('.tl-panel');
+          if (pn) pn.setAttribute('aria-hidden', 'true');
+        });
+
+        if (!isActive) {
+          step.classList.add('active');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          btn.setAttribute('aria-expanded', 'true');
+          panel.setAttribute('aria-hidden', 'false');
+
+          // Mark previous steps as completed
+          for (let j = 0; j < i; j++) {
+            steps[j].classList.add('completed');
+          }
+
+          // Animate line fill
+          if (lineFill) {
+            const pct = ((i + 1) / steps.length) * 100;
+            lineFill.style.height = pct + '%';
+          }
+        } else {
+          if (lineFill) lineFill.style.height = '0%';
+          steps.forEach(s => s.classList.remove('completed'));
+        }
+      });
+    });
+  }
+</script>

@@ -1,6 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import CTA from '../components/CTA.astro';
+import AnimatedCounters from '../components/AnimatedCounters.astro';
+import InteractiveTimeline from '../components/InteractiveTimeline.astro';
+import SeoScoreComparison from '../components/SeoScoreComparison.astro';
+import PageAnatomy from '../components/PageAnatomy.astro';
+import SpeedRace from '../components/SpeedRace.astro';
 import { site } from '../data/site';
 import { portfolio } from '../data/portfolio';
 
@@ -40,27 +45,6 @@ const marqueItems = [
   'Edge-cached globally', 'Zero JS by default', 'WCAG 2.2 AA',
   'Core Web Vitals green', '100% uptime', 'No tracking, no banners',
   'From £1,500', '7-day delivery', 'Source code yours forever'
-];
-
-const steps = [
-  {
-    num: '01',
-    title: 'Send your brief',
-    desc: 'Niche, location, services. A ten-minute form. We ask the right questions so nothing gets missed.',
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`
-  },
-  {
-    num: '02',
-    title: 'We research & build',
-    desc: 'Topic mapping, schema design, copywriting, Astro build. You get a live staging link to review.',
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="8 6 3 12 8 18"/><polyline points="16 6 21 12 16 18"/><line x1="13.5" y1="5" x2="10.5" y2="19"/></svg>`
-  },
-  {
-    num: '03',
-    title: 'Ship in 7 days',
-    desc: 'Deploy to your domain. Cloudflare edge hosting. Audits run live. Sitemaps submitted. Done.',
-    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`
-  }
 ];
 
 const essentialItems = [
@@ -106,17 +90,6 @@ const techStack = [
   { name: 'JSON-LD Schema', desc: '7–12 entity types per site', icon: '{}' },
   { name: 'AVIF / WebP', desc: 'Next-gen image formats', icon: '◉' },
   { name: 'Plausible', desc: 'Privacy-first analytics', icon: '~' }
-];
-
-const compareRows = [
-  { label: 'Lighthouse score', us: '100/100', diy: '55–75', agency: '60–80' },
-  { label: 'Page weight', us: '<100 KB', diy: '2–8 MB', agency: '1–4 MB' },
-  { label: 'First paint', us: '0.4s', diy: '3–8s', agency: '2–5s' },
-  { label: 'Delivery', us: '7 days', diy: 'Never', agency: '6–12 wks' },
-  { label: 'Cost', us: '£1,500', diy: '£0 + time', agency: '£5–30k' },
-  { label: 'You own the code', us: true, diy: false, agency: false },
-  { label: 'Trackers injected', us: false, diy: true, agency: true },
-  { label: 'Edits after launch', us: 'Included (30d)', diy: 'You do it', agency: '£££/hr' }
 ];
 
 const trustNames = [
@@ -274,6 +247,14 @@ const schemaNodes = [
     </div>
   </div>
 
+  <!-- ===== NETWORK STATS (animated counters) ===== -->
+  <AnimatedCounters counters={[
+    { value: 568, suffix: '+', label: 'Pages built' },
+    { value: 227, suffix: 'k', label: 'Monthly impressions' },
+    { value: 2129, suffix: '+', label: 'Monthly clicks' },
+    { value: 44, suffix: '+', label: 'Sites in network' }
+  ]} />
+
   <!-- ===== TEMPLATE GALLERY ===== -->
   <section class="section">
     <div class="wrap">
@@ -338,33 +319,60 @@ const schemaNodes = [
     </div>
   </section>
 
-  <!-- ===== HOW IT WORKS ===== -->
-  <section class="section" style="background: var(--color-bg-2);">
+  <!-- ===== HOW IT WORKS (interactive timeline) ===== -->
+  <section class="section" style="background: var(--color-bg-2);" id="processTrack">
     <div class="wrap">
       <div class="reveal text-center mb-14">
         <div class="eyebrow" style="justify-content: center;">How it works</div>
         <h2>How Your SEO Website Build Works</h2>
+        <p class="text-[15px] mt-4 max-w-[480px] mx-auto" style="color: var(--color-ink-2);">Click each step to see exactly what happens and what you get.</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6 relative reveal" id="processTrack">
-        <!-- Connector line (desktop) -->
-        <div class="hidden md:block absolute top-12 left-[calc(1/6*100%)] right-[calc(1/6*100%)] h-px z-0" style="background: var(--color-rule);"></div>
-        <div class="hidden md:block absolute top-12 left-[calc(1/6*100%)] right-[calc(1/6*100%)] h-px z-0 process-line-fill"></div>
-
-        {steps.map((step, i) => (
-          <div class="relative z-[1] card text-center" style="padding: 40px 28px;">
-            <!-- Step number -->
-            <div class="w-11 h-11 rounded-full flex items-center justify-center mx-auto mb-6 mono text-[13px] font-semibold" style="background: var(--color-bg-2); box-shadow: inset 0 0 0 1px var(--color-rule); color: var(--color-ink-2);">
-              {step.num}
-            </div>
-            <!-- Icon -->
-            <div class="w-10 h-10 flex items-center justify-center rounded-xl mx-auto mb-5" style="background: rgba(251,191,36,0.12); color: var(--color-ink-2);">
-              <Fragment set:html={step.icon} />
-            </div>
-            <h3 class="text-[18px] font-semibold mb-3" style="color: var(--color-ink);">{step.title}</h3>
-            <p class="text-[14px] leading-[1.65]" style="color: var(--color-ink-2);">{step.desc}</p>
-          </div>
-        ))}
+      <div class="reveal">
+        <InteractiveTimeline steps={[
+          {
+            num: '01',
+            title: 'Send your brief',
+            summary: 'A ten-minute form covering your niche, location, and services. We ask the right questions so nothing gets missed.',
+            details: ['Business niche and target location', 'Core services or product categories', 'Competitor URLs (if known)', 'Preferred domain or existing domain'],
+            duration: '10 min'
+          },
+          {
+            num: '02',
+            title: 'Keyword research & topic mapping',
+            summary: 'We pull real search volume data from Ahrefs and GSC, then map every keyword cluster to a page with clear search intent.',
+            details: ['Seed keyword expansion via Ahrefs', 'Search intent classification per cluster', 'Topic authority map with hub/spoke structure', 'Content brief per page with target H2s'],
+            duration: 'Day 1-2'
+          },
+          {
+            num: '03',
+            title: 'Architecture & schema design',
+            summary: 'URL hierarchy, internal linking strategy, and JSON-LD schema graph — designed before a single line of code is written.',
+            details: ['Flat URL structure (max 2 levels deep)', 'JSON-LD @graph with 7-12 entity types', 'Breadcrumb and FAQ schema per page', 'Internal link map with anchor text plan'],
+            duration: 'Day 2-3'
+          },
+          {
+            num: '04',
+            title: 'Content writing',
+            summary: 'Every page written to micro-semantic standards. Answers first, zero fluff, keyword-bearing headings, specification sentences.',
+            details: ['95%+ answer-first sentence structure', 'Zero LLM fluff words (delve, unlock, seamless)', 'Unique H2s per search intent', 'Entity-focused content with clear topical boundaries'],
+            duration: 'Day 3-5'
+          },
+          {
+            num: '05',
+            title: 'Astro build & performance tuning',
+            summary: 'Static HTML output with zero client-side JavaScript. AVIF images, preconnected fonts, edge-cached delivery. Lighthouse 100/100.',
+            details: ['Astro 5 static site generation', 'Tailwind 4 utility CSS (no unused styles)', 'AVIF + WebP image pipeline', 'Cloudflare Pages edge deployment'],
+            duration: 'Day 5-6'
+          },
+          {
+            num: '06',
+            title: 'Launch & index',
+            summary: 'Deploy to your domain, submit sitemaps to Google and Bing, ping IndexNow, verify Core Web Vitals live. Done.',
+            details: ['DNS configuration + SSL', 'GSC + Bing Webmaster Tools setup', 'XML sitemap + IndexNow submission', 'Live Lighthouse audit verification'],
+            duration: 'Day 7'
+          }
+        ]} />
       </div>
     </div>
   </section>
@@ -491,12 +499,7 @@ const schemaNodes = [
           <p class="text-[15px] leading-[1.65] mt-4 mb-8" style="color: rgba(248,250,252,0.55);">
             No bloated plugins. No slow databases. Just static HTML served from the nearest edge server to your visitor. The result: instant page loads that Google rewards with higher rankings.
           </p>
-          <div class="code-block">
-            <div><span class="comment">// principle.txt</span></div>
-            <div><span class="keyword">if</span> <span class="string">(it ships JavaScript)</span> <span class="keyword">{`{`}</span></div>
-            <div>&nbsp;&nbsp;<span class="comment">// it had better earn it.</span></div>
-            <div><span class="keyword">{`}`}</span></div>
-          </div>
+          <SpeedRace />
         </div>
 
         <!-- Right: 2x3 grid of tech -->
@@ -515,55 +518,38 @@ const schemaNodes = [
     </div>
   </section>
 
-  <!-- ===== COMPARISON TABLE ===== -->
+  <!-- ===== SCORE COMPARISON (animated bars) ===== -->
   <section class="section">
     <div class="wrap">
       <div class="reveal mb-12 text-center">
-        <div class="eyebrow" style="justify-content: center;">Comparison</div>
-        <h2>How We Compare to DIY Builders and Agencies</h2>
+        <div class="eyebrow" style="justify-content: center;">Performance</div>
+        <h2>Lighthouse Scores: Us vs WordPress vs Squarespace</h2>
+        <p class="text-[15px] mt-4 max-w-[520px] mx-auto" style="color: var(--color-ink-2);">Average scores from real audits across our network. Every bar is verifiable.</p>
       </div>
 
-      <div class="card reveal overflow-hidden" style="padding: 0;">
-        <div class="overflow-x-auto">
-        <table class="w-full text-[14px] min-w-[600px]">
-          <thead>
-            <tr style="border-bottom: 1px solid var(--color-rule); background: var(--color-bg-2);">
-              <th class="text-left px-6 py-4 font-medium" style="color: var(--color-ink-3); width: 35%;">Feature</th>
-              <th class="px-6 py-4 font-semibold text-center" style="color: var(--color-accent-2); background: rgba(124,58,237,0.04);">Us</th>
-              <th class="px-6 py-4 font-medium text-center" style="color: var(--color-ink-3);">DIY builders</th>
-              <th class="px-6 py-4 font-medium text-center" style="color: var(--color-ink-3);">Agency build</th>
-            </tr>
-          </thead>
-          <tbody>
-            {compareRows.map((row, i) => (
-              <tr style={`border-bottom: 1px solid var(--color-rule); ${i % 2 === 1 ? 'background: var(--color-bg-2);' : ''}`}>
-                <td class="px-6 py-3.5 font-medium" style="color: var(--color-ink-2);">{row.label}</td>
-                <td class="px-6 py-3.5 text-center font-semibold" style="color: var(--color-accent-2); background: rgba(124,58,237,0.03);">
-                  {row.us === true ? (
-                    <svg class="inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-                  ) : row.us === false ? (
-                    <svg class="inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                  ) : row.us}
-                </td>
-                <td class="px-6 py-3.5 text-center" style="color: var(--color-ink-3);">
-                  {row.diy === true ? (
-                    <svg class="inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-                  ) : row.diy === false ? (
-                    <svg class="inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                  ) : row.diy}
-                </td>
-                <td class="px-6 py-3.5 text-center" style="color: var(--color-ink-3);">
-                  {row.agency === true ? (
-                    <svg class="inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-                  ) : row.agency === false ? (
-                    <svg class="inline" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                  ) : row.agency}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        </div>
+      <div class="max-w-[640px] mx-auto reveal">
+        <SeoScoreComparison rows={[
+          { label: 'Performance', us: 100, wordpress: 52, squarespace: 61 },
+          { label: 'Accessibility', us: 100, wordpress: 78, squarespace: 82 },
+          { label: 'Best Practices', us: 100, wordpress: 67, squarespace: 75 },
+          { label: 'SEO', us: 100, wordpress: 71, squarespace: 76 },
+          { label: 'First Contentful Paint', us: 95, wordpress: 35, squarespace: 42 }
+        ]} />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAGE ANATOMY (interactive diagram) ===== -->
+  <section class="section" style="background: var(--color-bg-2);">
+    <div class="wrap">
+      <div class="reveal mb-12 text-center">
+        <div class="eyebrow" style="justify-content: center;">Under the hood</div>
+        <h2>Anatomy of an SEO-Optimised Page</h2>
+        <p class="text-[15px] mt-4 max-w-[520px] mx-auto" style="color: var(--color-ink-2);">Six layers that separate pages that rank from pages that don't. Click each layer to explore.</p>
+      </div>
+
+      <div class="reveal">
+        <PageAnatomy />
       </div>
     </div>
   </section>
@@ -635,15 +621,6 @@ const schemaNodes = [
 </Base>
 
 <script>
-  // Process timeline
-  const pt = document.getElementById('processTrack');
-  if (pt) {
-    const pObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { pt.classList.add('visible'); pObs.unobserve(pt); } });
-    }, { threshold: 0.05 });
-    pObs.observe(pt);
-  }
-
   // Social proof toast
   const toasts = [
     { title: 'waterhard.uk', sub: '1,082 clicks/mo · pos 8.0' },

@@ -1,0 +1,163 @@
+---
+interface ScoreRow {
+  label: string;
+  us: number;
+  wordpress: number;
+  squarespace: number;
+}
+interface Props {
+  rows: ScoreRow[];
+}
+const { rows } = Astro.props;
+
+const barWidth = 140;
+---
+<div class="score-comparison" id="scoreComparison">
+  <div class="sc-legend">
+    <span class="sc-legend-item"><span class="sc-dot" style="background: var(--color-accent-2);"></span>Our builds</span>
+    <span class="sc-legend-item"><span class="sc-dot" style="background: var(--color-ink-3); opacity: 0.5;"></span>WordPress avg</span>
+    <span class="sc-legend-item"><span class="sc-dot" style="background: var(--color-ink-3); opacity: 0.3;"></span>Squarespace avg</span>
+  </div>
+  {rows.map((row, i) => (
+    <div class="sc-row" data-row={i}>
+      <div class="sc-label">{row.label}</div>
+      <div class="sc-bars">
+        <div class="sc-bar-group">
+          <div class="sc-bar sc-bar-us" style={`--target-width: ${row.us}%;`}>
+            <span class="sc-bar-value">{row.us}</span>
+          </div>
+        </div>
+        <div class="sc-bar-group">
+          <div class="sc-bar sc-bar-wp" style={`--target-width: ${row.wordpress}%;`}>
+            <span class="sc-bar-value">{row.wordpress}</span>
+          </div>
+        </div>
+        <div class="sc-bar-group">
+          <div class="sc-bar sc-bar-sq" style={`--target-width: ${row.squarespace}%;`}>
+            <span class="sc-bar-value">{row.squarespace}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .score-comparison {
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: var(--color-paper);
+    box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);
+  }
+  .sc-legend {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .sc-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono), monospace;
+    font-size: 0.7rem;
+    color: var(--color-ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .sc-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .sc-row {
+    margin-bottom: 1.25rem;
+  }
+  .sc-row:last-child { margin-bottom: 0; }
+  .sc-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+  .sc-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .sc-bar-group {
+    display: flex;
+    align-items: center;
+    height: 22px;
+  }
+  .sc-bar {
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    width: 0%;
+    transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+  }
+  .score-comparison.animated .sc-bar {
+    width: var(--target-width);
+  }
+  .sc-bar-us {
+    background: linear-gradient(90deg, var(--color-accent-2), #a78bfa);
+    min-width: 36px;
+  }
+  .sc-bar-wp {
+    background: rgba(30,41,59,0.15);
+    min-width: 36px;
+  }
+  .sc-bar-sq {
+    background: rgba(30,41,59,0.08);
+    min-width: 36px;
+  }
+  :global(.dark) .sc-bar-wp { background: rgba(248,250,252,0.15); }
+  :global(.dark) .sc-bar-sq { background: rgba(248,250,252,0.08); }
+  .sc-bar-value {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.8s;
+  }
+  .sc-bar-wp .sc-bar-value,
+  .sc-bar-sq .sc-bar-value {
+    color: var(--color-ink-2);
+  }
+  .score-comparison.animated .sc-bar-value {
+    opacity: 1;
+  }
+  .sc-row:nth-child(n+2) .sc-bar {
+    transition-delay: calc((var(--row-index, 0)) * 0.15s);
+  }
+</style>
+
+<script>
+  const sc = document.getElementById('scoreComparison');
+  if (sc) {
+    const rows = sc.querySelectorAll('.sc-row');
+    rows.forEach((row, i) => {
+      (row as HTMLElement).style.setProperty('--row-index', String(i));
+      row.querySelectorAll('.sc-bar').forEach(bar => {
+        (bar as HTMLElement).style.transitionDelay = `${i * 0.15}s`;
+      });
+    });
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          sc.classList.add('animated');
+          obs.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    obs.observe(sc);
+  }
+</script>
