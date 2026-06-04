@@ -13,8 +13,8 @@ const sizeClasses = size === 'large' ? 'px-7 py-3.5 text-base' : 'px-5 py-3 text
 const widthClass = fullWidth ? 'w-full justify-center' : '';
 
 const styles = variant === 'primary'
-  ? `btn-glow font-bold rounded-full tracking-tight transition-all duration-200 ${sizeClasses} ${widthClass}`
-  : `btn-glass font-bold rounded-full tracking-tight transition-all duration-200 ${sizeClasses} ${widthClass}`;
+  ? `btn-glow rounded-full tracking-tight transition-all duration-200 ${sizeClasses} ${widthClass}`
+  : `btn-glass rounded-full tracking-tight transition-all duration-200 ${sizeClasses} ${widthClass}`;
 ---
 <a href={href} class={`inline-flex items-center gap-2 no-underline ${styles}`}>
   {label}

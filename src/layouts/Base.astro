@@ -1,4 +1,11 @@
 ---
+// Self-hosted fonts (same-origin woff2, no render-blocking Google request).
+// Fraunces uses the opsz axis so headings get automatic optical sizing.
+import '@fontsource-variable/fraunces/opsz.css';
+import '@fontsource-variable/geist/index.css';
+import '@fontsource-variable/geist-mono/index.css';
+import frauncesWoff2 from '@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2?url';
+import geistWoff2 from '@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url';
 import '../styles/global.css';
 import { site } from '../data/site';
 import Nav from '../components/Nav.astro';
@@ -36,9 +43,8 @@ const displayOgTitle = ogTitle ?? title;
     <meta name="twitter:title" content={displayOgTitle} />
     <meta name="twitter:description" content={description} />
     {ogImage && <meta name="twitter:image" content={ogImage} />}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="preload" as="font" type="font/woff2" href={frauncesWoff2} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={geistWoff2} crossorigin />
     <script is:inline>
       // Prevent flash: apply dark class before paint
       (function(){
@@ -75,7 +81,7 @@ const displayOgTitle = ogTitle ?? title;
         scrollBar.style.width = h > 0 ? (window.scrollY / h * 100) + '%' : '0%';
       });
 
-      // Reveal on scroll — adds 'in' class (v2)
+      // Reveal on scroll, adds 'in' class (v2)
       const reveals = document.querySelectorAll('.reveal');
       const revealObs = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
