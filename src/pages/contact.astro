@@ -61,15 +61,19 @@ const schemaNodes = [
 
         <input type="hidden" name="source" value="optimisedwebsite.com" />
 
-        <!-- Honeypot -->
+        <!-- Honeypot (FormSubmit drops submissions where _honey is filled) -->
         <div class="hidden" aria-hidden="true">
           <label for="contact-website">Website</label>
-          <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off" />
+          <input type="text" id="contact-website" name="_honey" tabindex="-1" autocomplete="off" />
         </div>
 
         <button type="submit" class="btn-glow">
           Send Message
         </button>
+
+        <div id="contact-error" class="hidden mt-4 p-4 rounded-xl text-[14px]" role="alert" style="background: rgba(239,68,68,0.08); box-shadow: inset 0 0 0 1px rgba(239,68,68,0.25); color: var(--color-ink-2);">
+          Something went wrong sending your message. Please email <a href={`mailto:${site.email}`} class="font-semibold" style="color: var(--color-accent-2);">{site.email}</a> directly.
+        </div>
       </form>
 
       <div id="contact-success" class="hidden py-10">
@@ -80,31 +84,42 @@ const schemaNodes = [
   </div>
 </Base>
 
-<script>
-  const form = document.getElementById('contact-form') as HTMLFormElement;
-  const successDiv = document.getElementById('contact-success') as HTMLDivElement;
+<script define:vars={{ endpoint: site.formEndpoint }}>
+  const form = document.getElementById('contact-form');
+  const successDiv = document.getElementById('contact-success');
+  const errorDiv = document.getElementById('contact-error');
+  const btn = form?.querySelector('button[type="submit"]');
 
-  form.addEventListener('submit', async (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(form);
 
-    // Honeypot check
-    if (data.get('website')) return;
+    // Honeypot: bail silently if the hidden field was filled
+    if (data.get('_honey')) return;
 
-    const body: Record<string, string> = {};
-    data.forEach((v, k) => { if (k !== 'website') body[k] = v as string; });
+    errorDiv?.classList.add('hidden');
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+
+    const body = {
+      _subject: 'New contact message: optimisedwebsite.com',
+      _template: 'table',
+      _captcha: 'false',
+    };
+    data.forEach((v, k) => { if (k !== '_honey') body[k] = v; });
 
     try {
-      const res = await fetch('https://aaa-intake.sunnypat81.workers.dev', {
+      const res = await fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(body),
       });
-      if (!res.ok) throw new Error(`${res.status}`);
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || json.success === 'false' || json.success === false) throw new Error('send failed');
       form.classList.add('hidden');
-      successDiv.classList.remove('hidden');
+      successDiv?.classList.remove('hidden');
     } catch {
-      alert('Something went wrong. Please email hello@optimisedwebsite.com directly.');
+      if (btn) { btn.disabled = false; btn.textContent = 'Send Message'; }
+      errorDiv?.classList.remove('hidden');
     }
   });
 </script>
