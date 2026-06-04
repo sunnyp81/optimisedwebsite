@@ -92,19 +92,28 @@ const displayOgTitle = ogTitle ?? title;
       });
 
       // FAQ accordion
-      document.querySelectorAll('.faq-item').forEach(item => {
-        const btn = item.querySelector('.faq-question');
+      document.querySelectorAll('.faq-item').forEach((item, i) => {
+        const btn = item.querySelector('.faq-question') as HTMLElement;
         const answer = item.querySelector('.faq-answer') as HTMLElement;
         if (!btn || !answer) return;
+        // Wire ARIA so screen readers get collapsed/expanded state
+        const ansId = answer.id || `faq-answer-${i}`;
+        answer.id = ansId;
+        answer.setAttribute('role', 'region');
+        btn.setAttribute('aria-controls', ansId);
+        btn.setAttribute('aria-expanded', 'false');
         btn.addEventListener('click', () => {
           const isOpen = item.classList.contains('open');
           document.querySelectorAll('.faq-item.open').forEach(other => {
             other.classList.remove('open');
+            const ob = other.querySelector('.faq-question') as HTMLElement;
             const oa = other.querySelector('.faq-answer') as HTMLElement;
+            if (ob) ob.setAttribute('aria-expanded', 'false');
             if (oa) oa.style.maxHeight = '0';
           });
           if (!isOpen) {
             item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
             answer.style.maxHeight = answer.scrollHeight + 'px';
           }
         });
