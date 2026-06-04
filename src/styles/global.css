@@ -95,6 +95,21 @@ html.dark {
   --violet-text: #a78bfa;
 }
 
+/* NAV (theme-aware via CSS vars; scrolled state toggled by a class, never
+   inline, so dark mode resolves correctly at first paint with no JS) */
+#siteNav {
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+}
+#siteNav.scrolled {
+  background: var(--nav-bg-scrolled);
+  border-bottom-color: var(--nav-border-scrolled);
+  box-shadow: var(--nav-shadow-scrolled);
+}
+#mobile-menu {
+  background: var(--menu-bg);
+}
+
 html { scroll-behavior: smooth; }
 
 body {

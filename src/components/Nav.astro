@@ -2,7 +2,7 @@
 import { site } from '../data/site';
 import { mainNav } from '../data/navigation';
 ---
-<header id="siteNav" class="fixed top-0 left-0 right-0 z-[100] h-[64px] transition-all duration-300" style="background: var(--nav-bg); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-bottom: 1px solid var(--nav-border);">
+<header id="siteNav" class="fixed top-0 left-0 right-0 z-[100] h-[64px] transition-all duration-300" style="backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%);">
   <div class="wrap h-full flex items-center justify-between">
     <a href="/" class="flex items-center gap-2.5 no-underline flex-shrink-0 group">
       <svg width="32" height="32" viewBox="0 0 28 28" fill="none" aria-hidden="true" class="transition-transform duration-200 group-hover:scale-105">
@@ -56,7 +56,7 @@ import { mainNav } from '../data/navigation';
   </div>
 </header>
 
-<nav id="mobile-menu" class="hidden md:hidden fixed top-[64px] left-0 right-0 bottom-0 z-[99] overflow-y-auto" style="background: var(--menu-bg); backdrop-filter: blur(20px);" aria-label="Mobile">
+<nav id="mobile-menu" class="hidden md:hidden fixed top-[64px] left-0 right-0 bottom-0 z-[99] overflow-y-auto" style="backdrop-filter: blur(20px);" aria-label="Mobile">
   <div class="px-6 py-6 space-y-1">
     {mainNav.map((item) => (
       <a href={item.href} class="mobile-nav-link block py-3 px-4 rounded-xl text-[15px] font-medium no-underline transition-all duration-200" style="color: var(--color-ink);" onmouseover="this.style.background='rgba(212,200,150,0.2)';" onmouseout="this.style.background='transparent';">
@@ -84,14 +84,11 @@ import { mainNav } from '../data/navigation';
   const iconOpen = document.getElementById('menu-icon-open');
   const iconClose = document.getElementById('menu-icon-close');
 
-  // Header bg/border/shadow are theme-aware CSS vars (see global.css), so theme
-  // swaps are handled by CSS automatically. JS only toggles the scrolled state.
+  // Header bg/border/shadow live entirely in CSS (theme-aware vars + a
+  // .scrolled class). JS only toggles the class, so dark mode is correct at
+  // first paint and there is no inline style to fight the cascade.
   const updateNavBg = () => {
-    if (!nav) return;
-    const scrolled = window.scrollY > 10;
-    nav.style.background = scrolled ? 'var(--nav-bg-scrolled)' : 'var(--nav-bg)';
-    nav.style.borderBottomColor = scrolled ? 'var(--nav-border-scrolled)' : 'var(--nav-border)';
-    nav.style.boxShadow = scrolled ? 'var(--nav-shadow-scrolled)' : 'none';
+    nav?.classList.toggle('scrolled', window.scrollY > 10);
   };
 
   updateNavBg();
