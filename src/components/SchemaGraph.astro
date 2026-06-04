@@ -13,10 +13,11 @@ const graph = [
     '@id': `${site.url}/#organization`,
     name: site.name,
     url: site.url,
+    sameAs: ['https://sunnypatel.co.uk'],
     areaServed: { '@type': 'Country', name: 'United Kingdom' },
     contactPoint: {
       '@type': 'ContactPoint',
-      email: 'hello@optimisedwebsite.co.uk',
+      email: site.email,
       contactType: 'sales',
     },
     knowsAbout: [

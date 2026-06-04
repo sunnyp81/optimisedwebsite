@@ -5,25 +5,25 @@ import CTA from '../components/CTA.astro';
 import { site } from '../data/site';
 
 const glossary = [
-  { term: 'Alt Text', definition: 'Descriptive text added to an image\'s HTML tag. Search engines use it to understand image content, and screen readers rely on it for accessibility.', link: '/learn/technical-seo/' },
-  { term: 'Anchor Text', definition: 'The clickable text in a hyperlink. Descriptive anchor text helps search engines understand what the linked page is about.', link: '/learn/internal-linking/' },
+  { term: 'Alt Text', definition: 'Descriptive text added to an image\'s HTML tag. Search engines use it to understand image content, and screen readers rely on it for accessibility.', link: '/services/technical-seo-setup/' },
+  { term: 'Anchor Text', definition: 'The clickable text in a hyperlink. Descriptive anchor text helps search engines understand what the linked page is about.', link: '/learn/internal-linking-strategy/' },
   { term: 'Backlink', definition: 'A link from another website pointing to yours. Backlinks from authoritative, relevant sites signal trust and can improve rankings.', link: '/services/' },
   { term: 'Bounce Rate', definition: 'The percentage of visitors who leave a page without interacting further. A high bounce rate may indicate poor content relevance or slow load times.' },
-  { term: 'Breadcrumb', definition: 'A navigational element showing the page\'s position within the site hierarchy. Breadcrumb schema helps search engines display structured navigation in SERPs.', link: '/learn/schema-markup/' },
-  { term: 'Canonical URL', definition: 'An HTML tag that tells search engines which version of a page is the preferred one. Prevents duplicate content issues when the same content exists at multiple URLs.', link: '/learn/technical-seo/' },
+  { term: 'Breadcrumb', definition: 'A navigational element showing the page\'s position within the site hierarchy. Breadcrumb schema helps search engines display structured navigation in SERPs.', link: '/learn/schema-markup-guide/' },
+  { term: 'Canonical URL', definition: 'An HTML tag that tells search engines which version of a page is the preferred one. Prevents duplicate content issues when the same content exists at multiple URLs.', link: '/services/technical-seo-setup/' },
   { term: 'Content Architecture', definition: 'The strategic organisation of pages, categories, and internal links to support topical authority. Hub-and-spoke is a common pattern.', link: '/services/' },
-  { term: 'Core Web Vitals', definition: 'Google\'s set of page experience metrics: Largest Contentful Paint (loading), Interaction to Next Paint (interactivity), and Cumulative Layout Shift (visual stability).', link: '/learn/core-web-vitals/' },
+  { term: 'Core Web Vitals', definition: 'Google\'s set of page experience metrics: Largest Contentful Paint (loading), Interaction to Next Paint (interactivity), and Cumulative Layout Shift (visual stability).', link: '/learn/site-speed-and-core-web-vitals/' },
   { term: 'Crawl Budget', definition: 'The number of pages a search engine bot will crawl on your site within a given timeframe. Large sites need efficient crawl budget management via robots.txt and sitemaps.' },
   { term: 'Domain Authority', definition: 'A third-party metric (Moz, Ahrefs) predicting how likely a domain is to rank. Not a Google ranking factor, but useful as a comparative benchmark.' },
   { term: 'E-E-A-T', definition: 'Experience, Expertise, Authoritativeness, and Trustworthiness. Google\'s quality rater guidelines use E-E-A-T to evaluate content credibility, especially for YMYL topics.' },
-  { term: 'Entity', definition: 'A distinct concept (person, place, organisation, thing) that search engines recognise and connect across the web. Entity-linked schema strengthens topical signals.', link: '/learn/schema-markup/' },
-  { term: 'FAQ Schema', definition: 'JSON-LD structured data marking up frequently asked questions. Can trigger rich results in Google with expandable Q&A directly in the SERP.', link: '/learn/schema-markup/' },
-  { term: 'Google Search Console', definition: 'Google\'s free tool for monitoring search performance, indexing status, crawl errors, and Core Web Vitals. Essential for any SEO workflow.', link: '/learn/technical-seo/' },
-  { term: 'Heading Hierarchy', definition: 'The logical nesting of H1 through H6 tags on a page. A single H1 per page with properly nested subheadings improves both accessibility and SEO.', link: '/learn/content-architecture/' },
-  { term: 'Hub and Spoke', definition: 'A content architecture pattern where a central hub page links to related spoke pages. Consolidates topical authority and distributes internal link equity.', link: '/learn/content-architecture/' },
-  { term: 'Indexing', definition: 'The process by which search engines store and organise web pages in their database. A page must be indexed before it can appear in search results.', link: '/learn/technical-seo/' },
-  { term: 'Internal Linking', definition: 'Links between pages on the same website. Strategic internal linking distributes page authority, establishes topic clusters, and helps crawlers discover content.', link: '/learn/internal-linking/' },
-  { term: 'JSON-LD', definition: 'JavaScript Object Notation for Linked Data. The recommended format for embedding structured data in HTML. Placed in a script tag, separate from the visible content.', link: '/learn/schema-markup/' },
+  { term: 'Entity', definition: 'A distinct concept (person, place, organisation, thing) that search engines recognise and connect across the web. Entity-linked schema strengthens topical signals.', link: '/learn/schema-markup-guide/' },
+  { term: 'FAQ Schema', definition: 'JSON-LD structured data marking up frequently asked questions. Can trigger rich results in Google with expandable Q&A directly in the SERP.', link: '/learn/schema-markup-guide/' },
+  { term: 'Google Search Console', definition: 'Google\'s free tool for monitoring search performance, indexing status, crawl errors, and Core Web Vitals. Essential for any SEO workflow.', link: '/services/technical-seo-setup/' },
+  { term: 'Heading Hierarchy', definition: 'The logical nesting of H1 through H6 tags on a page. A single H1 per page with properly nested subheadings improves both accessibility and SEO.', link: '/services/content-architecture/' },
+  { term: 'Hub and Spoke', definition: 'A content architecture pattern where a central hub page links to related spoke pages. Consolidates topical authority and distributes internal link equity.', link: '/services/content-architecture/' },
+  { term: 'Indexing', definition: 'The process by which search engines store and organise web pages in their database. A page must be indexed before it can appear in search results.', link: '/services/technical-seo-setup/' },
+  { term: 'Internal Linking', definition: 'Links between pages on the same website. Strategic internal linking distributes page authority, establishes topic clusters, and helps crawlers discover content.', link: '/learn/internal-linking-strategy/' },
+  { term: 'JSON-LD', definition: 'JavaScript Object Notation for Linked Data. The recommended format for embedding structured data in HTML. Placed in a script tag, separate from the visible content.', link: '/learn/schema-markup-guide/' },
   { term: 'Keyword Clustering', definition: 'Grouping related search queries by intent so one page can target an entire cluster rather than a single keyword. Reduces cannibalisation and improves coverage.', link: '/services/' },
   { term: 'Keyword Research', definition: 'The process of identifying search terms your target audience uses. Informs content strategy, page structure, and on-page optimisation priorities.', link: '/services/' },
   { term: 'Link Building', definition: 'The practice of acquiring backlinks from external websites. Effective methods include digital PR, guest posting, and creating link-worthy content assets.' },
@@ -31,19 +31,19 @@ const glossary = [
   { term: 'Long-Tail Keyword', definition: 'A specific, multi-word search query with lower volume but higher conversion intent. Easier to rank for and often more commercially valuable than head terms.' },
   { term: 'Meta Description', definition: 'An HTML tag summarising page content. Not a direct ranking factor, but a well-written meta description improves click-through rate from the SERP.' },
   { term: 'Mobile-First Indexing', definition: 'Google primarily uses the mobile version of a page for indexing and ranking. Sites must be fully responsive with identical content across mobile and desktop.' },
-  { term: 'Noindex', definition: 'A robots meta tag instructing search engines not to include a page in their index. Used for thin pages, staging content, or internal tools.', link: '/learn/technical-seo/' },
+  { term: 'Noindex', definition: 'A robots meta tag instructing search engines not to include a page in their index. Used for thin pages, staging content, or internal tools.', link: '/services/technical-seo-setup/' },
   { term: 'Organic Traffic', definition: 'Visitors who arrive at your site through unpaid search results. The primary metric SEO aims to grow.' },
-  { term: 'Page Speed', definition: 'How quickly a page loads and becomes interactive. Directly impacts Core Web Vitals scores, user experience, and rankings.', link: '/learn/core-web-vitals/' },
-  { term: 'Robots.txt', definition: 'A text file at the site root that tells search engine crawlers which URLs they can and cannot access. Does not prevent indexing if pages are linked externally.', link: '/learn/technical-seo/' },
-  { term: 'Schema Markup', definition: 'Structured data vocabulary (schema.org) that helps search engines understand page content. Enables rich results like FAQs, breadcrumbs, and review stars.', link: '/learn/schema-markup/' },
+  { term: 'Page Speed', definition: 'How quickly a page loads and becomes interactive. Directly impacts Core Web Vitals scores, user experience, and rankings.', link: '/learn/site-speed-and-core-web-vitals/' },
+  { term: 'Robots.txt', definition: 'A text file at the site root that tells search engine crawlers which URLs they can and cannot access. Does not prevent indexing if pages are linked externally.', link: '/services/technical-seo-setup/' },
+  { term: 'Schema Markup', definition: 'Structured data vocabulary (schema.org) that helps search engines understand page content. Enables rich results like FAQs, breadcrumbs, and review stars.', link: '/learn/schema-markup-guide/' },
   { term: 'SERP', definition: 'Search Engine Results Page. The page displayed after a user submits a query. Features include organic listings, ads, featured snippets, and knowledge panels.' },
-  { term: 'Sitemap', definition: 'An XML file listing all indexable URLs on a site. Submitted to search engines to aid crawling and discovery of new or updated content.', link: '/learn/technical-seo/' },
-  { term: 'Static Site', definition: 'A website built from pre-rendered HTML files served directly from a CDN. Faster than server-rendered sites, with perfect Lighthouse scores achievable out of the box.', link: '/learn/static-sites/' },
-  { term: 'Structured Data', definition: 'Machine-readable code (typically JSON-LD) embedded in HTML that describes page content to search engines. Powers rich results and knowledge graph entries.', link: '/learn/schema-markup/' },
+  { term: 'Sitemap', definition: 'An XML file listing all indexable URLs on a site. Submitted to search engines to aid crawling and discovery of new or updated content.', link: '/services/technical-seo-setup/' },
+  { term: 'Static Site', definition: 'A website built from pre-rendered HTML files served directly from a CDN. Faster than server-rendered sites, with perfect Lighthouse scores achievable out of the box.', link: '/compare/wordpress-vs-static-site-seo/' },
+  { term: 'Structured Data', definition: 'Machine-readable code (typically JSON-LD) embedded in HTML that describes page content to search engines. Powers rich results and knowledge graph entries.', link: '/learn/schema-markup-guide/' },
   { term: 'Title Tag', definition: 'The HTML title element displayed in browser tabs and SERP listings. Keep under 60 characters, front-load the primary keyword, and make it compelling.' },
-  { term: 'Topical Authority', definition: 'The depth and breadth of content a site has on a given subject. Sites with deep topical coverage tend to rank higher for related queries.', link: '/learn/content-architecture/' },
+  { term: 'Topical Authority', definition: 'The depth and breadth of content a site has on a given subject. Sites with deep topical coverage tend to rank higher for related queries.', link: '/services/content-architecture/' },
   { term: 'URL Structure', definition: 'The format and hierarchy of page URLs. Clean, descriptive, keyword-relevant URLs improve both user experience and crawlability.' },
-  { term: 'XML Sitemap', definition: 'A structured XML file listing URLs with optional metadata (last modified date, priority). Helps search engines discover and prioritise pages for crawling.', link: '/learn/technical-seo/' },
+  { term: 'XML Sitemap', definition: 'A structured XML file listing URLs with optional metadata (last modified date, priority). Helps search engines discover and prioritise pages for crawling.', link: '/services/technical-seo-setup/' },
   { term: 'YMYL', definition: 'Your Money or Your Life. Google\'s classification for content that could impact health, finances, or safety. YMYL pages face stricter quality evaluation under E-E-A-T guidelines.' },
 ];
 
@@ -64,7 +64,7 @@ const schemaNodes = [
 ];
 ---
 <Base
-  title="SEO Glossary — Key Terms Explained | OptimisedWebsite"
+  title="SEO Glossary: Key Terms Explained | OptimisedWebsite"
   description="40 essential SEO terms explained in plain English. Definitions covering technical SEO, content architecture, schema markup, and search engine optimisation fundamentals."
   canonicalPath="/glossary/"
   schemaNodes={schemaNodes}

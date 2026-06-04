@@ -5,7 +5,7 @@ const layers = [
     label: 'Schema Markup',
     color: '#7c3aed',
     y: 0,
-    description: 'JSON-LD structured data tells search engines exactly what your page is about. We add 7-12 entity types per site — Organization, WebPage, Article, FAQPage, BreadcrumbList, and more.',
+    description: 'JSON-LD structured data tells search engines exactly what your page is about. We add 7-12 entity types per site: Organization, WebPage, Article, FAQPage, BreadcrumbList, and more.',
     metric: '7-12 entity types'
   },
   {
@@ -29,7 +29,7 @@ const layers = [
     label: 'Internal Linking',
     color: '#3b82f6',
     y: 3,
-    description: 'Strategic link placement — never in the first paragraph, max one per section, anchor text matches the target query. Supplementary pages get more links than pillar pages.',
+    description: 'Strategic link placement, never in the first paragraph, max one per section, anchor text matches the target query. Supplementary pages get more links than pillar pages.',
     metric: 'Max 1 link/section'
   },
   {
@@ -85,7 +85,7 @@ const layers = [
       <div class="ad-content" id={`anatomy-detail-${layer.id}`} aria-hidden="true" data-layer={layer.id}>
         <div class="ad-header">
           <span class="ad-dot" style={`background: ${layer.color};`}></span>
-          <h4 class="ad-title">{layer.label}</h4>
+          <h3 class="ad-title">{layer.label}</h3>
         </div>
         <p class="ad-desc">{layer.description}</p>
         <div class="ad-metric-box">

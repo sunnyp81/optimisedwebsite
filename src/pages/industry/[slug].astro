@@ -35,7 +35,7 @@ const schemaNodes = [
   {
     '@type': 'Service',
     '@id': `${site.url}/industry/${industry.slug}/#service`,
-    name: `SEO Website Build — ${industry.name}`,
+    name: `SEO Website Build: ${industry.name}`,
     description: industry.description,
     provider: { '@id': `${site.url}/#organization` },
     areaServed: { '@type': 'Country', name: 'United Kingdom' },
@@ -49,15 +49,6 @@ const schemaNodes = [
       name: faq.q,
       acceptedAnswer: { '@type': 'Answer', text: faq.a }
     }))
-  },
-  {
-    '@type': 'BreadcrumbList',
-    '@id': `${site.url}/industry/${industry.slug}/#breadcrumb`,
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
-      { '@type': 'ListItem', position: 2, name: 'Industries', item: `${site.url}/industry/` },
-      { '@type': 'ListItem', position: 3, name: industry.name, item: `${site.url}/industry/${industry.slug}/` }
-    ]
   }
 ];
 ---
@@ -92,7 +83,7 @@ const schemaNodes = [
 
     <!-- Challenges vs Solutions -->
     <section class="py-12 reveal">
-      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-8">The problem — and how we fix it</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-8">The problem, and how we fix it</h2>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="compare-col old">
           <h3 class="text-lg font-bold mb-4">Without SEO architecture</h3>
@@ -153,7 +144,7 @@ const schemaNodes = [
     <section class="py-16 text-center reveal">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">Ready to rank in {industry.name.toLowerCase()}?</h2>
       <p class="leading-relaxed max-w-xl mx-auto mb-8" style="color: var(--color-ink-2);">
-        Get a website built from the ground up for your industry — keyword research, content, schema, and deployment included.
+        Get a website built from the ground up for your industry: keyword research, content, schema, and deployment included.
       </p>
       <div class="flex flex-wrap gap-4 justify-center">
         <CTA href="/services/seo-website-build/" label="Start your build" size="large" />

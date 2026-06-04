@@ -9,8 +9,6 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   integrations: [
-    sitemap({
-      filter: (page) => !page.includes('/order/thank-you/')
-    })
+    sitemap()
   ]
 });

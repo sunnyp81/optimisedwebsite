@@ -17,13 +17,18 @@ export async function getStaticPaths() {
 
 const { article } = Astro.props;
 const { Content } = await render(article);
-const allArticles = await getCollection('learn');
+// Resolve relatedSlugs across BOTH collections so learn can surface compare
+// articles (and vice-versa), matching the hub-and-spoke linking the site sells.
+const related = [
+  ...(await getCollection('learn')).map((a) => ({ a, collection: 'learn' as const })),
+  ...(await getCollection('compare')).map((a) => ({ a, collection: 'compare' as const })),
+];
 
 const relatedPages = article.data.relatedSlugs
   .map((slug) => {
-    const found = allArticles.find((a) => a.id === slug);
+    const found = related.find((r) => r.a.id === slug);
     if (!found) return null;
-    return { slug: found.id, title: found.data.title, collection: 'learn' };
+    return { slug: found.a.id, title: found.a.data.title, collection: found.collection };
   })
   .filter(Boolean) as { slug: string; title: string; collection: string }[];
 
@@ -36,7 +41,8 @@ const schemaNodes: Record<string, unknown>[] = [
     datePublished: article.data.datePublished,
     dateModified: article.data.dateModified,
     url: `${site.url}/learn/${article.id}/`,
-    isPartOf: { '@id': `${site.url}/learn/#webpage` },
+    isPartOf: { '@id': `${site.url}/#website` },
+    author: { '@id': `${site.url}/about/#founder` },
     publisher: { '@id': `${site.url}/#organization` },
     about: 'SEO-optimised website',
     mainEntityOfPage: `${site.url}/learn/${article.id}/`,
