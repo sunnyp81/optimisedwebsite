@@ -56,6 +56,8 @@
   --nav-border-scrolled: rgba(212,200,150,0.7);
   --nav-shadow-scrolled: 0 1px 16px rgba(30,41,59,0.06);
   --menu-bg: rgba(255,251,235,0.98);
+  --nav-hover: rgba(212,200,150,0.25);
+  --nav-active: rgba(124,58,237,0.10);
 
   /* Violet used as TEXT (accent-2 is too dark on dark backgrounds) */
   --violet-text: #7c3aed;
@@ -91,6 +93,8 @@ html.dark {
   --nav-border-scrolled: rgba(31,42,68,0.8);
   --nav-shadow-scrolled: 0 1px 20px rgba(0,0,0,0.3);
   --menu-bg: rgba(11,18,32,0.98);
+  --nav-hover: rgba(255,255,255,0.06);
+  --nav-active: rgba(124,58,237,0.22);
 
   --violet-text: #a78bfa;
 }
@@ -106,8 +110,18 @@ html.dark {
   border-bottom-color: var(--nav-border-scrolled);
   box-shadow: var(--nav-shadow-scrolled);
 }
+/* Mobile menu: animated open/close (no display toggle, so it can transition) */
 #mobile-menu {
   background: var(--menu-bg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.28s ease, transform 0.32s cubic-bezier(0.16,1,0.3,1), visibility 0.28s;
+}
+#mobile-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
 }
 
 html { scroll-behavior: smooth; }
@@ -120,6 +134,7 @@ body {
   background: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
 }
 
 ::selection { background: rgba(251,191,36,0.3); color: var(--color-ink); }
@@ -278,6 +293,12 @@ html.dark .btn-primary {
   background: #f59e0b;
   transform: translateY(-1px);
   box-shadow: 0 6px 28px rgba(251,191,36,0.45);
+}
+
+/* Tap feedback (touch has no hover, so presses would otherwise feel flat) */
+.btn:active, .btn-primary:active, .btn-ghost:active, .btn-accent:active,
+.btn-glow:active, .btn-glass:active {
+  transform: scale(0.97);
 }
 
 /* Legacy btn aliases */

@@ -1,6 +1,10 @@
 ---
 import { site } from '../data/site';
 import { mainNav } from '../data/navigation';
+
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path === href || path.startsWith(href);
 ---
 <header id="siteNav" class="fixed top-0 left-0 right-0 z-[100] h-[64px] transition-all duration-300" style="backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%);">
   <div class="wrap h-full flex items-center justify-between">
@@ -14,14 +18,14 @@ import { mainNav } from '../data/navigation';
 
     <nav class="hidden md:flex items-center gap-0.5" aria-label="Main">
       {mainNav.map((item) => (
-        <a href={item.href} class="text-[13px] font-medium no-underline px-3 py-1.5 rounded-full transition-all duration-200" style="color: var(--color-ink-2);" onmouseover="this.style.color='var(--color-ink)'; this.style.background='rgba(212,200,150,0.25)';" onmouseout="this.style.color='var(--color-ink-2)'; this.style.background='transparent';">
+        <a href={item.href} class:list={["nav-link", { "is-active": isActive(item.href) }]} aria-current={isActive(item.href) ? 'page' : undefined}>
           {item.label}
         </a>
       ))}
     </nav>
 
     <div class="hidden md:flex items-center gap-2">
-      <button data-theme-toggle type="button" class="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200" style="color: var(--color-ink-3);" onmouseover="this.style.background='rgba(212,200,150,0.3)'; this.style.color='var(--color-ink)';" onmouseout="this.style.background='transparent'; this.style.color='var(--color-ink-3)';" aria-label="Toggle dark mode">
+      <button data-theme-toggle type="button" class="theme-btn w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200" aria-label="Toggle dark mode">
         <svg class="w-[15px] h-[15px] hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round">
           <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
         </svg>
@@ -37,8 +41,7 @@ import { mainNav } from '../data/navigation';
     <button
       id="mobile-toggle"
       type="button"
-      class="md:hidden w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200"
-      style="color: var(--color-ink-2);"
+      class="mobile-toggle md:hidden w-10 h-10 -mr-1 rounded-full flex items-center justify-center transition-colors duration-200"
       aria-expanded="false"
       aria-controls="mobile-menu"
       aria-label="Toggle menu"
@@ -56,26 +59,132 @@ import { mainNav } from '../data/navigation';
   </div>
 </header>
 
-<nav id="mobile-menu" class="hidden md:hidden fixed top-[64px] left-0 right-0 bottom-0 z-[99] overflow-y-auto" style="backdrop-filter: blur(20px);" aria-label="Mobile">
-  <div class="px-6 py-6 space-y-1">
-    {mainNav.map((item) => (
-      <a href={item.href} class="mobile-nav-link block py-3 px-4 rounded-xl text-[15px] font-medium no-underline transition-all duration-200" style="color: var(--color-ink);" onmouseover="this.style.background='rgba(212,200,150,0.2)';" onmouseout="this.style.background='transparent';">
-        {item.label}
-      </a>
-    ))}
+<nav id="mobile-menu" class="md:hidden fixed top-[64px] left-0 right-0 bottom-0 z-[99] overflow-y-auto flex flex-col" style="backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%);" aria-label="Mobile">
+  <div class="px-5 pt-6 pb-4 flex-1">
+    <div class="m-eyebrow">Navigate</div>
+    <div class="flex flex-col gap-0.5">
+      {mainNav.map((item, i) => (
+        <a
+          href={item.href}
+          class:list={["m-link", { "is-active": isActive(item.href) }]}
+          style={`--d: ${i * 45}ms`}
+          aria-current={isActive(item.href) ? 'page' : undefined}
+        >
+          <span>{item.label}</span>
+          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </a>
+      ))}
+    </div>
   </div>
-  <div class="px-6 pb-8 pt-4" style="border-top: 1px solid var(--color-rule);">
-    <div class="flex items-center gap-3">
-      <button data-theme-toggle type="button" class="w-10 h-10 rounded-full flex items-center justify-center" style="color: var(--color-ink-3); background: rgba(212,200,150,0.2);" aria-label="Toggle dark mode">
-        <svg class="w-[16px] h-[16px] hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="w-[16px] h-[16px] block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+
+  <div class="px-5 pb-8 pt-4" style="border-top: 1px solid var(--color-rule);">
+    <a href="/order/" class="m-cta">
+      Get a Quote
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <div class="flex items-center justify-between mt-4">
+      <span class="text-[14px] font-medium" style="color: var(--color-ink-2);">Appearance</span>
+      <button data-theme-toggle type="button" class="theme-btn w-10 h-10 rounded-full flex items-center justify-center" aria-label="Toggle dark mode">
+        <svg class="w-[17px] h-[17px] hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="w-[17px] h-[17px] block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="/order/" class="flex-1 text-center px-4 py-3 text-[15px] font-semibold rounded-full no-underline transition-all duration-200" style="background: var(--color-accent); color: var(--color-ink); box-shadow: var(--shadow-accent);">
-        Get a Quote
-      </a>
     </div>
   </div>
 </nav>
+
+<style>
+  /* Nav links (desktop): hover + keyboard focus + active page */
+  .nav-link {
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 999px;
+    color: var(--color-ink-2);
+    transition: color 0.2s, background 0.2s;
+  }
+  .nav-link:hover,
+  .nav-link:focus-visible {
+    color: var(--color-ink);
+    background: var(--nav-hover);
+  }
+  .nav-link.is-active {
+    color: var(--violet-text);
+    background: var(--nav-active);
+  }
+
+  .theme-btn { color: var(--color-ink-3); }
+  .theme-btn:hover,
+  .theme-btn:focus-visible { color: var(--color-ink); background: var(--nav-hover); }
+  .mobile-toggle { color: var(--color-ink-2); }
+  .mobile-toggle:hover,
+  .mobile-toggle:focus-visible { background: var(--nav-hover); }
+
+  /* Mobile menu eyebrow */
+  .m-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-ink-3);
+    padding: 0 4px 10px;
+  }
+
+  /* Mobile menu rows */
+  .m-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 16px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--color-ink);
+    opacity: 0;
+    transition: background 0.2s, color 0.2s, transform 0.1s;
+  }
+  .m-link .chev { color: var(--color-ink-3); transition: transform 0.2s, color 0.2s; }
+  .m-link:active { background: var(--nav-hover); transform: scale(0.99); }
+  .m-link.is-active { color: var(--violet-text); background: var(--nav-active); }
+  .m-link.is-active .chev { color: var(--violet-text); transform: translateX(2px); }
+
+  /* Staggered entrance once the menu opens */
+  #mobile-menu.open .m-link {
+    animation: mLinkIn 0.4s both;
+    animation-delay: var(--d);
+  }
+  @keyframes mLinkIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  /* Full-width primary CTA in the menu footer */
+  .m-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 52px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-ink);
+    background: var(--color-accent);
+    box-shadow: var(--shadow-accent);
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+  .m-cta:active { transform: translateY(1px) scale(0.995); }
+
+  @media (prefers-reduced-motion: reduce) {
+    #mobile-menu.open .m-link { animation: none; opacity: 1; }
+  }
+</style>
 
 <script>
   const nav = document.getElementById('siteNav');
@@ -94,25 +203,26 @@ import { mainNav } from '../data/navigation';
   updateNavBg();
   window.addEventListener('scroll', updateNavBg, { passive: true });
 
-  const toggleMenu = () => {
-    const expanded = toggle?.getAttribute('aria-expanded') === 'true';
-    toggle?.setAttribute('aria-expanded', String(!expanded));
-    menu?.classList.toggle('hidden');
-    iconOpen?.classList.toggle('hidden');
-    iconClose?.classList.toggle('hidden');
-    document.body.style.overflow = expanded ? '' : 'hidden';
+  const setMenu = (open: boolean) => {
+    toggle?.setAttribute('aria-expanded', String(open));
+    menu?.classList.toggle('open', open);
+    iconOpen?.classList.toggle('hidden', open);
+    iconClose?.classList.toggle('hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
   };
 
-  toggle?.addEventListener('click', toggleMenu);
+  toggle?.addEventListener('click', () => {
+    setMenu(toggle.getAttribute('aria-expanded') !== 'true');
+  });
 
-  // Close menu on link click
-  menu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.add('hidden');
-      iconOpen?.classList.remove('hidden');
-      iconClose?.classList.add('hidden');
-      toggle?.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
+  // Close on link click, Escape, or resize to desktop
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setMenu(false));
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setMenu(false);
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) setMenu(false);
   });
 </script>
