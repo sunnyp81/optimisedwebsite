@@ -6,8 +6,11 @@ import InteractiveTimeline from '../components/InteractiveTimeline.astro';
 import SeoScoreComparison from '../components/SeoScoreComparison.astro';
 import PageAnatomy from '../components/PageAnatomy.astro';
 import SpeedRace from '../components/SpeedRace.astro';
+import GrowthChart from '../components/GrowthChart.astro';
 import { site } from '../data/site';
-import { portfolio } from '../data/portfolio';
+import { caseStudies } from '../data/caseStudies';
+
+const chartColors = ['#10b981', '#7c3aed', '#3b82f6', '#f59e0b', '#ef4444'];
 
 const faqs = [
   {
@@ -261,60 +264,47 @@ const schemaNodes = [
       <div class="reveal mb-12">
         <div class="eyebrow">Our work</div>
         <h2>SEO Websites We've Built and Ranked</h2>
-        <p class="text-[17px] mt-4 max-w-[480px]" style="color: var(--color-ink-2);">Live sites generating organic traffic. Every one scores 100/100 on Lighthouse and ranks for its target keywords.</p>
+        <p class="text-[17px] mt-4 max-w-[480px]" style="color: var(--color-ink-2);">Live sites generating organic traffic from a standing start. Every curve below is real Search Console data. Tap a card for the full case study.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-5 reveal">
-        {portfolio.map((item, i) => (
+        {caseStudies.map((item, i) => (
           <a
-            href="/portfolio/"
+            href={`/case-studies/#${item.slug}`}
             class="group block rounded-[16px] overflow-hidden no-underline"
             style="box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); background: var(--color-paper); transition: transform 0.2s, box-shadow 0.2s;"
             onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='inset 0 0 0 1px var(--color-rule-2), 0 12px 40px rgba(30,41,59,0.12)';"
             onmouseout="this.style.transform=''; this.style.boxShadow='inset 0 0 0 1px var(--color-rule), 0 1px 3px rgba(30,41,59,0.08)';"
           >
-            <!-- Preview area -->
-            <div class="relative overflow-hidden" style={`background: linear-gradient(135deg, ${['#fef3c7,#fde68a','#ede9fe,#c4b5fd','#dcfce7,#86efac','#dbeafe,#93c5fd','#fce7f3,#f9a8d4'][i % 5]}); aspect-ratio: 16/10;`}>
-              <!-- Browser chrome -->
-              <div class="absolute top-0 left-0 right-0 flex items-center gap-1.5 px-3 py-2" style="background: rgba(255,255,255,0.7); backdrop-filter: blur(8px);">
-                <span class="w-2 h-2 rounded-full" style="background:#ff5f57;"></span>
-                <span class="w-2 h-2 rounded-full" style="background:#febc2e;"></span>
-                <span class="w-2 h-2 rounded-full" style="background:#28c840;"></span>
-                <div class="flex-1 h-5 rounded-md ml-2 flex items-center px-2" style="background: rgba(0,0,0,0.05);">
-                  <span class="text-[10px] font-mono" style="color: var(--color-ink-3);">{item.url.replace('https://', '')}</span>
+            <!-- Chart preview -->
+            <div class="px-5 pt-5 pb-3" style="background: linear-gradient(180deg, var(--color-bg-2), var(--color-paper));">
+              <div class="flex items-start justify-between gap-2 mb-1">
+                <div>
+                  <h3 class="text-[15px] font-semibold tracking-[-0.02em]" style="color: var(--color-ink);">{item.name}</h3>
+                  <span class="mono text-[11px]" style="color: var(--color-ink-3);">{item.url.replace('https://', '')}</span>
                 </div>
+                <span class="chip chip-ok flex-shrink-0">{item.metric}</span>
               </div>
-              <!-- Site name as display element -->
-              <div class="absolute inset-0 flex flex-col items-center justify-center pt-6">
-                <div class="text-[20px] font-semibold tracking-[-0.03em]" style="color: rgba(0,0,0,0.12);">{item.name}</div>
-                <div class="flex items-center gap-2 mt-2">
-                  <span class="chip chip-ok text-[10px]" style="transform: scale(0.85);">100/100</span>
-                  <span class="chip text-[10px]" style="transform: scale(0.85);">{item.pageCount} pages</span>
-                </div>
-              </div>
-              <!-- Overlay on hover -->
-              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200" style="background: rgba(30,41,59,0.5); backdrop-filter: blur(4px);">
-                <span class="text-white text-sm font-medium px-4 py-2 rounded-full" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);">View project &rarr;</span>
-              </div>
+              <GrowthChart data={item.growth} label="Impressions per month (k)" color={chartColors[i % chartColors.length]} height={108} />
             </div>
             <!-- Card body -->
-            <div class="p-5">
-              <div class="flex items-start justify-between gap-2 mb-2">
-                <h3 class="text-[15px] font-semibold tracking-[-0.02em]" style="color: var(--color-ink);">{item.name}</h3>
-                <span class="chip flex-shrink-0">{item.niche}</span>
-              </div>
+            <div class="p-5" style="border-top: 1px solid var(--color-rule);">
               <p class="text-[13px] leading-[1.6] mb-4" style="color: var(--color-ink-2);">{item.description}</p>
-              <div class="flex gap-3">
-                <span class="chip chip-ok">{item.metric}</span>
-                <span class="chip">{item.pageCount} pages</span>
+              <div class="flex items-center justify-between gap-3">
+                <div class="flex gap-2">
+                  <span class="chip">{item.niche}</span>
+                  <span class="chip">{item.pageCount} pages</span>
+                </div>
+                <span class="text-[13px] font-medium transition-transform duration-200 group-hover:translate-x-0.5" style="color: var(--color-accent-2);">Case study &rarr;</span>
               </div>
             </div>
           </a>
         ))}
       </div>
 
-      <div class="text-center mt-10 reveal">
-        <a href="/portfolio/" class="btn btn-ghost">View all projects &rarr;</a>
+      <div class="text-center mt-10 reveal flex gap-3 justify-center flex-wrap">
+        <a href="/case-studies/" class="btn btn-primary">Read the case studies &rarr;</a>
+        <a href="/portfolio/" class="btn btn-ghost">View all projects</a>
       </div>
     </div>
   </section>

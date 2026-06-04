@@ -33,7 +33,7 @@ export const portfolio: PortfolioItem[] = [
     niche: 'Health & Fitness',
     pageCount: 53,
     metric: '437 clicks/month',
-    description: '53 pages covering dead hang standards, world records, and training programmes. Top page ranks position 7.0 for "dead hang time by age" — 22.8k impressions alone.',
+    description: '53 pages covering dead hang standards, world records, and training programmes. Top page ranks position 7.0 for "dead hang time by age", with 22.8k impressions on that page alone.',
     growth: [1.8, 4.6, 9.2, 14.8, 19.3, 23.1, 26.8, 29.4, 31.7, 33.9, 35.1, 36.2]
   },
   {
@@ -42,7 +42,7 @@ export const portfolio: PortfolioItem[] = [
     niche: 'Property & Finance',
     pageCount: 120,
     metric: '37.9k impressions/mo',
-    description: '120 area-level rental yield pages with postcode data. 98 clicks/month at position 9.3 — growing steadily from a standing start.',
+    description: '120 area-level rental yield pages with postcode data. 98 clicks/month at position 9.3, growing steadily from a standing start.',
     growth: [0.8, 2.4, 5.1, 8.9, 13.2, 17.6, 22.1, 26.3, 30.1, 33.4, 36.1, 37.9]
   },
   {

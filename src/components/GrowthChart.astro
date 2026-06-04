@@ -153,3 +153,19 @@ const yTicks = [0, Math.round(max / 2), Math.round(max)];
     margin-top: 0.25rem;
   }
 </style>
+
+<script>
+  // Self-contained reveal: draws each chart when it scrolls into view.
+  document.querySelectorAll('.growth-chart-wrap:not([data-drawn-bound])').forEach((wrap) => {
+    wrap.setAttribute('data-drawn-bound', '');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('drawn');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    obs.observe(wrap);
+  });
+</script>
