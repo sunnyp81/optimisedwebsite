@@ -25,6 +25,10 @@ const areaPath = `${linePath} L${points[points.length - 1].x.toFixed(1)},${pad.t
 
 const months = ['J','F','M','A','M','J','J','A','S','O','N','D'];
 const yTicks = [0, Math.round(max / 2), Math.round(max)];
+
+// Unique gradient id per instance (label-derived ids collide when multiple
+// charts share the same label on one page, and can contain invalid chars).
+const gradId = `gc-grad-${Math.random().toString(36).slice(2, 8)}`;
 ---
 <div class="growth-chart-wrap">
   <svg viewBox={`0 0 ${w} ${h}`} class="growth-chart" preserveAspectRatio="xMidYMid meet" role="img" aria-label={`Growth chart: ${label}`}>
@@ -53,11 +57,11 @@ const yTicks = [0, Math.round(max / 2), Math.round(max)];
     })}
 
     <!-- Area fill -->
-    <path d={areaPath} fill={`url(#grad-${label.replace(/\s/g, '')})`} class="chart-area" />
+    <path d={areaPath} fill={`url(#${gradId})`} class="chart-area" />
 
     <!-- Gradient def -->
     <defs>
-      <linearGradient id={`grad-${label.replace(/\s/g, '')}`} x1="0" y1="0" x2="0" y2="1">
+      <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stop-color={color} stop-opacity="0.2" />
         <stop offset="100%" stop-color={color} stop-opacity="0" />
       </linearGradient>
@@ -77,7 +81,7 @@ const yTicks = [0, Math.round(max / 2), Math.round(max)];
         <circle cx={p.x} cy={p.y} r="3" fill={color} opacity="0" class="chart-hover-dot" />
         <g class="chart-tooltip" opacity="0" transform={`translate(${p.x},${p.y - 14})`}>
           <rect x="-20" y="-10" width="40" height="16" rx="4" fill="var(--color-ink)" />
-          <text x="0" y="1" text-anchor="middle" font-size="7.5" fill="white" font-family="Geist Mono, monospace" font-weight="600">
+          <text x="0" y="1" text-anchor="middle" font-size="7.5" fill="var(--color-bg)" font-family="Geist Mono, monospace" font-weight="600">
             {p.val >= 1000 ? `${(p.val / 1000).toFixed(1)}k` : p.val.toFixed(1)}
           </text>
         </g>

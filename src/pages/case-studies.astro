@@ -57,7 +57,7 @@ const schemaNodes = [
 
       <nav class="flex flex-wrap gap-2 mt-7" aria-label="Jump to case study">
         {caseStudies.map((study) => (
-          <a href={`#${study.slug}`} class="chip no-underline" style="transition: box-shadow 0.2s, color 0.2s;" onmouseover="this.style.color='var(--color-accent-2)'; this.style.boxShadow='inset 0 0 0 1px var(--color-accent-2)';" onmouseout="this.style.color='var(--color-ink-2)'; this.style.boxShadow='inset 0 0 0 1px var(--color-rule)';">{study.name}</a>
+          <a href={`#${study.slug}`} class="chip no-underline" style="transition: box-shadow 0.2s, color 0.2s;" onmouseover="this.style.color='var(--violet-text)'; this.style.boxShadow='inset 0 0 0 1px var(--violet-text)';" onmouseout="this.style.color='var(--color-ink-2)'; this.style.boxShadow='inset 0 0 0 1px var(--color-rule)';">{study.name}</a>
         ))}
       </nav>
     </section>
@@ -70,7 +70,7 @@ const schemaNodes = [
           <div>
             <div class="mono text-[12px] mb-2" style="color: var(--color-ink-3); letter-spacing: 0.08em;">Case study {String(i + 1).padStart(2, '0')} / {study.niche}</div>
             <h2 class="text-2xl md:text-[34px] font-bold leading-tight" style="color: var(--color-ink);">{study.name}</h2>
-            <a href={study.url} target="_blank" rel="noopener noreferrer" class="inline-block mt-1.5 text-sm transition-colors" style="color: var(--color-accent-2);">{study.url.replace('https://', '')} &rarr;</a>
+            <a href={study.url} target="_blank" rel="noopener noreferrer" class="inline-block mt-1.5 text-sm transition-colors" style="color: var(--violet-text);">{study.url.replace('https://', '')} &rarr;</a>
           </div>
           <div class="flex flex-wrap gap-2">
             <span class="chip">{study.pageCount} pages</span>
@@ -83,7 +83,7 @@ const schemaNodes = [
           <div class="card !p-7 flex flex-col gap-5">
             {[
               { tag: 'Challenge', body: study.challenge, color: 'var(--color-warn)' },
-              { tag: 'Approach', body: study.approach, color: 'var(--color-accent-2)' },
+              { tag: 'Approach', body: study.approach, color: 'var(--violet-text)' },
               { tag: 'Result', body: study.result, color: 'var(--color-ok)' },
             ].map((block) => (
               <div>
@@ -118,7 +118,7 @@ const schemaNodes = [
             <h3 class="text-[11px] font-bold uppercase tracking-wider mb-3" style="color: var(--color-ink-3);">Schema graph</h3>
             <div class="flex flex-wrap gap-1.5">
               {study.schemaTypes.map((type) => (
-                <span class="text-xs font-medium px-2 py-0.5 rounded" style="background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.25); color: var(--color-accent-2);">{type}</span>
+                <span class="text-xs font-medium px-2 py-0.5 rounded" style="background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.25); color: var(--violet-text);">{type}</span>
               ))}
             </div>
           </div>
