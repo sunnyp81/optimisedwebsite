@@ -48,6 +48,14 @@
   --shadow-xl: 0 20px 60px rgba(30,41,59,0.15), 0 8px 24px rgba(30,41,59,0.08);
   --shadow-accent: 0 4px 20px rgba(251,191,36,0.35);
   --shadow-violet: 0 4px 20px rgba(124,58,237,0.25);
+
+  /* Nav (theme-aware, set on :root so first paint is correct) */
+  --nav-bg: rgba(255,251,235,0.92);
+  --nav-bg-scrolled: rgba(255,251,235,0.96);
+  --nav-border: rgba(212,200,150,0.5);
+  --nav-border-scrolled: rgba(212,200,150,0.7);
+  --nav-shadow-scrolled: 0 1px 16px rgba(30,41,59,0.06);
+  --menu-bg: rgba(255,251,235,0.98);
 }
 
 /* Dark mode */
@@ -72,6 +80,14 @@ html.dark {
   --color-brand-dim: rgba(124,58,237,0.15);
   --color-blue-soft: rgba(124,58,237,0.1);
   --color-accent-dim: rgba(16,185,129,0.1);
+
+  /* Nav (dark navy) */
+  --nav-bg: rgba(11,18,32,0.92);
+  --nav-bg-scrolled: rgba(11,18,32,0.96);
+  --nav-border: rgba(31,42,68,0.4);
+  --nav-border-scrolled: rgba(31,42,68,0.8);
+  --nav-shadow-scrolled: 0 1px 20px rgba(0,0,0,0.3);
+  --menu-bg: rgba(11,18,32,0.98);
 }
 
 html { scroll-behavior: smooth; }
