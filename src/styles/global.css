@@ -14,6 +14,9 @@
   --color-ok: #10b981;
   --color-warn: #ef4444;
   --color-paper: #ffffff;
+  /* Constant light text for always-dark surfaces (section-dark, cta-final,
+     pricing-card-dark). Do NOT override in html.dark: it must stay light. */
+  --color-on-dark: #f8fafc;
 
   /* Aliases for inner page components */
   --color-text: var(--color-ink);
@@ -286,7 +289,9 @@ html.dark .btn-primary {
 }
 .btn-accent {
   background: var(--color-accent);
-  color: var(--color-ink);
+  /* Amber is identical in both themes, so keep dark text (var ink flips to
+     near-white in dark mode = unreadable on amber). */
+  color: #1a202c;
   box-shadow: var(--shadow-accent);
 }
 .btn-accent:hover {
@@ -707,7 +712,7 @@ html.dark .gradient-cta {
 /* DARK SECTION */
 .section-dark {
   background: var(--color-ink);
-  color: var(--color-bg);
+  color: var(--color-on-dark);
 }
 html.dark .section-dark {
   background: #0b1220;
@@ -861,7 +866,7 @@ html.dark .hero-blob-violet {
   border-radius: 24px; padding: 80px 48px;
   text-align: center; position: relative; overflow: hidden;
   background: var(--color-ink);
-  color: var(--color-bg);
+  color: var(--color-on-dark);
   box-shadow: var(--shadow-xl);
   isolation: isolate;
 }
