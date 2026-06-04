@@ -41,22 +41,22 @@ const year = new Date().getFullYear();
         <div class="flex gap-4 mt-6 pt-5" style="border-top: 1px solid rgba(255,255,255,0.06);">
           <div>
             <div class="text-[18px] font-semibold font-mono" style="color: #fbbf24;">44</div>
-            <div class="text-[10px] font-mono uppercase mt-0.5" style="color: rgba(248,250,252,0.35); letter-spacing: 0.06em;">Sites in network</div>
+            <div class="text-[10px] font-mono uppercase mt-0.5" style="color: rgba(248,250,252,0.55); letter-spacing: 0.06em;">Sites in network</div>
           </div>
           <div>
             <div class="text-[18px] font-semibold font-mono" style="color: #10b981;">100</div>
-            <div class="text-[10px] font-mono uppercase mt-0.5" style="color: rgba(248,250,252,0.35); letter-spacing: 0.06em;">Lighthouse</div>
+            <div class="text-[10px] font-mono uppercase mt-0.5" style="color: rgba(248,250,252,0.55); letter-spacing: 0.06em;">Lighthouse</div>
           </div>
           <div>
             <div class="text-[18px] font-semibold font-mono" style="color: #7c3aed;">7d</div>
-            <div class="text-[10px] font-mono uppercase mt-0.5" style="color: rgba(248,250,252,0.35); letter-spacing: 0.06em;">Delivery</div>
+            <div class="text-[10px] font-mono uppercase mt-0.5" style="color: rgba(248,250,252,0.55); letter-spacing: 0.06em;">Delivery</div>
           </div>
         </div>
       </div>
 
       <!-- Services -->
       <div>
-        <h4 class="text-[11px] font-mono font-semibold uppercase mb-5" style="color: rgba(248,250,252,0.45); letter-spacing: 0.1em;">Services</h4>
+        <h4 class="text-[11px] font-mono font-semibold uppercase mb-5" style="color: rgba(248,250,252,0.6); letter-spacing: 0.1em;">Services</h4>
         <ul class="space-y-3">
           {footerNav.services.map((item) => (
             <li>
@@ -68,7 +68,7 @@ const year = new Date().getFullYear();
 
       <!-- Learn -->
       <div>
-        <h4 class="text-[11px] font-mono font-semibold uppercase mb-5" style="color: rgba(248,250,252,0.45); letter-spacing: 0.1em;">Learn</h4>
+        <h4 class="text-[11px] font-mono font-semibold uppercase mb-5" style="color: rgba(248,250,252,0.6); letter-spacing: 0.1em;">Learn</h4>
         <ul class="space-y-3">
           {footerNav.learn.map((item) => (
             <li>
@@ -80,7 +80,7 @@ const year = new Date().getFullYear();
 
       <!-- Company -->
       <div>
-        <h4 class="text-[11px] font-mono font-semibold uppercase mb-5" style="color: rgba(248,250,252,0.45); letter-spacing: 0.1em;">Company</h4>
+        <h4 class="text-[11px] font-mono font-semibold uppercase mb-5" style="color: rgba(248,250,252,0.6); letter-spacing: 0.1em;">Company</h4>
         <ul class="space-y-3">
           {footerNav.company.map((item) => (
             <li>
@@ -93,11 +93,11 @@ const year = new Date().getFullYear();
 
     <!-- Bottom bar -->
     <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <div class="text-[12px] font-mono" style="color: rgba(248,250,252,0.35);">&copy; {year} {site.name} &middot; Built in Britain</div>
+      <div class="text-[12px] font-mono" style="color: rgba(248,250,252,0.55);">&copy; {year} {site.name} &middot; Built in Britain</div>
       <div class="flex items-center gap-5">
-        <a href="/privacy/" class="text-[12px] no-underline transition-colors duration-200" style="color: rgba(248,250,252,0.4);" onmouseover="this.style.color='rgba(248,250,252,0.8)'" onmouseout="this.style.color='rgba(248,250,252,0.4)'">Privacy</a>
-        <a href="/terms/" class="text-[12px] no-underline transition-colors duration-200" style="color: rgba(248,250,252,0.4);" onmouseover="this.style.color='rgba(248,250,252,0.8)'" onmouseout="this.style.color='rgba(248,250,252,0.4)'">Terms</a>
-        <a href="/glossary/" class="text-[12px] no-underline transition-colors duration-200" style="color: rgba(248,250,252,0.4);" onmouseover="this.style.color='rgba(248,250,252,0.8)'" onmouseout="this.style.color='rgba(248,250,252,0.4)'">Glossary</a>
+        <a href="/privacy/" class="text-[12px] no-underline transition-colors duration-200" style="color: rgba(248,250,252,0.6);" onmouseover="this.style.color='rgba(248,250,252,0.9)'" onmouseout="this.style.color='rgba(248,250,252,0.6)'">Privacy</a>
+        <a href="/terms/" class="text-[12px] no-underline transition-colors duration-200" style="color: rgba(248,250,252,0.6);" onmouseover="this.style.color='rgba(248,250,252,0.9)'" onmouseout="this.style.color='rgba(248,250,252,0.6)'">Terms</a>
+        <a href="/glossary/" class="text-[12px] no-underline transition-colors duration-200" style="color: rgba(248,250,252,0.6);" onmouseover="this.style.color='rgba(248,250,252,0.9)'" onmouseout="this.style.color='rgba(248,250,252,0.6)'">Glossary</a>
       </div>
     </div>
   </div>
