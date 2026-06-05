@@ -26,6 +26,7 @@ export const footerNav = {
     { label: 'About', href: '/about/' },
     { label: 'Portfolio', href: '/portfolio/' },
     { label: 'Case Studies', href: '/case-studies/' },
+    { label: 'State of SEO Websites', href: '/state-of-seo-websites/' },
     { label: 'Contact', href: '/contact/' },
     { label: 'Privacy Policy', href: '/privacy/' },
     { label: 'Terms of Service', href: '/terms/' },
