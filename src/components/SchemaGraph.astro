@@ -13,6 +13,8 @@ const graph = [
     '@id': `${site.url}/#organization`,
     name: site.name,
     url: site.url,
+    logo: `${site.url}/favicon.svg`,
+    image: `${site.url}/og-default.png`,
     sameAs: ['https://sunnypatel.co.uk'],
     areaServed: { '@type': 'Country', name: 'United Kingdom' },
     contactPoint: {
@@ -21,9 +23,38 @@ const graph = [
       contactType: 'sales',
     },
     knowsAbout: [
-      'Search Engine Optimisation',
-      'Website Development',
-      'Schema Markup',
+      {
+        '@type': 'Thing',
+        name: 'Search engine optimization',
+        sameAs: [
+          'https://en.wikipedia.org/wiki/Search_engine_optimization',
+          'https://www.wikidata.org/wiki/Q180711',
+        ],
+      },
+      {
+        '@type': 'Thing',
+        name: 'Web design',
+        sameAs: [
+          'https://en.wikipedia.org/wiki/Web_design',
+          'https://www.wikidata.org/wiki/Q189210',
+        ],
+      },
+      {
+        '@type': 'Thing',
+        name: 'Structured data',
+        sameAs: [
+          'https://en.wikipedia.org/wiki/Structured_data',
+          'https://www.wikidata.org/wiki/Q26813700',
+        ],
+      },
+      {
+        '@type': 'Thing',
+        name: 'Schema.org',
+        sameAs: [
+          'https://en.wikipedia.org/wiki/Schema.org',
+          'https://www.wikidata.org/wiki/Q1409226',
+        ],
+      },
       'Topical Authority',
       'Content Architecture',
     ],

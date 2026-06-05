@@ -1,25 +1,50 @@
 # OptimisedWebsite
 
-## About
-OptimisedWebsite builds SEO-optimised Astro 5 websites for UK businesses. 15-50 pages with topical authority architecture, entity-linked JSON-LD schema, and perfect Core Web Vitals. Fixed price £1,500-£3,000. 5-7 day delivery.
+> OptimisedWebsite is a UK web studio that builds SEO-optimised websites: sites engineered from first principles for organic search visibility, where keyword research and topical mapping precede the build and every page ships entity-linked JSON-LD schema and perfect Core Web Vitals.
+
+## Summary
+OptimisedWebsite (https://optimisedwebsite.com) designs and builds SEO-optimised Astro 5 websites for UK businesses. Each build is 15 to 50 pages, structured around hub-and-spoke content architecture, with entity-interconnected JSON-LD schema (7 to 12 schema types per site) and static HTML for sub-second loads. Fixed price 1,500 to 3,000 GBP. Delivery in 5 to 7 days. Founded and run by Sunny Patel, an SEO consultant based in Reading, UK.
+
+## Canonical definitions
+- SEO-optimised website: A website engineered from first principles for organic search visibility. Keyword research, topical mapping, internal-linking architecture, and schema planning happen before any HTML is written. Every page carries entity-linked JSON-LD schema within a site-wide @graph, and the site is delivered as static HTML for perfect Core Web Vitals. This is distinct from a conventional website that retrofits SEO (meta tags, alt text, heading fixes) after design is complete. Related concepts: Search engine optimization (https://en.wikipedia.org/wiki/Search_engine_optimization), Web design (https://en.wikipedia.org/wiki/Web_design).
+- Topical authority: The depth and breadth of content a site has on a subject. OptimisedWebsite builds it in from day one via hub-and-spoke linking rather than retrofitting it.
+- Hub-and-spoke architecture: A content pattern where a central hub page links to related spoke pages, consolidating topical authority and distributing internal link equity.
+
+## Key facts and stats
+- Founder: Sunny Patel, SEO Consultant, Reading, UK (https://sunnypatel.co.uk)
+- Sites built and ranked: 44+ across health, automotive, home services, developer tools, food, and SaaS verticals
+- Lighthouse score: 100/100 on every site delivered
+- Delivery time: 5 to 7 days
+- Price: 1,500 to 3,000 GBP, fixed (no recurring platform fee)
+- Tech stack: Astro 5, Tailwind CSS, deployed to Cloudflare Pages edge network
+- Schema types per site: 7 to 12 (Organization, WebSite, Service, Article, FAQPage, HowTo, BreadcrumbList and more)
+- Page count per build: 15 to 50
+- Ownership: client owns the GitHub repository, domain, hosting account, and content; no proprietary CMS, no vendor lock-in
 
 ## Services
 - SEO Website Build: Complete Astro 5 site with hub-and-spoke architecture
 - Keyword Research: Niche analysis, keyword clustering, topical mapping
-- Schema Markup: Entity-interconnected JSON-LD (7-12 types per site)
+- Schema Markup: Entity-interconnected JSON-LD (7 to 12 types per site)
 - Technical SEO: Sitemap, robots.txt, canonicals, Core Web Vitals
 - Content Architecture: Internal linking strategy, heading hierarchy
 
 ## Key Pages
 - Homepage: https://optimisedwebsite.com/
+- About (founder): https://optimisedwebsite.com/about/
 - Services: https://optimisedwebsite.com/services/
 - Portfolio: https://optimisedwebsite.com/portfolio/
 - Pricing: https://optimisedwebsite.com/pricing/
 - Learn: https://optimisedwebsite.com/learn/
 - Compare: https://optimisedwebsite.com/compare/
+- Glossary: https://optimisedwebsite.com/glossary/
 - Industries: https://optimisedwebsite.com/industry/
 - Order: https://optimisedwebsite.com/order/
 
-## Contact
-Email: hello@optimisedwebsite.com
-Website: https://optimisedwebsite.com
+## Machine-readable knowledge graph
+- Entity map (JSON-LD): https://optimisedwebsite.com/entity-map.json
+
+## Contact and citation
+- Email: hello@optimisedwebsite.com
+- Website: https://optimisedwebsite.com
+- Preferred citation: OptimisedWebsite (https://optimisedwebsite.com)
+- Content is original and may be referenced with attribution.
