@@ -31,7 +31,7 @@ This guide walks through the process from domain registration to first rankings,
 
 The first step for any new website is understanding what people search for in your niche. Keyword research reveals the queries your potential customers type into Google, how many people search for each term, and how difficult each term is to rank for.
 
-Use tools like Ahrefs, SEMrush, or Google's Keyword Planner to build a keyword list. Group related keywords into clusters — these clusters will become your topical hubs. For each cluster, identify one primary keyword (the hub page target) and several supporting keywords (the spoke page targets).
+Use tools like Ahrefs, SEMrush, or Google's Keyword Planner to build a keyword list, or hand the work to a dedicated [keyword research](/services/keyword-research/) process. Group related keywords into clusters, and these clusters will become your topical hubs. For each cluster, identify one primary keyword (the hub page target) and several supporting keywords (the spoke page targets).
 
 A new domain cannot realistically target high-difficulty keywords immediately. Identify low-difficulty, long-tail keywords that you can rank for within the first few months. These early wins build domain authority and generate traffic while you work toward more competitive terms.
 
@@ -78,7 +78,7 @@ Each content cluster on your site should include:
 - Five to fifteen supporting pages that cover subtopics in depth
 - Internal links connecting every page in the cluster to the hub and to related pages
 
-The hub page links down to all supporting content. Each supporting page links back to the hub and to two or three related supporting pages. This internal linking pattern tells Google that these pages are thematically connected and that the hub page is the most important page in the cluster.
+The hub page links down to all supporting content. Each supporting page links back to the hub and to two or three related supporting pages. This [internal linking pattern](/learn/internal-linking-strategy/) tells Google that these pages are thematically connected and that the hub page is the most important page in the cluster. Building [topical authority](/learn/topical-authority-explained/) this way is how new sites compete with established competitors.
 
 ## Earn Backlinks Through Useful Content
 
@@ -106,4 +106,4 @@ New websites do not rank overnight. Google intentionally applies a cautious appr
 
 Expect the first three months to be about indexing and initial impressions. Months four through eight are when you will see meaningful position improvements for your target keywords. By month twelve, a well-built site with consistent content and a growing backlink profile should be generating steady organic traffic.
 
-The advantage of building an SEO-optimised website from the start is that this timeline is compressed. Sites that launch with proper architecture, sufficient content, and clean technical foundations reach their ranking potential significantly faster than sites that bolt SEO on after the fact.
+The advantage of building an SEO-optimised website from the start is that this timeline is compressed. Sites that launch with proper architecture, sufficient content, and clean technical foundations reach their ranking potential significantly faster than sites that bolt SEO on after the fact. Our [SEO website build](/services/seo-website-build/) delivers exactly this foundation as a fixed-price package.

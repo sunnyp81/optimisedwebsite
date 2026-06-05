@@ -208,6 +208,6 @@ Core Web Vitals optimisation delivers compounding returns. Faster pages rank hig
 
 A page that loads in 1.2 seconds converts at roughly double the rate of one loading in 3.5 seconds. Core Web Vitals improvements affect revenue directly, beyond the indirect benefit of higher rankings.
 
-Choose your technology stack based on performance requirements. Static sites pass Core Web Vitals by default. WordPress requires ongoing optimisation effort. Single-page applications require extensive performance engineering.
+Choose your technology stack based on performance requirements. Static sites pass Core Web Vitals by default. WordPress requires ongoing optimisation effort. Single-page applications require extensive performance engineering. Every [SEO website build](/services/seo-website-build/) we deliver ships as static HTML on Astro, so Core Web Vitals pass from the first crawl.
 
 An [SEO website checklist](/learn/seo-website-checklist/) should include Core Web Vitals targets for every page. Set performance budgets during development rather than retrofitting speed improvements after launch.

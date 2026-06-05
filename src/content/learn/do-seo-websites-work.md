@@ -43,9 +43,9 @@ Successful SEO websites share several characteristics that distinguish them from
 
 **They target the right keywords.** Keyword selection determines everything. A site targeting keywords with zero search volume will rank first and receive no traffic. A site targeting keywords with 50,000 monthly searches but extreme difficulty will never reach page one. Successful sites find the balance: keywords with genuine search volume that the site can realistically rank for given its authority and content depth.
 
-**They have sufficient content depth.** Google evaluates whether a site covers its topic in depth. A five-page website about accounting services cannot compete with a 40-page site that covers every aspect of business accounting, tax, and compliance. Depth is not about word count for its own sake — it is about covering the topic thoroughly enough that Google considers the site authoritative.
+**They have sufficient content depth.** Google evaluates whether a site covers its topic in depth. A five-page website about accounting services cannot compete with a 40-page site that covers every aspect of business accounting, tax, and compliance. Depth is not about word count for its own sake, it is about covering the topic thoroughly enough that Google considers the site authoritative. This is the principle behind [topical authority](/learn/topical-authority-explained/).
 
-**They get the technical foundations right.** Proper schema markup, canonical URLs, fast page speeds, clean heading hierarchies, and functional internal linking are prerequisites, not optional extras. A site with excellent content but broken technical SEO is like a well-stocked shop with the front door locked — the product is good, but nobody can access it.
+**They get the technical foundations right.** Proper schema markup, canonical URLs, fast page speeds, clean heading hierarchies, and functional [internal linking](/learn/internal-linking-strategy/) are prerequisites, not optional extras. A site with excellent content but broken technical SEO is like a well-stocked shop with the front door locked: the product is good, but nobody can access it.
 
 **They match content to search intent.** Every page must provide what the searcher is looking for. An informational query needs an explanatory article. A commercial query needs a comparison or evaluation. A transactional query needs a clear path to purchase or contact. Pages that misalign with intent rank briefly and then drop as Google measures poor engagement metrics.
 
@@ -69,7 +69,7 @@ A page that reaches position five for a keyword with 1,000 monthly searches gene
 
 The economics improve further as the site gains authority. New pages index and rank faster. Existing pages climb to higher positions. The site becomes eligible for featured snippets and other enhanced search features that drive additional traffic.
 
-Compare this to Google Ads, where a click costing £3 generates one visit. Sustaining 1,000 monthly visits through paid ads costs £3,000/month — £36,000/year. An SEO website costing £3,000 to build that generates the same traffic volume pays for itself within one month and generates free traffic for years afterward.
+Compare this to Google Ads, where a click costing £3 generates one visit. Sustaining 1,000 monthly visits through paid ads costs £3,000/month, or £36,000/year. An SEO website costing £3,000 to build that generates the same traffic volume pays for itself within one month and generates free traffic for years afterward. You can see how that build cost is structured on our [pricing page](/pricing/).
 
 ## When to Invest in an SEO Website
 

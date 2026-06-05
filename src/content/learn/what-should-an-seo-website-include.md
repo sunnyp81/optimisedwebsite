@@ -49,7 +49,7 @@ Schema markup tells search engines what type of content a page contains and how 
 
 The homepage typically carries Organization or LocalBusiness schema with the company name, address, contact details, and social profiles. Service pages carry ProfessionalService or Service schema with descriptions, pricing, and area served. Article pages carry Article schema with headline, publication date, and publisher reference. FAQ sections carry FAQPage schema that can produce rich results in Google.
 
-All schema should reference a shared `@id` for the organisation entity, creating a connected graph that search engines can follow across the site.
+All schema should reference a shared `@id` for the organisation entity, creating a connected graph that search engines can follow across the site. Our [schema markup guide](/learn/schema-markup-guide/) explains how to build this graph in practice.
 
 ## Internal Linking Architecture
 
@@ -57,7 +57,7 @@ Internal links serve two purposes: distributing PageRank across the site and est
 
 Every page should link to its parent hub using descriptive anchor text. Hub pages should link to all their child pages. Related pages should cross-link to each other where the connection is genuinely relevant. The anchor text should describe what the destination page covers, not generic phrases.
 
-A common pattern is the "hub and spoke" model. The hub page covers a topic broadly and links to detailed pages on each subtopic. Each spoke page links back to the hub and to two or three related spokes. This creates a tight topical cluster that search engines can crawl efficiently.
+A common pattern is the "hub and spoke" model, set out in full in our [internal linking strategy](/learn/internal-linking-strategy/) guide. The hub page covers a topic broadly and links to detailed pages on each subtopic. Each spoke page links back to the hub and to two or three related spokes. This creates a tight topical cluster that search engines can crawl efficiently.
 
 ## XML Sitemap and Robots.txt
 
@@ -105,4 +105,6 @@ These tags do not directly affect search rankings, but they improve click-throug
 
 Accessible websites tend to rank better because many accessibility requirements overlap with SEO best practices. Proper heading hierarchy, descriptive alt text on images, semantic HTML elements, and keyboard navigation all benefit both screen reader users and search engine crawlers.
 
-An SEO-optimised website uses semantic HTML — `<nav>`, `<main>`, `<article>`, `<section>`, `<footer>` — rather than generic `<div>` elements. Skip-to-content links, ARIA labels where needed, and sufficient colour contrast round out the accessibility baseline.
+An SEO-optimised website uses semantic HTML, `<nav>`, `<main>`, `<article>`, `<section>` and `<footer>`, rather than generic `<div>` elements. Skip-to-content links, ARIA labels where needed, and sufficient colour contrast round out the accessibility baseline.
+
+Every element on this list is included as standard in our [SEO website build](/services/seo-website-build/), with the full scope and fixed price set out on our [pricing page](/pricing/).

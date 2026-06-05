@@ -69,7 +69,7 @@ Local SEO elements are critical for businesses serving specific geographic areas
 
 **Google Business Profile** connection: While this is not part of the website itself, the website should reference and support your GBP listing. The business name, address, and phone number (NAP) on the website must match the GBP listing exactly.
 
-**LocalBusiness schema** on the homepage (or Organization schema with address details) communicates your location and service area to search engines. Include `areaServed` to specify the geographic areas you cover.
+**LocalBusiness schema** on the homepage (or Organization schema with address details) communicates your location and service area to search engines. Include `areaServed` to specify the geographic areas you cover. Our [local SEO website guide](/learn/local-seo-website-guide/) covers location pages, NAP consistency and schema in depth.
 
 **Location-specific content** on each location page should go beyond swapping city names into a template. Reference local landmarks, discuss area-specific factors (parking availability, local regulations, regional pricing differences), and include genuine local knowledge that demonstrates you actually serve that area.
 
@@ -79,7 +79,7 @@ Local SEO elements are critical for businesses serving specific geographic areas
 
 With a typical small business budget of £1,500-3,000, here is how the investment breaks down:
 
-**Keyword research and planning (15%)**: £225-450. Identifies target keywords, maps the site structure, and creates content briefs. This is the most important 15% of the budget — wrong keyword targets waste everything else.
+**Keyword research and planning (15%)**: £225-450. Dedicated [keyword research](/services/keyword-research/) identifies target keywords, maps the site structure, and creates content briefs. This is the most important 15% of the budget, because wrong keyword targets waste everything else.
 
 **Content creation (35-40%)**: £525-1,200. Original content for 15-25 pages. At these budget levels, content is typically written with AI assistance and human editing/fact-checking rather than fully manual copywriting. The quality must still be high enough to match or exceed what currently ranks.
 
@@ -110,3 +110,5 @@ Track these metrics monthly through Google Search Console:
 **Average position for target keywords**: Are your service and location pages climbing toward page one? Track your five most important keywords individually.
 
 **Enquiry volume from organic traffic**: Ultimately, the website exists to generate business. Track form submissions, phone calls, and emails that originate from organic search visitors. This is the metric that determines whether the website investment has paid off.
+
+Our [SEO website build](/services/seo-website-build/) is priced for exactly this small business budget, with the £1,500 to £3,000 range broken down on our [pricing page](/pricing/).

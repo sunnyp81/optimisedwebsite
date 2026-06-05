@@ -219,3 +219,5 @@ Read every sentence and ask: does this add information? Remove sentences that do
 Run a readability check. Target a Flesch-Kincaid grade level of 8-10 for most SEO content. Lower scores improve accessibility without sacrificing depth.
 
 Verify all factual claims against primary sources. A single inaccurate statistic undermines the trust signals your entire page depends on.
+
+Every page in our [SEO website build](/services/seo-website-build/) is written to these standards, with original content mapped to search intent rather than padded to a word count.

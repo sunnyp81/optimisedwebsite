@@ -29,7 +29,7 @@ Most business websites in the UK fall into the "regular" category. They are buil
 
 A regular website is structured around what the business wants to say. The navigation reflects the business owner's mental model: Home, About Us, Services, Contact, Blog. Pages exist because they feel necessary, not because there is search demand for them.
 
-An SEO-optimised website is structured around what potential customers search for. Before any design work begins, keyword research identifies the queries people type into Google when looking for businesses like yours. The site architecture maps these keywords onto a logical page hierarchy, with hub pages for broad topics and supporting pages for specific subtopics.
+An SEO-optimised website is structured around what potential customers search for. Before any design work begins, [keyword research](/services/keyword-research/) identifies the queries people type into Google when looking for businesses like yours. The site architecture maps these keywords onto a logical page hierarchy, with hub pages for broad topics and supporting pages for specific subtopics.
 
 This distinction has cascading effects. The regular website's "Services" page tries to cover everything the business does in one long page. The SEO website breaks services into individual pages, each targeting a specific keyword with dedicated content. The regular website's blog publishes whatever the owner feels like writing about. The SEO website's content plan targets specific informational keywords that support the commercial pages.
 
@@ -59,9 +59,9 @@ An SEO-optimised website includes these elements as part of the core build:
 
 Regular websites have internal links in the navigation menu and perhaps a few scattered links within blog posts. There is no deliberate strategy governing which pages link to which other pages, what anchor text is used, or how link equity flows through the site.
 
-An SEO-optimised website uses a planned internal linking architecture. Hub pages link to all their supporting pages. Supporting pages link back to the hub and cross-link to related pages. Anchor text is descriptive and keyword-relevant. Every page has multiple contextual internal links within its body content, not just navigation links.
+An SEO-optimised website uses a planned [internal linking strategy](/learn/internal-linking-strategy/). Hub pages link to all their supporting pages. Supporting pages link back to the hub and cross-link to related pages. Anchor text is descriptive and keyword-relevant. Every page has multiple contextual internal links within its body content, not just navigation links.
 
-This strategic approach distributes page authority efficiently, establishes topical relationships that Google can map, and ensures no page is orphaned — isolated without any internal links pointing to it.
+This strategic approach distributes page authority efficiently, establishes topical relationships that Google can map, and ensures no page is orphaned, isolated without any internal links pointing to it.
 
 ## Long-Term ROI
 
@@ -75,4 +75,4 @@ The cost difference between the two approaches is modest compared to the revenue
 
 Not every business needs an SEO-optimised website. If your customers come exclusively through referrals, word of mouth, or social media, a clean brochure site that presents your brand well may be all you need.
 
-Any portion of your customer base searching Google represents demand an SEO-optimised website captures. The question is not whether SEO websites work — it is whether you are willing to invest in the foundation that makes organic search a reliable business channel.
+Any portion of your customer base searching Google represents demand an SEO-optimised website captures. The question is not whether SEO websites work, it is whether you are willing to invest in the foundation that makes organic search a reliable business channel. If you decide it is worth it, our [SEO website build](/services/seo-website-build/) delivers that foundation at a fixed price.

@@ -39,7 +39,7 @@ Internal links affect rankings through three mechanisms.
 
 ## The Hub-and-Spoke Model
 
-The most effective internal linking pattern for SEO is the hub-and-spoke model, which maps directly to topical clusters.
+The most effective internal linking pattern for SEO is the hub-and-spoke model, which maps directly to topical clusters and underpins [topical authority](/learn/topical-authority-explained/).
 
 The hub page sits at the centre. It covers a broad topic and links outward to every supporting page (spoke) within its cluster. Each spoke covers a specific subtopic and links back to the hub. Spokes also cross-link to related spokes where the content naturally connects.
 
@@ -94,8 +94,10 @@ Every indexable page on your site should have at least one contextual internal l
 
 **Review and update links when publishing new content.** Every time you add a page, check your existing content for natural opportunities to link to it. A new page about "underfloor heating costs" should be linked from existing pages about home renovation, heating systems, and flooring.
 
-**Use breadcrumb navigation** with BreadcrumbList schema. Breadcrumbs provide a consistent internal linking structure that mirrors your site hierarchy and generate rich results in Google search.
+**Use breadcrumb navigation** with BreadcrumbList schema. Breadcrumbs provide a consistent internal linking structure that mirrors your site hierarchy and generate rich results in Google search. A planned [content architecture](/services/content-architecture/) maps these link relationships before a single page is built.
 
 **Audit internal links quarterly.** Check for broken links, orphan pages, and opportunities to add links to newer content. As your site grows, the internal linking structure needs periodic maintenance to stay effective.
 
 **Avoid link bloat on hub pages.** If a hub page links to 50 supporting pages, each link passes less authority than if it linked to 15. Keep clusters focused on a manageable number of high-quality supporting pages rather than creating dozens of thin pages to inflate the cluster size.
+
+Internal linking is one of the structural elements built into every [SEO website build](/services/seo-website-build/) we deliver, so the hub-and-spoke architecture is in place from launch rather than retrofitted later.

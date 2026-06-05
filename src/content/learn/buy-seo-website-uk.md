@@ -29,7 +29,7 @@ faqs:
 
 When you buy an SEO-optimised website, the value is in the invisible architecture — not the visible design. Here's what should be included:
 
-**Keyword research and topical mapping.** 50–200 keywords clustered by search intent, mapped into a hub-and-spoke page structure. This determines which pages exist and how they connect.
+**Keyword research and topical mapping.** 50 to 200 keywords clustered by search intent, mapped into a hub-and-spoke page structure through proper [keyword research](/services/keyword-research/). This determines which pages exist and how they connect.
 
 **Original content written for search intent.** Every page targets a specific keyword cluster with content that answers the searcher's question. Not AI filler, not manufacturer copy, not repurposed blog posts.
 
@@ -51,6 +51,6 @@ When you buy an SEO-optimised website, the value is in the invisible architectur
 
 ## The OptimisedWebsite Approach
 
-Fixed price: £1,500 for 15 pages, £3,000 for 50 pages. Delivered in 7 days. You get keyword research, topical mapping, original content, per-page schema, Lighthouse 100/100, and full source code. No retainers, no lock-in.
+Our [SEO website build](/services/seo-website-build/) is fixed price: £1,500 for 15 pages, £3,000 for 50 pages, with the full breakdown on our [pricing page](/pricing/). Delivered in 7 days. You get keyword research, topical mapping, original content, per-page schema, Lighthouse 100/100, and full source code. No retainers, no lock-in. When you are ready, you can [place an order](/order/) and we begin within 48 hours.
 
 We build on Astro (static HTML, zero JS overhead) and deploy to Cloudflare's global edge network. The result is a site that loads in under half a second and gives Google clear signals about your topical authority from the first crawl.

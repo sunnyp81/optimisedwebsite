@@ -47,7 +47,7 @@ Organization schema identifies your business entity across the site. It typicall
 
 A complete Organization schema includes the company name, URL, logo, contact information, social media profiles, and a description of the business. The `@id` value (commonly `https://yourdomain.com/#organization`) acts as a persistent reference that other schema nodes can point to.
 
-For local businesses, use LocalBusiness or a more specific subtype (Plumber, Restaurant, LegalService) instead of Organization. This activates location-specific rich results and feeds data to Google Business Profile.
+For local businesses, use LocalBusiness or a more specific subtype (Plumber, Restaurant, LegalService) instead of Organization. This activates location-specific rich results and feeds data to Google Business Profile. Our [local SEO website guide](/learn/local-seo-website-guide/) covers these subtypes in more detail.
 
 Key properties to include: `name`, `url`, `logo`, `description`, `email`, `telephone`, `address` (for local businesses), `sameAs` (linking to social profiles and authoritative directories), and `areaServed`.
 
@@ -110,3 +110,5 @@ Run both tools on a representative sample of pages: the homepage, a service page
 **Forgetting to update dateModified** when revising content makes your articles appear stale. Google uses this date to assess freshness, and an article last modified two years ago will be treated differently from one updated last week.
 
 **Omitting the @id on Organization schema** breaks the reference chain. Without a consistent `@id`, other pages cannot link their schema back to the central business entity, and the schema graph falls apart.
+
+Implementing a connected schema graph correctly is detailed work. Our [schema markup service](/services/schema-markup/) builds validated JSON-LD into every page, and it is included as standard in our [SEO website build](/services/seo-website-build/).
