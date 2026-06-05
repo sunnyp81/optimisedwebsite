@@ -1,22 +1,63 @@
 User-agent: *
 Allow: /
 
+# --- AI assistants and search crawlers (explicitly welcomed) ---
+# OpenAI (ChatGPT training, ChatGPT Search, on-demand fetch)
 User-agent: GPTBot
 Allow: /
 
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Google-Extended
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google (Gemini / AI Overviews / Vertex)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Google-CloudVertexBot
+Allow: /
+
+# Apple Intelligence
 User-agent: Applebot-Extended
+Allow: /
+
+# Microsoft Copilot uses the Bing index
+User-agent: bingbot
+Allow: /
+
+# Amazon, Meta AI, DuckDuckGo AI, Cohere
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: cohere-ai
 Allow: /
 
 Sitemap: https://optimisedwebsite.com/sitemap-index.xml
