@@ -25,6 +25,9 @@ interface Props {
 const { title, description, ogTitle, ogImage, canonicalPath, schemaNodes, noindex } = Astro.props;
 const canonical = `${site.url}${canonicalPath}`;
 const displayOgTitle = ogTitle ?? title;
+// Default social share image (1200x630) so WhatsApp/Twitter/Facebook always
+// render a rich preview. Pages can override via the ogImage prop.
+const ogImageUrl = new URL(ogImage ?? '/og-default.png', site.url).href;
 ---
 <html lang="en-GB">
   <head>
@@ -39,14 +42,19 @@ const displayOgTitle = ogTitle ?? title;
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex,follow" />}
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="en_GB" />
     <meta property="og:title" content={displayOgTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="OptimisedWebsite: SEO websites that get found. Lighthouse 100, live in 7 days." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={displayOgTitle} />
     <meta name="twitter:description" content={description} />
-    {ogImage && <meta name="twitter:image" content={ogImage} />}
+    <meta name="twitter:image" content={ogImageUrl} />
     <link rel="preload" as="font" type="font/woff2" href={frauncesWoff2} crossorigin />
     <link rel="preload" as="font" type="font/woff2" href={geistWoff2} crossorigin />
     <script is:inline>
