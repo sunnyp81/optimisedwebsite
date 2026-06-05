@@ -29,7 +29,7 @@ Most agencies that call themselves "SEO web design" actually do web design with 
 
 ## What SEO-First Web Design Actually Means
 
-SEO-first means the keyword research, topical map, and internal linking architecture are completed before any design work begins. The page structure, URL hierarchy, and schema plan drive the design — not the other way around.
+SEO-first means the [keyword research](/services/keyword-research/), topical map, and internal linking architecture are completed before any design work begins. The page structure, URL hierarchy, and schema plan drive the design, not the other way around.
 
 A genuine SEO web design agency will:
 
@@ -50,7 +50,7 @@ A genuine SEO web design agency will:
 
 **Monthly retainer required from day one.** A properly built site should not need ongoing agency support just to maintain its rankings. Retainers are for growth, not maintenance of a new build.
 
-**No traffic proof.** Ask for Google Search Console screenshots. Rankings, not just designs.
+**No traffic proof.** Ask for Google Search Console screenshots. Rankings, not just designs. If you are unsure what a genuine SEO build should contain, our guide to [what an SEO-optimised website is](/learn/what-is-an-seo-optimised-website/) sets the baseline.
 
 ## What to Expect at Each Price Point
 
@@ -62,6 +62,6 @@ A genuine SEO web design agency will:
 
 ## How OptimisedWebsite Compares
 
-We sit in the £1,500–£3,000 bracket with a fixed-price, 7-day delivery model. Every build includes keyword research, topical mapping, per-page schema, and Astro/Cloudflare deployment. No retainers, no lock-in, source code yours forever.
+Our [SEO website build](/services/seo-website-build/) sits in the £1,500 to £3,000 bracket with a fixed-price, 7-day delivery model, set out in full on our [pricing page](/pricing/). Every build includes keyword research, topical mapping, per-page schema, and Astro/Cloudflare deployment. No retainers, no lock-in, source code yours forever.
 
 The tradeoff: we do not offer custom brand design or interactive features beyond what static HTML supports. If you need a React app or ecommerce checkout, we are not the right fit. If you need a site that ranks for your target keywords within weeks of launch, we are.

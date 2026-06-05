@@ -89,7 +89,7 @@ Astro is a static site generator that produces zero-JavaScript HTML pages by def
 
 **Weaknesses**: Requires developer knowledge — there is no visual editor or drag-and-drop interface. Content updates require editing files and redeploying (or integrating a headless CMS). Smaller ecosystem than WordPress. No plugin marketplace for adding functionality quickly.
 
-**SEO verdict**: The technically optimal choice for SEO. If you have development skills or are working with a developer, Astro provides the cleanest foundation for an SEO-optimised website. The lack of a visual editor means it is not suitable for business owners who want to manage content themselves without technical help.
+**SEO verdict**: The technically optimal choice for SEO. If you have development skills or are working with a developer, Astro provides the cleanest foundation for an SEO-optimised website. The lack of a visual editor means it is not suitable for business owners who want to manage content themselves without technical help. Our [Astro vs WordPress comparison](/compare/wordpress-vs-static-site-seo/) covers this trade-off in more detail.
 
 ## Next.js
 
@@ -103,7 +103,7 @@ Next.js is a React-based framework that supports both static generation and serv
 
 ## Making the Decision
 
-For SEO-focused content websites without a CMS requirement: **Astro** delivers the best technical foundation.
+For SEO-focused content websites without a CMS requirement: **Astro** delivers the best technical foundation. This is the stack behind our [SEO website build](/services/seo-website-build/), so you get Astro's performance without needing to write the code yourself.
 
 For content websites where non-technical users need to update content: **WordPress** with a custom lightweight theme and quality hosting.
 
@@ -112,3 +112,5 @@ For e-commerce: **Shopify** for simplicity, or **Next.js** for maximum flexibili
 For sites where design quality outweighs SEO priority: **Squarespace** is the easiest path to a polished result, accepting the SEO trade-offs.
 
 For quick launches targeting low-competition local keywords: **Wix** is functional if speed-to-market matters more than long-term SEO ceiling.
+
+If you want the Astro performance ceiling without the developer overhead, you can [order an SEO website build](/order/) and have a fully optimised static site delivered in seven days.

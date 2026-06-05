@@ -72,7 +72,7 @@ Check word counts against competing pages that currently rank for your target ke
 All images must have descriptive alt text that aids accessibility and provides context to search engines. Images should be compressed and served in modern formats (WebP or AVIF where browser support allows). Explicit width and height attributes prevent layout shifts.
 
 ### Internal Links
-Every page must link to its parent hub page and to two or three related pages within its topical cluster. Anchor text should be descriptive and keyword-relevant, not generic ("click here", "read more").
+Every page must link to its parent hub page and to two or three related pages within its topical cluster, following a deliberate [internal linking strategy](/learn/internal-linking-strategy/). Anchor text should be descriptive and keyword-relevant, not generic ("click here", "read more").
 
 Check for orphan pages — pages with no internal links pointing to them. Every indexable page should be reachable through at least one contextual internal link.
 
@@ -92,7 +92,7 @@ Each page type needs appropriate schema:
 Every page should carry BreadcrumbList schema matching the visible breadcrumb navigation. The list should start from the homepage and include every level of the hierarchy.
 
 ### Validation
-Test representative pages with Google's Rich Results Test and Schema Markup Validator. Fix all errors. Review warnings and address any that indicate missing recommended properties.
+Test representative pages with Google's Rich Results Test and Schema Markup Validator. Fix all errors. Review warnings and address any that indicate missing recommended properties. Our [schema markup guide](/learn/schema-markup-guide/) walks through each type in detail.
 
 ## Performance
 
@@ -145,3 +145,5 @@ Within the first 48 hours after launch:
 4. Test five representative URLs with the Rich Results Test
 5. Run a full-site crawl with Screaming Frog or Sitebulb to catch any issues the manual review missed
 6. Set up Search Console alerts for crawl errors and indexing issues
+
+If running this checklist reveals more gaps than you want to fix yourself, our [SEO website build](/services/seo-website-build/) delivers a site that passes every point above before handover.

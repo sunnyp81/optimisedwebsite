@@ -234,7 +234,7 @@ Local backlinks from businesses, organisations and publications in your service 
 
 Publish local guides, area statistics or community resources that local organisations want to reference. A solicitor publishing a "Guide to Planning Permission in [County]" attracts links from local estate agents, architects and council information pages.
 
-Create resources that serve your local community beyond your commercial services. These pages attract natural local links and reinforce your geographic authority.
+Create resources that serve your local community beyond your commercial services. These pages attract natural local links and reinforce your geographic authority. If you would rather have the location pages, schema and internal structure built for you, see our [SEO website build pricing](/pricing/).
 
 ## Service-Area Business Setup
 

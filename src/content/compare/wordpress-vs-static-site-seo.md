@@ -37,7 +37,7 @@ This architectural difference creates cascading effects across every SEO-relevan
 
 Static sites have an inherent speed advantage. Pre-built HTML files served from a CDN load faster than dynamically generated pages from a WordPress server. There is no database query time, no PHP execution time, and no plugin overhead.
 
-A typical Astro site achieves 95-100 on Google PageSpeed Insights (mobile) without any performance optimisation effort. A typical WordPress site with a page builder and five plugins scores 40-70 on the same test.
+A typical Astro site achieves 95-100 on Google PageSpeed Insights (mobile) without any performance optimisation effort. A typical WordPress site with a page builder and five plugins scores 40-70 on the same test. Our guide to [site speed and Core Web Vitals](/learn/site-speed-and-core-web-vitals/) explains why static HTML passes these metrics by default.
 
 WordPress can close this gap with caching (WP Rocket, LiteSpeed Cache), image optimisation (ShortPixel), and lightweight themes. A well-optimised WordPress site can score 85-95 on PageSpeed. But reaching that score requires deliberate effort, ongoing maintenance, and discipline about which plugins to install.
 
@@ -60,7 +60,7 @@ Clean HTML matters for SEO because search engines parse HTML to understand page 
 
 **WordPress** relies on plugins for schema. RankMath and Yoast generate Organization, Article, BreadcrumbList, and FAQPage schema automatically. Custom schema beyond these types requires either coding JSON-LD into the theme's `<head>` or using a plugin like Schema Pro.
 
-The practical difference appears when you need schema types that plugins do not support out of the box — ProfessionalService with specific pricing, Event with performer details, HowTo with step-by-step schema, or complex connected graphs with multiple `@id` references. Static sites handle these natively. WordPress requires theme customisation or additional plugins.
+The practical difference appears when you need schema types that plugins do not support out of the box, such as ProfessionalService with specific pricing, Event with performer details, HowTo with step-by-step schema, or complex connected graphs with multiple `@id` references. Our [schema markup service](/services/schema-markup/) builds these connected graphs natively. Static sites handle them directly, whereas WordPress requires theme customisation or additional plugins.
 
 ## Content Management and Editorial Workflow
 
@@ -88,4 +88,6 @@ Static site generators produce the technically superior SEO foundation: faster p
 
 WordPress provides a more accessible platform with a mature SEO plugin ecosystem and familiar editorial tools. The trade-off is that achieving comparable technical SEO performance requires careful theme selection, plugin management, and ongoing maintenance.
 
-Static sites are the stronger choice for businesses prioritising maximum ranking potential and willing to work with a developer. For businesses that need to manage content independently and are willing to accept some performance trade-offs, WordPress remains a solid option — provided it is built and maintained properly.
+Static sites are the stronger choice for businesses prioritising maximum ranking potential and willing to work with a developer. For businesses that need to manage content independently and are willing to accept some performance trade-offs, WordPress remains a solid option, provided it is built and maintained properly.
+
+Our [SEO website build](/services/seo-website-build/) gives you the static-site advantage without needing a developer in-house, delivered on Astro with the editorial workflow set up for you.

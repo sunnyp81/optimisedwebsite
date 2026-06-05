@@ -63,7 +63,7 @@ Not all pre-built sites are equal. Several markers distinguish genuine products 
 
 **Cost**: Pre-built sites cost £500-3,000 depending on quality. Custom builds cost £1,500-5,000+ for comparable page counts. The cost saving is real but varies with content originality — the cheapest pre-built options often save money by recycling content.
 
-**Keyword precision**: Custom builds research keywords specifically for your business, considering your exact services, location, competitive picture, and business goals. Pre-built sites target the most common keywords in a niche, which may not align perfectly with your specific offerings.
+**Keyword precision**: Custom builds research keywords specifically for your business through dedicated [keyword research](/services/keyword-research/), considering your exact services, location, competitive picture, and business goals. Pre-built sites target the most common keywords in a niche, which may not align perfectly with your specific offerings.
 
 **Content relevance**: Custom content addresses your specific services, processes, pricing, and differentiators. Pre-built content covers the niche broadly but may not reflect what makes your business distinctive. This matters for conversion — a visitor who reads generic content about plumbing is less likely to call than one who reads content specifically describing your services and service area.
 
@@ -79,7 +79,7 @@ Pre-built SEO websites work well in specific situations.
 
 **Budget constraints**: A startup with £500 for a website can get a functional, SEO-structured pre-built site that outperforms a standard website builder template. The pre-built option may not be perfect, but it is better than a Wix site with no schema, no keyword targeting, and no internal linking strategy.
 
-**Testing a niche**: Before investing £3,000-5,000 in a full custom build, a pre-built site can validate whether organic demand exists in a niche. If the pre-built site generates traffic and enquiries, upgrading to a custom build with deeper content and unique copy becomes a lower-risk investment.
+**Testing a niche**: Before investing £3,000-5,000 in a full custom build, a pre-built site can validate whether organic demand exists in a niche. If the pre-built site generates traffic and enquiries, upgrading to a [custom SEO website build](/services/seo-website-build/) with deeper content and unique copy becomes a lower-risk investment. Our [turnkey SEO website options](/compare/turnkey-seo-website-options/) guide compares these delivery models side by side.
 
 ## When to Avoid Pre-Built
 
@@ -87,4 +87,4 @@ Avoid pre-built SEO websites in competitive niches where multiple businesses com
 
 Avoid them if the provider cannot confirm content originality. A pre-built site with duplicate content is worse than no site at all — it consumes your budget without delivering ranking capability.
 
-Avoid them if you need content that reflects your specific expertise, processes, or market positioning. Pre-built content is generic by necessity. For businesses where brand voice and specialist knowledge are competitive advantages, custom content is essential.
+Avoid them if you need content that reflects your specific expertise, processes, or market positioning. Pre-built content is generic by necessity. For businesses where brand voice and specialist knowledge are competitive advantages, custom content is essential, and you can [order a custom build](/order/) with original content written for your niche.

@@ -55,7 +55,7 @@ The technical layer of an SEO-optimised website covers several areas that standa
 
 ## Content Depth and Topical Authority
 
-Search engines reward websites that demonstrate expertise across a topic. An SEO-optimised website achieves this through topical authority — covering a subject in full across multiple interlinked pages rather than trying to rank a single page for everything.
+Search engines reward websites that demonstrate expertise across a topic. An SEO-optimised website achieves this through [topical authority](/learn/topical-authority-explained/), covering a subject in full across multiple interlinked pages rather than trying to rank a single page for everything.
 
 For a plumbing business, this might mean separate pages for each service (boiler installation, emergency plumbing, bathroom fitting), each location served, and supporting content explaining related topics (how combi boilers work, signs your boiler needs replacing, what to expect during a bathroom refit). Together, these pages form a topical cluster that signals to Google that the site is an authoritative source on the subject.
 
@@ -63,7 +63,7 @@ Each page contains original, factual content written for the specific search int
 
 ## Internal Linking as a Ranking Signal
 
-Internal links are one of the most underused ranking signals on the web. An SEO-optimised website uses deliberate internal linking to distribute page authority, establish topical relationships, and guide crawlers through the site's content hierarchy.
+Internal links are one of the most underused ranking signals on the web. An SEO-optimised website uses a deliberate [internal linking strategy](/learn/internal-linking-strategy/) to distribute page authority, establish topical relationships, and guide crawlers through the site's content hierarchy.
 
 Every supporting page links back to its hub or pillar page using descriptive anchor text. Hub pages link down to each piece of supporting content. Related articles link to each other horizontally. This creates a web of contextual signals that helps search engines understand which pages are most important and how they relate to the broader topic.
 
@@ -79,4 +79,6 @@ Core Web Vitals — Largest Contentful Paint, Cumulative Layout Shift, and Inter
 
 A website that ranks brings traffic without ongoing advertising spend. The compound effect of organic search means that a well-built site can generate leads for years after launch, with the cost per acquisition dropping over time as the site gains authority.
 
-Building SEO into the foundation rather than bolting it on later saves money, reduces the time to first rankings, and creates a more sustainable online presence. The alternative — launching a standard site and then hiring an SEO consultant to fix it — typically costs more and delivers results more slowly because structural problems are harder to solve after the fact.
+Building SEO into the foundation rather than bolting it on later saves money, reduces the time to first rankings, and creates a more sustainable online presence. The alternative, launching a standard site and then hiring an SEO consultant to fix it, typically costs more and delivers results more slowly because structural problems are harder to solve after the fact.
+
+This is the case for our [SEO website build](/services/seo-website-build/): architecture, content, schema and performance handled together from day one rather than retrofitted.

@@ -43,13 +43,13 @@ A topical cluster consists of three elements: a hub page, supporting pages, and 
 
 **Supporting pages** cover specific subtopics in depth. Each page targets a narrower keyword and provides information that the hub page only mentions briefly. Under the family law hub, supporting pages might cover divorce proceedings, child custody arrangements, prenuptial agreements, financial settlements, and mediation services.
 
-**Internal links** create the connections between pages. The hub links to every supporting page. Each supporting page links back to the hub and to two or three related supporting pages. This linking pattern creates a web of semantic relationships that search engines can follow.
+**Internal links** create the connections between pages. The hub links to every supporting page. Each supporting page links back to the hub and to two or three related supporting pages. This [internal linking pattern](/learn/internal-linking-strategy/) creates a web of semantic relationships that search engines can follow.
 
 ## Building Authority Layer by Layer
 
 Topical authority is not binary — you do not suddenly "have" it after publishing a certain number of pages. It builds gradually as you add content and Google crawls, indexes, and evaluates your site over time.
 
-The most effective approach is to build authority one cluster at a time. Choose your primary topic and publish a complete cluster — hub page plus all supporting pages — before moving to a second topic. A complete cluster on one subject is more valuable than half-finished clusters on three subjects.
+The most effective approach is to build authority one cluster at a time. Choose your primary topic and publish a complete cluster, hub page plus all supporting pages, before moving to a second topic. Planning this in advance is the job of a deliberate [content architecture](/services/content-architecture/). A complete cluster on one subject is more valuable than half-finished clusters on three subjects.
 
 Within each cluster, start with the most specific, lowest-competition supporting pages. These pages will index and rank fastest, sending early signals to Google that your site covers this topic. As these pages gain impressions and clicks, the hub page benefits from the accumulated topical signals.
 
@@ -90,3 +90,5 @@ Since Google does not publish a topical authority score, you need proxy metrics 
 **Missing internal links** break the semantic connections between pages. If supporting pages do not link back to the hub or to related pages, Google cannot easily identify the topical relationships. Consistent, descriptive internal linking is essential for the cluster to function as a cohesive unit.
 
 **Ignoring informational content** in favour of only commercial pages limits your topical coverage. Google expects authoritative sites to cover both commercial and informational queries within their niche. A kitchen company that only has product pages but no guides on materials, costs, or planning is missing half the topical picture.
+
+Building a full topical cluster from scratch is exactly what our [SEO website build](/services/seo-website-build/) delivers, with the hub-and-spoke architecture mapped before any page is written.

@@ -98,7 +98,7 @@ Guest posting on relevant industry blogs still works when the content adds real 
 
 Google rewards sites that demonstrate comprehensive knowledge of a subject. Publishing one article about "mortgage rates" carries less weight than covering mortgage types, eligibility criteria, application processes, rate comparisons and regional market data across dozens of interconnected pages.
 
-[Topical authority](/learn/topical-authority-explained/) develops when Google recognises your site as a trusted source across an entire knowledge domain. Internal links between related pages reinforce topical clusters and help Google map your content graph.
+[Topical authority](/learn/topical-authority-explained/) develops when Google recognises your site as a trusted source across an entire knowledge domain. A planned [content architecture](/services/content-architecture/) and internal links between related pages reinforce topical clusters and help Google map your content graph.
 
 ### Entity-Based Search
 
@@ -132,7 +132,7 @@ LCP measures loading speed for the largest visible element. Target under 2.5 sec
 
 CLS measures visual stability. Target under 0.1. Set explicit width and height attributes on images and embeds. Avoid injecting content above the fold after initial render.
 
-INP measures responsiveness to user interactions. Target under 200ms. Minimise JavaScript execution time. Static sites built with frameworks like Astro score perfectly because they ship zero client-side JavaScript by default.
+INP measures responsiveness to user interactions. Target under 200ms. Minimise JavaScript execution time. Static sites built with frameworks like Astro score perfectly because they ship zero client-side JavaScript by default, which is the approach behind our [SEO website build](/services/seo-website-build/).
 
 ## Mobile-First Indexing
 

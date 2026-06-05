@@ -31,7 +31,7 @@ This guide breaks down where the money goes, what drives costs up or down, and h
 
 UK pricing for SEO-focused website builds falls into three broad tiers.
 
-**Starter tier (£1,500-£3,000)**: A 15-30 page website built on a static site generator or lightweight CMS. Includes keyword research, topical mapping, content writing for all pages, per-page JSON-LD schema, technical SEO setup, and deployment. Uses a professional but templated design. Suitable for local service businesses, consultancies, and niche e-commerce brands targeting specific keyword clusters.
+**Starter tier (£1,500-£3,000)**: A 15-30 page website built on a static site generator or lightweight CMS. This is the bracket our own [SEO website build pricing](/pricing/) sits in. Includes keyword research, topical mapping, content writing for all pages, per-page JSON-LD schema, technical SEO setup, and deployment. Uses a professional but templated design. Suitable for local service businesses, consultancies, and niche e-commerce brands targeting specific keyword clusters.
 
 **Mid-range tier (£3,000-£6,000)**: A 30-50 page website with more extensive topical coverage, custom design elements, advanced schema (multiple entity types, product schema for e-commerce, event schema for venues), and potentially a content management system for ongoing self-publishing. Suitable for businesses in moderately competitive niches that need broader keyword coverage.
 
@@ -47,7 +47,7 @@ Understanding the cost breakdown helps you evaluate quotes and avoid overpaying 
 
 Before any content is written or code is deployed, the entire keyword space for your niche needs researching. This involves analysing search volumes, keyword difficulty scores, search intent patterns, and competitor content.
 
-The output is a topical map — a structured plan showing every page the site will have, what keyword each page targets, how pages relate to each other, and the internal linking strategy. This map is the blueprint for the entire build.
+The output is a topical map, a structured plan showing every page the site will have, what keyword each page targets, how pages relate to each other, and the internal linking strategy. This is the work covered by our [keyword research](/services/keyword-research/) service, and the map is the blueprint for the entire build.
 
 Cheap builds skip this step or reduce it to a superficial list of ten keywords. Thorough keyword research takes 8-15 hours depending on the niche complexity and directly determines whether the finished site targets the right queries.
 
@@ -101,3 +101,5 @@ Look for providers who can demonstrate:
 - Ownership transfer — you should own the code, content, and domain outright after delivery
 
 Request access to view the structured data on their portfolio sites. If their own client websites lack schema markup or have broken heading hierarchies, their SEO credentials are questionable regardless of what they claim.
+
+When you have decided on scope and budget, you can [place an order](/order/) and we begin the keyword research within 48 hours.

@@ -31,7 +31,7 @@ This comparison examines what each approach realistically involves, what it cost
 
 Building an SEO-optimised website yourself requires competence in five distinct disciplines: keyword research, content architecture, SEO copywriting, web development, and technical SEO setup.
 
-**Keyword research** means using tools like Ahrefs, SEMrush, or Google Keyword Planner to identify what your potential customers search for, how many people search each month, and how competitive each term is. This is not a one-hour task — thorough keyword research for a single business niche takes 15-30 hours to produce a complete topical map.
+**Keyword research** means using tools like Ahrefs, SEMrush, or Google Keyword Planner to identify what your potential customers search for, how many people search each month, and how competitive each term is. This is not a one-hour task: thorough [keyword research](/services/keyword-research/) for a single business niche takes 15-30 hours to produce a complete topical map.
 
 **Content architecture** translates that keyword research into a site structure. Which pages do you need? How do they relate to each other? What is the hub-and-spoke layout? Which pages target informational intent versus commercial intent? Getting this wrong means building a site that targets the wrong queries or fails to establish topical authority.
 
@@ -57,7 +57,7 @@ Technical implementation follows a tested workflow. Schema is built as a connect
 
 **DIY cost**: Platform hosting (£5-30/month), domain (£10-15/year), optional SEO tools (£0-100/month), and your time. If you value your time at £30/hour and spend 120 hours on the build, the true cost is £3,600 + hosting and tools.
 
-**Professional cost**: £1,500-5,000 for a 15-30 page build including keyword research, content, design, development, schema, and technical SEO setup. Higher-end builds with bespoke design or larger page counts cost more.
+**Professional cost**: £1,500-5,000 for a 15-30 page build including keyword research, content, design, development, schema, and technical SEO setup, as set out on our [pricing page](/pricing/). Higher-end builds with bespoke design or larger page counts cost more.
 
 The monetary cost of a professional build is often comparable to the time cost of a DIY build. The difference is that the professional delivers a finished site in 1-3 weeks, while the DIY build stretches across 2-6 months of part-time work alongside running your business.
 
@@ -94,3 +94,5 @@ Hire a professional if you are in a competitive niche. Moderate-to-high competit
 Some business owners take a middle path: hiring a professional for the technical build and keyword strategy while writing the content themselves. This captures the most critical professional input (architecture and technical SEO) while keeping costs down by handling the most time-intensive element (content) internally.
 
 For this approach to work, the professional must provide clear content briefs for every page: target keyword, search intent, required heading structure, minimum word count, key subtopics to cover, and internal linking targets. The business owner then writes to the brief rather than from scratch, which significantly improves content quality compared to unguided writing.
+
+If a professional build is the right call for your business, our [SEO website build](/services/seo-website-build/) covers the keyword research, architecture, schema and technical setup as a single fixed-price package.

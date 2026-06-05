@@ -50,7 +50,7 @@ The turnkey SEO market includes several distinct provider types, each with diffe
 ### Specialist SEO Website Builders
 These providers focus exclusively on building websites designed to rank. They typically have SEO expertise first and web development skills second. The keyword research and content strategy are informed by actual ranking experience across multiple niches.
 
-Pricing: £1,500-5,000 for 15-50 pages. Delivery: 5-14 days. Quality: highest within the turnkey category because SEO is the core competence.
+Pricing: £1,500-5,000 for 15-50 pages. Delivery: 5-14 days. Quality: highest within the turnkey category because SEO is the core competence. Our [SEO website build](/services/seo-website-build/) sits in this category, with fixed pricing set out on our [pricing page](/pricing/).
 
 ### Web Design Agencies with SEO Packages
 Many web design agencies offer an "SEO package" alongside their standard builds. This usually means adding a Yoast or RankMath plugin, writing meta descriptions, and submitting a sitemap. The underlying site may look professional but lack the architectural foundations — topical clustering, internal linking strategy, per-page schema — that drive organic rankings.
@@ -60,7 +60,7 @@ Pricing: £2,000-8,000 for 10-30 pages. Delivery: 2-6 weeks. Quality: variable �
 ### Template-Based SEO Sites
 Some providers sell pre-built templates with SEO-structured content that gets customised with your business name, location, and contact details. The content is partially templated, partially customised. The schema and technical setup follow a standardised checklist.
 
-Pricing: £500-1,500 for 10-20 pages. Delivery: 2-5 days. Quality: risky — template-based content can trigger duplicate content issues if the same templates are sold to multiple businesses in the same niche and location.
+Pricing: £500-1,500 for 10-20 pages. Delivery: 2-5 days. Quality: risky, because template-based content can trigger duplicate content issues if the same templates are sold to multiple businesses in the same niche and location. Our guide to [pre-built SEO websites](/compare/pre-built-seo-websites/) explains this duplicate content risk in detail.
 
 ### Marketplace and Freelancer Platforms
 SEO website builds are available on platforms like Fiverr, Upwork, and PeoplePerHour. Quality ranges from excellent to dismal. Low-priced offerings (under £500) almost always produce sites with thin content, missing schema, and poor technical foundations.
@@ -94,3 +94,5 @@ The buying decision hinges on identifying which type of provider you are dealing
 A turnkey SEO website provides the foundation for organic search performance. It does not guarantee immediate rankings. Expect the same 3-6 month trajectory that any new SEO website follows: initial indexing, gradual impression growth, and progressive position improvements for target keywords.
 
 The turnkey site gives you a head start over a standard website because the architectural and technical foundations are already in place. Adding content, earning backlinks, and monitoring Search Console data after launch will determine how quickly the site reaches its ranking potential.
+
+If a specialist build is the route you want, you can [order your SEO website](/order/) and receive a fully optimised site within seven days.
