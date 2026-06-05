@@ -4,6 +4,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import FAQSection from '../../components/FAQSection.astro';
 import CTA from '../../components/CTA.astro';
 import RelatedPages from '../../components/RelatedPages.astro';
+import Byline from '../../components/Byline.astro';
 import { site } from '../../data/site';
 import { getCollection, render } from 'astro:content';
 
@@ -44,7 +45,14 @@ const schemaNodes: Record<string, unknown>[] = [
     isPartOf: { '@id': `${site.url}/#website` },
     author: { '@id': `${site.url}/about/#founder` },
     publisher: { '@id': `${site.url}/#organization` },
-    about: 'SEO-optimised website',
+    about: {
+      '@type': 'Thing',
+      name: 'SEO-optimised website',
+      sameAs: [
+        'https://en.wikipedia.org/wiki/Search_engine_optimization',
+        'https://www.wikidata.org/wiki/Q180711',
+      ],
+    },
     mainEntityOfPage: `${site.url}/compare/${article.id}/`,
   },
 ];
@@ -75,7 +83,8 @@ const breadcrumbs = [
 >
   <article class="max-w-[800px] mx-auto px-5 md:px-10 pt-28 pb-20">
     <Breadcrumb items={breadcrumbs} />
-    <h1 class="section-title mb-8">{article.data.h1}</h1>
+    <h1 class="section-title mb-4">{article.data.h1}</h1>
+    <Byline />
     <div class="prose prose-lg prose-invert max-w-none">
       <Content />
     </div>
