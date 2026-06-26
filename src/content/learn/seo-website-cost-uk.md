@@ -85,7 +85,7 @@ Technical SEO setup covers canonical URLs, robots.txt configuration, XML sitemap
 
 ## Cost vs Return: Making the Numbers Work
 
-The value of an SEO-optimised website depends on the value of organic traffic in your niche. Calculate the potential return by estimating the cost per click for your target keywords if you were running Google Ads, then multiplying by the expected monthly organic traffic. A free [SEO ROI calculator](https://sunnypatel.co.uk/tools/seo-roi-calculator/) can do this maths for you in seconds.
+The value of an SEO-optimised website depends on the value of organic traffic in your niche. Calculate the potential return by estimating the cost per click for your target keywords if you were running Google Ads, then multiplying by the expected monthly organic traffic. An SEO ROI calculator can do this maths for you in seconds.
 
 If your target keywords have an average cost per click of £5 and your site can realistically attract 500 organic clicks per month, that represents £2,500/month in equivalent ad spend. A £3,000 website pays for itself within six weeks of reaching its traffic potential.
 

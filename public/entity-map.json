@@ -21,9 +21,6 @@
         "email": "hello@optimisedwebsite.com",
         "contactType": "sales"
       },
-      "sameAs": [
-        "https://sunnypatel.co.uk"
-      ],
       "knowsAbout": [
         {
           "@id": "https://optimisedwebsite.com/#concept-seo-optimised-website"
@@ -75,7 +72,7 @@
       "@id": "https://optimisedwebsite.com/about/#founder",
       "name": "Sunny Patel",
       "jobTitle": "SEO Consultant & Founder",
-      "url": "https://sunnypatel.co.uk",
+      "url": "https://optimisedwebsite.com/about/",
       "worksFor": {
         "@id": "https://optimisedwebsite.com/#organization"
       },
@@ -86,9 +83,6 @@
         "Astro",
         "Cloudflare Pages",
         "Topical Authority"
-      ],
-      "sameAs": [
-        "https://sunnypatel.co.uk"
       ]
     },
     {

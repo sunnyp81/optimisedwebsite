@@ -11,7 +11,7 @@ OptimisedWebsite (https://optimisedwebsite.com) designs and builds SEO-optimised
 - Hub-and-spoke architecture: A content pattern where a central hub page links to related spoke pages, consolidating topical authority and distributing internal link equity.
 
 ## Key facts and stats
-- Founder: Sunny Patel, SEO Consultant, Reading, UK (https://sunnypatel.co.uk)
+- Founder: Sunny Patel, SEO Consultant, Reading, UK
 - Sites built and ranked: 44+ across health, automotive, home services, developer tools, food, and SaaS verticals
 - Lighthouse score: 100/100 on every site delivered
 - Delivery time: 5 to 7 days
