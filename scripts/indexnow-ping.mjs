@@ -2,7 +2,8 @@ import { readdirSync, statSync } from 'fs';
 import { join } from 'path';
 
 const SITE = 'https://optimisedwebsite.com';
-const KEY = process.env.INDEXNOW_KEY || 'your-indexnow-key';
+// IndexNow keys are intentionally public and verified by the matching root file.
+const KEY = process.env.INDEXNOW_KEY || 'ff2615a610024c649de618c3b59ec18a';
 
 function getAllPages(dir, base = '') {
   const urls = [];
@@ -28,6 +29,7 @@ const res = await fetch('https://api.indexnow.org/IndexNow', {
   body: JSON.stringify({
     host: 'optimisedwebsite.com',
     key: KEY,
+    keyLocation: `${SITE}/${KEY}.txt`,
     urlList: urls
   })
 });
