@@ -3,7 +3,6 @@ import Base from '../layouts/Base.astro';
 import CTA from '../components/CTA.astro';
 import AnimatedCounters from '../components/AnimatedCounters.astro';
 import InteractiveTimeline from '../components/InteractiveTimeline.astro';
-import SeoScoreComparison from '../components/SeoScoreComparison.astro';
 import PageAnatomy from '../components/PageAnatomy.astro';
 import SpeedRace from '../components/SpeedRace.astro';
 import GrowthChart from '../components/GrowthChart.astro';
@@ -15,7 +14,7 @@ const chartColors = ['#10b981', '#7c3aed', '#3b82f6', '#f59e0b', '#ef4444'];
 const faqs = [
   {
     q: 'Why Astro and not WordPress?',
-    a: 'Astro outputs pure static HTML. No JavaScript runtime, no database, no plugin chain. Lighthouse 100, sub-second loads, zero maintenance. WordPress fights technical debt; Astro sites spend that time ranking.'
+    a: 'Astro outputs static HTML by default, with no database or plugin chain to maintain. We performance-test each build before handover and add client-side JavaScript only where it has a clear purpose.'
   },
   {
     q: 'Do you offer ongoing SEO retainers?',
@@ -44,21 +43,21 @@ const faqs = [
 ];
 
 const marqueItems = [
-  'Lighthouse 100/100', 'First paint < 0.5s', 'AVIF + WebP fallbacks',
+  'Performance-tested at launch', 'Sub-second load target', 'AVIF + WebP fallbacks',
   'Edge-cached globally', 'Zero JS by default', 'WCAG 2.2 AA',
-  'Core Web Vitals green', '100% uptime', 'No tracking, no banners',
-  'From £1,500', '7-day delivery', 'Source code yours forever'
+  'Core Web Vitals optimised', 'Cloudflare edge hosting', 'From £1,500',
+  '7-day delivery', 'Source code yours forever'
 ];
 
 const essentialItems = [
   'Up to 15 pages', '5 service hubs', 'Bespoke design system',
-  'Lighthouse 100/100', 'All copywriting included', 'Entity-linked JSON-LD schema',
+  'Launch performance audit', 'All copywriting included', 'Entity-linked JSON-LD schema',
   'Cloudflare edge hosting', '7-day delivery', '30 days of polish'
 ];
 
 const proItems = [
   'Up to 50 pages', 'Full topical authority map', 'CMS integration',
-  'Multi-locale support', 'Custom SVG illustrations', 'Lifetime Cloudflare hosting',
+  'Multi-locale support', 'Custom SVG illustrations', 'Cloudflare hosting',
   '90 days polish included', '1 free redesign at 12 months', 'Priority support'
 ];
 
@@ -87,7 +86,7 @@ const testimonials = [
 ];
 
 const techStack = [
-  { name: 'Astro 5', desc: 'Zero-JS static output', icon: '⟡' },
+  { name: 'Astro', desc: 'Static-first output', icon: '⟡' },
   { name: 'Tailwind 4', desc: 'Utility-first CSS', icon: '◈' },
   { name: 'Cloudflare Pages', desc: 'Global edge delivery', icon: '☁' },
   { name: 'JSON-LD Schema', desc: '7 to 12 entity types per site', icon: '{}' },
@@ -148,11 +147,11 @@ const schemaNodes = [
           </h1>
 
           <p class="text-[18px] leading-[1.6] mb-8 max-w-[480px] animate-fade-up" style="color: var(--color-ink-2); animation-delay: 0.2s;">
-            Websites built to rank, not just look good. Perfect performance scores, sub-second loads, and the SEO architecture that turns search traffic into enquiries. From £1,500. Live in one week.
+            Websites built to rank — not just look good. Static-first performance, lean pages, and SEO architecture designed to turn search traffic into enquiries. From £1,500. Live in one week.
           </p>
 
           <div class="flex gap-3 flex-wrap animate-fade-up" style="animation-delay: 0.3s;">
-            <a href="/order/" class="btn btn-primary">Start your build &rarr;</a>
+            <a href="/order/" class="btn btn-primary">Get your free build plan &rarr;</a>
             <a href="#processTrack" class="btn btn-ghost">See how it works</a>
           </div>
 
@@ -160,15 +159,15 @@ const schemaNodes = [
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-10 animate-fade-up" style="border-top: 1px solid var(--color-rule); animation-delay: 0.4s;">
             <div>
               <div class="text-[28px] font-semibold tracking-[-0.04em] tnum" style="color: var(--color-ink);">100</div>
-              <div class="mono text-[10px] uppercase mt-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">Lighthouse</div>
+              <div class="mono text-[10px] uppercase mt-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">Lighthouse target</div>
             </div>
             <div>
-              <div class="text-[28px] font-semibold tracking-[-0.04em] tnum" style="color: var(--color-ink);">0.4s</div>
-              <div class="mono text-[10px] uppercase mt-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">First paint</div>
+              <div class="text-[28px] font-semibold tracking-[-0.04em] tnum" style="color: var(--color-ink);">&lt;1s</div>
+              <div class="mono text-[10px] uppercase mt-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">Load target</div>
             </div>
             <div>
               <div class="text-[28px] font-semibold tracking-[-0.04em] tnum" style="color: var(--color-ink);">&lt;100kb</div>
-              <div class="mono text-[10px] uppercase mt-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">Page weight</div>
+              <div class="mono text-[10px] uppercase mt-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">Page target</div>
             </div>
             <div>
               <div class="text-[28px] font-semibold tracking-[-0.04em] tnum" style="color: var(--color-ink);">7 days</div>
@@ -264,7 +263,7 @@ const schemaNodes = [
       <div class="reveal mb-12">
         <div class="eyebrow">Our work</div>
         <h2>SEO Websites We've Built and Ranked</h2>
-        <p class="text-[17px] mt-4 max-w-[480px]" style="color: var(--color-ink-2);">Live sites generating organic traffic from a standing start. Every curve below is real Search Console data. Tap a card for the full case study.</p>
+        <p class="text-[17px] mt-4 max-w-[480px]" style="color: var(--color-ink-2);">Selected live sites from our network. See the portfolio for each site's current search metric and build details.</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-5 reveal">
@@ -351,8 +350,8 @@ const schemaNodes = [
           {
             num: '05',
             title: 'Astro build & performance tuning',
-            summary: 'Static HTML output with zero client-side JavaScript. AVIF images, preconnected fonts, edge-cached delivery. Lighthouse 100/100.',
-            details: ['Astro 5 static site generation', 'Tailwind 4 utility CSS (no unused styles)', 'AVIF + WebP image pipeline', 'Cloudflare Pages edge deployment'],
+            summary: 'Static HTML by default, AVIF images, preconnected fonts, and edge-cached delivery. Performance is audited before handover.',
+            details: ['Astro static site generation', 'Tailwind 4 utility CSS', 'AVIF + WebP image pipeline', 'Cloudflare Pages edge deployment'],
             duration: 'Day 5-6'
           },
           {
@@ -390,7 +389,7 @@ const schemaNodes = [
               </li>
             ))}
           </ul>
-          <a href="/order/" class="btn btn-ghost w-full justify-center">Start Essential build</a>
+          <a href="/order/" class="btn btn-ghost w-full justify-center">Get free plan — Essential</a>
         </div>
 
         <!-- Pro (dark) -->
@@ -408,7 +407,7 @@ const schemaNodes = [
               </li>
             ))}
           </ul>
-          <a href="/order/" class="btn btn-accent w-full justify-center">Start Pro build</a>
+          <a href="/order/" class="btn btn-accent w-full justify-center">Get free plan — Pro</a>
         </div>
       </div>
 
@@ -423,7 +422,7 @@ const schemaNodes = [
     <div class="wrap">
       <div class="flex items-center justify-center gap-3 mb-10">
         <div class="h-px flex-1 max-w-[80px]" style="background: linear-gradient(90deg, transparent, var(--color-rule));"></div>
-        <div class="mono text-[11px] uppercase" style="color: var(--color-ink-3); letter-spacing: 0.1em;">44+ sites in our network &middot; all scoring 100/100</div>
+        <div class="mono text-[11px] uppercase" style="color: var(--color-ink-3); letter-spacing: 0.1em;">44+ sites in our network &middot; performance-tested before handover</div>
         <div class="h-px flex-1 max-w-[80px]" style="background: linear-gradient(90deg, var(--color-rule), transparent);"></div>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -508,25 +507,29 @@ const schemaNodes = [
     </div>
   </section>
 
-  <!-- ===== SCORE COMPARISON (animated bars) ===== -->
+  <!-- ===== PERFORMANCE QA ===== -->
   <section class="section">
     <div class="wrap">
       <div class="reveal mb-12 text-center">
         <div class="eyebrow" style="justify-content: center;">Performance</div>
-        <h2>Lighthouse Scores: Us vs WordPress vs Squarespace</h2>
-        <p class="text-[15px] mt-4 max-w-[520px] mx-auto" style="color: var(--color-ink-2);">Average scores from real audits across our network. Every bar is verifiable.</p>
+        <h2>Performance Checked Before Handover</h2>
+        <p class="text-[15px] mt-4 max-w-[560px] mx-auto" style="color: var(--color-ink-2);">You receive a launch audit for the site we actually built — not an uncited platform average or a score we cannot control after third-party scripts are added.</p>
       </div>
 
-      <div class="max-w-[640px] mx-auto reveal">
-        <SeoScoreComparison rows={[
-          { label: 'Performance', us: 100, wordpress: 52, squarespace: 61 },
-          { label: 'Accessibility', us: 100, wordpress: 78, squarespace: 82 },
-          { label: 'Best Practices', us: 100, wordpress: 67, squarespace: 75 },
-          { label: 'SEO', us: 100, wordpress: 71, squarespace: 76 },
-          { label: 'First Contentful Paint', us: 95, wordpress: 35, squarespace: 42 }
-        ]} />
+      <ol class="max-w-[760px] mx-auto reveal" style="border-top: 1px solid var(--color-rule);">
+        {[
+          ['01', 'Lean output', 'Static HTML by default, compressed images, and no plugin chain.'],
+          ['02', 'Launch audit', 'Lighthouse categories and Core Web Vitals checks before handover.'],
+          ['03', 'Evidence supplied', 'The result is tied to your deployed build, with any caveats explained.']
+        ].map(([num, title, copy]) => (
+          <li class="grid grid-cols-[48px_1fr] md:grid-cols-[64px_180px_1fr] gap-3 items-baseline py-5" style="border-bottom: 1px solid var(--color-rule);">
+            <span class="mono text-[12px]" style="color: var(--color-accent-2);">{num}</span>
+            <strong class="text-[15px]" style="color: var(--color-ink);">{title}</strong>
+            <span class="col-start-2 md:col-start-auto text-[14px] leading-[1.65]" style="color: var(--color-ink-2);">{copy}</span>
+          </li>
+        ))}
+      </ol>
       </div>
-    </div>
   </section>
 
   <!-- ===== PAGE ANATOMY (interactive diagram) ===== -->
@@ -553,7 +556,7 @@ const schemaNodes = [
           <div class="eyebrow">FAQ</div>
           <h2>SEO Website <br class="hidden md:inline">Build FAQ</h2>
           <p class="text-[15px] mt-4 mb-6" style="color: var(--color-ink-2);">Can't find what you need?</p>
-          <a href="/contact/" class="mono text-[13px] font-medium" style="color: var(--color-accent-2);">{site.email}</a>
+          <a href={`mailto:${site.email}`} class="mono text-[13px] font-medium" style="color: var(--color-accent-2);">{site.email}</a>
         </div>
 
         <!-- Right: accordion -->
@@ -581,16 +584,16 @@ const schemaNodes = [
         <div class="cta-final-glow" aria-hidden="true"></div>
         <div class="relative z-[1]">
           <div class="flex items-center justify-center gap-2 mb-6">
-            <span class="chip chip-ok">Lighthouse 100</span>
+            <span class="chip chip-ok">Performance-tested</span>
             <span class="chip chip-accent">7-day delivery</span>
             <span class="chip chip-violet">Source code yours</span>
           </div>
-          <h2 class="mb-4">Two weeks from now, you could <br class="hidden md:inline">have a 100/100 site.</h2>
+          <h2 class="mb-4">Two weeks from now, you could<br>have a site built for search and speed.</h2>
           <p class="text-[16px] mb-8 max-w-[480px] mx-auto" style="color: rgba(248,250,252,0.65);">
-            Send your brief. We research, build, and deploy. You rank. No lock-in. No retainer.
+            Send your brief and get a free build plan. If you approve it, we research, build, and deploy. No lock-in. No retainer.
           </p>
           <div class="flex gap-3 justify-center flex-wrap">
-            <a href="/order/" class="btn btn-accent">Start your build &rarr;</a>
+            <a href="/order/" class="btn btn-accent">Get your free build plan &rarr;</a>
             <a href="/contact/" class="btn btn-ghost" style="color: rgba(248,250,252,0.85); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);">Talk to us first</a>
           </div>
         </div>
@@ -611,9 +614,8 @@ const schemaNodes = [
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
     </button>
   </div>
-</Base>
 
-<script>
+  <script>
   // Social proof toast
   const toasts = [
     { title: 'waterhard.uk', sub: '1,082 clicks/mo · pos 8.0' },
@@ -665,4 +667,5 @@ const schemaNodes = [
   }, { threshold: 0.2 });
   const gaugeCard = gaugeRings[0]?.closest('section');
   if (gaugeCard) heroObs.observe(gaugeCard);
-</script>
+  </script>
+</Base>

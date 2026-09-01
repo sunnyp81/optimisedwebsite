@@ -54,7 +54,7 @@ A genuine SEO web design agency will:
 
 ## What to Expect at Each Price Point
 
-**£1,500–£3,000 (specialist SEO build):** 15–50 pages, full keyword research, topical authority architecture, JSON-LD schema, Lighthouse 100/100, 7-day delivery. You own the code. No ongoing fees.
+**£1,500–£3,000 (specialist SEO build):** 15–50 pages, full keyword research, topical authority architecture, JSON-LD schema, performance testing, and 7-day delivery. You own the code. No ongoing fees.
 
 **£5,000–£15,000 (traditional agency):** Custom design, brand workshops, multiple revision rounds, 6–12 week timeline. SEO often retrofitted. May include CMS training. Usually WordPress.
 

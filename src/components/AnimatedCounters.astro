@@ -3,6 +3,8 @@ interface Props {
   counters: { value: number; suffix: string; label: string }[];
 }
 const { counters } = Astro.props;
+
+const formatValue = (value: number) => (value % 1 !== 0 ? value.toFixed(1) : Math.round(value).toLocaleString());
 ---
 <div class="counter-strip reveal" id="counterStrip">
   <div class="wrap">
@@ -10,7 +12,7 @@ const { counters } = Astro.props;
       {counters.map((c, i) => (
         <div class="counter-item">
           <div class="counter-value">
-            <span class="counter-num" data-target={c.value} data-suffix={c.suffix}>0</span><span class="counter-suffix">{c.suffix}</span>
+            <span class="counter-num" data-target={c.value} data-suffix={c.suffix}>{formatValue(c.value)}</span><span class="counter-suffix">{c.suffix}</span>
           </div>
           <div class="counter-label">{c.label}</div>
           <div class="counter-bar">
@@ -86,11 +88,18 @@ const { counters } = Astro.props;
   .counter-strip.counted .counter-bar-fill {
     width: 100%;
   }
+  @media (prefers-reduced-motion: reduce) {
+    .counter-bar-fill {
+      transition: none;
+    }
+  }
 </style>
 
 <script>
   const strip = document.getElementById('counterStrip');
-  if (strip) {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (strip && !reduceMotion) {
     const nums = strip.querySelectorAll('.counter-num');
     let fired = false;
     const obs = new IntersectionObserver((entries) => {
@@ -112,6 +121,7 @@ const { counters } = Astro.props;
                 ? current.toFixed(1)
                 : Math.round(current).toLocaleString();
               if (progress < 1) requestAnimationFrame(tick);
+              else (el as HTMLElement).textContent = isDecimal ? target.toFixed(1) : Math.round(target).toLocaleString();
             };
             requestAnimationFrame(tick);
           });
@@ -120,5 +130,8 @@ const { counters } = Astro.props;
       });
     }, { threshold: 0.3 });
     obs.observe(strip);
+  } else if (strip) {
+    // Reduced motion: skip the count-up, keep the server-rendered final values, just show the bar filled.
+    strip.classList.add('counted');
   }
 </script>

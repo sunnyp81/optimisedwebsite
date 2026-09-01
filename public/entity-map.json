@@ -8,7 +8,7 @@
       "url": "https://optimisedwebsite.com",
       "logo": "https://optimisedwebsite.com/favicon.svg",
       "image": "https://optimisedwebsite.com/og-default.png",
-      "description": "OptimisedWebsite builds SEO-optimised Astro 5 websites for UK businesses. 15 to 50 pages with topical authority architecture, entity-linked JSON-LD schema, and perfect Core Web Vitals. Fixed price 1,500 to 3,000 GBP, delivered in 5 to 7 days.",
+      "description": "OptimisedWebsite builds SEO-optimised Astro websites for UK businesses. Builds include 15 to 50 pages, topical authority architecture, relevant JSON-LD schema, and performance testing. Fixed price 1,500 to 3,000 GBP, delivered in 5 to 7 days.",
       "areaServed": {
         "@type": "Country",
         "name": "United Kingdom"
@@ -93,7 +93,7 @@
         "SEO-optimized website",
         "SEO website"
       ],
-      "description": "A website engineered from first principles for organic search visibility: keyword research and topical mapping precede build, every page carries entity-linked JSON-LD schema within a site-wide @graph, internal linking follows a hub-and-spoke architecture, and the site is delivered as static HTML for perfect Core Web Vitals. Distinct from a conventional website that retrofits SEO after design is complete.",
+      "description": "A website engineered from first principles for organic search visibility: keyword research and topical mapping precede build, relevant pages carry JSON-LD schema within a site-wide @graph, internal linking follows a hub-and-spoke architecture, and static-first output supports strong Core Web Vitals. Distinct from a conventional website that retrofits SEO after design is complete.",
       "inDefinedTermSet": "https://optimisedwebsite.com/glossary/#termset",
       "url": "https://optimisedwebsite.com/learn/",
       "sameAs": [
@@ -121,7 +121,7 @@
       "@id": "https://optimisedwebsite.com/#service-seo-website-build",
       "name": "SEO Website Build",
       "serviceType": "SEO-optimised website build",
-      "description": "Complete Astro 5 website with hub-and-spoke content architecture, entity-interconnected JSON-LD schema, and perfect Core Web Vitals. 15 to 50 pages.",
+      "description": "Complete Astro website with hub-and-spoke content architecture, relevant JSON-LD schema, and performance testing. 15 to 50 pages.",
       "provider": {
         "@id": "https://optimisedwebsite.com/#organization"
       },

@@ -16,6 +16,11 @@ export function getStaticPaths() {
 
 const { industry } = Astro.props;
 
+const industryIndex = industries.findIndex(i => i.slug === industry.slug);
+const siblingIndustries = Array.from({ length: Math.min(6, industries.length - 1) }, (_, offset) =>
+  industries[(industryIndex + 1 + offset) % industries.length]
+);
+
 const matchedPortfolio = industry.portfolioSite
   ? portfolio.find(p => p.url.includes(industry.portfolioSite!))
   : null;
@@ -156,7 +161,7 @@ const schemaNodes = [
     <section class="py-12 reveal" style="border-top: 1px solid var(--color-rule);">
       <h2 class="text-xl font-bold tracking-[-0.02em] mb-5">Other industries we build for</h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {industries.filter(i => i.slug !== industry.slug).slice(0, 6).map(i => (
+        {siblingIndustries.map(i => (
           <a href={`/industry/${i.slug}/`} class="block rounded-[16px] p-5 no-underline transition-all duration-300" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);"
             onmouseover="this.style.boxShadow='inset 0 0 0 1px rgba(124,58,237,0.3), 0 4px 16px rgba(30,41,59,0.1)'; this.style.transform='translateY(-2px)';"
             onmouseout="this.style.boxShadow='inset 0 0 0 1px var(--color-rule), 0 1px 3px rgba(30,41,59,0.08)'; this.style.transform='';">

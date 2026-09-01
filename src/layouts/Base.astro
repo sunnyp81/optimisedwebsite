@@ -48,13 +48,16 @@ const ogImageUrl = new URL(ogImage ?? '/og-default.png', site.url).href;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:secure_url" content={ogImageUrl} />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="OptimisedWebsite: SEO websites that get found. Lighthouse 100, live in 7 days." />
+    <meta property="og:image:alt" content="OptimisedWebsite: SEO websites built for organic visibility and speed" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={displayOgTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content="OptimisedWebsite: SEO websites that get found" />
     <link rel="preload" as="font" type="font/woff2" href={frauncesWoff2} crossorigin />
     <link rel="preload" as="font" type="font/woff2" href={geistWoff2} crossorigin />
     <script is:inline>

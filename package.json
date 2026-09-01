@@ -2,6 +2,9 @@
   "name": "optimisedwebsite",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=22.19.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -13,7 +16,7 @@
     "@fontsource-variable/fraunces": "^5.2.9",
     "@fontsource-variable/geist": "^5.2.9",
     "@fontsource-variable/geist-mono": "^5.2.8",
-    "astro": "^6.3.2"
+    "astro": "^7.2.10"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.0",

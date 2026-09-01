@@ -85,7 +85,7 @@ Shopify dominates e-commerce but has specific SEO quirks that require workaround
 
 Astro is a static site generator that produces zero-JavaScript HTML pages by default, making it one of the fastest platforms available.
 
-**Strengths**: Produces pure HTML with no client-side framework overhead. Perfect Core Web Vitals scores achievable without effort. Full control over every aspect of HTML output, including schema markup, heading structure, and meta tags. Content collections provide structured content management. Deploys to any edge network (Cloudflare Pages, Vercel, Netlify). No database, no server, no security patches.
+**Strengths**: Produces pure HTML with no client-side framework overhead. Strong Core Web Vitals are achievable with careful implementation. Full control over every aspect of HTML output, including schema markup, heading structure, and meta tags. Content collections provide structured content management. Deploys to any edge network (Cloudflare Pages, Vercel, Netlify). No database, no server, no security patches.
 
 **Weaknesses**: Requires developer knowledge — there is no visual editor or drag-and-drop interface. Content updates require editing files and redeploying (or integrating a headless CMS). Smaller ecosystem than WordPress. No plugin marketplace for adding functionality quickly.
 

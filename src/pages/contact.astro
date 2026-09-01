@@ -43,7 +43,7 @@ const schemaNodes = [
     </section>
 
     <section class="py-10" id="contact-form-section">
-      <form id="contact-form" class="space-y-6" novalidate>
+      <form id="contact-form" class="space-y-6">
         <div>
           <label for="contact-name" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Name <span class="text-red-500">*</span></label>
           <input type="text" id="contact-name" name="name" required autocomplete="name" class="w-full rounded-[12px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);" />
@@ -60,66 +60,89 @@ const schemaNodes = [
         </div>
 
         <input type="hidden" name="source" value="optimisedwebsite.com" />
+        <input type="hidden" name="form_type" value="contact" />
 
-        <!-- Honeypot (FormSubmit drops submissions where _honey is filled) -->
+        <!-- Honeypot: submissions that fill this visually hidden field are discarded. -->
         <div class="hidden" aria-hidden="true">
           <label for="contact-website">Website</label>
-          <input type="text" id="contact-website" name="_honey" tabindex="-1" autocomplete="off" />
+          <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off" />
         </div>
 
-        <button type="submit" class="btn-glow">
+        <button type="submit" id="contact-submit" class="btn-glow">
           Send Message
         </button>
 
-        <div id="contact-error" class="hidden mt-4 p-4 rounded-xl text-[14px]" role="alert" style="background: rgba(239,68,68,0.08); box-shadow: inset 0 0 0 1px rgba(239,68,68,0.25); color: var(--color-ink-2);">
-          Something went wrong sending your message. Please email <a href={`mailto:${site.email}`} class="font-semibold" style="color: var(--color-accent-2);">{site.email}</a> directly.
-        </div>
+        <div id="contact-status" role="status" aria-live="polite" aria-atomic="true" class="mt-4 text-[14px]"></div>
       </form>
 
-      <div id="contact-success" class="hidden py-10">
+      <div id="contact-success" class="hidden py-10" tabindex="-1">
         <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">Message sent</h2>
         <p class="leading-relaxed" style="color: var(--color-ink-2);">We will reply within 24 hours. Check your inbox (and spam folder) for our response.</p>
       </div>
     </section>
   </div>
-</Base>
 
-<script define:vars={{ endpoint: site.formEndpoint }}>
-  const form = document.getElementById('contact-form');
-  const successDiv = document.getElementById('contact-success');
-  const errorDiv = document.getElementById('contact-error');
-  const btn = form?.querySelector('button[type="submit"]');
+  <script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('contact-submit') as HTMLButtonElement;
+  const statusEl = document.getElementById('contact-status') as HTMLDivElement;
+  const successDiv = document.getElementById('contact-success') as HTMLDivElement;
 
-  form?.addEventListener('submit', async (e) => {
+  const gtag = (...args: unknown[]) => {
+    const w = window as unknown as { gtag?: (...a: unknown[]) => void };
+    if (typeof w.gtag === 'function') w.gtag(...args);
+  };
+
+  let startedTracked = false;
+  form.addEventListener('focusin', () => {
+    if (!startedTracked) {
+      startedTracked = true;
+      gtag('event', 'form_start', { form_id: 'contact-form' });
+    }
+  }, { once: true });
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(form);
 
-    // Honeypot: bail silently if the hidden field was filled
-    if (data.get('_honey')) return;
+    // Honeypot check — silently drop, no error shown to the (likely bot) submitter
+    if (data.get('website')) return;
 
-    errorDiv?.classList.add('hidden');
-    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+    const body = Object.fromEntries(data.entries());
 
-    const body = {
-      _subject: 'New contact message: optimisedwebsite.com',
-      _template: 'table',
-      _captcha: 'false',
-    };
-    data.forEach((v, k) => { if (k !== '_honey') body[k] = v; });
+    submitBtn.disabled = true;
+    submitBtn.setAttribute('aria-busy', 'true');
+    statusEl.setAttribute('role', 'status');
+    statusEl.textContent = 'Sending your message…';
 
     try {
-      const res = await fetch(endpoint, {
+      const res = await fetch('/api/intake', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(body),
       });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok || json.success === 'false' || json.success === false) throw new Error('send failed');
+      const result = await res.json().catch(() => ({ ok: false }));
+      if (!res.ok || !result.ok) throw new Error(`${res.status}`);
+
+      statusEl.textContent = '';
       form.classList.add('hidden');
-      successDiv?.classList.remove('hidden');
+      successDiv.classList.remove('hidden');
+      successDiv.focus();
+      gtag('event', 'generate_lead', { form_id: 'contact-form' });
     } catch {
-      if (btn) { btn.disabled = false; btn.textContent = 'Send Message'; }
-      errorDiv?.classList.remove('hidden');
+      statusEl.setAttribute('role', 'alert');
+      statusEl.textContent = '';
+      statusEl.append('Something went wrong sending your message. Please try again, or email ');
+      const link = document.createElement('a');
+      link.href = 'mailto:hello@optimisedwebsite.com';
+      link.className = 'font-medium';
+      link.style.color = 'var(--color-accent-2)';
+      link.textContent = 'hello@optimisedwebsite.com';
+      statusEl.append(link, ' directly.');
+      submitBtn.disabled = false;
+      submitBtn.removeAttribute('aria-busy');
+      gtag('event', 'form_error', { form_id: 'contact-form' });
     }
   });
-</script>
+  </script>
+</Base>

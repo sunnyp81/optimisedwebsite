@@ -1,7 +1,14 @@
 node_modules/
 dist/
 .astro/
-.env
+.env*
+*.pem
+*.key
+.wrangler/
+.vercel/
+.next/cache/
+wordpress-config.md
+master-builds.md
 .DS_Store
 .superpowers/
 .claude/worktrees/

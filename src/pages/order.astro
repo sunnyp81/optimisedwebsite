@@ -7,35 +7,35 @@ const schemaNodes = [
   {
     '@type': 'Service',
     '@id': `${site.url}/order/#service`,
-    name: 'SEO Website Build: Order',
-    description: 'Order an SEO-optimised website build. Fill in your brief and we will confirm scope within 24 hours.',
+    name: 'Free SEO Website Build Plan',
+    description: 'Request a free SEO website build plan. Tell us about your business and we will reply within 24 hours with proposed scope, timeline, and price.',
     provider: { '@id': `${site.url}/#organization` },
     areaServed: { '@type': 'Country', name: 'United Kingdom' }
   }
 ];
 ---
 <Base
-  title="Order Your SEO Website | OptimisedWebsite"
-  description="Fill in your brief to order an SEO-optimised website. We confirm scope within 24 hours and deliver within 5-7 working days."
+  title="Get Your Free SEO Website Build Plan | OptimisedWebsite"
+  description="Tell us about your business and get a free build plan: proposed page count, timeline, and fixed price within 24 hours. No obligation to proceed."
   canonicalPath="/order/"
   schemaNodes={schemaNodes}
 >
   <div class="max-w-[700px] mx-auto px-5 md:px-10 pt-28 pb-20">
     <Breadcrumb items={[
       { label: 'Home', href: '/' },
-      { label: 'Order', href: '/order/' }
+      { label: 'Free Build Plan', href: '/order/' }
     ]} />
 
     <section class="py-12">
-      <div class="section-tag">Order</div>
-      <h1 class="section-title">Order Your SEO Website</h1>
+      <div class="section-tag">Free Build Plan</div>
+      <h1 class="section-title">Get Your Free SEO Website Build Plan</h1>
       <p class="mt-4 text-lg leading-relaxed" style="color: var(--color-ink-2);">
-        Fill in the brief below. We review every submission manually and confirm scope, timeline, and price within 24 hours. No payment is taken until you approve the plan.
+        Tell us about your business below. We review every submission manually and reply within 24 hours with a proposed page count, timeline, and fixed price between &pound;1,500 and &pound;3,000. No payment and no obligation to proceed — it's a free plan, not an order. Prefer email? Send your brief to <a href={`mailto:${site.email}`} class="font-medium" style="color: var(--color-accent-2);">{site.email}</a> instead.
       </p>
     </section>
 
     <section class="py-10" id="order-form-section">
-      <form id="order-form" class="space-y-6" novalidate>
+      <form id="order-form" class="space-y-6">
         <div>
           <label for="name" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Name <span class="text-red-500">*</span></label>
           <input type="text" id="name" name="name" required autocomplete="name" class="w-full rounded-[12px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);" />
@@ -81,20 +81,19 @@ const schemaNodes = [
         </div>
 
         <input type="hidden" name="source" value="optimisedwebsite.com" />
+        <input type="hidden" name="form_type" value="order" />
 
-        <!-- Honeypot (FormSubmit drops submissions where _honey is filled) -->
+        <!-- Honeypot: submissions that fill this visually hidden field are discarded. -->
         <div class="hidden" aria-hidden="true">
           <label for="website">Website</label>
-          <input type="text" id="website" name="_honey" tabindex="-1" autocomplete="off" />
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
         </div>
 
-        <button type="submit" class="btn-glow">
-          Submit Brief
+        <button type="submit" id="order-submit" class="btn-glow">
+          Request My Free Build Plan
         </button>
 
-        <div id="order-error" class="mt-4 hidden p-4 rounded-xl text-[14px]" role="alert" style="background: rgba(239,68,68,0.08); box-shadow: inset 0 0 0 1px rgba(239,68,68,0.25); color: var(--color-ink-2);">
-          Something went wrong sending your brief. Please email <a href={`mailto:${site.email}`} class="font-semibold" style="color: var(--color-accent-2);">{site.email}</a> directly.
-        </div>
+        <div id="order-status" role="status" aria-live="polite" aria-atomic="true" class="mt-4 text-[14px]"></div>
 
         <div class="mt-4 flex flex-wrap gap-4 text-[12px]" style="color: var(--color-ink-3);">
           <span class="flex items-center gap-1.5">
@@ -103,7 +102,7 @@ const schemaNodes = [
           </span>
           <span class="flex items-center gap-1.5">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            No payment until you approve
+            No payment, no obligation
           </span>
           <span class="flex items-center gap-1.5">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -112,50 +111,74 @@ const schemaNodes = [
         </div>
       </form>
 
-      <div id="order-success" class="hidden py-10">
-        <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">Brief received</h2>
-        <p class="leading-relaxed" style="color: var(--color-ink-2);">We will review your brief and reply within 24 hours to confirm scope, timeline, and price. Check your inbox (and spam folder) for our response.</p>
+      <div id="order-success" class="hidden py-10" tabindex="-1">
+        <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">Request received</h2>
+        <p class="leading-relaxed" style="color: var(--color-ink-2);">We will review your brief and reply within 24 hours with your proposed page count, timeline, and price. Check your inbox (and spam folder) for our response.</p>
       </div>
     </section>
   </div>
-</Base>
 
-<script define:vars={{ endpoint: site.formEndpoint }}>
-  const form = document.getElementById('order-form');
-  const successDiv = document.getElementById('order-success');
-  const errorDiv = document.getElementById('order-error');
-  const btn = form?.querySelector('button[type="submit"]');
+  <script>
+  const form = document.getElementById('order-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('order-submit') as HTMLButtonElement;
+  const statusEl = document.getElementById('order-status') as HTMLDivElement;
+  const successDiv = document.getElementById('order-success') as HTMLDivElement;
 
-  form?.addEventListener('submit', async (e) => {
+  const gtag = (...args: unknown[]) => {
+    const w = window as unknown as { gtag?: (...a: unknown[]) => void };
+    if (typeof w.gtag === 'function') w.gtag(...args);
+  };
+
+  let startedTracked = false;
+  form.addEventListener('focusin', () => {
+    if (!startedTracked) {
+      startedTracked = true;
+      gtag('event', 'form_start', { form_id: 'order-form' });
+    }
+  }, { once: true });
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(form);
 
-    // Honeypot: bail silently if the hidden field was filled
-    if (data.get('_honey')) return;
+    // Honeypot check — silently drop, no error shown to the (likely bot) submitter
+    if (data.get('website')) return;
 
-    errorDiv?.classList.add('hidden');
-    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+    const body = Object.fromEntries(data.entries());
 
-    const body = {
-      _subject: 'New website brief: optimisedwebsite.com',
-      _template: 'table',
-      _captcha: 'false',
-    };
-    data.forEach((v, k) => { if (k !== '_honey') body[k] = v; });
+    submitBtn.disabled = true;
+    submitBtn.setAttribute('aria-busy', 'true');
+    statusEl.setAttribute('role', 'status');
+    statusEl.textContent = 'Sending your brief…';
 
     try {
-      const res = await fetch(endpoint, {
+      const res = await fetch('/api/intake', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(body),
       });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok || json.success === 'false' || json.success === false) throw new Error('send failed');
+      const result = await res.json().catch(() => ({ ok: false }));
+      if (!res.ok || !result.ok) throw new Error(`${res.status}`);
+
+      statusEl.textContent = '';
       form.classList.add('hidden');
-      successDiv?.classList.remove('hidden');
+      successDiv.classList.remove('hidden');
+      successDiv.focus();
+      gtag('event', 'generate_lead', { form_id: 'order-form' });
     } catch {
-      if (btn) { btn.disabled = false; btn.textContent = 'Submit Brief'; }
-      errorDiv?.classList.remove('hidden');
+      statusEl.setAttribute('role', 'alert');
+      statusEl.textContent = '';
+      statusEl.append('Something went wrong sending your brief. Please try again, or email ');
+      const link = document.createElement('a');
+      link.href = 'mailto:hello@optimisedwebsite.com';
+      link.className = 'font-medium';
+      link.style.color = 'var(--color-accent-2)';
+      link.textContent = 'hello@optimisedwebsite.com';
+      statusEl.append(link, ' directly.');
+      submitBtn.disabled = false;
+      submitBtn.removeAttribute('aria-busy');
+      gtag('event', 'form_error', { form_id: 'order-form' });
     }
   });
-</script>
+  </script>
+</Base>
