@@ -1,0 +1,236 @@
+---
+import { site } from '../data/site';
+---
+<section
+  id="consent-banner"
+  class="consent-banner hidden"
+  role="region"
+  aria-label="Cookie preferences"
+  aria-live="polite"
+>
+  <div class="consent-inner">
+    <div class="consent-copy">
+      <h2 class="consent-title">Cookie preferences</h2>
+      <p class="consent-text">
+        We use Google Analytics to see which pages are useful, but only if you say yes.
+        Nothing analytics-related runs until you choose. Essential site function is never affected either way.
+        See our <a href="/privacy/">privacy policy</a> for details.
+      </p>
+    </div>
+    <div class="consent-actions">
+      <button type="button" id="consent-reject" class="consent-btn">Reject non-essential</button>
+      <button type="button" id="consent-accept" class="consent-btn">Accept analytics</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .consent-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    max-height: 45vh;
+    overflow-y: auto;
+    background: var(--color-paper);
+    box-shadow: 0 -4px 24px rgba(30, 41, 59, 0.14);
+    border-top: 1px solid var(--color-rule);
+    padding: 20px max(20px, env(safe-area-inset-left)) max(20px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-right));
+  }
+  .consent-banner.hidden {
+    display: none;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .consent-banner {
+      animation: consent-rise 0.25s ease-out;
+    }
+  }
+  @keyframes consent-rise {
+    from { transform: translateY(12px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .consent-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 24px;
+  }
+  .consent-copy {
+    flex: 1 1 420px;
+    min-width: 0;
+  }
+  .consent-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0 0 4px;
+  }
+  .consent-text {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--color-ink-2);
+    margin: 0;
+  }
+  .consent-text a {
+    color: var(--color-accent-2);
+    font-weight: 500;
+  }
+  .consent-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex: 0 0 auto;
+  }
+  .consent-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    border: 1px solid var(--color-rule-2);
+    background: transparent;
+    color: var(--color-ink);
+  }
+  .consent-btn:hover {
+    background: var(--color-bg-2);
+  }
+</style>
+
+<script define:vars={{ gaId: site.gaId, storageKey: site.consentStorageKey }}>
+  (function () {
+    var banner = document.getElementById('consent-banner');
+    var acceptBtn = document.getElementById('consent-accept');
+    var rejectBtn = document.getElementById('consent-reject');
+    if (!banner || !acceptBtn || !rejectBtn) return;
+
+    function readConsent() {
+      try {
+        var raw = localStorage.getItem(storageKey);
+        if (!raw) return null;
+        var parsed = JSON.parse(raw);
+        if (parsed && (parsed.analytics === true || parsed.analytics === false)) return parsed;
+      } catch (e) {
+        /* corrupt or blocked storage: treat as no decision */
+      }
+      return null;
+    }
+
+    function writeConsent(analytics) {
+      try {
+        localStorage.setItem(storageKey, JSON.stringify({ analytics: analytics, ts: Date.now() }));
+      } catch (e) {
+        /* storage unavailable: decision still applies for this page load */
+      }
+    }
+
+    function loadAnalytics() {
+      window['ga-disable-' + gaId] = false;
+      if (window.__owGaLoaded) return;
+      window.__owGaLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', gaId, { anonymize_ip: true });
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+      document.head.appendChild(script);
+    }
+
+    function clearAnalyticsCookies() {
+      window['ga-disable-' + gaId] = true;
+      var idSuffix = gaId.replace(/^G-/, '');
+      var names = ['_ga', '_ga_' + idSuffix, '_gid', '_gat', '_gat_' + gaId];
+      var host = location.hostname;
+      var parts = host.split('.');
+      var domainCandidates = [host];
+      if (parts.length > 2) domainCandidates.push(parts.slice(-2).join('.'));
+      names.forEach(function (name) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+        domainCandidates.forEach(function (d) {
+          document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=' + d;
+          document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.' + d;
+        });
+      });
+    }
+
+    var lastOpener = null;
+
+    function showBanner(opener) {
+      lastOpener = opener instanceof HTMLElement ? opener : null;
+      banner.classList.remove('hidden');
+    }
+
+    function restoreFocus() {
+      if (lastOpener && document.contains(lastOpener) && typeof lastOpener.focus === 'function') {
+        lastOpener.focus();
+        lastOpener = null;
+        return;
+      }
+      lastOpener = null;
+      var main = document.getElementById('main');
+      if (!main) return;
+      var hadTabindex = main.hasAttribute('tabindex');
+      if (!hadTabindex) main.setAttribute('tabindex', '-1');
+      main.focus();
+      if (!hadTabindex) {
+        main.addEventListener('blur', function cleanup() {
+          main.removeAttribute('tabindex');
+          main.removeEventListener('blur', cleanup);
+        });
+      }
+    }
+
+    function hideBanner() {
+      banner.classList.add('hidden');
+      restoreFocus();
+    }
+
+    function applyConsent(consent) {
+      if (consent && consent.analytics === true) {
+        loadAnalytics();
+      } else {
+        clearAnalyticsCookies();
+      }
+    }
+
+    var existing = readConsent();
+    if (existing) {
+      applyConsent(existing);
+    } else {
+      clearAnalyticsCookies();
+      showBanner();
+    }
+
+    acceptBtn.addEventListener('click', function () {
+      writeConsent(true);
+      loadAnalytics();
+      hideBanner();
+    });
+
+    rejectBtn.addEventListener('click', function () {
+      writeConsent(false);
+      clearAnalyticsCookies();
+      hideBanner();
+    });
+
+    window.addEventListener('ow:open-consent', function (e) {
+      var opener = e && e.detail ? e.detail.opener : null;
+      showBanner(opener);
+      var heading = banner.querySelector('.consent-title');
+      if (heading) {
+        heading.setAttribute('tabindex', '-1');
+        heading.focus();
+      }
+    });
+  })();
+</script>

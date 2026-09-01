@@ -11,6 +11,7 @@ import { site } from '../data/site';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import SchemaGraph from '../components/SchemaGraph.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
 
 interface Props {
   title: string;
@@ -69,14 +70,6 @@ const ogImageUrl = new URL(ogImage ?? '/og-default.png', site.url).href;
         }
       })();
     </script>
-      <!-- GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P6J32MG468"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-P6J32MG468');
-    </script>
   </head>
   <body class="flex flex-col min-h-screen bg-bg text-text font-sans overflow-x-hidden relative">
     <!-- Scroll progress -->
@@ -93,9 +86,19 @@ const ogImageUrl = new URL(ogImage ?? '/og-default.png', site.url).href;
       <slot />
     </main>
     <Footer />
+    <ConsentBanner />
     <SchemaGraph nodes={schemaNodes} />
 
     <script>
+      // Reopen cookie preferences from footer/privacy links
+      document.addEventListener('click', (e) => {
+        if (!(e.target instanceof Element)) return;
+        const trigger = e.target.closest('[data-open-consent]');
+        if (!trigger) return;
+        e.preventDefault();
+        window.dispatchEvent(new CustomEvent('ow:open-consent', { detail: { opener: trigger } }));
+      });
+
       // Scroll progress bar
       const scrollBar = document.getElementById('scrollBar');
       window.addEventListener('scroll', () => {

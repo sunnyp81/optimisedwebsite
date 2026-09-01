@@ -21,12 +21,13 @@ import Base from '../layouts/Base.astro';
       <h2>Third parties</h2>
       <ul>
         <li><strong>Cloudflare Pages</strong> — hosts this website. Cloudflare may process minimal connection data (IP address, request headers) as part of its CDN and security services. See <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener noreferrer">Cloudflare's privacy policy</a>.</li>
-        <li><strong>Google Analytics 4</strong> — this website uses Google Analytics 4 to measure traffic and page performance. GA4 can set cookies and processes data such as your IP address, device type, and pages visited. See <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google's privacy policy</a> for how this data is handled.</li>
+        <li><strong>Google Analytics 4</strong> — this website uses Google Analytics 4 to measure traffic and page performance, but only after you accept analytics cookies (see below). GA4 can set cookies and processes data such as your IP address, device type, and pages visited. See <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google's privacy policy</a> for how this data is handled.</li>
       </ul>
       <p>We do not sell, rent, or share your personal data with any other third party.</p>
 
       <h2>Cookies</h2>
-      <p>Google Analytics 4 may set cookies in your browser to distinguish visitors and sessions. A theme preference (light/dark) is stored separately in your browser's <code>localStorage</code>, which is not a cookie and is never transmitted to our servers.</p>
+      <p>No analytics cookies are set until you actively accept them. On your first visit we ask you to accept or reject Google Analytics 4; nothing analytics-related loads before that choice, and rejecting it never affects site function. Your decision is stored in your browser's <code>localStorage</code> under a versioned key, not in a cookie, so it is never transmitted to our servers. Once you accept, GA4 may set cookies (<code>_ga</code>, <code>_ga_*</code>, <code>_gid</code>) to distinguish visitors and sessions.</p>
+      <p>You can change or withdraw your choice at any time using the <button type="button" data-open-consent class="link-btn">cookie preferences</button> link in the footer. Withdrawing consent stops any future analytics measurement and clears known GA4 cookies for this domain immediately; a script already fetched by your browser before withdrawal cannot be unloaded, but it stops sending data. A separate theme preference (light/dark) is also stored in <code>localStorage</code> and is unrelated to analytics consent.</p>
 
       <h2>Your rights</h2>
       <p>Under the UK GDPR you have the right to:</p>
@@ -44,3 +45,19 @@ import Base from '../layouts/Base.astro';
     </div>
   </section>
 </Base>
+
+<style>
+  .link-btn {
+    font: inherit;
+    color: var(--color-accent-2);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  .link-btn:hover {
+    color: #9333ea;
+  }
+</style>
