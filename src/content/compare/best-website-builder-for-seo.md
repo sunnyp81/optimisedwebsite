@@ -103,7 +103,7 @@ Next.js is a React-based framework that supports both static generation and serv
 
 ## Making the Decision
 
-For SEO-focused content websites without a CMS requirement: **Astro** delivers the best technical foundation. This is the stack behind our [SEO website build](/services/seo-website-build/), so you get Astro's performance without needing to write the code yourself.
+For SEO-focused content websites without a CMS requirement: **Astro** delivers the best technical foundation. This is the stack behind our [SEO website build](/seo-web-design/), so you get Astro's performance without needing to write the code yourself.
 
 For content websites where non-technical users need to update content: **WordPress** with a custom lightweight theme and quality hosting.
 

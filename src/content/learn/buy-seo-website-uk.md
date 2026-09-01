@@ -51,6 +51,6 @@ When you buy an SEO-optimised website, the value is in the invisible architectur
 
 ## The OptimisedWebsite Approach
 
-Our [SEO website build](/services/seo-website-build/) is fixed price: £1,500 for 15 pages, £3,000 for 50 pages, with the full breakdown on our [pricing page](/pricing/). Delivered in 7 days. You get keyword research, topical mapping, original content, per-page schema, performance testing, and full source code. No retainers, no lock-in. When you are ready, you can [request a free build plan](/order/) and we begin after you approve the scope.
+Our [SEO website build](/seo-web-design/) is fixed price: £1,500 for 15 pages, £3,000 for 50 pages, with the full breakdown on our [pricing page](/pricing/). Delivered in 7 days. You get keyword research, topical mapping, original content, per-page schema, performance testing, and full source code. No retainers, no lock-in. When you are ready, you can [request a free build plan](/order/) and we begin after you approve the scope.
 
 We build on Astro (static HTML, zero JS overhead) and deploy to Cloudflare's global edge network. The result is a site that loads in under half a second and gives Google clear signals about your topical authority from the first crawl.

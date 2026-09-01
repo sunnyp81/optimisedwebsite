@@ -5,18 +5,25 @@ interface Props {
   variant?: 'primary' | 'secondary';
   size?: 'default' | 'large';
   fullWidth?: boolean;
+  analyticsEvent?: string;
+  analyticsLabel?: string;
 }
 
-const { href, label, variant = 'primary', size = 'default', fullWidth = false } = Astro.props;
+const { href, label, variant = 'primary', size = 'default', fullWidth = false, analyticsEvent, analyticsLabel } = Astro.props;
 
 const sizeClasses = size === 'large' ? 'px-7 py-3.5 text-base' : 'px-5 py-3 text-[15px]';
 const widthClass = fullWidth ? 'w-full justify-center' : '';
 
 const styles = variant === 'primary'
-  ? `btn-glow rounded-full tracking-tight transition-all duration-200 ${sizeClasses} ${widthClass}`
-  : `btn-glass rounded-full tracking-tight transition-all duration-200 ${sizeClasses} ${widthClass}`;
+  ? `btn-glow rounded-full tracking-tight ${sizeClasses} ${widthClass}`
+  : `btn-glass rounded-full tracking-tight ${sizeClasses} ${widthClass}`;
 ---
-<a href={href} class={`inline-flex items-center gap-2 no-underline ${styles}`}>
+<a
+  href={href}
+  class={`inline-flex items-center gap-2 no-underline ${styles}`}
+  data-analytics-event={analyticsEvent}
+  data-analytics-label={analyticsLabel}
+>
   {label}
   {variant === 'primary' && <span class="arr">&rarr;</span>}
 </a>

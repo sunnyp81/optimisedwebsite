@@ -62,6 +62,6 @@ A genuine SEO web design agency will:
 
 ## How OptimisedWebsite Compares
 
-Our [SEO website build](/services/seo-website-build/) sits in the £1,500 to £3,000 bracket with a fixed-price, 7-day delivery model, set out in full on our [pricing page](/pricing/). Every build includes keyword research, topical mapping, per-page schema, and Astro/Cloudflare deployment. No retainers, no lock-in, source code yours forever.
+Our [SEO web design](/seo-web-design/) service sits in the £1,500 to £3,000 bracket with a fixed-price, 7-day delivery model, set out in full on our [pricing page](/pricing/). Every build includes keyword research, topical mapping, per-page schema, and Astro/Cloudflare deployment. No retainers, no lock-in, source code yours forever.
 
 The tradeoff: we do not offer custom brand design or interactive features beyond what static HTML supports. If you need a React app or ecommerce checkout, we are not the right fit. If you need a site that ranks for your target keywords within weeks of launch, we are.

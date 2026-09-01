@@ -250,7 +250,7 @@ Hide your physical address. Google does not display SAB addresses in search resu
 
 Create a location hub page listing all areas you serve. Link from this hub to individual location pages for your primary service areas.
 
-Your [SEO website build](/services/seo-website-build/) should include location pages only for areas where you actively work and can provide genuine local content. Do not create pages for areas outside your realistic service radius.
+Your [SEO website build](/seo-web-design/) should include location pages only for areas where you actively work and can provide genuine local content. Do not create pages for areas outside your realistic service radius.
 
 ## Tracking Local SEO Performance
 

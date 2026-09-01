@@ -111,4 +111,4 @@ Track these metrics monthly through Google Search Console:
 
 **Enquiry volume from organic traffic**: Ultimately, the website exists to generate business. Track form submissions, phone calls, and emails that originate from organic search visitors. This is the metric that determines whether the website investment has paid off.
 
-Our [SEO website build](/services/seo-website-build/) is priced for exactly this small business budget, with the £1,500 to £3,000 range broken down on our [pricing page](/pricing/).
+Our [SEO website build](/seo-web-design/) is priced for exactly this small business budget, with the £1,500 to £3,000 range broken down on our [pricing page](/pricing/).

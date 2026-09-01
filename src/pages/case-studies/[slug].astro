@@ -1,0 +1,174 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import CTA from '../../components/CTA.astro';
+import GrowthChart from '../../components/GrowthChart.astro';
+import StatDelta from '../../components/StatDelta.astro';
+import RankingBreakdown from '../../components/RankingBreakdown.astro';
+import { site } from '../../data/site';
+import { caseStudies } from '../../data/caseStudies';
+
+export function getStaticPaths() {
+  return caseStudies.map((study) => ({
+    params: { slug: study.slug },
+    props: { study },
+  }));
+}
+
+const { study } = Astro.props;
+const chartColors = ['#10b981', '#7c3aed', '#3b82f6', '#f59e0b', '#ef4444'];
+const studyIndex = caseStudies.findIndex((s) => s.slug === study.slug);
+const otherStudies = caseStudies.filter((s) => s.slug !== study.slug).slice(0, 3);
+const publicationDate = '2026-09-01';
+
+const schemaNodes = [
+  {
+    '@type': 'Article',
+    '@id': `${site.url}/case-studies/${study.slug}/#article`,
+    headline: `${study.name}: SEO Website Case Study`,
+    description: study.description,
+    url: `${site.url}/case-studies/${study.slug}/`,
+    isPartOf: { '@id': `${site.url}/#website` },
+    author: { '@id': `${site.url}/#organization` },
+    publisher: { '@id': `${site.url}/#organization` },
+    datePublished: publicationDate,
+    dateModified: publicationDate,
+    about: {
+      '@type': 'CreativeWork',
+      name: study.name,
+      url: study.url,
+      creator: { '@id': `${site.url}/#organization` },
+    },
+  },
+];
+---
+<Base
+  title={`${study.name} Case Study: ${study.metric} | OptimisedWebsite`}
+  description={`${study.description} Owned and operated portfolio property with first-party Search Console data.`}
+  canonicalPath={`/case-studies/${study.slug}/`}
+  schemaNodes={schemaNodes}
+>
+  <article class="max-w-[1100px] mx-auto px-5 md:px-10 pt-28 pb-20">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Case Studies', href: '/case-studies/' },
+      { label: study.name, href: `/case-studies/${study.slug}/` },
+    ]} />
+
+    <section class="py-10">
+      <div class="mono text-[12px] mb-2" style="color: var(--color-ink-3); letter-spacing: 0.08em;">Case study {String(studyIndex + 1).padStart(2, '0')} / {study.niche}</div>
+      <h1 class="section-title">{study.name}: SEO Website Case Study</h1>
+      <p class="mt-4 text-lg leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">{study.description}</p>
+      <p class="mt-3 text-xs font-mono" style="color: var(--color-ink-3);">Published 1 September 2026</p>
+      <div class="flex flex-wrap gap-2 mt-6">
+        <span class="chip">{study.pageCount} pages</span>
+        <span class="chip chip-ok">{study.metric}</span>
+        <span class="chip chip-violet">Lighthouse {study.lighthouse}</span>
+        <a href={study.url} target="_blank" rel="noopener noreferrer" class="chip no-underline">{study.url.replace('https://', '')} &rarr;</a>
+      </div>
+    </section>
+
+    <!-- ===== DISCLOSURE ===== -->
+    <section class="pb-10">
+      <div class="rounded-[16px] p-6" style="background: rgba(251,191,36,0.08); box-shadow: inset 0 0 0 1px rgba(251,191,36,0.3);">
+        <h2 class="text-[11px] font-bold uppercase tracking-wider mb-2" style="color: #b45309;">Ownership disclosure</h2>
+        <p class="text-sm leading-relaxed" style="color: var(--color-ink-2);">
+          {study.name} is a site we own and operate ourselves as part of our own SEO network. It is not a client project and this is not an independent client testimonial. The figures below are first-party Google Search Console data pulled from the property we control, shown so you can see exactly how we read and act on the same kind of data your own site would generate.
+        </p>
+      </div>
+    </section>
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <!-- ===== CHALLENGE / APPROACH / RESULT ===== -->
+    <section class="py-10 reveal">
+      <div class="grid gap-6 lg:grid-cols-[1.1fr_1fr] items-stretch">
+        <div class="card !p-7 flex flex-col gap-5">
+          {[
+            { tag: 'Challenge', body: study.challenge, color: 'var(--color-warn)' },
+            { tag: 'Approach', body: study.approach, color: 'var(--violet-text)' },
+            { tag: 'Result', body: study.result, color: 'var(--color-ok)' },
+          ].map((block) => (
+            <div>
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="w-1.5 h-1.5 rounded-full" style={`background: ${block.color};`}></span>
+                <h2 class="text-[11px] font-bold uppercase tracking-wider" style="color: var(--color-ink-3);">{block.tag}</h2>
+              </div>
+              <p class="text-sm leading-relaxed" style="color: var(--color-ink-2);">{block.body}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="card !p-7 flex flex-col">
+          <div class="mono text-[11px] uppercase mb-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">12-month growth</div>
+          <div class="text-[15px] font-semibold mb-3" style="color: var(--color-ink);">Climbing from zero to {study.metric}</div>
+          <div class="flex-1 flex items-center">
+            <GrowthChart data={study.growth} label={study.growthLabel} color={chartColors[studyIndex % chartColors.length]} height={170} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== METRICS ===== -->
+    <section class="py-10 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6" style="color: var(--color-ink);">Metrics</h2>
+      <StatDelta stats={study.stats} />
+    </section>
+
+    <!-- ===== ARCHITECTURE / SCHEMA / RANKING ===== -->
+    <section class="py-10 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6" style="color: var(--color-ink);">Architecture and Schema</h2>
+      <div class="grid gap-6 lg:grid-cols-2 items-start">
+        <RankingBreakdown buckets={study.ranks} title={`${study.name}: ranking keywords by position`} />
+
+        <div class="card !p-7">
+          <h3 class="text-[11px] font-bold uppercase tracking-wider mb-3" style="color: var(--color-ink-3);">Architecture</h3>
+          <p class="text-sm leading-relaxed mb-5" style="color: var(--color-ink-2);">{study.architecture}</p>
+          <h3 class="text-[11px] font-bold uppercase tracking-wider mb-3" style="color: var(--color-ink-3);">Schema graph</h3>
+          <div class="flex flex-wrap gap-1.5 mb-5">
+            {study.schemaTypes.map((type) => (
+              <span class="text-xs font-medium px-2 py-0.5 rounded" style="background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.25); color: var(--violet-text);">{type}</span>
+            ))}
+          </div>
+          <h3 class="text-[11px] font-bold uppercase tracking-wider mb-3" style="color: var(--color-ink-3);">Schema coverage</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--color-ink-2);">{study.schemaCoverage} of pages carry validated schema markup.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== METHODOLOGY ===== -->
+    <section class="py-10 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">Methodology</h2>
+      <p class="text-sm leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
+        Clicks, impressions, and average position figures come directly from Google Search Console for {study.url.replace('https://', '')}. Page-indexed counts come from the same property's coverage report. Ranking position buckets group the keywords we track for this site by average position. No third-party rank tracker, panel data, or estimate is used.
+      </p>
+      <p class="text-sm leading-relaxed max-w-3xl mt-3" style="color: var(--color-ink-2);">
+        These figures are stored first-party snapshots from our own Search Console data, not a live feed. They show performance as recorded, not the site's current position today.
+      </p>
+    </section>
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <!-- ===== CTA ===== -->
+    <section class="py-12 text-center reveal">
+      <p class="mb-6 text-lg" style="color: var(--color-ink-2);">Want a written diagnosis of your own site first?</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <CTA href="/free-website-growth-review/" label="Get a Free Growth Review" analyticsEvent="cta_click" analyticsLabel={`case-study-${study.slug}`} />
+        <CTA href="/pricing/" label="See Pricing" variant="secondary" />
+      </div>
+    </section>
+
+    <!-- ===== OTHER CASE STUDIES ===== -->
+    <section class="py-10 reveal" style="border-top: 1px solid var(--color-rule);">
+      <h2 class="text-xl font-bold tracking-[-0.02em] mb-5" style="color: var(--color-ink);">Other Case Studies</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        {otherStudies.map((s) => (
+          <a href={`/case-studies/${s.slug}/`} class="block rounded-[16px] p-6 no-underline" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
+            <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">{s.name}</h3>
+            <p class="text-[13px]" style="color: var(--color-ink-2);">{s.metric} &middot; {s.pageCount} pages</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  </article>
+</Base>

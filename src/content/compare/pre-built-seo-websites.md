@@ -79,7 +79,7 @@ Pre-built SEO websites work well in specific situations.
 
 **Budget constraints**: A startup with £500 for a website can get a functional, SEO-structured pre-built site that outperforms a standard website builder template. The pre-built option may not be perfect, but it is better than a Wix site with no schema, no keyword targeting, and no internal linking strategy.
 
-**Testing a niche**: Before investing £3,000-5,000 in a full custom build, a pre-built site can validate whether organic demand exists in a niche. If the pre-built site generates traffic and enquiries, upgrading to a [custom SEO website build](/services/seo-website-build/) with deeper content and unique copy becomes a lower-risk investment. Our [turnkey SEO website options](/compare/turnkey-seo-website-options/) guide compares these delivery models side by side.
+**Testing a niche**: Before investing £3,000-5,000 in a full custom build, a pre-built site can validate whether organic demand exists in a niche. If the pre-built site generates traffic and enquiries, upgrading to a [custom SEO website build](/seo-web-design/) with deeper content and unique copy becomes a lower-risk investment. Our [turnkey SEO website options](/compare/turnkey-seo-website-options/) guide compares these delivery models side by side.
 
 ## When to Avoid Pre-Built
 

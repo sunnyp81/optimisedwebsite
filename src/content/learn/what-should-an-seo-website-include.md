@@ -107,4 +107,4 @@ Accessible websites tend to rank better because many accessibility requirements 
 
 An SEO-optimised website uses semantic HTML, `<nav>`, `<main>`, `<article>`, `<section>` and `<footer>`, rather than generic `<div>` elements. Skip-to-content links, ARIA labels where needed, and sufficient colour contrast round out the accessibility baseline.
 
-Every element on this list is included as standard in our [SEO website build](/services/seo-website-build/), with the full scope and fixed price set out on our [pricing page](/pricing/).
+Every element on this list is included as standard in our [SEO website build](/seo-web-design/), with the full scope and fixed price set out on our [pricing page](/pricing/).

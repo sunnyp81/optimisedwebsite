@@ -111,4 +111,4 @@ Run both tools on a representative sample of pages: the homepage, a service page
 
 **Omitting the @id on Organization schema** breaks the reference chain. Without a consistent `@id`, other pages cannot link their schema back to the central business entity, and the schema graph falls apart.
 
-Implementing a connected schema graph correctly is detailed work. Our [schema markup service](/services/schema-markup/) builds validated JSON-LD into every page, and it is included as standard in our [SEO website build](/services/seo-website-build/).
+Implementing a connected schema graph correctly is detailed work. Our [schema markup service](/services/schema-markup/) builds validated JSON-LD into every page, and it is included as standard in our [SEO website build](/seo-web-design/).

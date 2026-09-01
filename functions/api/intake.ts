@@ -14,6 +14,7 @@ const MAX_FIELD_LENGTH = 5_000;
 const ALLOWED_FIELDS = new Set([
   'name', 'email', 'phone', 'niche', 'audience', 'domain',
   'competitors', 'budget', 'message', 'source', 'form_type',
+  'landing_page', 'referrer', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
 ]);
 
 const jsonResponse = (body: Record<string, unknown>, status: number) =>

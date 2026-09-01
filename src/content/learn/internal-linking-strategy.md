@@ -100,4 +100,4 @@ Every indexable page on your site should have at least one contextual internal l
 
 **Avoid link bloat on hub pages.** If a hub page links to 50 supporting pages, each link passes less authority than if it linked to 15. Keep clusters focused on a manageable number of high-quality supporting pages rather than creating dozens of thin pages to inflate the cluster size.
 
-Internal linking is one of the structural elements built into every [SEO website build](/services/seo-website-build/) we deliver, so the hub-and-spoke architecture is in place from launch rather than retrofitted later.
+Internal linking is one of the structural elements built into every [SEO website build](/seo-web-design/) we deliver, so the hub-and-spoke architecture is in place from launch rather than retrofitted later.

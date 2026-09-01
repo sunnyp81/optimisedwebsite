@@ -10,11 +10,13 @@ export const mainNav = [
 
 export const footerNav = {
   services: [
-    { label: 'SEO Website Build', href: '/services/seo-website-build/' },
+    { label: 'SEO Website Build', href: '/seo-web-design/' },
     { label: 'Keyword Research', href: '/services/keyword-research/' },
     { label: 'Schema Markup', href: '/services/schema-markup/' },
     { label: 'Technical SEO Setup', href: '/services/technical-seo-setup/' },
     { label: 'Content Architecture', href: '/services/content-architecture/' },
+    { label: 'SEO Web Design for Trades', href: '/seo-web-design-for-trades/' },
+    { label: 'Website Redesign & SEO Migration', href: '/website-redesign-seo-migration/' },
   ],
   learn: [
     { label: 'What Is an SEO Website', href: '/learn/what-is-an-seo-optimised-website/' },

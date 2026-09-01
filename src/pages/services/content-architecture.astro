@@ -9,7 +9,7 @@ import { services } from '../../data/services';
 
 const current = services.find(s => s.slug === 'content-architecture')!;
 const siblings = services.filter(s => s.slug !== current.slug).slice(0, 3);
-const hubItems = services.map(s => ({ label: s.title, href: `/services/${s.slug}/` }));
+const hubItems = services.map(s => ({ label: s.title, href: s.href }));
 
 const faqs = [
   { q: 'What is hub-and-spoke content architecture?', a: 'Hub-and-spoke architecture organises your site into topic clusters. Each cluster has one hub page targeting a broad keyword and several spoke pages targeting related long-tail keywords. The hub links down to every spoke, every spoke links back up to the hub, and spokes link sideways to their siblings. This creates a closed topical loop that signals depth and authority to search engines.' },
@@ -128,7 +128,7 @@ const schemaNodes = [
       <h2 class="text-xl font-bold tracking-[-0.02em] mb-5">Related Services</h2>
       <div class="grid md:grid-cols-3 gap-4">
         {siblings.map(s => (
-          <a href={`/services/${s.slug}/`} class="block rounded-[16px] p-6 no-underline transition-all duration-300" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);"
+          <a href={s.href} class="block rounded-[16px] p-6 no-underline transition-all duration-300" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);"
             onmouseover="this.style.boxShadow='inset 0 0 0 1px rgba(124,58,237,0.3), 0 4px 16px rgba(30,41,59,0.1)'; this.style.transform='translateY(-2px)';"
             onmouseout="this.style.boxShadow='inset 0 0 0 1px var(--color-rule), 0 1px 3px rgba(30,41,59,0.08)'; this.style.transform='';">
             <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">{s.title}</h3>

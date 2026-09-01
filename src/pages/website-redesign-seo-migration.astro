@@ -1,0 +1,175 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTA from '../components/CTA.astro';
+import { site } from '../data/site';
+
+const deliverables = [
+  { title: 'Pre-launch URL inventory', desc: 'Every currently indexed URL is crawled and exported before any work starts, so nothing gets missed once the new site goes live.' },
+  { title: 'URL mapping rules', desc: 'Each old URL is checked against the new site. Where a genuine equivalent page exists, it gets a 301 redirect. Where none exists, we decide deliberately whether that URL should 404, 410, or point somewhere relevant.' },
+  { title: 'Staging crawl and review', desc: 'The new site is crawled on a staging URL and checked against the mapping plan before anything goes live, catching broken links and mapping gaps early.' },
+  { title: 'Launch controls', desc: 'DNS, redirects, and the new site are switched over in a controlled order, so there is no window where old URLs return errors before the new redirects are active.' },
+  { title: 'Redirect testing', desc: 'Every mapped redirect is tested after launch to confirm it resolves to the right page with a 301, not a chain, a loop, or a soft 404.' },
+  { title: 'Canonical and internal-link updates', desc: 'Canonical tags and internal links are updated to point at the new URLs directly, rather than relying on a redirect chain to carry link equity.' },
+  { title: 'Sitemap submission', desc: 'The new sitemap, containing the new site\'s indexable URLs, is submitted to Google Search Console and Bing Webmaster Tools once the new site is live.' },
+  { title: 'Post-launch monitoring window', desc: 'Search Console coverage and position data checked at day 14 and day 30 so issues are caught early, not months later.' },
+];
+
+const faqs = [
+  { q: 'Will I lose rankings during the migration?', a: 'Google has said publicly that migrations carry some short-term ranking volatility, and no agency can honestly promise otherwise. Our process, redirect mapping, staging review, and launch controls, is built to minimise that volatility, not eliminate it. See Google\'s own guidance on site moves with URL changes further down this page for the detail behind that.' },
+  { q: 'How do you handle old URLs?', a: 'We crawl and export every currently indexed URL before starting, then map each one against the new site. Where a genuine equivalent page exists, it gets a 301 redirect. Redirecting a URL to an irrelevant page can itself get flagged as a soft 404, so we do not redirect everything by default. Content that has genuinely been removed and has no equivalent is allowed to return a 404 or 410 where that is the accurate outcome.' },
+  { q: 'Can I keep my current URL structure?', a: 'Yes, if it is already working. We only recommend changing URL structure where the current one is actively working against you, for example duplicate content or unclear hierarchy. Any change is discussed and agreed before it happens.' },
+  { q: 'How long does a migration take?', a: 'Typically 7 to 14 days depending on site size, plus the 30-day post-launch monitoring window included in every build.' },
+  { q: 'What happens to pages you decide not to redirect?', a: 'If a page has no genuine equivalent on the new site, we do not force a redirect to an unrelated page just to avoid a 404. Depending on the page, it either returns a proper 404 or 410, or, if the content still has value, it is rebuilt on the new site and redirected once it exists.' },
+  { q: 'Do you submit every old URL to Google again after launch?', a: 'No. The old URLs are redirected, not resubmitted. What gets submitted after launch is the new sitemap, listing the new site\'s indexable URLs, so Google can find and re-crawl them through the redirects already in place.' },
+];
+
+const schemaNodes = [
+  {
+    '@type': 'Service',
+    '@id': `${site.url}/website-redesign-seo-migration/#service`,
+    name: 'Website Redesign and SEO Migration',
+    description: 'Website redesign and SEO migration for UK businesses with an existing indexed site: full redirect mapping, staging review, and new-sitemap submission.',
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: { '@type': 'Country', name: 'United Kingdom' },
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'GBP',
+      priceSpecification: { '@type': 'PriceSpecification', minPrice: '1500', maxPrice: '3000', priceCurrency: 'GBP' },
+    },
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${site.url}/website-redesign-seo-migration/#faq`,
+    mainEntity: faqs.map((faq) => ({ '@type': 'Question', name: faq.q, acceptedAnswer: { '@type': 'Answer', text: faq.a } })),
+  },
+];
+---
+<Base
+  title="Website Redesign & SEO Migration | OptimisedWebsite"
+  description="Redesigning a site that already ranks? Full redirect mapping, staging review, and new-sitemap submission, built to minimise ranking disruption. From £1,500."
+  canonicalPath="/website-redesign-seo-migration/"
+  schemaNodes={schemaNodes}
+>
+  <div class="max-w-[1100px] mx-auto px-5 md:px-10 pt-28 pb-20">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Website Redesign & SEO Migration', href: '/website-redesign-seo-migration/' },
+    ]} />
+
+    <section class="py-12">
+      <div class="section-tag">Redesign & Migration</div>
+      <h1 class="section-title">Website Redesign and SEO Migration</h1>
+      <p class="mt-4 text-lg leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
+        A redesign risks the rankings your current site has already earned if URLs, content, or structure change without a plan. This service is for businesses replacing an existing indexed site: old URLs are inventoried and mapped to redirects where a genuine equivalent exists, and the new site's indexable URLs go into a fresh sitemap at launch, with a monitoring window to catch issues early. From &pound;1,500.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <CTA href="/free-website-growth-review/" label="Get a Free Growth Review" analyticsEvent="cta_click" analyticsLabel="migration-hero" />
+        <CTA href="/pricing/" label="See Pricing" variant="secondary" />
+      </div>
+    </section>
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-8" style="color: var(--color-ink);">How We Protect Existing Rankings</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        {deliverables.map((d, i) => (
+          <div class="rounded-[16px] p-7" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
+            <div class="flex items-start gap-4">
+              <span class="font-extrabold text-lg mt-0.5" style="color: var(--color-accent-2);">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">{d.title}</h3>
+                <p class="text-[14px] leading-relaxed" style="color: var(--color-ink-2);">{d.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="text-[13px] mt-6" style="color: var(--color-ink-3);">
+        Migrations carry inherent short-term ranking volatility that Google itself acknowledges, see <a href="https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent-2); font-weight: 500;">Google's guidance on site moves with URL changes</a>. This process is built to minimise that volatility, not promise it away.
+      </p>
+    </section>
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">What Counts as a Genuine URL Match?</h2>
+      <p class="leading-relaxed max-w-3xl mb-3" style="color: var(--color-ink-2);">
+        A redirect only helps if it sends a visitor and a search engine to a page that actually answers the same question as the old one. Redirecting every old URL to your new homepage, or to whichever page seems closest, can get treated as a soft 404 because the destination does not match the intent of the original page.
+      </p>
+      <p class="leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
+        So each old URL gets one of three outcomes: a 301 redirect to a genuine equivalent, a rebuild on the new site if the content still has value but needs updating, or a proper 404 or 410 if the content has been deliberately removed and nothing on the new site replaces it. Forcing every URL into a redirect is not the goal, matching intent is.
+      </p>
+    </section>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">What Happens on Launch Day</h2>
+      <p class="leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
+        Redirects are tested on staging before the domain is switched over, so they are active from the moment the new site goes live rather than added afterwards. Once live, the new sitemap, listing the new site's indexable URLs, is submitted to Google Search Console and Bing Webmaster Tools, and the post-launch monitoring window starts immediately so coverage and position changes are visible from day one, not discovered a month later.
+      </p>
+    </section>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6" style="color: var(--color-ink);">Who This Fits</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="compare-col ours">
+          <h3 class="text-lg font-bold mb-4">Good fit</h3>
+          <ul class="space-y-3">
+            {[
+              'An existing site with organic traffic and indexed pages you want to keep',
+              'Businesses moving to a new domain, platform, or URL structure',
+              'A current site that is outdated but still earning search visibility',
+            ].map((c) => (
+              <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-ink-2);"><span class="font-bold shrink-0" style="color: var(--color-accent-2);">&check;</span><span>{c}</span></li>
+            ))}
+          </ul>
+        </div>
+        <div class="compare-col old">
+          <h3 class="text-lg font-bold mb-4">Not a fit</h3>
+          <ul class="space-y-3">
+            {[
+              'Brand-new domains with no indexed history, better suited to a standard SEO web design build',
+              'Sites with no analytics or Search Console access to base the migration plan on',
+              'Anyone expecting zero ranking movement during the switch',
+            ].map((c) => (
+              <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-ink-2);"><span class="text-red-400 font-bold shrink-0">&times;</span><span>{c}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <p class="text-center mt-8 text-[15px]" style="color: var(--color-ink-2);">
+        Starting from scratch instead? See <a href="/seo-web-design/" class="font-semibold" style="color: var(--color-accent-2);">SEO web design</a> for a new build.
+      </p>
+    </section>
+
+    <section class="py-12 text-center reveal">
+      <p class="mb-6 text-lg" style="color: var(--color-ink-2);">Have an existing site and need a redirect and migration plan?</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <CTA href="/free-website-growth-review/" label="Get a Free Growth Review" analyticsEvent="cta_click" analyticsLabel="migration-decision-cta" />
+        <CTA href="/pricing/" label="See Pricing" variant="secondary" />
+      </div>
+    </section>
+
+    <FAQSection faqs={faqs} />
+
+    <section class="py-10 reveal" style="border-top: 1px solid var(--color-rule);">
+      <h2 class="text-xl font-bold tracking-[-0.02em] mb-5" style="color: var(--color-ink);">Related Pages</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="/seo-web-design/" class="block rounded-[16px] p-6 no-underline" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
+          <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">SEO Web Design</h3>
+          <p class="text-[13px]" style="color: var(--color-ink-2);">The general build service for a new site with no migration involved.</p>
+        </a>
+        <a href="/seo-web-design-for-trades/" class="block rounded-[16px] p-6 no-underline" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
+          <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">SEO Web Design for Trades</h3>
+          <p class="text-[13px]" style="color: var(--color-ink-2);">Built for tradespeople and local-service businesses specifically.</p>
+        </a>
+        <a href="/services/technical-seo-setup/" class="block rounded-[16px] p-6 no-underline" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
+          <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">Technical SEO Setup</h3>
+          <p class="text-[13px]" style="color: var(--color-ink-2);">Canonical URLs, sitemaps, and the technical checks behind every migration.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+</Base>

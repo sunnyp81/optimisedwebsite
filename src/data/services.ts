@@ -1,5 +1,6 @@
 export interface Service {
   slug: string;
+  href: string;
   title: string;
   h1: string;
   metaTitle: string;
@@ -11,6 +12,7 @@ export interface Service {
 export const services: Service[] = [
   {
     slug: 'seo-website-build',
+    href: '/seo-web-design/',
     title: 'SEO Website Build',
     h1: 'SEO Website Build',
     metaTitle: 'SEO Website Build — Optimised Websites From £1,500',
@@ -20,6 +22,7 @@ export const services: Service[] = [
   },
   {
     slug: 'keyword-research',
+    href: '/services/keyword-research/',
     title: 'Keyword Research',
     h1: 'Keyword Research and Topical Mapping',
     metaTitle: 'Keyword Research and Topical Mapping for New Websites',
@@ -29,6 +32,7 @@ export const services: Service[] = [
   },
   {
     slug: 'schema-markup',
+    href: '/services/schema-markup/',
     title: 'Schema Markup',
     h1: 'Schema Markup and Structured Data',
     metaTitle: 'Schema Markup Service — Entity-Linked Structured Data',
@@ -38,6 +42,7 @@ export const services: Service[] = [
   },
   {
     slug: 'technical-seo-setup',
+    href: '/services/technical-seo-setup/',
     title: 'Technical SEO Setup',
     h1: 'Technical SEO Setup',
     metaTitle: 'Technical SEO Setup for New Websites',
@@ -47,6 +52,7 @@ export const services: Service[] = [
   },
   {
     slug: 'content-architecture',
+    href: '/services/content-architecture/',
     title: 'Content Architecture',
     h1: 'Content Architecture and Internal Linking',
     metaTitle: 'Content Architecture and Internal Linking for SEO',

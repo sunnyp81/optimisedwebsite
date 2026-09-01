@@ -3,8 +3,6 @@ import Base from '../layouts/Base.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import CTA from '../components/CTA.astro';
 import GrowthChart from '../components/GrowthChart.astro';
-import StatDelta from '../components/StatDelta.astro';
-import RankingBreakdown from '../components/RankingBreakdown.astro';
 import { site } from '../data/site';
 import { caseStudies } from '../data/caseStudies';
 
@@ -15,7 +13,7 @@ const schemaNodes = [
     '@type': 'CollectionPage',
     '@id': `${site.url}/case-studies/#page`,
     name: 'SEO Website Case Studies',
-    description: 'Detailed case studies of SEO-optimised websites built by OptimisedWebsite. Architecture decisions, schema implementation, and measurable results.',
+    description: 'Case studies of SEO-optimised websites built by OptimisedWebsite. Architecture decisions, schema implementation, and first-party Search Console results.',
     url: `${site.url}/case-studies/`,
     isPartOf: { '@id': `${site.url}/#website` },
     mainEntity: {
@@ -27,7 +25,7 @@ const schemaNodes = [
         item: {
           '@type': 'CreativeWork',
           name: item.name,
-          url: item.url,
+          url: `${site.url}/case-studies/${item.slug}/`,
           description: item.description,
           creator: { '@id': `${site.url}/#organization` },
         },
@@ -38,7 +36,7 @@ const schemaNodes = [
 ---
 <Base
   title="SEO Website Case Studies | OptimisedWebsite"
-  description="Detailed case studies of SEO-optimised websites built by OptimisedWebsite. Architecture decisions, schema implementation, and measurable results."
+  description="Case studies of SEO-optimised websites built by OptimisedWebsite. Architecture decisions, schema implementation, and first-party Search Console results."
   canonicalPath="/case-studies/"
   schemaNodes={schemaNodes}
 >
@@ -51,88 +49,55 @@ const schemaNodes = [
     <section class="py-10">
       <div class="section-tag">Case Studies</div>
       <h1 class="section-title">SEO Website <span class="gradient-text">Case Studies</span></h1>
-      <p class="section-desc">
-        Five live builds, each grown from a standing start. Every breakdown below covers the challenge, the architecture and schema we shipped, and the verified Search Console numbers that followed.
+      <p class="section-desc max-w-2xl">
+        Five sites from our own network, each grown from a standing start. Every case study covers the challenge, the architecture and schema we shipped, and the first-party Search Console numbers that followed.
       </p>
-
-      <nav class="flex flex-wrap gap-2 mt-7" aria-label="Jump to case study">
-        {caseStudies.map((study) => (
-          <a href={`#${study.slug}`} class="chip no-underline" style="transition: box-shadow 0.2s, color 0.2s;" onmouseover="this.style.color='var(--violet-text)'; this.style.boxShadow='inset 0 0 0 1px var(--violet-text)';" onmouseout="this.style.color='var(--color-ink-2)'; this.style.boxShadow='inset 0 0 0 1px var(--color-rule)';">{study.name}</a>
-        ))}
-      </nav>
+      <p class="text-[13px] mt-4 max-w-2xl" style="color: var(--color-ink-3);">
+        These are owned and operated portfolio properties, not client campaigns. Every figure is our own Search Console data, disclosed as such on each case study page.
+      </p>
     </section>
 
     <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
 
-    {caseStudies.map((study, i) => (
-      <section id={study.slug} class="py-10 reveal scroll-mt-24">
-        <header class="flex flex-wrap items-end justify-between gap-4 mb-8">
-          <div>
-            <div class="mono text-[12px] mb-2" style="color: var(--color-ink-3); letter-spacing: 0.08em;">Case study {String(i + 1).padStart(2, '0')} / {study.niche}</div>
-            <h2 class="text-2xl md:text-[34px] font-bold leading-tight" style="color: var(--color-ink);">{study.name}</h2>
-            <a href={study.url} target="_blank" rel="noopener noreferrer" class="inline-block mt-1.5 text-sm transition-colors" style="color: var(--violet-text);">{study.url.replace('https://', '')} &rarr;</a>
-          </div>
-          <div class="flex flex-wrap gap-2">
-            <span class="chip">{study.pageCount} pages</span>
-            <span class="chip chip-ok">{study.metric}</span>
-            <span class="chip chip-violet">Lighthouse {study.lighthouse}</span>
-          </div>
-        </header>
-
-        <div class="grid gap-6 lg:grid-cols-[1.1fr_1fr] items-stretch mb-6">
-          <div class="card !p-7 flex flex-col gap-5">
-            {[
-              { tag: 'Challenge', body: study.challenge, color: 'var(--color-warn)' },
-              { tag: 'Approach', body: study.approach, color: 'var(--violet-text)' },
-              { tag: 'Result', body: study.result, color: 'var(--color-ok)' },
-            ].map((block) => (
-              <div>
-                <div class="flex items-center gap-2 mb-1.5">
-                  <span class="w-1.5 h-1.5 rounded-full" style={`background: ${block.color};`}></span>
-                  <h3 class="text-[11px] font-bold uppercase tracking-wider" style="color: var(--color-ink-3);">{block.tag}</h3>
+    <section class="pb-16 reveal">
+      <div class="grid md:grid-cols-2 gap-5">
+        {caseStudies.map((study, i) => (
+          <a
+            href={`/case-studies/${study.slug}/`}
+            class="group block rounded-[16px] overflow-hidden no-underline"
+            style="box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); background: var(--color-paper);"
+          >
+            <div class="px-6 pt-6 pb-3" style="background: linear-gradient(180deg, var(--color-bg-2), var(--color-paper));">
+              <div class="flex items-start justify-between gap-2 mb-1">
+                <div>
+                  <h2 class="text-[17px] font-semibold tracking-[-0.02em]" style="color: var(--color-ink);">{study.name}</h2>
+                  <span class="mono text-[11px]" style="color: var(--color-ink-3);">{study.url.replace('https://', '')}</span>
                 </div>
-                <p class="text-sm leading-relaxed" style="color: var(--color-ink-2);">{block.body}</p>
+                <span class="chip chip-ok flex-shrink-0">{study.metric}</span>
               </div>
-            ))}
-          </div>
-
-          <div class="card !p-7 flex flex-col">
-            <div class="mono text-[11px] uppercase mb-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">12-month growth</div>
-            <div class="text-[15px] font-semibold mb-3" style="color: var(--color-ink);">Climbing from zero to {study.metric}</div>
-            <div class="flex-1 flex items-center">
-              <GrowthChart data={study.growth} label={study.growthLabel} color={chartColors[i % chartColors.length]} height={150} />
+              <GrowthChart data={study.growth} label={study.growthLabel} color={chartColors[i % chartColors.length]} height={120} />
             </div>
-          </div>
-        </div>
-
-        <div class="mb-6">
-          <StatDelta stats={study.stats} />
-        </div>
-
-        <div class="grid gap-6 lg:grid-cols-2 items-start">
-          <RankingBreakdown buckets={study.ranks} />
-
-          <div class="card !p-7">
-            <h3 class="text-[11px] font-bold uppercase tracking-wider mb-3" style="color: var(--color-ink-3);">Architecture</h3>
-            <p class="text-sm leading-relaxed mb-5" style="color: var(--color-ink-2);">{study.architecture}</p>
-            <h3 class="text-[11px] font-bold uppercase tracking-wider mb-3" style="color: var(--color-ink-3);">Schema graph</h3>
-            <div class="flex flex-wrap gap-1.5">
-              {study.schemaTypes.map((type) => (
-                <span class="text-xs font-medium px-2 py-0.5 rounded" style="background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.25); color: var(--violet-text);">{type}</span>
-              ))}
+            <div class="p-6" style="border-top: 1px solid var(--color-rule);">
+              <p class="text-[13px] leading-[1.6] mb-4" style="color: var(--color-ink-2);">{study.description}</p>
+              <div class="flex items-center justify-between gap-3">
+                <div class="flex gap-2">
+                  <span class="chip">{study.niche}</span>
+                  <span class="chip">{study.pageCount} pages</span>
+                </div>
+                <span class="text-[13px] font-medium" style="color: var(--violet-text);">Read case study &rarr;</span>
+              </div>
             </div>
-          </div>
-        </div>
-
-        {i < caseStudies.length - 1 && (
-          <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
-        )}
-      </section>
-    ))}
+          </a>
+        ))}
+      </div>
+    </section>
 
     <section class="py-16 text-center">
-      <p class="mb-4" style="color: var(--color-ink-2);">Ready to become the next case study?</p>
-      <CTA href="/order/" label="Order Your SEO Website" />
+      <p class="mb-6 text-lg" style="color: var(--color-ink-2);">Want a written diagnosis of your own site first?</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <CTA href="/free-website-growth-review/" label="Get a Free Growth Review" analyticsEvent="cta_click" analyticsLabel="case-studies-hub" />
+        <CTA href="/pricing/" label="See Pricing" variant="secondary" />
+      </div>
     </section>
   </div>
 </Base>

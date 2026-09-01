@@ -75,4 +75,4 @@ The cost difference between the two approaches is modest compared to the revenue
 
 Not every business needs an SEO-optimised website. If your customers come exclusively through referrals, word of mouth, or social media, a clean brochure site that presents your brand well may be all you need.
 
-Any portion of your customer base searching Google represents demand an SEO-optimised website captures. The question is not whether SEO websites work, it is whether you are willing to invest in the foundation that makes organic search a reliable business channel. If you decide it is worth it, our [SEO website build](/services/seo-website-build/) delivers that foundation at a fixed price.
+Any portion of your customer base searching Google represents demand an SEO-optimised website captures. The question is not whether SEO websites work, it is whether you are willing to invest in the foundation that makes organic search a reliable business channel. If you decide it is worth it, our [SEO website build](/seo-web-design/) delivers that foundation at a fixed price.

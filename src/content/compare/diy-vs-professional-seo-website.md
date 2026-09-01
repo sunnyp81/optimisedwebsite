@@ -95,4 +95,4 @@ Some business owners take a middle path: hiring a professional for the technical
 
 For this approach to work, the professional must provide clear content briefs for every page: target keyword, search intent, required heading structure, minimum word count, key subtopics to cover, and internal linking targets. The business owner then writes to the brief rather than from scratch, which significantly improves content quality compared to unguided writing.
 
-If a professional build is the right call for your business, our [SEO website build](/services/seo-website-build/) covers the keyword research, architecture, schema and technical setup as a single fixed-price package.
+If a professional build is the right call for your business, our [SEO website build](/seo-web-design/) covers the keyword research, architecture, schema and technical setup as a single fixed-price package.

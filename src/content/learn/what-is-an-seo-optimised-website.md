@@ -81,4 +81,4 @@ A website that ranks brings traffic without ongoing advertising spend. The compo
 
 Building SEO into the foundation rather than bolting it on later saves money, reduces the time to first rankings, and creates a more sustainable online presence. The alternative, launching a standard site and then hiring an SEO consultant to fix it, typically costs more and delivers results more slowly because structural problems are harder to solve after the fact.
 
-This is the case for our [SEO website build](/services/seo-website-build/): architecture, content, schema and performance handled together from day one rather than retrofitted.
+This is the case for our [SEO website build](/seo-web-design/): architecture, content, schema and performance handled together from day one rather than retrofitted.

@@ -196,4 +196,4 @@ Track backlink acquisition. New editorial links from authoritative sources signa
 
 Audit your Google Business Profile insights. Review count, response rate and average rating all contribute to local trust signals.
 
-E-E-A-T is not a switch you flip. Building genuine experience, expertise, authority and trust takes sustained effort over months. Start with the fundamentals, real business details, qualified authors and cited sources, and compound these signals through consistent publishing and reputation building. A well-structured [SEO website build](/services/seo-website-build/) puts the technical trust signals in place from day one.
+E-E-A-T is not a switch you flip. Building genuine experience, expertise, authority and trust takes sustained effort over months. Start with the fundamentals, real business details, qualified authors and cited sources, and compound these signals through consistent publishing and reputation building. A well-structured [SEO website build](/seo-web-design/) puts the technical trust signals in place from day one.

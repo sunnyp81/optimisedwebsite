@@ -132,7 +132,7 @@ LCP measures loading speed for the largest visible element. Target under 2.5 sec
 
 CLS measures visual stability. Target under 0.1. Set explicit width and height attributes on images and embeds. Avoid injecting content above the fold after initial render.
 
-INP measures responsiveness to user interactions. Target under 200ms. Minimise JavaScript execution time. Static sites built with frameworks like Astro score perfectly because they ship zero client-side JavaScript by default, which is the approach behind our [SEO website build](/services/seo-website-build/).
+INP measures responsiveness to user interactions. Target under 200ms. Minimise JavaScript execution time. Static sites built with frameworks like Astro score perfectly because they ship zero client-side JavaScript by default, which is the approach behind our [SEO website build](/seo-web-design/).
 
 ## Mobile-First Indexing
 

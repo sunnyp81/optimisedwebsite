@@ -146,4 +146,4 @@ Within the first 48 hours after launch:
 5. Run a full-site crawl with Screaming Frog or Sitebulb to catch any issues the manual review missed
 6. Set up Search Console alerts for crawl errors and indexing issues
 
-If running this checklist reveals more gaps than you want to fix yourself, our [SEO website build](/services/seo-website-build/) delivers a site that passes every point above before handover.
+If running this checklist reveals more gaps than you want to fix yourself, our [SEO website build](/seo-web-design/) delivers a site that passes every point above before handover.

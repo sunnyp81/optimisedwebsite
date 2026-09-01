@@ -1,0 +1,198 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTA from '../components/CTA.astro';
+import { site } from '../data/site';
+
+const deliverables = [
+  { title: 'Service-area page structure', desc: 'One page per service and area you cover, each with unique content rather than the same paragraph with the town name swapped.' },
+  { title: 'LocalBusiness and Service schema', desc: 'Structured data with areaServed properties that clarifies your business, service, and area entities to search engines, alongside the page content itself.' },
+  { title: 'Click-to-call and enquiry-first layout', desc: 'Phone number and enquiry form placed near the top of every page, sized for a thumb rather than a mouse.' },
+  { title: 'Mobile-first build', desc: 'A large share of local trade searches happen on a phone. Pages are built and tested mobile-first, not adapted from a desktop layout afterwards.' },
+];
+
+const evidenceNeeded = [
+  'Real photos of completed jobs, not stock images of generic tools or vans',
+  'Accreditations, certifications, or trade body memberships you hold, with the issuing body named',
+  'A clear list of what is and is not included in each service, so the page does not overpromise',
+  'Genuine customer reviews, where you have them and can show them legitimately',
+];
+
+const faqs = [
+  { q: 'Do you build a page for every town or area I cover?', a: 'Yes, where it makes sense. Each service-area page needs enough unique content to be worth indexing, so we scope the area list with you before work starts rather than generating pages automatically for every postcode.' },
+  { q: 'Can customers call me directly from the site?', a: 'Yes. Click-to-call links and a short enquiry form are placed high on every page, built for someone searching on their phone rather than at a desk.' },
+  { q: 'I only cover one town. Is this still worth it?', a: 'Yes. A single-location site still benefits from LocalBusiness schema, a proper service structure, and content that answers what your customers actually search for. You do not need multiple areas to benefit from SEO web design.' },
+  { q: 'What if I already have a Google Business Profile?', a: 'Good, keep it. This service covers the website itself. The site is built with consistent name, address, and phone details so it supports your existing Google Business Profile rather than conflicting with it.' },
+  { q: 'What happens if I do not have professional photos of my work?', a: 'We would rather use real photos taken on your phone than stock imagery. Genuine job photos, even ones taken quickly on site, read as more credible to visitors than generic stock shots.' },
+  { q: 'Can you add reviews to my service pages?', a: 'Yes, if you have genuine reviews we can show legitimately, for example from Google, Trustpilot, or a trade body. We do not fabricate testimonials or display reviews without a real source behind them.' },
+];
+
+const schemaNodes = [
+  {
+    '@type': 'Service',
+    '@id': `${site.url}/seo-web-design-for-trades/#service`,
+    name: 'SEO Web Design for Trades',
+    description: 'SEO web design for UK trade and local-service businesses: service-area pages, LocalBusiness schema, and mobile-first enquiry paths.',
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: { '@type': 'Country', name: 'United Kingdom' },
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'GBP',
+      priceSpecification: { '@type': 'PriceSpecification', minPrice: '1500', maxPrice: '3000', priceCurrency: 'GBP' },
+    },
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${site.url}/seo-web-design-for-trades/#faq`,
+    mainEntity: faqs.map((faq) => ({ '@type': 'Question', name: faq.q, acceptedAnswer: { '@type': 'Answer', text: faq.a } })),
+  },
+];
+---
+<Base
+  title="SEO Web Design for Trade & Local-Service Businesses | OptimisedWebsite"
+  description="SEO web design for tradespeople and local-service businesses: service-area pages, LocalBusiness schema, click-to-call layout. From £1,500."
+  canonicalPath="/seo-web-design-for-trades/"
+  schemaNodes={schemaNodes}
+>
+  <div class="max-w-[1100px] mx-auto px-5 md:px-10 pt-28 pb-20">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'SEO Web Design for Trades', href: '/seo-web-design-for-trades/' },
+    ]} />
+
+    <section class="py-12">
+      <div class="section-tag">For Trade & Local Service Businesses</div>
+      <h1 class="section-title">SEO Web Design for Trade and Local-Service Businesses</h1>
+      <p class="mt-4 text-lg leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
+        Tradespeople lose enquiries to competitors with a proper service-area structure and a phone number a customer can tap without hunting for it. This build covers the services and areas we agree and scope with you, with the local schema and mobile-first layout search engines and customers both expect. From &pound;1,500.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <CTA href="/free-website-growth-review/" label="Get a Free Growth Review" analyticsEvent="cta_click" analyticsLabel="seo-web-design-trades-hero" />
+        <CTA href="/pricing/" label="See Pricing" variant="secondary" />
+      </div>
+    </section>
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-8" style="color: var(--color-ink);">Built for How Trade Customers Search</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        {deliverables.map((d, i) => (
+          <div class="rounded-[16px] p-7" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
+            <div class="flex items-start gap-4">
+              <span class="font-extrabold text-lg mt-0.5" style="color: var(--color-accent-2);">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">{d.title}</h3>
+                <p class="text-[14px] leading-relaxed" style="color: var(--color-ink-2);">{d.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">How a Trade Enquiry Actually Reaches You</h2>
+      <p class="leading-relaxed max-w-3xl mb-3" style="color: var(--color-ink-2);">
+        Someone searches for a service in their area, for example "emergency plumber Leeds." They land on a page that either looks credible for that exact service and area, or it does not. If it looks credible, they call or fill in a form there and then. If the page is vague, generic, or covers ten unrelated services at once, they go back to the search results and try the next one.
+      </p>
+      <p class="leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
+        That is the enquiry path this service is built around: a specific service query, landing on a specific service-and-area page, ending in a call or a form submission on that same page. Every part of the build, from the page structure to the schema to the layout, exists to make that path shorter.
+      </p>
+    </section>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">Service Pages and Area Pages: How the Site Is Structured</h2>
+      <p class="leading-relaxed max-w-3xl mb-3" style="color: var(--color-ink-2);">
+        The site is built around two page types. Service pages describe what you do, for example boiler repair or emergency call-outs. Area pages describe where you cover, for example a specific town or postcode district. Where a service and an area both have enough search demand and enough real content to justify it, they get a combined service-area page rather than two thin ones.
+      </p>
+      <p class="leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
+        This structure means a visitor searching for "boiler repair Leeds" lands on a page about boiler repair in Leeds specifically, not a general services page with Leeds mentioned once in the footer.
+      </p>
+    </section>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">What Makes a Trade Page Credible</h2>
+      <p class="leading-relaxed max-w-3xl mb-4" style="color: var(--color-ink-2);">
+        A service-area page with no real evidence behind it reads as generic to both visitors and search engines. Before we write the page content, we ask for:
+      </p>
+      <ul class="space-y-2.5 max-w-3xl">
+        {evidenceNeeded.map((item) => (
+          <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-ink-2);"><span class="font-bold shrink-0" style="color: var(--color-accent-2);">&check;</span><span>{item}</span></li>
+        ))}
+      </ul>
+    </section>
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">One Location or Multiple Areas?</h2>
+      <p class="leading-relaxed max-w-3xl mb-3" style="color: var(--color-ink-2);">
+        If you work from one location and cover a single town or district, the site needs one strong set of service pages plus a single, well-built local page rather than a scatter of thin area pages you cannot realistically fill with real content. If you cover multiple towns or a wider region, the area list is scoped with you before work starts, based on where you genuinely take jobs rather than every postcode within driving distance.
+      </p>
+      <p class="leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
+        Either way, the 15-page and 50-page packages set the ceiling on how many service and area pages the build covers. See <a href="/pricing/" style="color: var(--color-accent-2); font-weight: 500;">pricing</a> for the package breakdown.
+      </p>
+    </section>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">Designed for a Phone in Someone's Hand</h2>
+      <p class="leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
+        A large share of local trade searches happen on a mobile device. Pages are built mobile-first: the phone number and enquiry form sit near the top without scrolling, buttons are sized for a thumb, and the layout is tested on a phone screen before it is checked on desktop, not the other way round.
+      </p>
+    </section>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6" style="color: var(--color-ink);">Who This Fits</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="compare-col ours">
+          <h3 class="text-lg font-bold mb-4">Good fit</h3>
+          <ul class="space-y-3">
+            {[
+              'Electricians, plumbers, builders, and other single or multi-area trades',
+              'Local-service businesses that rely on enquiries, calls, or quote requests',
+              'Businesses covering one town or a defined set of service areas',
+            ].map((c) => (
+              <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-ink-2);"><span class="font-bold shrink-0" style="color: var(--color-accent-2);">&check;</span><span>{c}</span></li>
+            ))}
+          </ul>
+        </div>
+        <div class="compare-col old">
+          <h3 class="text-lg font-bold mb-4">Not a fit</h3>
+          <ul class="space-y-3">
+            {[
+              'National franchises needing a multi-brand or multi-site content management system',
+              'Businesses without a defined service area or service list yet',
+              'Anyone expecting the site alone to replace a Google Business Profile',
+            ].map((c) => (
+              <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-ink-2);"><span class="text-red-400 font-bold shrink-0">&times;</span><span>{c}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <FAQSection faqs={faqs} />
+
+    <section class="py-10 reveal" style="border-top: 1px solid var(--color-rule);">
+      <h2 class="text-xl font-bold tracking-[-0.02em] mb-5" style="color: var(--color-ink);">Related Pages</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="/seo-web-design/" class="block rounded-[16px] p-6 no-underline" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
+          <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">SEO Web Design</h3>
+          <p class="text-[13px]" style="color: var(--color-ink-2);">The general SEO web design service for any UK business.</p>
+        </a>
+        <a href="/industry/home-services/" class="block rounded-[16px] p-6 no-underline" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
+          <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">Home Services Industry Page</h3>
+          <p class="text-[13px]" style="color: var(--color-ink-2);">More on how we structure sites for home-service companies specifically.</p>
+        </a>
+        <a href="/case-studies/" class="block rounded-[16px] p-6 no-underline" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
+          <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">Owned-Site SEO Evidence</h3>
+          <p class="text-[13px]" style="color: var(--color-ink-2);">Review disclosed first-party results from sites we own and operate.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+</Base>

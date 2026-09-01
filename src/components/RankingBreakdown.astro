@@ -26,11 +26,11 @@ const segments = buckets.map((b) => {
 
 const gid = `rb-${Math.random().toString(36).slice(2, 8)}`;
 ---
-<div class="rank-breakdown" id={gid}>
+<div class="rank-breakdown">
   <div class="rb-head">
     <h3 class="rb-title">{title}</h3>
     <div class="rb-total">
-      <span class="rb-total-num" data-target={total}>0</span>
+      <span class="rb-total-num">{total.toLocaleString()}</span>
       <span class="rb-total-label">keywords</span>
     </div>
   </div>
@@ -54,7 +54,7 @@ const gid = `rb-${Math.random().toString(36).slice(2, 8)}`;
       <div class="rb-leg-item">
         <span class="rb-dot" style={`background: ${b.color};`}></span>
         <span class="rb-leg-label">{b.label}</span>
-        <span class="rb-leg-count" data-target={b.count}>0</span>
+        <span class="rb-leg-count">{b.count.toLocaleString()}</span>
       </div>
     ))}
   </div>
@@ -105,12 +105,6 @@ const gid = `rb-${Math.random().toString(36).slice(2, 8)}`;
     width: 100%;
     height: 26px;
     display: block;
-    transform: scaleX(0);
-    transform-origin: left center;
-    transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .rank-breakdown.animated .rb-bar {
-    transform: scaleX(1);
   }
   .rb-legend {
     display: grid;
@@ -143,33 +137,3 @@ const gid = `rb-${Math.random().toString(36).slice(2, 8)}`;
     font-variant-numeric: tabular-nums;
   }
 </style>
-
-<script define:vars={{ gid }}>
-  const el = document.getElementById(gid);
-  if (el) {
-    const nums = el.querySelectorAll('.rb-total-num, .rb-leg-count');
-    let fired = false;
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting && !fired) {
-          fired = true;
-          el.classList.add('animated');
-          nums.forEach((n) => {
-            const target = parseFloat(n.dataset.target || '0');
-            const duration = 1400;
-            const start = performance.now();
-            const tick = (now) => {
-              const progress = Math.min((now - start) / duration, 1);
-              const eased = 1 - Math.pow(1 - progress, 3);
-              n.textContent = Math.round(eased * target).toLocaleString();
-              if (progress < 1) requestAnimationFrame(tick);
-            };
-            requestAnimationFrame(tick);
-          });
-          obs.disconnect();
-        }
-      });
-    }, { threshold: 0.3 });
-    obs.observe(el);
-  }
-</script>

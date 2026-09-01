@@ -91,4 +91,4 @@ Since Google does not publish a topical authority score, you need proxy metrics 
 
 **Ignoring informational content** in favour of only commercial pages limits your topical coverage. Google expects authoritative sites to cover both commercial and informational queries within their niche. A kitchen company that only has product pages but no guides on materials, costs, or planning is missing half the topical picture.
 
-Building a full topical cluster from scratch is exactly what our [SEO website build](/services/seo-website-build/) delivers, with the hub-and-spoke architecture mapped before any page is written.
+Building a full topical cluster from scratch is exactly what our [SEO website build](/seo-web-design/) delivers, with the hub-and-spoke architecture mapped before any page is written.

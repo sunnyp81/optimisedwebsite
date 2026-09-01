@@ -90,4 +90,4 @@ WordPress provides a more accessible platform with a mature SEO plugin ecosystem
 
 Static sites are the stronger choice for businesses prioritising maximum ranking potential and willing to work with a developer. For businesses that need to manage content independently and are willing to accept some performance trade-offs, WordPress remains a solid option, provided it is built and maintained properly.
 
-Our [SEO website build](/services/seo-website-build/) gives you the static-site advantage without needing a developer in-house, delivered on Astro with the editorial workflow set up for you.
+Our [SEO website build](/seo-web-design/) gives you the static-site advantage without needing a developer in-house, delivered on Astro with the editorial workflow set up for you.

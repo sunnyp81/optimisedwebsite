@@ -1,0 +1,287 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import StatDelta from '../components/StatDelta.astro';
+import RankingBreakdown from '../components/RankingBreakdown.astro';
+import PageAnatomy from '../components/PageAnatomy.astro';
+import { site } from '../data/site';
+import { caseStudies } from '../data/caseStudies';
+
+const proofStudy = caseStudies.find((s) => s.slug === 'water-hardness-uk')!;
+
+const schemaNodes = [
+  {
+    '@type': 'Service',
+    '@id': `${site.url}/free-website-growth-review/#service`,
+    name: 'Free Website Growth Review',
+    description: 'A free written diagnosis, from a five-minute form, covering website visibility, conversion path, and the highest-value next action for UK trade and local-service businesses.',
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: { '@type': 'Country', name: 'United Kingdom' },
+  },
+];
+---
+<Base
+  title="Free Website Growth Review for UK Trade Businesses | OptimisedWebsite"
+  description="Fill in a five-minute form and get a free written review of your website: visibility, conversion path, and the highest-value next action. No obligation, no sales call required."
+  canonicalPath="/free-website-growth-review/"
+  schemaNodes={schemaNodes}
+>
+  <div class="max-w-[900px] mx-auto px-5 md:px-10 pt-28 pb-20">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'Free Growth Review', href: '/free-website-growth-review/' },
+    ]} />
+
+    <!-- ===== BUYER OUTCOME ===== -->
+    <section class="py-10">
+      <div class="section-tag">Free Growth Review</div>
+      <h1 class="section-title">Get a Free Website Growth Review</h1>
+      <p class="mt-4 text-lg leading-relaxed max-w-[640px]" style="color: var(--color-ink-2);">
+        Fill in a five-minute form and we send back a short written diagnosis of what is stopping your site from generating more enquiries. Built for UK trade and local-service businesses comparing a fixed-price rebuild against patching what they already have.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4 text-[13px]" style="color: var(--color-ink-3);">
+        <span class="flex items-center gap-1.5">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          We reply within 24 hours
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Free, no obligation
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Used only to prepare your review
+        </span>
+      </div>
+    </section>
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <!-- ===== WHAT YOU RECEIVE ===== -->
+    <section class="py-10 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6" style="color: var(--color-ink);">What You Receive</h2>
+      <p class="leading-relaxed max-w-[640px] mb-8" style="color: var(--color-ink-2);">
+        A short written diagnosis of your current site, covering three things: how visible it actually is in search, where the path from visitor to enquiry breaks down, and the single highest-value change to make first. No generic checklist, no automated report, no sales call required to get it.
+      </p>
+      <div class="grid md:grid-cols-3 gap-4">
+        {[
+          { n: '01', title: 'Visibility', desc: 'How visible your site is in publicly visible search results, and the gap between that and the searches your customers actually run.' },
+          { n: '02', title: 'Conversion path', desc: 'Where a visitor who lands on your site loses the thread before they call, message, or fill in a form.' },
+          { n: '03', title: 'Next action', desc: 'The one change worth doing first, ranked above everything else that could wait.' },
+        ].map((item) => (
+          <div class="rounded-[16px] p-6" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
+            <span class="font-extrabold text-lg" style="color: var(--color-accent-2);">{item.n}</span>
+            <h3 class="font-bold mt-2 mb-1.5" style="color: var(--color-ink);">{item.title}</h3>
+            <p class="text-[14px] leading-relaxed" style="color: var(--color-ink-2);">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[13px] mt-6" style="color: var(--color-ink-3);">
+        This is a written diagnosis, not a full technical audit or a ranking guarantee. Depth depends on what is publicly visible about your site and how it currently performs.
+      </p>
+    </section>
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <!-- ===== OWNED PROOF ===== -->
+    <section class="py-10 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-3" style="color: var(--color-ink);">How We Read a Search Diagnostic</h2>
+      <p class="leading-relaxed max-w-[640px] mb-2" style="color: var(--color-ink-2);">
+        The numbers below are real Google Search Console data from {proofStudy.name}, a site we own and operate ourselves. It is not a client campaign and not an independent testimonial. We show it so you can see exactly the kind of evidence your own review will be based on.
+      </p>
+      <div class="mb-6">
+        <StatDelta stats={proofStudy.stats} />
+      </div>
+      <RankingBreakdown buckets={proofStudy.ranks} title={`${proofStudy.name}: ranking keywords by position`} />
+      <p class="text-[13px] mt-4" style="color: var(--color-ink-3);">
+        Full breakdown, including architecture and schema decisions, is in the <a href={`/case-studies/${proofStudy.slug}/`} style="color: var(--color-accent-2); font-weight: 500;">{proofStudy.name} case study</a>.
+      </p>
+    </section>
+
+    <section class="py-10 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-3" style="color: var(--color-ink);">The Page-Architecture Blueprint We Check Against</h2>
+      <p class="leading-relaxed max-w-[640px] mb-8" style="color: var(--color-ink-2);">
+        Your written review compares your site against the same structural layers we build into every site we ship. Click each layer below to see what it covers.
+      </p>
+      <PageAnatomy />
+    </section>
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <!-- ===== QUALIFICATION ===== -->
+    <section class="py-10 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-8" style="color: var(--color-ink);">Who This Is For</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="compare-col ours">
+          <h3 class="text-lg font-bold mb-4">Good fit</h3>
+          <ul class="space-y-3">
+            {[
+              'UK trade or local-service businesses wanting more enquiries from search',
+              'A site that already exists, even if it has never been touched for SEO',
+              'Businesses comparing a fixed-price rebuild against ongoing agency fees',
+              'Anyone deciding whether to fix an existing site or start again',
+            ].map((c) => (
+              <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-ink-2);">
+                <span class="font-bold shrink-0" style="color: var(--color-accent-2);">&check;</span>
+                <span>{c}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="compare-col old">
+          <h3 class="text-lg font-bold mb-4">Not a fit</h3>
+          <ul class="space-y-3">
+            {[
+              'Large ecommerce catalogues with thousands of SKUs',
+              'Businesses outside the United Kingdom',
+              'Anyone expecting a guaranteed ranking position or a same-day turnaround',
+              'Sites already under an active agency retainer for the same work',
+            ].map((c) => (
+              <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-ink-2);">
+                <span class="text-red-400 font-bold shrink-0">&times;</span>
+                <span>{c}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <p class="text-center mt-8 text-[15px]" style="color: var(--color-ink-2);">
+        Comparing packages already? <a href="/pricing/" class="font-semibold" style="color: var(--color-accent-2);" data-analytics-event="cta_click" data-analytics-label="review-see-pricing">See pricing &rarr;</a>
+      </p>
+    </section>
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <!-- ===== FORM ===== -->
+    <section class="py-10" id="review-form-section">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-2" style="color: var(--color-ink);">Request Your Free Review</h2>
+      <p class="mb-8 leading-relaxed max-w-[560px]" style="color: var(--color-ink-2);">
+        Five fields. We reply within 24 hours with your written diagnosis. Prefer email? Send your site to <a href={`mailto:${site.email}`} class="font-medium" style="color: var(--color-accent-2);" data-analytics-event="email_click" data-analytics-label="review-intro">{site.email}</a> instead.
+      </p>
+
+      <form id="review-form" class="space-y-6 max-w-[560px]">
+        <div>
+          <label for="review-name" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Name <span class="text-red-500">*</span></label>
+          <input type="text" id="review-name" name="name" required autocomplete="name" class="w-full rounded-[12px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink); min-height: 44px;" />
+        </div>
+
+        <div>
+          <label for="review-email" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Email <span class="text-red-500">*</span></label>
+          <input type="email" id="review-email" name="email" required autocomplete="email" class="w-full rounded-[12px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink); min-height: 44px;" />
+        </div>
+
+        <div>
+          <label for="review-domain" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Website / Domain <span class="text-red-500">*</span></label>
+          <input type="text" id="review-domain" name="domain" required placeholder="e.g. example.co.uk" autocomplete="url" class="w-full rounded-[12px] px-4 py-3 placeholder:text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink); min-height: 44px;" />
+        </div>
+
+        <div>
+          <label for="review-phone" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Phone <span class="font-normal" style="color: var(--color-ink-2);">(optional)</span></label>
+          <input type="tel" id="review-phone" name="phone" autocomplete="tel" class="w-full rounded-[12px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink); min-height: 44px;" />
+        </div>
+
+        <div>
+          <label for="review-message" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">What result do you want from your website? <span class="text-red-500">*</span></label>
+          <textarea id="review-message" name="message" rows="3" required placeholder="e.g. more phone calls from local searches" class="w-full rounded-[12px] px-4 py-3 placeholder:text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);"></textarea>
+        </div>
+
+        <input type="hidden" name="source" value="optimisedwebsite.com/free-website-growth-review" />
+        <input type="hidden" name="form_type" value="contact" />
+
+        <!-- Honeypot: submissions that fill this visually hidden field are discarded. -->
+        <div class="hidden" aria-hidden="true">
+          <label for="review-website">Website</label>
+          <input type="text" id="review-website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <button type="submit" id="review-submit" class="btn-glow">
+          Get My Free Growth Review
+        </button>
+
+        <div id="review-status" role="status" aria-live="polite" aria-atomic="true" class="mt-4 text-[14px]"></div>
+
+        <p class="text-[12px] leading-relaxed" style="color: var(--color-ink-3);">
+          We only use these details to prepare and send your review. See our <a href="/privacy/" style="color: var(--color-accent-2);">privacy policy</a> for how we handle your data.
+        </p>
+      </form>
+
+      <div id="review-success" class="hidden py-10" tabindex="-1">
+        <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">Request received</h2>
+        <p class="leading-relaxed" style="color: var(--color-ink-2);">We will reply within 24 hours with your written growth review. Check your inbox (and spam folder) for our response.</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+  const form = document.getElementById('review-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('review-submit') as HTMLButtonElement;
+  const statusEl = document.getElementById('review-status') as HTMLDivElement;
+  const successDiv = document.getElementById('review-success') as HTMLDivElement;
+
+  const gtag = (...args: unknown[]) => {
+    const w = window as unknown as { gtag?: (...a: unknown[]) => void };
+    if (typeof w.gtag === 'function') w.gtag(...args);
+  };
+
+  let startedTracked = false;
+  form.addEventListener('focusin', () => {
+    if (!startedTracked) {
+      startedTracked = true;
+      gtag('event', 'form_start', { form_id: 'review-form' });
+    }
+  }, { once: true });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    // Honeypot check — silently drop, no error shown to the (likely bot) submitter
+    if (data.get('website')) return;
+
+    const body = Object.fromEntries(data.entries()) as Record<string, string>;
+    body.landing_page = location.pathname;
+    body.referrer = document.referrer || '';
+    const params = new URLSearchParams(location.search);
+    (['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'] as const).forEach((key) => {
+      const value = params.get(key);
+      if (value) body[key] = value;
+    });
+
+    submitBtn.disabled = true;
+    submitBtn.setAttribute('aria-busy', 'true');
+    statusEl.setAttribute('role', 'status');
+    statusEl.textContent = 'Sending your review request…';
+
+    try {
+      const res = await fetch('/api/intake', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(body),
+      });
+      const result = await res.json().catch(() => ({ ok: false }));
+      if (!res.ok || !result.ok) throw new Error(`${res.status}`);
+
+      statusEl.textContent = '';
+      form.classList.add('hidden');
+      successDiv.classList.remove('hidden');
+      successDiv.focus();
+      gtag('event', 'generate_lead', { form_id: 'review-form' });
+    } catch {
+      statusEl.setAttribute('role', 'alert');
+      statusEl.textContent = '';
+      statusEl.append('Something went wrong sending your request. Please try again, or email ');
+      const link = document.createElement('a');
+      link.href = 'mailto:hello@optimisedwebsite.com';
+      link.className = 'font-medium';
+      link.style.color = 'var(--color-accent-2)';
+      link.textContent = 'hello@optimisedwebsite.com';
+      link.setAttribute('data-analytics-event', 'email_click');
+      link.setAttribute('data-analytics-label', 'review-form-error');
+      statusEl.append(link, ' directly.');
+      submitBtn.disabled = false;
+      submitBtn.removeAttribute('aria-busy');
+      gtag('event', 'form_error', { form_id: 'review-form' });
+    }
+  });
+  </script>
+</Base>

@@ -1,0 +1,232 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTA from '../components/CTA.astro';
+import { site } from '../data/site';
+
+const deliverables = [
+  { title: 'Keyword research before design starts', desc: 'Every page target is set from search data first. Layout and content structure follow the keywords, not the other way round.' },
+  { title: 'Hub-and-spoke architecture', desc: 'Pages are grouped into topic clusters with a clear internal linking plan, so search engines can find and understand every page.' },
+  { title: 'Per-page JSON-LD schema', desc: 'Organisation, Service, Article, FAQPage and BreadcrumbList schema, cross-referenced through a single entity graph.' },
+  { title: 'Technical SEO built in', desc: 'Canonical URLs, XML sitemap, heading hierarchy, and Core Web Vitals checked before handover, not bolted on afterwards.' },
+];
+
+const packages = [
+  { tier: '15-page package', price: '£1,500', pages: 'Up to 15 pages', fit: 'A single service or single-location business with a focused page list' },
+  { tier: '50-page package', price: '£3,000', pages: 'Up to 50 pages', fit: 'Multiple services, multiple areas, or a topical map that needs more coverage' },
+];
+
+const clientSupplies = [
+  'Business name, contact details, and any existing branding (logo, colours) if you have them',
+  'A list of the services or products you want the site to cover',
+  'Any existing content, testimonials, accreditations, or photos you want reused',
+  'Access to your domain registrar or current hosting, if you already have a domain',
+];
+
+const handover = [
+  'Full source code, hosted in a repository you control',
+  'The site deployed and live on your domain',
+  'XML sitemap submitted to Google Search Console and Bing Webmaster Tools',
+  'A short handover note covering the page list, schema types used, and how to request future edits',
+];
+
+const faqs = [
+  { q: 'What is SEO web design?', a: 'SEO web design is a website where the structure, content, and code are planned around search intent from the start, rather than a design being built first and SEO added afterwards. URL structure, heading hierarchy, and internal linking all follow keyword research.' },
+  { q: 'How is this different from a normal web design service?', a: 'A standard web design service prioritises look and feel, then may add basic on-page SEO at the end. We start with keyword research and topical mapping, then design the site to fit that structure. The visual design still matters, but it is built on top of an SEO-first architecture.' },
+  { q: 'How is this different from paying someone to do on-page SEO on my existing site?', a: 'On-page SEO work (title tags, meta descriptions, heading tweaks) improves a site that already exists, within whatever structure it already has. SEO web design sets the structure itself: which pages exist, how they link to each other, and what each one targets. If the underlying architecture is wrong, on-page tweaks alone will not fix it.' },
+  { q: 'Do you guarantee rankings?', a: 'No. Nobody can guarantee a specific ranking position, and any agency that promises one is not being straight with you. What we can control is the structure, content, and technical foundation, which is what we build and hand over.' },
+  { q: 'How long does an SEO web design project take?', a: 'Most builds are delivered in 7 days for up to 15 pages, or up to 14 days for larger 50-page builds. Timeline is confirmed before work starts.' },
+  { q: 'What do I need to provide before you start?', a: 'A list of the services or products you want covered, and any existing branding, content, or photos you want reused. If you do not have branding yet, we can work from your business name and industry.' },
+  { q: 'Do I need to already have a domain?', a: 'No. If you do not have one yet, you can register it yourself with any registrar and we will help you connect it to the new site. If you already have a domain with existing rankings, the migration process is different, see our website redesign and SEO migration service instead.' },
+];
+
+const schemaNodes = [
+  {
+    '@type': 'Service',
+    '@id': `${site.url}/seo-web-design/#service`,
+    name: 'SEO Web Design',
+    description: 'SEO web design for UK businesses: keyword research, topical architecture, per-page schema, and technical SEO built in from the first page, not added afterwards.',
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: { '@type': 'Country', name: 'United Kingdom' },
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'GBP',
+      priceSpecification: { '@type': 'PriceSpecification', minPrice: '1500', maxPrice: '3000', priceCurrency: 'GBP' },
+    },
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${site.url}/seo-web-design/#faq`,
+    mainEntity: faqs.map((faq) => ({ '@type': 'Question', name: faq.q, acceptedAnswer: { '@type': 'Answer', text: faq.a } })),
+  },
+];
+---
+<Base
+  title="SEO Web Design for UK Businesses | OptimisedWebsite"
+  description="SEO web design built from keyword research first: hub-and-spoke architecture, per-page schema, and technical SEO. £1,500 to £3,000, delivered in 7 to 14 days."
+  canonicalPath="/seo-web-design/"
+  schemaNodes={schemaNodes}
+>
+  <div class="max-w-[1100px] mx-auto px-5 md:px-10 pt-28 pb-20">
+    <Breadcrumb items={[
+      { label: 'Home', href: '/' },
+      { label: 'SEO Web Design', href: '/seo-web-design/' },
+    ]} />
+
+    <section class="py-12">
+      <div class="section-tag">SEO Web Design</div>
+      <h1 class="section-title">SEO Web Design for UK Businesses</h1>
+      <p class="mt-4 text-lg leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
+        SEO web design means the website is structured for search from the first page, not designed first and optimised afterwards. Keyword research sets the page list, topical mapping sets the internal linking, and schema markup ties every page to a single entity graph. From &pound;1,500, delivered in 7 to 14 days.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <CTA href="/free-website-growth-review/" label="Get a Free Growth Review" analyticsEvent="cta_click" analyticsLabel="seo-web-design-hero" />
+        <CTA href="/pricing/" label="See Pricing" variant="secondary" />
+      </div>
+    </section>
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">What Changes Before We Design Anything</h2>
+      <p class="leading-relaxed max-w-3xl mb-8" style="color: var(--color-ink-2);">
+        Before a single page is designed, we run keyword research to set the page list, then map how those pages link to each other. That order matters: a design built first and mapped to keywords afterwards usually ends up with the wrong pages, the wrong URLs, or no clear linking path between them.
+      </p>
+      <div class="grid md:grid-cols-2 gap-4">
+        {deliverables.map((d, i) => (
+          <div class="rounded-[16px] p-7" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
+            <div class="flex items-start gap-4">
+              <span class="font-extrabold text-lg mt-0.5" style="color: var(--color-accent-2);">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">{d.title}</h3>
+                <p class="text-[14px] leading-relaxed" style="color: var(--color-ink-2);">{d.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">What's the Difference Between the £1,500 and £3,000 Package?</h2>
+      <p class="leading-relaxed max-w-3xl mb-6" style="color: var(--color-ink-2);">
+        The two packages differ in page count, not in build quality. Every project gets the same keyword research, schema, and technical SEO approach, applied across whichever page count you need. The choice comes down to how many services, products, or areas your business needs a page for.
+      </p>
+      <p class="text-[12px] mb-2 sm:hidden" style="color: var(--color-ink-3);">Scroll right to see the full comparison &rarr;</p>
+      <div class="overflow-x-auto" tabindex="0" role="region" aria-label="Package comparison table">
+        <table class="w-full text-left border-collapse min-w-[560px]">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--color-rule);">
+              <th class="py-3 pr-4 font-semibold" style="color: var(--color-ink);">Package</th>
+              <th class="py-3 pr-4 font-semibold" style="color: var(--color-ink);">Price</th>
+              <th class="py-3 pr-4 font-semibold" style="color: var(--color-ink);">Page count</th>
+              <th class="py-3 font-semibold" style="color: var(--color-ink);">Typical fit</th>
+            </tr>
+          </thead>
+          <tbody style="color: var(--color-ink-2);">
+            {packages.map((pkg) => (
+              <tr style="border-bottom: 1px solid var(--color-rule);">
+                <td class="py-3 pr-4 font-medium" style="color: var(--color-ink);">{pkg.tier}</td>
+                <td class="py-3 pr-4">{pkg.price}</td>
+                <td class="py-3 pr-4">{pkg.pages}</td>
+                <td class="py-3">{pkg.fit}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[13px] mt-4" style="color: var(--color-ink-3);">
+        Full package details and what's included at each tier are on the <a href="/pricing/" style="color: var(--color-accent-2); font-weight: 500;">pricing page</a>.
+      </p>
+    </section>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">What Do I Need to Supply?</h2>
+      <p class="leading-relaxed max-w-3xl mb-4" style="color: var(--color-ink-2);">
+        You do not need a brief or a design mock-up. Keyword research sets the page structure, so what we need from you is information about the business itself.
+      </p>
+      <ul class="space-y-2.5 max-w-3xl mb-4">
+        {clientSupplies.map((item) => (
+          <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-ink-2);"><span class="font-bold shrink-0" style="color: var(--color-accent-2);">&check;</span><span>{item}</span></li>
+        ))}
+      </ul>
+      <p class="leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
+        If you do not have existing branding, we work from your business name and industry to set a visual direction, rather than delaying the build for a separate branding project.
+      </p>
+    </section>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">What Do I Get When the Build Is Handed Over?</h2>
+      <ul class="space-y-2.5 max-w-3xl">
+        {handover.map((item) => (
+          <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-ink-2);"><span class="font-bold shrink-0" style="color: var(--color-accent-2);">&check;</span><span>{item}</span></li>
+        ))}
+      </ul>
+    </section>
+
+    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">How Is This Different From Basic On-Page SEO?</h2>
+      <p class="leading-relaxed max-w-3xl mb-3" style="color: var(--color-ink-2);">
+        Basic on-page SEO adjusts a site that already exists: title tags, meta descriptions, heading text, and the odd internal link, within whatever page structure the site already has. If that structure is wrong, for example, one page trying to cover three different services, on-page edits cannot fix it.
+      </p>
+      <p class="leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
+        SEO web design sets the structure first: which pages exist, what each one targets, and how they link together, before any content or design work starts. It replaces the guesswork of retrofitting SEO onto a design-first site.
+      </p>
+    </section>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6" style="color: var(--color-ink);">Who This Fits</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="compare-col ours">
+          <h3 class="text-lg font-bold mb-4">Good fit</h3>
+          <ul class="space-y-3">
+            {[
+              'UK businesses building a new site or replacing one that has never targeted search intent',
+              'Sites with 15 to 50 pages, priced between £1,500 and £3,000',
+              'Businesses that want the source code and no ongoing retainer',
+            ].map((c) => (
+              <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-ink-2);"><span class="font-bold shrink-0" style="color: var(--color-accent-2);">&check;</span><span>{c}</span></li>
+            ))}
+          </ul>
+        </div>
+        <div class="compare-col old">
+          <h3 class="text-lg font-bold mb-4">Not a fit</h3>
+          <ul class="space-y-3">
+            {[
+              'Large ecommerce catalogues needing bespoke checkout or inventory systems',
+              'Sites needing custom software features beyond content pages',
+              'Projects needing bespoke applications or custom integrations, which require separate scoping and may not fit the fixed packages',
+            ].map((c) => (
+              <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-ink-2);"><span class="text-red-400 font-bold shrink-0">&times;</span><span>{c}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <FAQSection faqs={faqs} />
+
+    <section class="py-10 reveal" style="border-top: 1px solid var(--color-rule);">
+      <h2 class="text-xl font-bold tracking-[-0.02em] mb-5" style="color: var(--color-ink);">Related Pages</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="/seo-web-design-for-trades/" class="block rounded-[16px] p-6 no-underline" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
+          <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">SEO Web Design for Trades</h3>
+          <p class="text-[13px]" style="color: var(--color-ink-2);">Built for tradespeople and local-service businesses with service-area pages.</p>
+        </a>
+        <a href="/website-redesign-seo-migration/" class="block rounded-[16px] p-6 no-underline" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
+          <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">Website Redesign & SEO Migration</h3>
+          <p class="text-[13px]" style="color: var(--color-ink-2);">Already ranking and rebuilding? Read the migration process first.</p>
+        </a>
+        <a href="/free-website-growth-review/" class="block rounded-[16px] p-6 no-underline" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
+          <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">Free Website Growth Review</h3>
+          <p class="text-[13px]" style="color: var(--color-ink-2);">Get a written diagnosis before choosing a package.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+</Base>

@@ -50,7 +50,7 @@ The turnkey SEO market includes several distinct provider types, each with diffe
 ### Specialist SEO Website Builders
 These providers focus exclusively on building websites designed to rank. They typically have SEO expertise first and web development skills second. The keyword research and content strategy are informed by actual ranking experience across multiple niches.
 
-Pricing: £1,500-5,000 for 15-50 pages. Delivery: 5-14 days. Quality: highest within the turnkey category because SEO is the core competence. Our [SEO website build](/services/seo-website-build/) sits in this category, with fixed pricing set out on our [pricing page](/pricing/).
+Pricing: £1,500-5,000 for 15-50 pages. Delivery: 5-14 days. Quality: highest within the turnkey category because SEO is the core competence. Our [SEO website build](/seo-web-design/) sits in this category, with fixed pricing set out on our [pricing page](/pricing/).
 
 ### Web Design Agencies with SEO Packages
 Many web design agencies offer an "SEO package" alongside their standard builds. This usually means adding a Yoast or RankMath plugin, writing meta descriptions, and submitting a sitemap. The underlying site may look professional but lack the architectural foundations — topical clustering, internal linking strategy, per-page schema — that drive organic rankings.

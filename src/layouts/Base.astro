@@ -99,6 +99,23 @@ const ogImageUrl = new URL(ogImage ?? '/og-default.png', site.url).href;
         window.dispatchEvent(new CustomEvent('ow:open-consent', { detail: { opener: trigger } }));
       });
 
+      // Delegated click measurement (cta_click, email_click, book_call_click).
+      // Any element with data-analytics-event fires that event name — nothing
+      // is wired to book_call_click until a real booking link carries the attribute.
+      // No-ops safely before consent: gtag only exists once analytics is loaded.
+      document.addEventListener('click', (e) => {
+        if (!(e.target instanceof Element)) return;
+        const trigger = e.target.closest('[data-analytics-event]');
+        if (!trigger) return;
+        const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+        if (typeof w.gtag !== 'function') return;
+        const eventName = trigger.getAttribute('data-analytics-event');
+        if (!eventName) return;
+        const label = trigger.getAttribute('data-analytics-label') || (trigger.textContent || '').trim().slice(0, 80);
+        const href = trigger instanceof HTMLAnchorElement ? trigger.href : undefined;
+        w.gtag('event', eventName, { label, href });
+      });
+
       // Scroll progress bar
       const scrollBar = document.getElementById('scrollBar');
       window.addEventListener('scroll', () => {

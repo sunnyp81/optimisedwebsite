@@ -220,4 +220,4 @@ Run a readability check. Target a Flesch-Kincaid grade level of 8-10 for most SE
 
 Verify all factual claims against primary sources. A single inaccurate statistic undermines the trust signals your entire page depends on.
 
-Every page in our [SEO website build](/services/seo-website-build/) is written to these standards, with original content mapped to search intent rather than padded to a word count.
+Every page in our [SEO website build](/seo-web-design/) is written to these standards, with original content mapped to search intent rather than padded to a word count.

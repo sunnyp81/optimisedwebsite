@@ -23,7 +23,7 @@ const schemaNodes = [
       '@type': 'ListItem',
       position: i + 1,
       name: s.title,
-      url: `${site.url}/services/${s.slug}/`
+      url: `${site.url}${s.href}`
     }))
   }
 ];
@@ -53,7 +53,7 @@ const schemaNodes = [
         <ServiceCard
           title={s.title}
           description={s.shortDescription}
-          href={`/services/${s.slug}/`}
+          href={s.href}
         />
       ))}
     </section>

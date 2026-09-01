@@ -38,7 +38,7 @@ const schemaNodes = [
       <div class="section-tag">Contact</div>
       <h1 class="section-title">Contact Us</h1>
       <p class="mt-4 text-lg leading-relaxed" style="color: var(--color-ink-2);">
-        Have a question about our builds, pricing, or process? Send us a message below or email <a href={`mailto:${site.email}`} class="font-medium" style="color: var(--color-accent-2);">{site.email}</a> directly. We reply within 24 hours on working days.
+        Have a question about our builds, pricing, or process? Send us a message below or email <a href={`mailto:${site.email}`} class="font-medium" style="color: var(--color-accent-2);" data-analytics-event="email_click" data-analytics-label="contact-intro">{site.email}</a> directly. We reply within 24 hours on working days.
       </p>
     </section>
 
@@ -108,7 +108,14 @@ const schemaNodes = [
     // Honeypot check — silently drop, no error shown to the (likely bot) submitter
     if (data.get('website')) return;
 
-    const body = Object.fromEntries(data.entries());
+    const body = Object.fromEntries(data.entries()) as Record<string, string>;
+    body.landing_page = location.pathname;
+    body.referrer = document.referrer || '';
+    const params = new URLSearchParams(location.search);
+    (['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'] as const).forEach((key) => {
+      const value = params.get(key);
+      if (value) body[key] = value;
+    });
 
     submitBtn.disabled = true;
     submitBtn.setAttribute('aria-busy', 'true');
@@ -138,6 +145,8 @@ const schemaNodes = [
       link.className = 'font-medium';
       link.style.color = 'var(--color-accent-2)';
       link.textContent = 'hello@optimisedwebsite.com';
+      link.setAttribute('data-analytics-event', 'email_click');
+      link.setAttribute('data-analytics-label', 'contact-form-error');
       statusEl.append(link, ' directly.');
       submitBtn.disabled = false;
       submitBtn.removeAttribute('aria-busy');
