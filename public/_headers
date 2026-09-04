@@ -22,3 +22,11 @@
 /hummingbird3/*
   X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
   Cache-Control: private, no-store
+
+/hummingbird4/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+  Cache-Control: private, no-store
+
+/hummingbird5/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+  Cache-Control: private, no-store
