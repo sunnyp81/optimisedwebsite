@@ -808,6 +808,7 @@ html.dark .section-dark {
 .prose a {
   color: var(--color-accent-2); text-decoration: underline;
   text-underline-offset: 3px;
+  overflow-wrap: anywhere;
 }
 .prose a:hover { color: #9333ea; }
 .prose strong { color: var(--color-ink); font-weight: 600; }
@@ -903,3 +904,7 @@ html.dark .cta-final { background: #070d1a; }
   background: radial-gradient(ellipse, rgba(251,191,36,0.06) 0%, transparent 60%);
   pointer-events: none;
 }
+
+/* Mobile: wide data tables scroll inside their box; long inline code and URLs wrap. */
+.prose table { display: block; max-width: 100%; overflow-x: auto; }
+:not(pre) > code { overflow-wrap: anywhere; }

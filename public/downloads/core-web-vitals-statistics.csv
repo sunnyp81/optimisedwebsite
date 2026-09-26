@@ -1,0 +1,79 @@
+metric,segment,value,period,source,source_url
+Good Core Web Vitals (all three),All origins mobile,48%,2025 (July 2025 dataset),Web Almanac 2025 Performance chapter fig 7.1,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals (all three),All origins desktop,56%,2025 (July 2025 dataset),Web Almanac 2025 Performance chapter fig 7.1,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals (all three),All origins mobile,44%,2024,Web Almanac 2025 Performance chapter fig 7.1,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals (all three),All origins desktop,55%,2024,Web Almanac 2025 Performance chapter fig 7.1,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals (all three),All origins mobile,36%,2023,Web Almanac 2025 Performance chapter fig 7.1,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals (all three),All origins desktop,48%,2023,Web Almanac 2025 Performance chapter fig 7.1,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals (all three),All origins mobile,31%,2022,Web Almanac 2025 Performance chapter fig 7.1,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals (all three),All origins desktop,44%,2022,Web Almanac 2025 Performance chapter fig 7.1,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals (all three),All origins mobile,32%,2021,Web Almanac 2025 Performance chapter fig 7.1,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals (all three),All origins desktop,41%,2021,Web Almanac 2025 Performance chapter fig 7.1,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals trend gain 2021-2025 (computed),All origins mobile,+16 percentage points,2021-2025,Computed from Web Almanac 2025 Performance chapter fig 7.1,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals trend gain 2021-2025 (computed),All origins desktop,+15 percentage points,2021-2025,Computed from Web Almanac 2025 Performance chapter fig 7.1,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals trend gain 2024-2025 (computed),All origins mobile,+4 percentage points,2024-2025,Computed from Web Almanac 2025 Performance chapter fig 7.1,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals trend gain 2024-2025 (computed),All origins desktop,+1 percentage point,2024-2025,Computed from Web Almanac 2025 Performance chapter fig 7.1,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals (all three),All origins global,55.6%,"August 2026 CrUX dataset, published 8 Sep 2026",CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
+Total tracked origins,All origins global,"18,294,881","August 2026 CrUX dataset, published 8 Sep 2026",CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
+Gap between INP pass rate and combined Core Web Vitals pass rate (computed),All origins global,29.7 percentage points,"August 2026 CrUX dataset",Computed from CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
+INP replacing FID: drop in good CWV rate from switching metric (computed),All origins global,-3.2 percentage points,February 2024 CrUX dataset,Computed from CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
+Good LCP,All origins global,68.1%,"August 2026 CrUX dataset, published 8 Sep 2026",CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
+Good CLS,All origins global,81.5%,"August 2026 CrUX dataset, published 8 Sep 2026",CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
+Good INP,All origins global,85.3%,"August 2026 CrUX dataset, published 8 Sep 2026",CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
+Good LCP,Mobile,62%,2025,Web Almanac 2025 Performance chapter fig 7.7,https://almanac.httparchive.org/en/2025/performance
+Good LCP,Desktop,74%,2025,Web Almanac 2025 Performance chapter fig 7.7,https://almanac.httparchive.org/en/2025/performance
+Good CLS,Mobile,81%,2025,Web Almanac 2025 Performance chapter fig 7.17,https://almanac.httparchive.org/en/2025/performance
+Good CLS,Desktop,72%,2025,Web Almanac 2025 Performance chapter fig 7.17,https://almanac.httparchive.org/en/2025/performance
+Good CLS,Mobile,62%,2021,Web Almanac 2025 Performance chapter fig 7.18,https://almanac.httparchive.org/en/2025/performance
+Good CLS,Desktop,62%,2021,Web Almanac 2025 Performance chapter fig 7.18,https://almanac.httparchive.org/en/2025/performance
+Good INP,Mobile,77%,2025,Web Almanac 2025 Performance chapter fig 7.13,https://almanac.httparchive.org/en/2025/performance
+Good INP,Desktop,97%,2025,Web Almanac 2025 Performance chapter fig 7.13,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals when scored with FID,All origins global,48.8%,"February 2024 CrUX dataset",CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
+Good Core Web Vitals when scored with INP in place of FID,All origins global,45.6%,"February 2024 CrUX dataset, effective 12 Mar 2024",CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
+Good Core Web Vitals by site popularity,Top 1000 sites mobile,51%,2025,Web Almanac 2025 Performance chapter fig 7.2,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals by site popularity,Top 1000 sites desktop,59%,2025,Web Almanac 2025 Performance chapter fig 7.2,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals by site popularity,Top 100,000 sites mobile,37%,2025,Web Almanac 2025 Performance chapter fig 7.2,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals by site popularity,Top 10,000 sites mobile,42%,2025,Web Almanac 2025 Performance chapter fig 7.2,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals by page type,Home pages mobile,45%,2025,Web Almanac 2025 Performance chapter fig 7.3,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals by page type,Secondary pages mobile,56%,2025,Web Almanac 2025 Performance chapter fig 7.3,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals by page type,Home pages desktop,47%,2025,Web Almanac 2025 Performance chapter fig 7.3,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals by page type,Secondary pages desktop,61%,2025,Web Almanac 2025 Performance chapter fig 7.3,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals by CMS,WordPress mobile,45%,2025,Web Almanac 2025 CMS chapter fig 12.8,https://almanac.httparchive.org/en/2025/cms
+Good Core Web Vitals by CMS,Wix mobile,74%,2025,Web Almanac 2025 CMS chapter fig 12.8,https://almanac.httparchive.org/en/2025/cms
+Good Core Web Vitals by CMS,Wix mobile,55%,2024,Web Almanac 2025 CMS chapter fig 12.8,https://almanac.httparchive.org/en/2025/cms
+Good Core Web Vitals by CMS growth (computed),Wix mobile,+19 percentage points (+34.5% relative),2024-2025,Computed from Web Almanac 2025 CMS chapter fig 12.8,https://almanac.httparchive.org/en/2025/cms
+Good Core Web Vitals WordPress vs Wix gap (computed),Mobile,29 percentage points,2025,Computed from Web Almanac 2025 CMS chapter fig 12.8,https://almanac.httparchive.org/en/2025/cms
+Good Core Web Vitals by CMS,Duda mobile,85%,2025,Web Almanac 2025 CMS chapter fig 12.8,https://almanac.httparchive.org/en/2025/cms
+Good Core Web Vitals by CMS,TYPO3 CMS mobile,79%,2025,Web Almanac 2025 CMS chapter fig 12.8,https://almanac.httparchive.org/en/2025/cms
+Good Core Web Vitals by CMS,Weebly mobile,47%,2025,Web Almanac 2025 CMS chapter fig 12.8,https://almanac.httparchive.org/en/2025/cms
+WordPress Core Web Vitals pass rate over time,All WordPress origins,<15%,January 2020,Web Almanac 2024 CMS chapter fig 12.29,https://almanac.httparchive.org/en/2024/cms
+WordPress Core Web Vitals pass rate over time,All WordPress origins,41%,July 2024,Web Almanac 2024 CMS chapter fig 12.29,https://almanac.httparchive.org/en/2024/cms
+WordPress mobile market share,All mobile websites,35.6%,2025,Web Almanac 2025 CMS chapter fig 12.5,https://almanac.httparchive.org/en/2025/cms
+WordPress share of detectable CMS usage,Mobile sites using a CMS,64.3%,2025,Web Almanac 2025 CMS chapter fig 12.4,https://almanac.httparchive.org/en/2025/cms
+Median home page weight,Desktop,2862 KB,July 2025,Web Almanac 2025 Page Weight chapter fig 14.1/14.7,https://almanac.httparchive.org/en/2025/page-weight
+Median home page weight,Mobile,2559 KB,July 2025,Web Almanac 2025 Page Weight chapter fig 14.1,https://almanac.httparchive.org/en/2025/page-weight
+Median home page weight,Desktop,1208 KB,October 2014,Web Almanac 2025 Page Weight chapter fig 14.1,https://almanac.httparchive.org/en/2025/page-weight
+Median home page weight,Mobile,505 KB,October 2014,Web Almanac 2025 Page Weight chapter fig 14.1,https://almanac.httparchive.org/en/2025/page-weight
+Median home page weight growth (computed),Desktop,+136.9% (Oct 2014 to Jul 2025),2014-2025,Computed from Web Almanac 2025 Page Weight chapter fig 14.1,https://almanac.httparchive.org/en/2025/page-weight
+Median home page weight growth (computed),Mobile,+406.7% (Oct 2014 to Jul 2025),2014-2025,Computed from Web Almanac 2025 Page Weight chapter fig 14.1,https://almanac.httparchive.org/en/2025/page-weight
+Median home page vs inner page weight (computed),Desktop,+45.8% heavier,July 2025,Computed from Web Almanac 2025 Page Weight chapter fig 14.1/14.7 and fig 14.2,https://almanac.httparchive.org/en/2025/page-weight
+Median inner page weight,Desktop,1963 KB,July 2025,Web Almanac 2025 Page Weight chapter fig 14.2,https://almanac.httparchive.org/en/2025/page-weight
+Median inner page weight,Mobile,1769 KB,July 2025,Web Almanac 2025 Page Weight chapter fig 14.2,https://almanac.httparchive.org/en/2025/page-weight
+Median inner page weight,Desktop,1574 KB,May 2022,Web Almanac 2025 Page Weight chapter fig 14.2,https://almanac.httparchive.org/en/2025/page-weight
+Median inner page weight,Mobile,1366 KB,May 2022,Web Almanac 2025 Page Weight chapter fig 14.2,https://almanac.httparchive.org/en/2025/page-weight
+Median inner page weight growth (computed),Mobile,+29.5% (May 2022 to Jul 2025),2022-2025,Computed from Web Almanac 2025 Page Weight chapter fig 14.2,https://almanac.httparchive.org/en/2025/page-weight
+Median inner page weight growth (computed),Desktop,+24.7% (May 2022 to Jul 2025),2022-2025,Computed from Web Almanac 2025 Page Weight chapter fig 14.2,https://almanac.httparchive.org/en/2025/page-weight
+Median home page JavaScript weight,Mobile,632 KB,July 2025,Web Almanac 2025 Page Weight chapter fig 14.5,https://almanac.httparchive.org/en/2025/page-weight
+Median home page image weight,Mobile,911 KB,July 2025,Web Almanac 2025 Page Weight chapter fig 14.5,https://almanac.httparchive.org/en/2025/page-weight
+Median home page fonts weight,Mobile,122 KB,July 2025,Web Almanac 2025 Page Weight chapter fig 14.5,https://almanac.httparchive.org/en/2025/page-weight
+Median home page CSS weight,Mobile,77 KB,July 2025,Web Almanac 2025 Page Weight chapter fig 14.5,https://almanac.httparchive.org/en/2025/page-weight
+Median home page HTML weight,Mobile,22 KB,July 2025,Web Almanac 2025 Page Weight chapter fig 14.5,https://almanac.httparchive.org/en/2025/page-weight
+Milliseconds Make Millions: speed improvement tested,All verticals,0.1 seconds across 4 speed metrics,"2019 data, published 2020 (observational, older)",web.dev case study,https://web.dev/case-studies/milliseconds-make-millions
+Milliseconds Make Millions: retail consumer spend uplift,Retail sites,+9.2%,"2019 data (37 brands, 30m+ sessions), published 2020 (observational, older)",web.dev case study,https://web.dev/case-studies/milliseconds-make-millions
+Milliseconds Make Millions: lead-gen progression to Form Submission page,Lead generation sites,+21.6%,"2019 data (37 brands, 30m+ sessions), published 2020 (observational, older)",web.dev case study,https://web.dev/case-studies/milliseconds-make-millions
+Renault: LCP breakpoint used for bounce estimates,Landing pages,1.6 seconds,"data Dec 2020-Mar 2021, published Oct 2021 (observational, older)",web.dev case study,https://web.dev/case-studies/renault
+Renault: bounce rate change when resulting LCP is under 1.6s,Landing pages,-14 percentage points,"data Dec 2020-Mar 2021, published Oct 2021 (observational, older)",web.dev case study,https://web.dev/case-studies/renault
+Renault: bounce rate change when resulting LCP is above 1.6s,Landing pages,-5 percentage points,"data Dec 2020-Mar 2021, published Oct 2021 (observational, older)",web.dev case study,https://web.dev/case-studies/renault
+Renault: conversion rate change per 1s LCP improvement,Landing pages,+13%,"data Dec 2020-Mar 2021, published Oct 2021 (observational, older)",web.dev case study,https://web.dev/case-studies/renault
+Renault: study sample size,Landing pages across 33 countries,"10m+ visits","data Dec 2020-Mar 2021, published Oct 2021 (observational, older)",web.dev case study,https://web.dev/case-studies/renault
+Milliseconds Make Millions: study sample size,37 European and US mobile sites,"30m+ sessions over 30 days","2019 data, published 2020 (observational, older)",web.dev case study,https://web.dev/case-studies/milliseconds-make-millions

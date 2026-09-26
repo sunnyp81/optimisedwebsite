@@ -4,7 +4,7 @@ import { footerNav } from '../data/navigation';
 
 const year = new Date().getFullYear();
 ---
-<footer class="relative z-[2]" style="background: #0f172a;">
+<footer class="relative z-[2] overflow-hidden" style="background: #0f172a;">
   <!-- Top glow -->
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[200px] pointer-events-none" style="background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(251,191,36,0.08) 0%, transparent 60%);"></div>
 
@@ -15,7 +15,7 @@ const year = new Date().getFullYear();
         <h2 class="text-[20px] font-semibold tracking-[-0.02em]" style="color: #f8fafc;">Ready to rank?</h2>
         <p class="text-[14px] mt-1" style="color: rgba(248,250,252,0.55);">From brief to live site in 7 days. No retainers.</p>
       </div>
-      <div class="flex gap-3">
+      <div class="flex flex-wrap gap-3">
         <a href="/free-website-growth-review/" class="btn btn-accent text-[13px] font-semibold h-[40px] px-5" data-analytics-event="cta_click" data-analytics-label="footer-review">Get your free growth review</a>
         <a href="/contact/" class="text-[13px] font-medium no-underline px-4 h-[40px] inline-flex items-center rounded-full" style="color: rgba(248,250,252,0.7); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12); transition: background 0.2s, color 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#f8fafc';" onmouseout="this.style.background='transparent'; this.style.color='rgba(248,250,252,0.7)';">Talk to us</a>
       </div>
@@ -38,7 +38,7 @@ const year = new Date().getFullYear();
           SEO-optimised websites for UK businesses. Built in Astro, deployed on Cloudflare, structured to rank from day one.
         </p>
         <!-- Metrics strip -->
-        <div class="flex gap-4 mt-6 pt-5" style="border-top: 1px solid rgba(255,255,255,0.06);">
+        <div class="flex flex-wrap gap-4 mt-6 pt-5" style="border-top: 1px solid rgba(255,255,255,0.06);">
           <div>
             <div class="text-[18px] font-semibold font-mono" style="color: #fbbf24;">44</div>
             <div class="text-[10px] font-mono uppercase mt-0.5" style="color: rgba(248,250,252,0.55); letter-spacing: 0.06em;">Sites in network</div>
@@ -94,7 +94,7 @@ const year = new Date().getFullYear();
     <!-- Bottom bar -->
     <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
       <div class="text-[12px] font-mono" style="color: rgba(248,250,252,0.55);">&copy; {year} {site.name} &middot; Built in Britain</div>
-      <div class="flex items-center gap-5">
+      <div class="flex flex-wrap justify-center gap-5">
         <a href="/privacy/" class="text-[12px] no-underline transition-colors duration-200" style="color: rgba(248,250,252,0.6);" onmouseover="this.style.color='rgba(248,250,252,0.9)'" onmouseout="this.style.color='rgba(248,250,252,0.6)'">Privacy</a>
         <a href="/terms/" class="text-[12px] no-underline transition-colors duration-200" style="color: rgba(248,250,252,0.6);" onmouseover="this.style.color='rgba(248,250,252,0.9)'" onmouseout="this.style.color='rgba(248,250,252,0.6)'">Terms</a>
         <a href="/glossary/" class="text-[12px] no-underline transition-colors duration-200" style="color: rgba(248,250,252,0.6);" onmouseover="this.style.color='rgba(248,250,252,0.9)'" onmouseout="this.style.color='rgba(248,250,252,0.6)'">Glossary</a>

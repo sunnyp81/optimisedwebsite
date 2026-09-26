@@ -12,15 +12,15 @@ hubBacklink:
   href: "/learn/"
 faqs:
   - q: "Does schema markup directly improve rankings?"
-    a: "Schema markup does not provide a direct ranking boost. However, it enables rich results (star ratings, FAQ dropdowns, breadcrumb trails) that increase click-through rates from search results. Higher CTR sends positive engagement signals to Google, which can indirectly improve rankings."
+    a: "Schema markup does not provide a direct ranking boost. It can make pages eligible for supported rich results such as review stars, product details and breadcrumb trails. Google stopped showing HowTo rich results in 2023 and FAQ rich results in May 2026."
   - q: "Should I use JSON-LD or Microdata for schema?"
     a: "Google recommends JSON-LD. It is cleaner to implement because it sits in a script tag rather than being embedded in the HTML markup. JSON-LD is also easier to maintain and less prone to errors when the page design changes."
   - q: "How many schema types can I put on one page?"
     a: "As many as are relevant. A service page might carry Organization, ProfessionalService, FAQPage, and BreadcrumbList schema simultaneously. The key is that each schema type accurately represents content that exists on the page. Do not add schema for content that is not visible to users."
   - q: "What happens if my schema markup has errors?"
-    a: "Errors in schema markup can prevent rich results from appearing and may confuse search engines about your page content. Use Google's Rich Results Test and Schema Markup Validator to check your markup. Fix errors promptly — invalid schema is worse than no schema."
+    a: "Errors in schema markup can prevent rich results from appearing and may confuse search engines about your page content. Use Google's Rich Results Test and Schema Markup Validator to check your markup. Fix errors promptly: invalid markup cannot qualify for the rich results it targets."
 datePublished: "2026-05-13"
-dateModified: "2026-05-13"
+dateModified: "2026-09-26"
 ---
 
 Schema markup is structured data that tells search engines what your page content means, not just what it says. An SEO-optimised website uses JSON-LD schema on every page to communicate entity types, relationships, and attributes in a format that Google, Bing, and other search engines can parse directly.
@@ -31,7 +31,7 @@ This guide covers the schema types most relevant to business and content website
 
 HTML tells a browser how to display content. Schema markup tells a search engine what that content represents. A paragraph of text might describe a business, but without schema, Google must interpret the text to extract structured information. Schema removes the guesswork.
 
-Two things happen when Google processes your structured data. First, your pages become eligible for rich results — enhanced search listings with star ratings, FAQ dropdowns, breadcrumb trails, price ranges, and other visual elements that increase click-through rates. Second, Google's Knowledge Graph can incorporate your entity data, strengthening your site's association with specific topics, services, and locations.
+Two things happen when Google processes your structured data. First, your pages can become eligible for supported rich results: enhanced search listings with review stars, breadcrumb trails, price ranges and other visual elements. Second, Google's Knowledge Graph can incorporate your entity data, strengthening your site's association with specific topics, services, and locations.
 
 ## JSON-LD: The Recommended Format
 
@@ -39,7 +39,7 @@ Google explicitly recommends JSON-LD (JavaScript Object Notation for Linked Data
 
 You can add, modify, or remove schema without touching the page layout. Content management systems and static site generators can inject schema programmatically. Developers working on the front end do not need to coordinate with SEO teams about markup placement.
 
-The alternative formats — Microdata and RDFa — embed structured data directly in the HTML tags. While Google supports these formats, they create maintenance headaches because changes to the page design can inadvertently break the schema markup.
+The alternative formats (Microdata and RDFa) embed structured data directly in the HTML tags. While Google supports these formats, they create maintenance headaches because changes to the page design can inadvertently break the schema markup.
 
 ## Organization Schema
 
@@ -57,15 +57,15 @@ Article schema goes on blog posts, guides, news items, and any editorial content
 
 The `isPartOf` property should reference the parent CollectionPage (if the article belongs to a hub) or the WebPage. The `publisher` property should reference your Organization schema using its `@id`. The `about` property can reference the primary entity or topic the article covers.
 
-Article schema makes your content eligible for article-specific search features and helps Google understand the freshness and authorship of your content. Always keep `dateModified` updated when you revise an article — Google uses this signal to assess content freshness.
+Article schema makes your content eligible for article-specific search features and helps Google understand the freshness and authorship of your content. Always keep `dateModified` updated when you revise an article. Google may use `dateModified`, alongside other signals, to estimate when a page was significantly updated.
 
 ## FAQPage Schema
 
-FAQPage schema marks up question-and-answer sections on a page. When implemented correctly, it can trigger FAQ rich results — expandable question-and-answer pairs that appear directly in search results beneath your listing.
+FAQPage schema marks up question-and-answer sections on a page. Google stopped showing FAQ rich results in May 2026, so the markup now describes the content without earning an expanded listing.
 
 Each FAQ entry requires a Question with a `name` property (the question text) and an AcceptedAnswer with a `text` property (the answer text). The questions and answers in the schema must match the visible content on the page exactly. Adding FAQ schema for content that does not appear on the page violates Google's structured data guidelines and can result in a manual action.
 
-FAQPage schema works particularly well on service pages and informational articles where users commonly have follow-up questions. The expanded FAQ results increase the visual footprint of your search listing, which typically improves click-through rates.
+FAQPage schema still helps machines read question-and-answer content on service pages and informational articles. Our [schema markup statistics](/learn/schema-markup-statistics/) show FAQPage adoption kept rising after Google first restricted these results in 2023.
 
 ## ProfessionalService and Service Schema
 

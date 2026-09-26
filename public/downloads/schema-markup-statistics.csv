@@ -1,0 +1,47 @@
+metric,value,population,period,publisher,source_url
+"Homepages with any structured data (desktop)",50.0%,homepages,2025,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepages with any structured data (mobile)",50.0%,homepages,2025,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepages with any structured data (desktop)",48.0%,homepages,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepages with any structured data (mobile)",49.0%,homepages,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepages using JSON-LD (desktop)",43.0%,homepages,2025,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepages using JSON-LD (mobile)",43.0%,homepages,2025,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepages using JSON-LD (desktop)",41.0%,homepages,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepages using JSON-LD (mobile)",40.0%,homepages,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepages using Microdata (desktop)",17.0%,homepages,2025,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepages using Microdata (mobile)",16.0%,homepages,2025,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepages using RDFa",1.0%,homepages,2025,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepages using Microformats2 (desktop)",0.14%,homepages,2025,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Inner pages using JSON-LD (desktop)",39.0%,inner pages,2025,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Inner pages using JSON-LD (mobile)",37.0%,inner pages,2025,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Inner pages using Microdata",19.0%,inner pages,2025,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepage WebSite schema (mobile)",36.0%,homepages,2025,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepage WebSite schema (mobile)",35.0%,homepages,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepage WebSite schema (mobile)",30.0%,homepages,2022,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepage SearchAction schema (desktop)",28.0%,homepages,2025,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepage Organization schema (desktop)",26.74%,homepages,2025,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Homepage WebPage schema (desktop)",25.0%,homepages,2025,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Inner page ListItem schema (mobile)",27.0%,inner pages,2025,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Inner page ListItem schema (mobile)",30.0%,inner pages,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo
+"Pages using VideoObject markup",0.9%,wider page sample (population not further specified by source),2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2025/seo#seo
+"Mobile pages with WebSite JSON-LD",12.73%,all mobile pages,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/structured-data
+"Mobile pages with Organization JSON-LD",7.16%,all mobile pages,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/structured-data
+"Mobile pages with LocalBusiness JSON-LD",3.97%,all mobile pages,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/structured-data
+"Mobile pages with BreadcrumbList JSON-LD",5.66%,all mobile pages,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/structured-data
+"Mobile pages with ItemList JSON-LD",2.44%,all mobile pages,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/structured-data
+"Mobile pages with WebPage JSON-LD",1.49%,all mobile pages,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/structured-data
+"Mobile pages with BlogPosting JSON-LD",1.40%,all mobile pages,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/structured-data
+"Mobile pages with Product JSON-LD",0.77%,all mobile pages,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/structured-data
+"Mobile pages with Article JSON-LD",0.18%,all mobile pages,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/structured-data
+"Desktop pages with FAQPage JSON-LD",0.60%,desktop pages,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/structured-data
+"Desktop pages with FAQPage JSON-LD",0.20%,desktop pages,2022,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/structured-data
+"Live websites using JSON-LD (any page type)",55.7%,websites in W3Techs sample,26 Sep 2026,W3Techs,https://w3techs.com/technologies/overview/structured_data
+"Live websites using RDFa",36.8%,websites in W3Techs sample,26 Sep 2026,W3Techs,https://w3techs.com/technologies/overview/structured_data
+"Live websites using Microdata",21.3%,websites in W3Techs sample,26 Sep 2026,W3Techs,https://w3techs.com/technologies/overview/structured_data
+"Live websites using Open Graph",72.2%,websites in W3Techs sample,26 Sep 2026,W3Techs,https://w3techs.com/technologies/overview/structured_data
+"Live websites with no detected structured data format",20.2%,websites in W3Techs sample,26 Sep 2026,W3Techs,https://w3techs.com/technologies/overview/structured_data
+"Websites running WordPress",40.2%,websites in W3Techs sample,26 Sep 2026,W3Techs,https://w3techs.com/technologies/overview/content_management
+"FAQ rich results restricted to authoritative government and health sites",restriction announced,-,Aug 2023,Google Search Central,https://developers.google.com/search/blog/2023/08/howto-faq-changes
+"HowTo rich results removed from desktop and mobile search results",removed,-,13-14 Sep 2023,Google Search Central,https://developers.google.com/search/updates#how-to-deprecation
+"FAQ rich result feature deprecated for all remaining sites",removed,-,7 May 2026,Google Search Central,https://developers.google.com/search/updates#removing-faq-rich-result
+"Vidio VideoObject case study: video click increase",~2x video clicks,Vidio.com,Q1 2022 to Q1 2023,Google Search Central (case study),https://developers.google.com/search/case-studies/vidio-case-study
+"Italiaonline VideoObject case study: video click increase",+841%,Italiaonline,not stated,Google Search Central (case study),https://developers.google.com/search/case-studies/cross-regional-video-seo-case-study

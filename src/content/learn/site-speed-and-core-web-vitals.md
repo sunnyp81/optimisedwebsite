@@ -76,6 +76,8 @@ The ranking impact scales with competition. In a SERP where all top 10 results h
 
 Google Search Console reports Core Web Vitals at the site level, grouping URLs into Good, Needs Improvement and Poor categories. A site with predominantly "Poor" CWV scores faces a ranking headwind across all pages.
 
+Many sites still miss the thresholds. Our [core web vitals statistics](/learn/core-web-vitals-statistics/) show 55.6% of origins passed all three metrics in the CrUX August 2026 dataset.
+
 ## Why Static Sites Score Perfectly
 
 Static site generators like Astro produce pre-rendered HTML files with zero client-side JavaScript by default. This architecture eliminates the three primary causes of Core Web Vitals failures.

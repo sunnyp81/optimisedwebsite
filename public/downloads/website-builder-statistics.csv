@@ -1,0 +1,91 @@
+metric,value,unit,platform,date,source,source_url
+CMS share of all websites,68.5,%,Any CMS,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+No CMS share of all websites,31.5,%,None,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of all websites,40.2,%,WordPress,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of CMS-using websites,58.7,%,WordPress,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of all websites,5.4,%,Shopify,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of CMS-using websites,7.8,%,Shopify,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of all websites,4.2,%,Wix,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of CMS-using websites,6.2,%,Wix,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of all websites,2.4,%,Squarespace,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of CMS-using websites,3.6,%,Squarespace,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of all websites,1.1,%,Joomla,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of CMS-using websites,1.6,%,Joomla,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of all websites,0.8,%,Tilda,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of CMS-using websites,1.2,%,Tilda,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of all websites,0.8,%,Webflow,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of CMS-using websites,1.2,%,Webflow,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of all websites,0.7,%,Duda,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of CMS-using websites,1.1,%,Duda,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of all websites,0.6,%,Drupal,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Share of CMS-using websites,0.9,%,Drupal,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+WordPress share of all websites,43.2,%,WordPress,2025-12-01,W3Techs (via Search Engine Journal),https://www.searchenginejournal.com/wordpress-market-share-in-decline/576042/
+WordPress share of all websites,43.0,%,WordPress,2026-01-01,W3Techs (via Search Engine Journal),https://www.searchenginejournal.com/wordpress-market-share-in-decline/576042/
+WordPress share of all websites,42.8,%,WordPress,2026-02-01,W3Techs (via Search Engine Journal),https://www.searchenginejournal.com/wordpress-market-share-in-decline/576042/
+WordPress share of all websites,42.7,%,WordPress,2026-03-01,W3Techs (via Search Engine Journal),https://www.searchenginejournal.com/wordpress-market-share-in-decline/576042/
+WordPress share of all websites,42.5,%,WordPress,2026-04-01,W3Techs (via Search Engine Journal),https://www.searchenginejournal.com/wordpress-market-share-in-decline/576042/
+WordPress share of all websites,41.9,%,WordPress,2026-05-27,W3Techs (via Search Engine Journal),https://www.searchenginejournal.com/wordpress-market-share-in-decline/576042/
+WordPress share of all websites,40.2,%,WordPress,2026-09-26,W3Techs,https://w3techs.com/technologies/overview/content_management
+Calculated: WordPress share point change Dec-2025 to May-2026,-1.3,points,WordPress,2026-05-27,Calculated in data/compute.py from the two rows above,
+Calculated: WordPress share point change Dec-2025 to Sep-2026,-3.0,points,WordPress,2026-09-26,Calculated in data/compute.py from the two rows above,
+Calculated: WordPress share point change May-2026 to Sep-2026,-1.7,points,WordPress,2026-09-26,Calculated in data/compute.py from the two rows above,
+Share-point gain May 2025 to May 2026,0.6,points,Wix,2026-05-27,W3Techs (via Search Engine Journal),https://www.searchenginejournal.com/wordpress-market-share-in-decline/576042/
+Share-point gain May 2025 to May 2026,0.4,points,Shopify,2026-05-27,W3Techs (via Search Engine Journal),https://www.searchenginejournal.com/wordpress-market-share-in-decline/576042/
+Share-point gain May 2025 to May 2026,0.2,points,Squarespace,2026-05-27,W3Techs (via Search Engine Journal),https://www.searchenginejournal.com/wordpress-market-share-in-decline/576042/
+Share-point gain May 2025 to May 2026,0.1,points,Webflow,2026-05-27,W3Techs (via Search Engine Journal),https://www.searchenginejournal.com/wordpress-market-share-in-decline/576042/
+CMS adoption among crawled sites (mobile),54,%,All CMS,2025,HTTP Archive Web Almanac 2025 CMS chapter,https://almanac.httparchive.org/en/2025/cms
+CMS adoption among crawled sites (desktop),55,%,All CMS,2025,HTTP Archive Web Almanac 2025 CMS chapter,https://almanac.httparchive.org/en/2025/cms
+CMS adoption among crawled sites (mobile),43,%,All CMS,2021,HTTP Archive Web Almanac 2025 CMS chapter,https://almanac.httparchive.org/en/2025/cms
+CMS adoption among crawled sites (desktop),42,%,All CMS,2021,HTTP Archive Web Almanac 2025 CMS chapter,https://almanac.httparchive.org/en/2025/cms
+Calculated: CMS adoption point change 2021-2025 (desktop),13,points,All CMS,2025,Calculated in data/compute.py from the two rows above,
+Calculated: CMS adoption point change 2021-2025 (mobile),11,points,All CMS,2025,Calculated in data/compute.py from the two rows above,
+Share of mobile CMS-using sites,64.3,%,WordPress,2025,HTTP Archive Web Almanac 2025 CMS chapter,https://almanac.httparchive.org/en/2025/cms
+Share of all mobile websites,35.6,%,WordPress,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+CMS usage by site rank: Top 1,000 (desktop),7,%,All CMS,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+CMS usage by site rank: Top 1,000 (mobile),8,%,All CMS,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+CMS usage by site rank: Top 10,000 (desktop),16,%,All CMS,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+CMS usage by site rank: Top 10,000 (mobile),17,%,All CMS,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+CMS usage by site rank: Top 100,000 (desktop),21,%,All CMS,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+CMS usage by site rank: Top 100,000 (mobile),21,%,All CMS,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+CMS usage by site rank: Top 1,000,000 (desktop),28,%,All CMS,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+CMS usage by site rank: Top 1,000,000 (mobile),27,%,All CMS,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+CMS usage by site rank: Top 10,000,000 (desktop),45,%,All CMS,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+CMS usage by site rank: Top 10,000,000 (mobile),45,%,All CMS,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+CMS usage by site rank: All sites (desktop),49,%,All CMS,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+CMS usage by site rank: All sites (mobile),49,%,All CMS,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),45,%,WordPress,2025,HTTP Archive Web Almanac 2025 CMS chapter,https://almanac.httparchive.org/en/2025/cms
+Core Web Vitals good pass rate (mobile),40,%,WordPress,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),28,%,WordPress,2023,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),74,%,Wix,2025,HTTP Archive Web Almanac 2025 CMS chapter,https://almanac.httparchive.org/en/2025/cms
+"Core Web Vitals good pass rate (mobile), 2024 chapter's own figure",57,%,Wix,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+"Core Web Vitals good pass rate (mobile), 2025 chapter's own restated 2024 baseline",55,%,Wix,2024,HTTP Archive Web Almanac 2025 CMS chapter,https://almanac.httparchive.org/en/2025/cms
+Core Web Vitals good pass rate (mobile),40,%,Wix,2023,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Calculated: Wix CWV pass-rate point change 2024-2025 (within 2025 chapter only),19,points,Wix,2025,Calculated in data/compute.py from the 2025 chapter's own 55% and 74% figures,
+Core Web Vitals good pass rate (mobile),85,%,Duda,2025,HTTP Archive Web Almanac 2025 CMS chapter,https://almanac.httparchive.org/en/2025/cms
+Core Web Vitals good pass rate (mobile),73,%,Duda,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),62,%,Duda,2023,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),79,%,TYPO3 CMS,2025,HTTP Archive Web Almanac 2025 CMS chapter,https://almanac.httparchive.org/en/2025/cms
+Core Web Vitals good pass rate (mobile),71,%,TYPO3 CMS,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),63,%,TYPO3 CMS,2023,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),60,%,Squarespace,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),33,%,Squarespace,2023,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Calculated: Squarespace CWV pass-rate point change 2023-2024,27,points,Squarespace,2024,Calculated in data/compute.py (largest 2023-2024 gain of the ten platforms in this table),
+Core Web Vitals good pass rate (mobile),56,%,Drupal,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),46,%,Drupal,2023,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),49,%,Weebly,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),40,%,Weebly,2023,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),47,%,Weebly,2025,HTTP Archive Web Almanac 2025 CMS chapter,https://almanac.httparchive.org/en/2025/cms
+Core Web Vitals good pass rate (mobile),45,%,1C-Bitrix,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),30,%,1C-Bitrix,2023,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),45,%,Joomla,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),37,%,Joomla,2023,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),39,%,Tilda,2024,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Core Web Vitals good pass rate (mobile),28,%,Tilda,2023,HTTP Archive Web Almanac 2024 CMS chapter,https://almanac.httparchive.org/en/2024/cms
+Total unique subscriptions (Squarespace states "over" this figure),5.2,million,Squarespace,2024-06-30,Squarespace SEC 8-K exhibit 99.1,https://www.sec.gov/Archives/edgar/data/1496963/000149696324000070/sqsp-08022024x8kexhibit991.htm
+Total unique subscriptions,4.3,million,Squarespace,2023-06-30,Squarespace SEC 8-K exhibit 99.1,https://www.sec.gov/Archives/edgar/data/1496963/000149696324000070/sqsp-08022024x8kexhibit991.htm
+Calculated: Squarespace subscription growth 2023-2024,20.7,%,Squarespace,2024-06-30,"Calculated in data/compute.py (5.195m to 4.305m, filing rounds to 21%)",
+Last disclosed total merchants,2.06,million,Shopify,2021-12-31,Shopify annual filing (last year an exact count was disclosed),https://www.sec.gov/Archives/edgar/data/1594805/000159480522000011/exhibit11annualinformation.htm
+Gross Merchandise Volume,116,billion USD (approx),Shopify,2026-06-30,Shopify 10-Q Q2 2026,https://www.sec.gov/Archives/edgar/data/0001594805/000159480526000047/shop-20260630.htm
+Registered users,304.2,million,Wix,2025-12-31,Wix Form 20-F FY2025,https://www.sec.gov/Archives/edgar/data/1576789/000162828026015222/wix-20251231.htm
+Registered users,282.4,million,Wix,2024-12-31,Wix Form 20-F FY2025,https://www.sec.gov/Archives/edgar/data/1576789/000162828026015222/wix-20251231.htm
+Calculated: Wix registered-user growth 2024-2025,7.7,%,Wix,2025-12-31,"Calculated in data/compute.py (304.2m vs 282.4m, filing rounds to 8%)",

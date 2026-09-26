@@ -35,8 +35,8 @@ export const services: Service[] = [
     href: '/services/schema-markup/',
     title: 'Schema Markup',
     h1: 'Schema Markup and Structured Data',
-    metaTitle: 'Schema Markup Service — Entity-Linked Structured Data',
-    metaDescription: 'Per-page JSON-LD schema markup with entity-interconnected @graph. Article, FAQPage, HowTo, Service, BreadcrumbList — all cross-referenced.',
+    metaTitle: 'Schema Markup Service UK: Entity-Linked Structured Data',
+    metaDescription: 'Per-page JSON-LD schema markup with entity-interconnected @graph. Article, FAQPage, HowTo, Service, BreadcrumbList, all cross-referenced.',
     targetKeyword: 'schema markup service uk',
     shortDescription: 'Per-page JSON-LD with entity-interconnected @graph. Every schema node cross-references via @id for maximum search engine comprehension.'
   },

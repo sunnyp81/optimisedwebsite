@@ -12,14 +12,14 @@ const siblings = services.filter(s => s.slug !== current.slug).slice(0, 3);
 const hubItems = services.map(s => ({ label: s.title, href: s.href }));
 
 const faqs = [
-  { q: 'What schema types do you implement?', a: 'We implement Organisation, WebSite, WebPage, Service, ProfessionalService, Article, FAQPage, HowTo, BreadcrumbList, Offer, ItemList, and LocalBusiness schema types. Each type is used where it is semantically appropriate — we do not add schema types speculatively or where the page content does not support them.' },
+  { q: 'What schema types do you implement?', a: 'We implement Organisation, WebSite, WebPage, Service, ProfessionalService, Article, FAQPage, HowTo, BreadcrumbList, Offer, ItemList, and LocalBusiness schema types. Each type is used where it is semantically appropriate. We do not add schema types speculatively or where the page content does not support them.' },
   { q: 'Do you use a schema plugin or manual JSON-LD?', a: 'We write all schema as manual JSON-LD within an @graph structure. Plugins like Yoast or RankMath generate schema automatically but cannot handle entity interconnection, cross-page @id references, or custom schema types like HowTo with step-level granularity. Manual implementation gives us full control over every node and relationship.' },
   { q: 'How do you validate the schema after implementation?', a: 'We validate every page through Google Rich Results Test, Schema.org Validator, and manual inspection of the JSON-LD output. We check for missing required properties, incorrect @id references, broken entity relationships, and schema types that do not match the page content. Validation results are included in the handover document.' }
 ];
 
 const howToSteps = [
   { name: 'Audit existing schema', text: 'We crawl your site to identify any existing schema markup, check for errors in current implementations, and document which pages have schema and which do not.' },
-  { name: 'Define the entity graph', text: 'We map out the entities on your site — your organisation, your services, your content types — and define how they connect through @id references within a single @graph per page.' },
+  { name: 'Define the entity graph', text: 'We map out the entities on your site (your organisation, your services, your content types) and define how they connect through @id references within a single @graph per page.' },
   { name: 'Write per-page JSON-LD', text: 'Each page receives a hand-written JSON-LD block containing the schema types appropriate to its content. Every node references back to the site-wide Organisation and WebSite entities.' },
   { name: 'Validate and deploy', text: 'All schema is tested through Google Rich Results Test and Schema.org Validator. We fix any warnings or errors before deployment and verify that rich results are eligible where applicable.' }
 ];
@@ -85,27 +85,46 @@ const schemaNodes = [
         <div>
           <h3 class="font-semibold mb-2" style="color: var(--color-ink);">Core Entity Types</h3>
           <ul class="space-y-2 leading-relaxed list-disc list-inside" style="color: var(--color-ink-2);">
-            <li><strong style="color: var(--color-ink);">Organisation</strong> — your business entity, referenced by every other schema node on the site through @id.</li>
-            <li><strong style="color: var(--color-ink);">WebSite</strong> — your site entity, linked to the Organisation as publisher and used as the parent reference for all WebPage nodes.</li>
-            <li><strong style="color: var(--color-ink);">WebPage</strong> — page-level metadata including canonical URL, date published, and date modified.</li>
+            <li><strong style="color: var(--color-ink);">Organisation</strong>: your business entity, referenced by every other schema node on the site through @id.</li>
+            <li><strong style="color: var(--color-ink);">WebSite</strong>: your site entity, linked to the Organisation as publisher and used as the parent reference for all WebPage nodes.</li>
+            <li><strong style="color: var(--color-ink);">WebPage</strong>: page-level metadata including canonical URL, date published, and date modified.</li>
           </ul>
         </div>
         <div>
           <h3 class="font-semibold mb-2" style="color: var(--color-ink);">Content and Service Types</h3>
           <ul class="space-y-2 leading-relaxed list-disc list-inside" style="color: var(--color-ink-2);">
-            <li><strong style="color: var(--color-ink);">Service / ProfessionalService</strong> — for service pages, with provider linked to your Organisation, area served, and price range where applicable.</li>
-            <li><strong style="color: var(--color-ink);">Article</strong> — for blog posts and guides, with author, publisher, and date properties.</li>
-            <li><strong style="color: var(--color-ink);">FAQPage / HowTo</strong> — for FAQ sections and step-by-step guides, eligible for rich result display in Google search.</li>
-            <li><strong style="color: var(--color-ink);">BreadcrumbList</strong> — navigation path schema on every page, helping search engines understand your site hierarchy.</li>
+            <li><strong style="color: var(--color-ink);">Service</strong>: describes an offered service. Use provider to reference the organisation and areaServed to describe its coverage. Add offers with pricing where applicable.</li>
+            <li><strong style="color: var(--color-ink);">Article</strong>: for blog posts and guides, with author, publisher, and date properties.</li>
+            <li><strong style="color: var(--color-ink);">FAQPage / HowTo</strong>: describe FAQs and step-by-step instructions. Google Search no longer displays rich results for these types. See our <a href="/learn/schema-markup-statistics/">schema markup statistics</a> for adoption trends.</li>
+            <li><strong style="color: var(--color-ink);">BreadcrumbList</strong>: navigation path schema on every page, helping search engines understand your site hierarchy.</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section class="py-10">
-      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">How Entity Linking Works</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">How Do You Connect Entities with Schema Markup?</h2>
       <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
-        Entity linking is what separates effective schema from checkbox schema. Every schema node on your site carries an @id — a unique identifier that other nodes can reference. When your Service schema references your Organisation through @id, Google understands that this service is provided by this specific business. When your Article references the same Organisation as publisher, that connection is reinforced.
+        Connect entities with schema markup by assigning each entity a stable @id. Reference the organisation through the provider property of each Service and the publisher property of each Article or WebSite where those relationships apply. Use one @graph per page to organise the nodes.
+      </p>
+      <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
+        Use an absolute URL such as <code>https://example.co.uk/#organization</code> as the organisation's @id. Reuse that identifier wherever the markup describes the same organisation. In JSON-LD, objects with the same @id identify the same entity. Repeating a full object with that identifier does not create a separate entity. Consistent identifiers express relationships explicitly but do not guarantee how Google reconciles entities across pages.
+      </p>
+      <pre class="rounded-[12px] p-5 mb-6 overflow-x-auto text-sm leading-relaxed" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule); color: var(--color-ink);"><code>{`{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://example.co.uk/#organization",
+      "name": "Example Plumbing Ltd", "url": "https://example.co.uk/" },
+    { "@type": "WebSite", "@id": "https://example.co.uk/#website",
+      "url": "https://example.co.uk/",
+      "publisher": { "@id": "https://example.co.uk/#organization" } },
+    { "@type": "Service", "@id": "https://example.co.uk/boiler-repair/#service",
+      "name": "Boiler repair",
+      "provider": { "@id": "https://example.co.uk/#organization" } }
+  ]
+}`}</code></pre>
+      <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
+        Our entity linking process runs in four steps:
       </p>
       <ol class="space-y-4 leading-relaxed" style="color: var(--color-ink-2);">
         {howToSteps.map((step, i) => (
@@ -117,10 +136,10 @@ const schemaNodes = [
     <section class="py-10">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">Schema Validation</h2>
       <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
-        Schema that fails validation is worse than no schema at all — it sends conflicting signals to search engines and can suppress rich results eligibility. We validate every page through three layers: Google Rich Results Test for eligibility checking, Schema.org Validator for specification compliance, and manual JSON-LD inspection for entity relationship integrity.
+        Invalid structured data can prevent the affected markup from qualifying for supported rich results. We validate every page through three layers: Google Rich Results Test for eligibility checking, Schema.org Validator for specification compliance, and manual JSON-LD inspection for entity relationship integrity.
       </p>
       <p class="leading-relaxed" style="color: var(--color-ink-2);">
-        Common validation failures: missing required properties (Organisation without a name, Article without a datePublished); broken @id references; schema types applied where page content does not support them. Every issue is resolved before the schema goes live.
+        Check for invalid JSON, inappropriate property values, inconsistent @id references and markup that does not match the visible content. Check required properties against the documentation for each supported Google search feature. Organisation names and article publication dates are recommended details rather than universally required properties.
       </p>
     </section>
 

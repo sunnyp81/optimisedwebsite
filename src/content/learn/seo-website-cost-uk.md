@@ -14,11 +14,11 @@ faqs:
   - q: "Why do some SEO websites cost £1,500 and others cost £10,000?"
     a: "The main cost drivers are page count, content depth, custom design, and schema complexity. A 15-page site with templated design and standard schema costs significantly less than a 60-page site with bespoke design, custom illustrations, and advanced schema covering multiple entity types."
   - q: "Should I pay monthly for SEO or a one-off fee for an SEO website?"
-    a: "An SEO-optimised website is a one-off build that gives you a ranking-ready foundation. Monthly SEO retainers cover ongoing content creation, backlink building, and performance monitoring. They serve different purposes — most businesses benefit from the build first and then decide whether ongoing SEO support is needed."
+    a: "An SEO-optimised website is a one-off build that gives you a ranking-ready foundation. Monthly SEO retainers cover ongoing content creation, backlink building, and performance monitoring. They serve different purposes. Most businesses benefit from the build first and then decide whether ongoing SEO support is needed."
   - q: "Is a cheap website builder with SEO plugins just as good?"
     a: "No. Website builders add basic meta tags and sitemaps but cannot address information architecture, topical clustering, internal linking strategy, or per-page schema markup. These structural elements are what separate a website that ranks from one that does not."
   - q: "What ongoing costs should I budget for after the website is built?"
-    a: "Hosting (£5-50/month depending on the platform), domain renewal (£10-30/year), and optional ongoing SEO support (typically £500-2,000/month for content and link building). The website itself has no recurring fees — you own the code and content outright."
+    a: "Hosting (£5-50/month depending on the platform), domain renewal (£10-30/year), and optional ongoing SEO support (typically £500-2,000/month for content and link building). The website itself has no recurring fees: you own the code and content outright."
 datePublished: "2026-05-13"
 dateModified: "2026-05-13"
 ---
@@ -75,7 +75,7 @@ Technical SEO setup covers canonical URLs, robots.txt configuration, XML sitemap
 
 ## Red Flags in SEO Website Quotes
 
-**"SEO-ready" without specifics**: If a web designer says their websites are "SEO-ready" but cannot explain what schema types they implement, how they handle canonical URLs, or what their internal linking strategy involves, the SEO is likely superficial — basic meta tags and a sitemap plugin.
+**"SEO-ready" without specifics**: If a web designer says their websites are "SEO-ready" but cannot explain what schema types they implement, how they handle canonical URLs, or what their internal linking strategy involves, the SEO is likely superficial: basic meta tags and a sitemap plugin.
 
 **No mention of keyword research**: A website built without keyword research targets keywords based on the business owner's assumptions rather than actual search demand. This is the single most common reason SEO websites fail.
 
@@ -89,7 +89,9 @@ The value of an SEO-optimised website depends on the value of organic traffic in
 
 If your target keywords have an average cost per click of £5 and your site can realistically attract 500 organic clicks per month, that represents £2,500/month in equivalent ad spend. A £3,000 website pays for itself within six weeks of reaching its traffic potential.
 
-For service businesses with high customer values (solicitors, accountants, medical practices, tradespeople), even modest organic traffic generates significant returns. A plumber who gets five leads per month from organic search at £200 average job value generates £1,000/month — paying back a £2,000 website build within two months.
+Our [small business website statistics UK](/learn/uk-small-business-website-statistics/) show that 92% of UK businesses with 10 to 49 employees had a website in the 2026 DSIT survey. Having a website alone does not establish search visibility.
+
+For service businesses with high customer values (solicitors, accountants, medical practices, tradespeople), even modest organic traffic generates significant returns. A plumber who gets five leads per month from organic search at £200 average job value generates £1,000/month, paying back a £2,000 website build within two months.
 
 ## How to Choose a Provider
 
@@ -98,7 +100,7 @@ Look for providers who can demonstrate:
 - Example sites with per-page schema markup (check with Google's Rich Results Test)
 - Understanding of content architecture beyond "we will write some blog posts"
 - Transparent pricing with itemised cost breakdowns
-- Ownership transfer — you should own the code, content, and domain outright after delivery
+- Ownership transfer: you should own the code, content, and domain outright after delivery
 
 Request access to view the structured data on their portfolio sites. If their own client websites lack schema markup or have broken heading hierarchies, their SEO credentials are questionable regardless of what they claim.
 

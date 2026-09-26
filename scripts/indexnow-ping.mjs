@@ -1,26 +1,32 @@
-import { readdirSync, statSync } from 'fs';
+import { readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 
 const SITE = 'https://optimisedwebsite.com';
 // IndexNow keys are intentionally public and verified by the matching root file.
 const KEY = process.env.INDEXNOW_KEY || 'ff2615a610024c649de618c3b59ec18a';
 
-function getAllPages(dir, base = '') {
+// Submit only sitemap URLs: noindex previews and utility pages in dist/ must never be pushed.
+function sitemapUrls(dir) {
   const urls = [];
-  for (const entry of readdirSync(dir)) {
-    const full = join(dir, entry);
-    const rel = base ? `${base}/${entry}` : entry;
-    if (statSync(full).isDirectory()) {
-      urls.push(...getAllPages(full, rel));
-    } else if (entry === 'index.html') {
-      const path = base ? `/${base}/` : '/';
-      urls.push(`${SITE}${path}`);
-    }
+  for (const f of readdirSync(dir).filter((n) => /^sitemap-\d+\.xml$/.test(n))) {
+    const xml = readFileSync(join(dir, f), 'utf8');
+    for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) urls.push(m[1]);
   }
   return urls;
 }
 
-const urls = getAllPages('dist');
+// Optional: node scripts/indexnow-ping.mjs <path> [<path> ...] submits only those sitemap URLs.
+const only = [...new Set(process.argv.slice(2).map((p) => (p.startsWith('http') ? p : `${SITE}${p}`)))];
+const all = sitemapUrls('dist');
+const urls = only.length ? all.filter((u) => only.includes(u)) : all;
+if (only.length && urls.length !== only.length) {
+  console.error(`Not in sitemap, refusing: ${only.filter((u) => !all.includes(u)).join(', ')}`);
+  process.exit(1);
+}
+if (!urls.length) {
+  console.error('No sitemap URLs found; refusing to submit.');
+  process.exit(1);
+}
 console.log(`Submitting ${urls.length} URLs to IndexNow...`);
 
 const res = await fetch('https://api.indexnow.org/IndexNow', {
@@ -34,4 +40,9 @@ const res = await fetch('https://api.indexnow.org/IndexNow', {
   })
 });
 
-console.log(`IndexNow response: ${res.status}`);
+if (res.status !== 200 && res.status !== 202) {
+  console.error(`IndexNow submission failed: HTTP ${res.status}`);
+  process.exitCode = 1;
+} else {
+  console.log(`IndexNow response: ${res.status}`);
+}
