@@ -15,7 +15,7 @@ export const services: Service[] = [
     href: '/seo-web-design/',
     title: 'SEO Website Build',
     h1: 'SEO Website Build',
-    metaTitle: 'SEO Website Build — Optimised Websites From £1,500',
+    metaTitle: 'SEO Website Build | Optimised Websites From £1,500',
     metaDescription: 'Order an SEO-optimised website built with keyword research, topical authority architecture, per-page schema, and technical SEO. 15-50 pages from £1,500.',
     targetKeyword: 'buy seo optimised website',
     shortDescription: 'A complete SEO-optimised website built from keyword research through to deployment. 15-50 pages with topical authority architecture.'

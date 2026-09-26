@@ -14,26 +14,26 @@ faqs:
   - q: "How many pages does a small business SEO website need?"
     a: "Most small businesses benefit from 15-30 pages covering core services, location pages (if serving multiple areas), and supporting informational content. A plumber serving three towns might need 20-25 pages: a homepage, 5 service pages, 3 location pages, and 10-15 informational articles supporting the service topics."
   - q: "Do small businesses need local SEO or national SEO?"
-    a: "Businesses serving specific geographic areas need local SEO — targeting keywords with location modifiers and optimising for Google's local pack. Businesses selling products or services nationally need broader keyword targeting. Many small businesses benefit from both: local SEO for immediate-area customers and national SEO for broader reach."
+    a: "Businesses serving specific geographic areas need local SEO: targeting keywords with location modifiers and optimising for Google's local pack. Businesses selling products or services nationally need broader keyword targeting. Many small businesses benefit from both: local SEO for immediate-area customers and national SEO for broader reach."
   - q: "What is the minimum budget for a small business SEO website?"
-    a: "A functional SEO-optimised website for a small business costs £1,500-3,000 for 15-25 pages with keyword research, original content, schema markup, and technical setup. Below £1,000, providers typically cut corners on content quality or keyword research, reducing the site's ability to rank."
+    a: "A functional SEO-optimised website for a small business costs £1,500-3,000, covering keyword research, original content, schema markup, and technical setup for anywhere from 15 up to 50 pages depending on scope; most small businesses need towards the lower end of that range, around 15-25 pages. Below £1,000, providers typically cut corners on content quality or keyword research, reducing the site's ability to rank."
   - q: "How long before my small business website starts getting organic leads?"
-    a: "For local keywords in low-competition areas, expect initial leads within 2-4 months. For more competitive local markets, 4-8 months is realistic. National keywords typically take 6-12 months. These timelines assume the site has proper content depth, technical setup, and targets achievable keywords."
+    a: "For local keywords in low-competition areas, expect initial leads within 2-4 months. For more competitive local markets, 4-8 months is realistic. National keywords typically take 6-12 months. Google's own SEO Starter Guide says changes can take anywhere from hours to several months to be crawled and evaluated, and advises waiting several weeks before judging the effect of a change, so treat these figures as planning assumptions rather than guarantees, and only valid if the site has proper content depth, technical setup, and targets achievable keywords."
 datePublished: "2026-05-13"
-dateModified: "2026-05-13"
+dateModified: "2026-09-26"
 ---
 
 UK small businesses building an SEO website face tighter budgets, stronger-budget competitors, and less room for error on keyword selection.
 
-This guide addresses what UK small businesses specifically need from an SEO website — not the enterprise-level strategies that dominate most SEO content, but practical, budget-appropriate recommendations that produce results in the UK market.
+This guide addresses what UK small businesses specifically need from an SEO website, not the enterprise-level strategies that dominate most SEO content, but practical, budget-appropriate recommendations that produce results in the UK market.
 
 ## What Makes Small Business SEO Different
 
 Small business SEO differs from enterprise SEO in three important ways.
 
-**Geographic focus matters more.** Most small businesses serve a specific area — a town, a county, or a region. The keyword strategy must incorporate location modifiers ("plumber Reading", "accountant Surrey", "wedding photographer Hampshire") alongside generic service terms. Local search intent represents a large portion of the potential traffic.
+**Geographic focus matters more.** Most small businesses serve a specific area: a town, a county, or a region. The keyword strategy must incorporate location modifiers ("plumber Reading", "accountant Surrey", "wedding photographer Hampshire") alongside generic service terms. Local search intent represents a large portion of the potential traffic.
 
-**Customer lifetime value determines ROI thresholds.** A solicitor where each client is worth £2,000+ can justify a £5,000 website build because one organic lead pays it back. A window cleaner where each customer is worth £30 per visit needs a lower-cost build that still targets the right keywords. The investment must match the revenue potential.
+**Customer lifetime value determines ROI thresholds.** A solicitor where each client is worth £2,000+ can justify a larger website build because one organic lead pays it back. A window cleaner where each customer is worth £30 per visit needs a lower-cost build that still targets the right keywords. The investment must match the revenue potential.
 
 **Fewer pages, tighter focus.** Small businesses do not need 100 pages. They need 15-30 pages that thoroughly cover their service area and topic. Depth within a narrow focus builds topical authority faster than breadth across multiple unrelated topics.
 
@@ -41,21 +41,21 @@ Small business SEO differs from enterprise SEO in three important ways.
 
 A small business SEO website needs at minimum:
 
-**Homepage** — targets the broadest relevant keyword ("plumber in Reading"), establishes the business entity with Organization or LocalBusiness schema, and links to all major sections.
+**Homepage**: targets the broadest relevant keyword ("plumber in Reading"), establishes the business entity with Organization or LocalBusiness schema, and links to all major sections.
 
-**Service pages** (3-8 pages) — one page per core service, each targeting a specific keyword. A plumber might have separate pages for boiler installation, emergency plumbing, bathroom fitting, and central heating repairs. Each page has 800-1,500 words covering what the service involves, pricing indicators, and what the customer can expect.
+**Service pages** (3-8 pages): one page per core service, each targeting a specific keyword. A plumber might have separate pages for boiler installation, emergency plumbing, bathroom fitting, and central heating repairs. Each page has 800-1,500 words covering what the service involves, pricing indicators, and what the customer can expect.
 
-**Location pages** (1-5 pages) — if the business serves multiple towns or areas, each location gets its own page targeting "[service] + [location]" keywords. These pages include location-specific content: local references, service area details, and any location-specific pricing or availability information.
+**Location pages** (1-5 pages): if the business serves multiple towns or areas, each location gets its own page targeting "[service] + [location]" keywords. These pages include location-specific content: local references, service area details, and any location-specific pricing or availability information.
 
-**Informational articles** (5-15 pages) — supporting content that demonstrates expertise and builds topical authority. A plumber might publish guides on "how to bleed a radiator", "signs your boiler needs replacing", and "combi vs system boiler comparison". These pages attract informational search traffic and link to commercial service pages.
+**Informational articles** (5-15 pages): supporting content that demonstrates expertise and builds topical authority. A plumber might publish guides on "how to bleed a radiator", "signs your boiler needs replacing", and "combi vs system boiler comparison". These pages attract informational search traffic and link to commercial service pages.
 
-**Essential utility pages** — Contact page, About page, Privacy Policy, and Terms of Service. The Contact page should include structured data with address, phone, and opening hours.
+**Essential utility pages**: Contact page, About page, Privacy Policy, and Terms of Service. The Contact page should include structured data with address, phone, and opening hours.
 
 ## Keyword Strategy for Small Businesses
 
 Small business keyword research follows a specific pattern.
 
-**Start with service + location combinations.** These are your commercial money keywords — the terms people search when they are ready to hire. "Electrician Bracknell", "dog grooming Wokingham", "accountant Maidenhead". Check search volumes and difficulty in Ahrefs or SEMrush.
+**Start with service + location combinations.** These are your commercial money keywords: the terms people search when they are ready to hire. "Electrician Bracknell", "dog grooming Wokingham", "accountant Maidenhead". Check search volumes and difficulty in Ahrefs or SEMrush.
 
 **Identify supporting informational keywords.** For each service, find the questions potential customers ask. "How much does rewiring cost", "how often should I groom my dog", "do I need an accountant for self-assessment". These informational keywords build topical authority and attract visitors earlier in the buying process.
 
@@ -93,11 +93,11 @@ With a typical small business budget of £1,500-3,000, here is how the investmen
 
 **Neglecting informational content**: A site with only service pages lacks the topical depth that Google requires for authority. Even five well-written informational articles supporting your core services can significantly improve rankings for your commercial pages.
 
-**Identical location pages**: Creating five location pages by swapping the city name in otherwise identical content triggers Google's duplicate content filtering. Each location page needs genuinely unique content — local context, area-specific pricing, references to the local community.
+**Identical location pages**: Creating five location pages by swapping the city name in otherwise identical content risks Google's duplicate content filtering. Each location page needs genuinely unique content: local context, area-specific pricing, references to the local community.
 
-**Ignoring mobile performance**: Over 60% of local searches happen on mobile devices. A small business website that loads slowly on mobile or has poor touch target sizing loses the majority of its potential visitors before they see your services.
+**Ignoring mobile performance**: A large share of local searches happen on a phone. A small business website that loads slowly on mobile or has poor touch target sizing loses potential visitors before they see your services.
 
-**No Google Business Profile**: An SEO website without a properly configured GBP listing misses the local pack — the map results that appear above organic listings for local searches. The website and GBP work together; neither is fully effective without the other.
+**No Google Business Profile**: An SEO website without a properly configured GBP listing misses the local pack: the map results that appear above organic listings for local searches. The website and GBP work together; neither is fully effective without the other.
 
 ## Measuring Success
 

@@ -31,7 +31,7 @@ faqs:
   - q: "Can I pass Core Web Vitals on WordPress?"
     a: "WordPress sites can pass Core Web Vitals but require significant optimisation: caching plugins, image compression, minimal plugins, optimised themes and often a CDN. Static sites pass by default without any of these workarounds."
 datePublished: "2026-05-14"
-dateModified: "2026-05-14"
+dateModified: "2026-09-26"
 ---
 
 Core Web Vitals measure how fast, stable and responsive your website feels to real users. Google uses these three metrics as ranking signals within its broader page experience assessment.
@@ -52,7 +52,7 @@ LCP reflects perceived loading speed. Users do not care about total page weight 
 
 ### Cumulative Layout Shift (CLS)
 
-CLS measures visual stability during page load. Layout shifts occur when visible elements move position after rendering — a paragraph jumps down when an ad loads above it, or a button shifts sideways when a font file arrives.
+CLS measures visual stability during page load. Layout shifts occur when visible elements move position after rendering. A paragraph jumps down when an ad loads above it, or a button shifts sideways when a font file arrives.
 
 Target: under 0.1.
 
@@ -132,7 +132,7 @@ Use modern image formats. WebP reduces file sizes by 25-35% compared to JPEG. AV
 
 Set explicit `width` and `height` attributes on every image element. This reserves layout space before the image loads, preventing CLS.
 
-Implement lazy loading with `loading="lazy"` on below-the-fold images. Eager-load the hero image or LCP element — lazy-loading it delays LCP.
+Implement lazy loading with `loading="lazy"` on below-the-fold images. Eager-load the hero image or LCP element. Lazy-loading it delays LCP.
 
 Serve responsive images with `srcset` and `sizes` attributes. Mobile users should not download desktop-sized images.
 
@@ -182,7 +182,7 @@ Move heavy computation to Web Workers. Data processing, sorting and filtering op
 
 ### Minimise DOM Size
 
-Large DOM trees (over 1,500 nodes) slow down style recalculations and layout operations triggered by user interactions. Keep your DOM lean by removing unnecessary wrapper elements and avoiding deeply nested structures.
+Very large DOM trees slow down style recalculations and layout operations triggered by user interactions; Lighthouse flags a page once its DOM grows into the thousands of nodes. Keep your DOM lean by removing unnecessary wrapper elements and avoiding deeply nested structures.
 
 Static sites naturally produce lean DOMs. A [technical SEO setup](/services/technical-seo-setup/) built on Astro generates clean HTML without the div-heavy wrapper layers that JavaScript frameworks inject.
 
@@ -208,7 +208,7 @@ WebPageTest.org provides detailed waterfall charts showing exactly which resourc
 
 Core Web Vitals optimisation delivers compounding returns. Faster pages rank higher, attract more clicks, reduce bounce rates and increase conversions.
 
-A page that loads in 1.2 seconds converts at roughly double the rate of one loading in 3.5 seconds. Core Web Vitals improvements affect revenue directly, beyond the indirect benefit of higher rankings.
+Google's own case studies find faster loading pages associated with meaningfully higher conversion rates and lower bounce, though the evidence is observational rather than a guarantee for any single site. See our [core web vitals statistics](/learn/core-web-vitals-statistics/) page for the specific studies and their limitations. Core Web Vitals improvements can affect revenue directly, beyond the indirect benefit of higher rankings.
 
 Choose your technology stack based on performance requirements. Static sites pass Core Web Vitals by default. WordPress requires ongoing optimisation effort. Single-page applications require extensive performance engineering. Every [SEO website build](/seo-web-design/) we deliver ships as static HTML on Astro, so Core Web Vitals pass from the first crawl.
 

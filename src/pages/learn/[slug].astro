@@ -5,6 +5,8 @@ import FAQSection from '../../components/FAQSection.astro';
 import CTA from '../../components/CTA.astro';
 import RelatedPages from '../../components/RelatedPages.astro';
 import Byline from '../../components/Byline.astro';
+import StatChart from '../../components/StatChart.astro';
+import CiteBlock from '../../components/CiteBlock.astro';
 import { site } from '../../data/site';
 import { getCollection, render } from 'astro:content';
 
@@ -74,6 +76,10 @@ const breadcrumbs = [
   { label: 'Learn', href: '/learn/' },
   { label: article.data.title, href: `/learn/${article.id}/` },
 ];
+
+// Charts and the citation block render after the article body so the answer-first opening stays first.
+const hasCharts = article.data.charts.length > 0;
+const showCitation = article.data.citation;
 ---
 <Base
   title={article.data.metaTitle}
@@ -88,6 +94,19 @@ const breadcrumbs = [
     <div class="prose prose-lg max-w-none">
       <Content />
     </div>
+    {hasCharts && (
+      <div class="stat-charts-block">
+        {article.data.charts.map((chart) => <StatChart {...chart} />)}
+      </div>
+    )}
+    {showCitation && (
+      <CiteBlock
+        title={article.data.title}
+        url={`${site.url}/learn/${article.id}/`}
+        dateModified={article.data.dateModified}
+        csvHref={`/downloads/${article.id}.csv`}
+      />
+    )}
     {article.data.faqs.length > 0 && <FAQSection faqs={article.data.faqs} />}
     <div class="flex flex-wrap gap-4 mt-10">
       <CTA href="/free-website-growth-review/" label="Get a Free Growth Review" analyticsEvent="cta_click" analyticsLabel="learn-article" />

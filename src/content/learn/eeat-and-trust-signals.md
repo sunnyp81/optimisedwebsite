@@ -21,15 +21,15 @@ faqs:
   - q: "How can a brand new website build E-E-A-T?"
     a: "A new website builds E-E-A-T by publishing expert content with author bios, adding Organisation and Person schema, listing real business details, earning citations from directories and producing content that demonstrates first-hand experience."
   - q: "Does schema markup improve E-E-A-T?"
-    a: "Schema markup helps Google understand your expertise and authority signals. Organisation schema establishes your brand entity. Person schema connects authors to their credentials. These structured signals support E-E-A-T assessments."
+    a: "Schema markup does not itself improve E-E-A-T. It helps Google parse your expertise and authority signals correctly. Organisation schema establishes your brand entity. Person schema connects authors to their credentials. These structured signals support, but do not replace, the underlying E-E-A-T substance."
   - q: "What are YMYL pages and why do they need stronger E-E-A-T?"
     a: "YMYL (Your Money or Your Life) pages cover topics that could affect health, finances, safety or wellbeing. Google applies stricter E-E-A-T standards to these pages because inaccurate information could cause real harm."
   - q: "How do author bios help E-E-A-T?"
     a: "Author bios connect content to a real person with verifiable credentials. Google can cross-reference the author's expertise across the web, strengthening the page's expertise and experience signals."
   - q: "How long does it take to build E-E-A-T for a new site?"
-    a: "Building meaningful E-E-A-T takes 6-12 months of consistent effort. Publishing expert content, earning citations, gathering reviews and building topical authority are cumulative processes that compound over time."
+    a: "Building meaningful E-E-A-T takes sustained effort over months, often 6-12 months or more depending on the niche. Publishing expert content, earning citations, gathering reviews and building topical authority are cumulative processes that compound over time."
 datePublished: "2026-05-14"
-dateModified: "2026-05-14"
+dateModified: "2026-09-26"
 ---
 
 E-E-A-T is Google's framework for evaluating content quality. Experience, Expertise, Authoritativeness and Trustworthiness determine whether your pages deserve to rank above competitors covering the same topics.
@@ -38,15 +38,15 @@ New websites face a specific challenge: zero track record. Google has no histori
 
 ## What E-E-A-T Means for Rankings
 
-Google's Search Quality Rater Guidelines define E-E-A-T as the standard human evaluators use to assess search results. The algorithm mirrors these assessments through hundreds of computational signals.
+Google's Search Quality Rater Guidelines define E-E-A-T as the standard human evaluators use to assess search results. The algorithm mirrors these assessments through many computational signals, though E-E-A-T itself is not a single scored ranking factor.
 
-[How Google ranks websites](/learn/how-google-ranks-websites/) depends heavily on these quality signals. Pages on YMYL (Your Money or Your Life) topics — health, finance, legal, safety — face the strictest E-E-A-T scrutiny. A medical advice page from an anonymous blog ranks far below the same advice from an NHS-affiliated clinician.
+[How Google ranks websites](/learn/how-google-ranks-websites/) depends heavily on these quality signals. Pages on YMYL (Your Money or Your Life) topics, including health, finance, legal and safety, face the strictest E-E-A-T scrutiny. A medical advice page from an anonymous blog is expected to be judged far less favourably than the same advice from an NHS-affiliated clinician.
 
-Non-YMYL topics still benefit from strong E-E-A-T signals. A gardening guide written by someone with 20 years of allotment experience outperforms generic content compiled from other sources.
+Non-YMYL topics still benefit from strong E-E-A-T signals. A gardening guide written by someone with 20 years of allotment experience is well placed to outperform generic content compiled from other sources.
 
 ## Experience: Demonstrating First-Hand Knowledge
 
-Experience is the newest addition to Google's quality framework. It measures whether the content creator has direct, personal involvement with the subject.
+Experience is the newest addition to Google's quality framework, added in December 2022. It measures whether the content creator has direct, personal involvement with the subject.
 
 ### Proving Real Experience
 
@@ -60,9 +60,9 @@ Document your process. Step-by-step accounts with real-world variables (budget c
 
 ### Experience Signals Google Can Detect
 
-Google cross-references author claims across the web. An author who publishes about SEO and also appears on conference speaker lists, podcast interviews and industry forums demonstrates verifiable experience.
+Google can cross-reference author claims across the web. An author who publishes about SEO and also appears on conference speaker lists, podcast interviews and industry forums demonstrates verifiable experience.
 
-Review content carries strong experience signals. Product reviews from verified purchasers who describe hands-on testing outrank aggregated specification comparisons.
+Review content carries strong experience signals. Product reviews from verified purchasers who describe hands-on testing are better placed to outrank aggregated specification comparisons.
 
 ## Expertise: Verifiable Knowledge and Credentials
 
@@ -70,7 +70,7 @@ Expertise requires demonstrable knowledge in your field. Google evaluates whethe
 
 ### Building Author Expertise Signals
 
-Create detailed author bio pages on your site. List relevant qualifications, professional memberships, years of experience and notable projects. Link to external profiles that corroborate these credentials — LinkedIn, professional body listings, published research.
+Create detailed author bio pages on your site. List relevant qualifications, professional memberships, years of experience and notable projects. Link to external profiles that corroborate these credentials: LinkedIn, professional body listings, published research.
 
 Add Person schema to author pages. Include the author's name, job title, employer, credentials and sameAs links to official profiles. This structured data helps Google connect the author entity to their wider web presence.
 
@@ -117,7 +117,7 @@ Contribute expert quotes and commentary to journalists. Services like HARO, Qwot
 
 ## Trustworthiness: The Foundation of E-E-A-T
 
-Trustworthiness is the most critical E-E-A-T component. Google explicitly states that trust is the centre of the E-E-A-T framework — a page can have strong experience, expertise and authority but still rank poorly if trust signals are weak.
+Trustworthiness is the most critical E-E-A-T component. Google's Search Quality Rater Guidelines describe trust as the most important member of the E-E-A-T family: a page can have strong experience, expertise and authority but still rank poorly if trust signals are weak.
 
 ### Technical Trust Signals
 
@@ -129,9 +129,9 @@ Publish a privacy policy and terms of service. These pages demonstrate legal com
 
 ### Content Trust Signals
 
-Cite your sources. Link to primary research, official statistics and authoritative references. Uncited claims — especially about health, finance or legal matters — damage trust assessments.
+Cite your sources. Link to primary research, official statistics and authoritative references. Uncited claims, especially about health, finance or legal matters, damage trust assessments.
 
-Date your content. Display publish and last-updated dates on every article. Undated content could be years out of date, and Google penalises pages with stale information on time-sensitive topics.
+Date your content. Display publish and last-updated dates on every article. Undated content could be years out of date, and Google's quality systems weigh stale information more harshly on time-sensitive topics.
 
 Correct errors promptly. Add editorial correction notes when updating factual claims. Transparent corrections demonstrate editorial integrity.
 
@@ -139,7 +139,7 @@ Correct errors promptly. Add editorial correction notes when updating factual cl
 
 Display real team member photos and bios. Stock photos or AI-generated headshots undermine the authenticity that trust requires.
 
-Show client testimonials with full attribution — name, company and project type. Anonymous testimonials carry no trust value.
+Show client testimonials with full attribution: name, company and project type. Anonymous testimonials carry little trust value.
 
 List professional indemnity insurance, industry accreditations and regulatory compliance where relevant. These third-party verifications provide independent trust confirmation.
 
@@ -170,7 +170,7 @@ Every article should include Article schema linking to the author's Person entit
 
 ### Review and Rating Schema
 
-Aggregate reviews from Google Business Profile and third-party platforms. AggregateRating schema on your homepage or testimonials page gives Google structured access to your reputation data.
+Google's structured data guidelines do not allow review or AggregateRating markup that reviews your own organisation or local business self-referentially. Google restricted this in 2019 because self-serving reviews are not a reliable trust signal, and markup that breaks the rule can be excluded from rich results or attract a manual action. Review and AggregateRating schema remains valid for the specific item types Google supports for this markup (including products, recipes, courses and software apps), where customers are reviewing that item rather than your business as a whole. For your organisation's overall reputation, link out to your profiles on Google Business Profile, Trustpilot or industry review platforms instead of trying to mark up your own testimonials as schema.
 
 ## E-E-A-T for YMYL Topics
 
@@ -188,12 +188,12 @@ Include disclaimers where appropriate. Medical content should state it does not 
 
 ## Measuring E-E-A-T Progress
 
-Track E-E-A-T improvements through indirect metrics. Google Search Console shows impression and click trends that reflect quality assessments over time.
+Track E-E-A-T improvements through indirect metrics. Google Search Console shows impression and click trends that can reflect quality assessments over time.
 
-Monitor branded search volume. Growing brand searches indicate increasing authoritativeness. Google Trends tracks your brand name against competitors.
+Monitor branded search volume. Growing brand searches can indicate increasing authoritativeness. Google Trends tracks your brand name against competitors.
 
 Track backlink acquisition. New editorial links from authoritative sources signal growing authority. Tools like Ahrefs and Moz monitor your backlink profile over time.
 
 Audit your Google Business Profile insights. Review count, response rate and average rating all contribute to local trust signals.
 
-E-E-A-T is not a switch you flip. Building genuine experience, expertise, authority and trust takes sustained effort over months. Start with the fundamentals, real business details, qualified authors and cited sources, and compound these signals through consistent publishing and reputation building. A well-structured [SEO website build](/seo-web-design/) puts the technical trust signals in place from day one.
+E-E-A-T is not a switch you flip. Building genuine experience, expertise, authority and trust takes sustained effort over months. Start with the fundamentals: real business details, qualified authors and cited sources, and compound these signals through consistent publishing and reputation building. A well-structured [SEO website build](/seo-web-design/) puts the technical trust signals in place from day one.

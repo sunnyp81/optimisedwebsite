@@ -1,0 +1,52 @@
+metric,value,unit,period,publisher,source_url
+Home pages analysed,1000000,pages,February 2026,WebAIM,https://webaim.org/projects/million/
+Total detected accessibility errors,56114377,errors,February 2026,WebAIM,https://webaim.org/projects/million/
+Average errors per home page,56.1,errors per page,February 2026,WebAIM,https://webaim.org/projects/million/
+Average errors per home page (prior year),51,errors per page,February 2025,WebAIM,https://webaim.org/projects/million/
+Home pages with detected WCAG 2 failures,95.9,%,February 2026,WebAIM,https://webaim.org/projects/million/
+Home pages with detected WCAG 2 failures (prior year),94.8,%,February 2025,WebAIM,https://webaim.org/projects/million/
+Home pages with low contrast text,83.9,%,February 2026,WebAIM,https://webaim.org/projects/million/
+Home pages with missing alt text on images,53.1,%,February 2026,WebAIM,https://webaim.org/projects/million/
+Home pages with missing form input labels,51,%,February 2026,WebAIM,https://webaim.org/projects/million/
+Home pages with empty links,46.3,%,February 2026,WebAIM,https://webaim.org/projects/million/
+Home pages with empty buttons,30.6,%,February 2026,WebAIM,https://webaim.org/projects/million/
+Home pages with missing document language,13.5,%,February 2026,WebAIM,https://webaim.org/projects/million/
+Average page elements per home page,1437,elements,February 2026,WebAIM,https://webaim.org/projects/million/
+Year-on-year increase in page elements,14.3,%,2025 to 2026,WebAIM,https://webaim.org/projects/million/
+Total ARIA attributes detected across sample,133589803,attributes,February 2026,WebAIM,https://webaim.org/projects/million/
+Year-on-year increase in ARIA attributes,27,%,2025 to 2026,WebAIM,https://webaim.org/projects/million/
+Median Lighthouse accessibility score,84,% score,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/accessibility
+Median Lighthouse accessibility score (2022),83,% score,2022,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/accessibility
+Median Lighthouse accessibility score (2020),80,% score,2020,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/accessibility
+Images passing Lighthouse alt-text audit,69,%,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/accessibility
+Images passing Lighthouse alt-text audit (2022),59,%,2022,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/accessibility
+Mobile pages passing Lighthouse colour-contrast audit,29,%,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/accessibility
+Desktop pages passing Lighthouse colour-contrast audit,28,%,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/accessibility
+Mobile and desktop pages passing Lighthouse colour-contrast audit (2022),23,%,2022,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/accessibility
+Mobile home pages using role=button on an element,>50,%,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/accessibility
+Home pages with more than one h1 element,18.1,%,February 2026,WebAIM,https://webaim.org/projects/million/
+Home pages with more than one h1 element (prior year),16.3,%,February 2025,WebAIM,https://webaim.org/projects/million/
+Home pages with a skipped heading level,41.8,%,February 2026,WebAIM,https://webaim.org/projects/million/
+Home pages with a skipped heading level (prior year),39,%,February 2025,WebAIM,https://webaim.org/projects/million/
+Mobile home pages using role=button on an element (2022),33,%,2022,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/accessibility
+Desktop and mobile pages likely including a skip link,24,%,2024,HTTP Archive Web Almanac,https://almanac.httparchive.org/en/2024/accessibility
+UK population reporting a disability,16.8,million people,2023/24,DWP Family Resources Survey (via House of Commons Library),https://commonslibrary.parliament.uk/research-briefings/cbp-9602/
+UK population reporting a disability,25,% of population,2023/24,DWP Family Resources Survey (via House of Commons Library),https://commonslibrary.parliament.uk/research-briefings/cbp-9602/
+UK disability prevalence,18,% of population,2002/03,DWP Family Resources Survey (via House of Commons Library),https://commonslibrary.parliament.uk/research-briefings/cbp-9602/
+UK children reporting a disability,12,%,2023/24,DWP Family Resources Survey (via House of Commons Library),https://commonslibrary.parliament.uk/research-briefings/cbp-9602/
+UK working-age adults reporting a disability,24,%,2023/24,DWP Family Resources Survey (via House of Commons Library),https://commonslibrary.parliament.uk/research-briefings/cbp-9602/
+UK State Pension age adults reporting a disability,45,% (approx),2023/24,DWP Family Resources Survey (via House of Commons Library),https://commonslibrary.parliament.uk/research-briefings/cbp-9602/
+Wales disability prevalence,30,%,2023/24,DWP Family Resources Survey (via House of Commons Library),https://commonslibrary.parliament.uk/research-briefings/cbp-9602/
+Scotland disability prevalence,28,%,2023/24,DWP Family Resources Survey (via House of Commons Library),https://commonslibrary.parliament.uk/research-briefings/cbp-9602/
+England disability prevalence,23,%,2023/24,DWP Family Resources Survey (via House of Commons Library),https://commonslibrary.parliament.uk/research-briefings/cbp-9602/
+PSBAR 2018 regulations in force from,2018-09-23,date,2018,UK legislation.gov.uk (SI 2018/952),https://www.legislation.gov.uk/uksi/2018/952/contents
+PSBAR compliance deadline new public sector websites,2019-09-23,date,2019,UK legislation.gov.uk / GOV.UK guidance,https://www.gov.uk/guidance/accessibility-requirements-for-public-sector-websites-and-apps
+PSBAR compliance deadline existing public sector websites,2020-09-23,date,2020,UK legislation.gov.uk / GOV.UK guidance,https://www.gov.uk/guidance/accessibility-requirements-for-public-sector-websites-and-apps
+PSBAR compliance deadline mobile apps,2021-06-23,date,2021,UK legislation.gov.uk / GOV.UK guidance,https://www.gov.uk/guidance/accessibility-requirements-for-public-sector-websites-and-apps
+Current required WCAG standard for UK public sector,WCAG 2.2 AA,standard,updated 2024-09-30,GOV.UK guidance,https://www.gov.uk/guidance/accessibility-requirements-for-public-sector-websites-and-apps
+European Accessibility Act national transposition deadline,2022-06-28,date,2022,EUR-Lex Directive (EU) 2019/882,https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019L0882
+European Accessibility Act application date for new products/services,2025-06-28,date,2025,EUR-Lex Directive (EU) 2019/882,https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019L0882
+European Accessibility Act transitional period end for existing services,2030-06-28,date,2030,EUR-Lex Directive (EU) 2019/882,https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019L0882
+European Accessibility Act self-service terminal continued-use limit,20,years,n/a,EUR-Lex Directive (EU) 2019/882,https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019L0882
+European Accessibility Act pre-2025 service contract continuation limit,5,years,n/a,EUR-Lex Directive (EU) 2019/882,https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019L0882
+European Accessibility Act latest date for Article 4(8) obligations,2027-06-28,date,2027,EUR-Lex Directive (EU) 2019/882,https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019L0882

@@ -15,7 +15,7 @@ Good Core Web Vitals trend gain 2024-2025 (computed),All origins mobile,+4 perce
 Good Core Web Vitals trend gain 2024-2025 (computed),All origins desktop,+1 percentage point,2024-2025,Computed from Web Almanac 2025 Performance chapter fig 7.1,https://almanac.httparchive.org/en/2025/performance
 Good Core Web Vitals (all three),All origins global,55.6%,"August 2026 CrUX dataset, published 8 Sep 2026",CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
 Total tracked origins,All origins global,"18,294,881","August 2026 CrUX dataset, published 8 Sep 2026",CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
-Gap between INP pass rate and combined Core Web Vitals pass rate (computed),All origins global,29.7 percentage points,"August 2026 CrUX dataset",Computed from CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
+Gap between INP pass rate and combined Core Web Vitals pass rate (computed),All origins global,29.7 percentage points,August 2026 CrUX dataset,Computed from CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
 INP replacing FID: drop in good CWV rate from switching metric (computed),All origins global,-3.2 percentage points,February 2024 CrUX dataset,Computed from CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
 Good LCP,All origins global,68.1%,"August 2026 CrUX dataset, published 8 Sep 2026",CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
 Good CLS,All origins global,81.5%,"August 2026 CrUX dataset, published 8 Sep 2026",CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
@@ -28,12 +28,12 @@ Good CLS,Mobile,62%,2021,Web Almanac 2025 Performance chapter fig 7.18,https://a
 Good CLS,Desktop,62%,2021,Web Almanac 2025 Performance chapter fig 7.18,https://almanac.httparchive.org/en/2025/performance
 Good INP,Mobile,77%,2025,Web Almanac 2025 Performance chapter fig 7.13,https://almanac.httparchive.org/en/2025/performance
 Good INP,Desktop,97%,2025,Web Almanac 2025 Performance chapter fig 7.13,https://almanac.httparchive.org/en/2025/performance
-Good Core Web Vitals when scored with FID,All origins global,48.8%,"February 2024 CrUX dataset",CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
+Good Core Web Vitals when scored with FID,All origins global,48.8%,February 2024 CrUX dataset,CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
 Good Core Web Vitals when scored with INP in place of FID,All origins global,45.6%,"February 2024 CrUX dataset, effective 12 Mar 2024",CrUX release notes,https://developer.chrome.com/docs/crux/release-notes
 Good Core Web Vitals by site popularity,Top 1000 sites mobile,51%,2025,Web Almanac 2025 Performance chapter fig 7.2,https://almanac.httparchive.org/en/2025/performance
 Good Core Web Vitals by site popularity,Top 1000 sites desktop,59%,2025,Web Almanac 2025 Performance chapter fig 7.2,https://almanac.httparchive.org/en/2025/performance
-Good Core Web Vitals by site popularity,Top 100,000 sites mobile,37%,2025,Web Almanac 2025 Performance chapter fig 7.2,https://almanac.httparchive.org/en/2025/performance
-Good Core Web Vitals by site popularity,Top 10,000 sites mobile,42%,2025,Web Almanac 2025 Performance chapter fig 7.2,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals by site popularity,"Top 100,000 sites mobile",37%,2025,Web Almanac 2025 Performance chapter fig 7.2,https://almanac.httparchive.org/en/2025/performance
+Good Core Web Vitals by site popularity,"Top 10,000 sites mobile",42%,2025,Web Almanac 2025 Performance chapter fig 7.2,https://almanac.httparchive.org/en/2025/performance
 Good Core Web Vitals by page type,Home pages mobile,45%,2025,Web Almanac 2025 Performance chapter fig 7.3,https://almanac.httparchive.org/en/2025/performance
 Good Core Web Vitals by page type,Secondary pages mobile,56%,2025,Web Almanac 2025 Performance chapter fig 7.3,https://almanac.httparchive.org/en/2025/performance
 Good Core Web Vitals by page type,Home pages desktop,47%,2025,Web Almanac 2025 Performance chapter fig 7.3,https://almanac.httparchive.org/en/2025/performance
@@ -75,5 +75,5 @@ Renault: LCP breakpoint used for bounce estimates,Landing pages,1.6 seconds,"dat
 Renault: bounce rate change when resulting LCP is under 1.6s,Landing pages,-14 percentage points,"data Dec 2020-Mar 2021, published Oct 2021 (observational, older)",web.dev case study,https://web.dev/case-studies/renault
 Renault: bounce rate change when resulting LCP is above 1.6s,Landing pages,-5 percentage points,"data Dec 2020-Mar 2021, published Oct 2021 (observational, older)",web.dev case study,https://web.dev/case-studies/renault
 Renault: conversion rate change per 1s LCP improvement,Landing pages,+13%,"data Dec 2020-Mar 2021, published Oct 2021 (observational, older)",web.dev case study,https://web.dev/case-studies/renault
-Renault: study sample size,Landing pages across 33 countries,"10m+ visits","data Dec 2020-Mar 2021, published Oct 2021 (observational, older)",web.dev case study,https://web.dev/case-studies/renault
-Milliseconds Make Millions: study sample size,37 European and US mobile sites,"30m+ sessions over 30 days","2019 data, published 2020 (observational, older)",web.dev case study,https://web.dev/case-studies/milliseconds-make-millions
+Renault: study sample size,Landing pages across 33 countries,10m+ visits,"data Dec 2020-Mar 2021, published Oct 2021 (observational, older)",web.dev case study,https://web.dev/case-studies/renault
+Milliseconds Make Millions: study sample size,37 European and US mobile sites,30m+ sessions over 30 days,"2019 data, published 2020 (observational, older)",web.dev case study,https://web.dev/case-studies/milliseconds-make-millions

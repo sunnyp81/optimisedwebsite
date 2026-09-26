@@ -31,7 +31,7 @@ faqs:
   - q: "How often should I update SEO content?"
     a: "Review and update content every 6-12 months or whenever your topic changes significantly. Refresh statistics, add new sections covering emerging subtopics, remove outdated information and update the dateModified in your schema markup."
 datePublished: "2026-05-14"
-dateModified: "2026-05-14"
+dateModified: "2026-09-26"
 ---
 
 SEO content writing produces pages that rank by combining clear structure with genuine depth. The goal is not to game an algorithm but to create the best answer for a specific search query.
@@ -68,7 +68,7 @@ Your H1 and title tag can differ. The title tag targets the SERP click (under 60
 
 ### H2s: Major Sections
 
-Each H2 should cover a distinct subtopic. Arrange H2s in a logical reading order — the sequence a reader would naturally follow when learning about your subject.
+Each H2 should cover a distinct subtopic. Arrange H2s in a logical reading order: the sequence a reader would naturally follow when learning about your subject.
 
 Avoid vague H2s like "Things to Consider" or "Key Points." Replace them with specific descriptions: "Font Loading and CLS Impact" or "Building Author Expertise Signals."
 
@@ -102,7 +102,7 @@ Strong: "SEO content writing creates pages optimised for search rankings. Strong
 
 ### Cut Filler Phrases
 
-Remove phrases that add no information. "It goes without saying" — then do not say it. "As you might expect" — skip the preamble and state the fact. "At the end of the day" — remove entirely.
+Remove phrases that add no information. Delete "it goes without saying" and just say it. Delete "as you might expect" and state the fact directly. Delete "at the end of the day" entirely.
 
 Every sentence should either state a fact, give an instruction or present evidence. Sentences that do none of these should be deleted.
 
@@ -120,7 +120,7 @@ Entity names carry semantic weight. Google understands that "Ahrefs" relates to 
 
 Connect entities to each other within your content. "Google Search Console tracks Core Web Vitals" connects three entities (Google Search Console, Core Web Vitals, tracking/measurement) in one sentence.
 
-[Topical authority](/learn/topical-authority-explained/) depends on comprehensive entity coverage across your site. A single page cannot establish authority. Dozens of pages covering related entities within a topic — linked together with contextual internal links — build the entity graph that Google rewards.
+[Topical authority](/learn/topical-authority-explained/) depends on comprehensive entity coverage across your site. A single page cannot establish authority. Dozens of pages covering related entities within a topic, linked together with contextual internal links, build the entity graph that Google rewards.
 
 ### Co-Occurrence and Semantic Depth
 
@@ -148,11 +148,11 @@ Sidebar and footer links carry less SEO weight than contextual body links. Prior
 
 Build topic clusters around hub pages. The hub covers the broad topic. Spoke pages cover specific subtopics. Each spoke links back to the hub, and the hub links out to all spokes.
 
-This architecture mirrors [how Google ranks websites](/learn/how-google-ranks-websites/) — by assessing topical depth and interconnection rather than isolated page quality.
+This architecture mirrors [how Google ranks websites](/learn/how-google-ranks-websites/): it assesses topical depth and interconnection rather than isolated page quality.
 
 ## Writing for Featured Snippets
 
-Featured snippets display your content directly in the SERP above the first organic result. Earning a featured snippet dramatically increases visibility and click-through rate.
+Featured snippets display your content directly in the SERP above the first organic result. Where one still appears, earning it increases visibility and click-through rate. AI Overviews now answer many queries directly and have reduced how often a classic featured snippet shows at all, but the same answer-first structure that used to win snippets is also what AI Overviews draw from.
 
 ### Paragraph Snippets
 
@@ -174,7 +174,7 @@ Keep tables under 5 columns and 10 rows. Include a descriptive caption or preced
 
 ## Content Depth vs Content Length
 
-Word count is not a ranking factor. Content depth — how thoroughly you cover the topic's subtopics, edge cases and practical applications — is what Google measures.
+Word count is not a ranking factor. Content depth, meaning how thoroughly you cover the topic's subtopics, edge cases and practical applications, is what Google measures.
 
 A 1,500-word article covering every important subtopic with precision outranks a 4,000-word article that repeats the same points with different phrasing.
 

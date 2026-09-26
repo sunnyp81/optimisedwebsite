@@ -16,11 +16,11 @@ faqs:
   - q: "Should I pay monthly for SEO or a one-off fee for an SEO website?"
     a: "An SEO-optimised website is a one-off build that gives you a ranking-ready foundation. Monthly SEO retainers cover ongoing content creation, backlink building, and performance monitoring. They serve different purposes. Most businesses benefit from the build first and then decide whether ongoing SEO support is needed."
   - q: "Is a cheap website builder with SEO plugins just as good?"
-    a: "No. Website builders add basic meta tags and sitemaps but cannot address information architecture, topical clustering, internal linking strategy, or per-page schema markup. These structural elements are what separate a website that ranks from one that does not."
+    a: "Usually not on its own. Most website builders add basic meta tags and sitemaps but do not guide you through information architecture, topical clustering, internal linking strategy, or per-page schema markup. Some platforms support these with extra apps or manual setup, but the structural planning is rarely built into the default build process. These structural elements are what separate a website that ranks from one that does not."
   - q: "What ongoing costs should I budget for after the website is built?"
     a: "Hosting (£5-50/month depending on the platform), domain renewal (£10-30/year), and optional ongoing SEO support (typically £500-2,000/month for content and link building). The website itself has no recurring fees: you own the code and content outright."
 datePublished: "2026-05-13"
-dateModified: "2026-05-13"
+dateModified: "2026-09-26"
 ---
 
 An SEO-optimised website in the UK costs between £1,500 and £10,000 for most small-to-medium businesses, with the exact price determined by the number of pages, the depth of content, the complexity of the schema markup, and whether the design is templated or bespoke.
@@ -57,7 +57,7 @@ Content is typically the single largest cost element. Each page needs original, 
 
 A 20-page site with an average of 1,200 words per page requires 24,000 words of original content. At professional SEO copywriting rates of £0.10-0.20 per word, that represents £2,400-£4,800 in content costs alone.
 
-AI-generated content can reduce this cost. It requires careful editing and fact-checking to meet quality standards. Google's helpful content system penalises sites with obviously automated content that lacks genuine expertise. The best approach uses AI as a drafting tool with human expertise guiding the strategy and reviewing the output.
+AI-generated content can reduce this cost. It requires careful editing and fact-checking to meet quality standards. Google folded its helpful content system into its core ranking systems in March 2024, and Google's spam policies still target scaled, low-value automated content produced with little or no human oversight or genuine expertise. The best approach uses AI as a drafting tool with human expertise guiding the strategy and reviewing the output.
 
 ### Design and Development (25-35% of total cost)
 
@@ -87,7 +87,7 @@ Technical SEO setup covers canonical URLs, robots.txt configuration, XML sitemap
 
 The value of an SEO-optimised website depends on the value of organic traffic in your niche. Calculate the potential return by estimating the cost per click for your target keywords if you were running Google Ads, then multiplying by the expected monthly organic traffic. An SEO ROI calculator can do this maths for you in seconds.
 
-If your target keywords have an average cost per click of £5 and your site can realistically attract 500 organic clicks per month, that represents £2,500/month in equivalent ad spend. A £3,000 website pays for itself within six weeks of reaching its traffic potential.
+If your target keywords have an average cost per click of £5 and your site can realistically attract 500 organic clicks per month, that represents £2,500/month in equivalent ad spend avoided. Whether a £3,000 website pays for itself in weeks or months depends on your actual lead and sale conversion rates, not on clicks or ad-spend equivalence alone.
 
 Our [small business website statistics UK](/learn/uk-small-business-website-statistics/) show that 92% of UK businesses with 10 to 49 employees had a website in the 2026 DSIT survey. Having a website alone does not establish search visibility.
 

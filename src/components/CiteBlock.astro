@@ -1,0 +1,128 @@
+---
+// "Cite this page" block: APA-style citation text (always visible, works
+// with no JS) plus a copy-to-clipboard button (progressive enhancement)
+// and a CSV download link. Reuses the site's existing eyebrow/btn-ghost/
+// card grammar rather than inventing new visual language.
+interface Props {
+  title: string;
+  url: string;
+  dateModified: string;
+  csvHref?: string;
+  publisher?: string;
+}
+const { title, url, dateModified, csvHref, publisher = 'OptimisedWebsite' } = Astro.props;
+
+// APA (7th ed.) online-page format: Author. (Year, Month Day). Title. URL.
+// No retrieval date: APA only asks for one when a page has no stable
+// archived version, and this page's own dateModified already dates it.
+// Built manually (not via a single Intl call) because APA's "Year, Month
+// Day" order does not match any standard locale's date ordering.
+const modDate = new Date(dateModified);
+const apaDate = `${modDate.getFullYear()}, ${new Intl.DateTimeFormat('en-GB', { month: 'long' }).format(modDate)} ${modDate.getDate()}`;
+const citation = `${publisher}. (${apaDate}). ${title}. ${url}`;
+
+const uid = `cite-${Math.random().toString(36).slice(2, 8)}`;
+---
+<section class="cite-block" aria-labelledby={`${uid}-h`}>
+  <div class="cite-block-head">
+    <span class="eyebrow violet" id={`${uid}-h`}>Cite this page</span>
+    <span class="chip chip-violet">APA</span>
+  </div>
+
+  <p class="cite-block-text" id={`${uid}-text`}>{citation}</p>
+
+  <div class="cite-block-actions">
+    <button
+      type="button"
+      class="btn btn-ghost cite-copy-btn"
+      data-cite-copy
+      data-cite-value={citation}
+      aria-describedby={`${uid}-status`}
+    >
+      Copy citation
+    </button>
+    {csvHref && (
+      <a href={csvHref} class="btn btn-ghost" download>
+        Download the data (CSV)
+      </a>
+    )}
+  </div>
+  <p class="cite-block-status" id={`${uid}-status`} role="status"></p>
+</section>
+
+<style>
+  .cite-block {
+    margin: 1.75rem 0;
+    padding: 24px 24px 22px;
+    background: var(--color-bg-2);
+    border-radius: 16px;
+    box-shadow: inset 0 0 0 1px var(--color-rule);
+  }
+  .cite-block-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .cite-block-head .eyebrow {
+    margin-bottom: 0;
+  }
+  .cite-block-text {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--color-ink-2);
+    background: var(--color-paper);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 10px 0 14px;
+    box-shadow: inset 0 0 0 1px var(--color-rule);
+    overflow-wrap: anywhere;
+  }
+  .cite-block-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .cite-copy-btn.copied {
+    box-shadow: inset 0 0 0 1px var(--color-ok);
+    color: #047857;
+  }
+  :global(html.dark) .cite-copy-btn.copied {
+    color: #6ee7b7;
+  }
+  .cite-block-status {
+    margin: 8px 0 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-ink-3);
+    min-height: 1.2em;
+  }
+  @media (max-width: 400px) {
+    .cite-block { padding: 18px 16px 16px; }
+  }
+</style>
+
+<script>
+  // One listener covers every CiteBlock instance on the page.
+  document.querySelectorAll<HTMLButtonElement>('[data-cite-copy]:not([data-cite-bound])').forEach((btn) => {
+    btn.setAttribute('data-cite-bound', '');
+    btn.addEventListener('click', async () => {
+      const text = btn.getAttribute('data-cite-value') || '';
+      const statusEl = document.getElementById(btn.getAttribute('aria-describedby') || '');
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.classList.add('copied');
+        btn.textContent = 'Copied';
+        if (statusEl) statusEl.textContent = 'Citation copied to clipboard.';
+      } catch {
+        if (statusEl) statusEl.textContent = 'Could not copy automatically. Select the citation text above and copy manually.';
+      }
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.textContent = 'Copy citation';
+        if (statusEl) statusEl.textContent = '';
+      }, 2200);
+    });
+  });
+</script>

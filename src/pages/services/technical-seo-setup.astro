@@ -12,7 +12,7 @@ const siblings = services.filter(s => s.slug !== current.slug).slice(0, 3);
 const hubItems = services.map(s => ({ label: s.title, href: s.href }));
 
 const faqs = [
-  { q: 'What is technical SEO and why does it matter?', a: 'Technical SEO covers the infrastructure that allows search engines to crawl, index, and rank your pages. Without correct canonical URLs, a valid XML sitemap, and a properly configured robots.txt, search engines may miss pages, index duplicates, or waste crawl budget on URLs that should not be indexed. Technical SEO is the plumbing — invisible when it works, catastrophic when it does not.' },
+  { q: 'What is technical SEO and why does it matter?', a: 'Technical SEO covers the infrastructure that allows search engines to crawl, index, and rank your pages. Without correct canonical URLs, a valid XML sitemap, and a properly configured robots.txt, search engines may miss pages, index duplicates, or waste crawl budget on URLs that should not be indexed. Technical SEO is the plumbing: invisible when it works, catastrophic when it does not.' },
   { q: 'What Core Web Vitals targets do you aim for?', a: 'We target Largest Contentful Paint under 2.5 seconds, Interaction to Next Paint under 200 milliseconds, and Cumulative Layout Shift under 0.1. These are Google\'s "good" thresholds. Our Astro builds typically achieve LCP under 1.5 seconds and CLS of zero because static HTML with no client-side JavaScript does not shift layout or delay interactivity.' },
   { q: 'Do you submit the site to search engines?', a: 'Yes. We submit your XML sitemap to both Google Search Console and Bing Webmaster Tools, verify site ownership, and monitor initial indexing progress. For new sites, we also use IndexNow where supported to accelerate Bing and Yandex discovery of new URLs.' }
 ];
@@ -76,7 +76,7 @@ const schemaNodes = [
         Technical SEO is the infrastructure layer that determines whether search engines can find, crawl, and index your pages correctly. Without it, search engines cannot reliably discover or index your pages, regardless of content quality.
       </p>
       <p class="mt-4 leading-relaxed" style="color: var(--color-ink-2);">
-        Every website we build includes a complete technical SEO setup covering canonical URLs, XML sitemaps, robots.txt, heading hierarchy validation, Core Web Vitals optimisation, and search engine submission. These are not optional extras — they are the baseline requirements for any site that intends to rank.
+        Every website we build includes a complete technical SEO setup covering canonical URLs, XML sitemaps, robots.txt, heading hierarchy validation, Core Web Vitals optimisation, and search engine submission. These are not optional extras. They are the baseline requirements for any site that intends to rank.
       </p>
     </section>
 
@@ -87,6 +87,9 @@ const schemaNodes = [
           <li><strong style="color: var(--color-ink);">Step {i + 1}: {step.name}.</strong> {step.text}</li>
         ))}
       </ol>
+      <p class="mt-4 leading-relaxed" style="color: var(--color-ink-2);">
+        Accessibility checks are part of the audit. Our <a href="/learn/website-accessibility-statistics/">website accessibility statistics</a> show 95.9% of the top one million home pages had a detected WCAG 2 failure in February 2026 (WebAIM Million).
+      </p>
     </section>
 
     <section class="py-10">
@@ -130,10 +133,10 @@ const schemaNodes = [
     <section class="py-10">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-6">Search Engine Submission</h2>
       <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
-        Sites submitted directly to Search Console and Bing Webmaster Tools enter the index faster than sites waiting for organic discovery. We submit your XML sitemap on the day of deployment.
+        Submitting your sitemap directly to Search Console and Bing Webmaster Tools gives search engines an early signal about your pages, rather than waiting for organic discovery to find them. We submit your XML sitemap on the day of deployment.
       </p>
       <p class="leading-relaxed" style="color: var(--color-ink-2);">
-        IndexNow notifies Bing and Yandex of new and updated URLs in real time. IndexNow pings the search engine the moment a page is published or modified, eliminating the wait for the next scheduled crawl. New sites benefit most — early crawl cadence determines how fast your pages enter the index.
+        IndexNow notifies Bing and Yandex of new and updated URLs in real time. It pings the search engine the moment a page is published or modified, without waiting for the next scheduled crawl. IndexNow does not guarantee crawling or indexing, but new sites benefit most from the earlier signal.
       </p>
     </section>
 

@@ -14,13 +14,13 @@ faqs:
   - q: "When should I run this checklist?"
     a: "Run through the full checklist twice: once during the build process (to catch issues early) and once immediately before launch. After launch, re-audit quarterly to catch regressions from content updates, plugin changes, or platform migrations."
   - q: "What is the most commonly missed item on this checklist?"
-    a: "Internal linking. Most websites have some internal links in the navigation, but contextual links within the body content — connecting related pages with descriptive anchor text — are frequently overlooked. This is one of the highest-impact, lowest-effort improvements you can make."
+    a: "Internal linking. Most websites have some internal links in the navigation, but contextual links within the body content, connecting related pages with descriptive anchor text, are frequently overlooked. This is one of the highest-impact, lowest-effort improvements you can make."
   - q: "Do I need to score 100 on PageSpeed Insights?"
     a: "No. Aim for 90+ on mobile. A score of 100 often requires sacrificing functionality that users need. Focus on passing Core Web Vitals (LCP under 2.5 seconds, CLS under 0.1, INP under 200ms) rather than chasing a perfect score."
   - q: "Should I use a paid SEO audit tool or this manual checklist?"
     a: "Both. Automated tools like Screaming Frog or Sitebulb catch technical issues at scale (broken links, missing alt text, duplicate titles). This checklist covers strategic elements that automated tools miss, such as content quality, schema relevance, and topical coverage."
 datePublished: "2026-05-13"
-dateModified: "2026-05-13"
+dateModified: "2026-09-26"
 ---
 
 This checklist covers every element an SEO-optimised website needs before going live. Each item directly affects ranking performance, and missing even a few can undermine the entire build. Work through it systematically during your build and again before launch.
@@ -40,7 +40,7 @@ Submit the sitemap to Google Search Console and Bing Webmaster Tools. Verify tha
 ### Robots.txt
 Robots.txt should allow crawling of all valuable pages and block admin areas, search results pages, tag/category archives (if they duplicate content), and staging environments.
 
-Verify the sitemap URL is referenced in robots.txt with a `Sitemap:` directive. Test with Google's robots.txt tester in Search Console.
+Verify the sitemap URL is referenced in robots.txt with a `Sitemap:` directive. Check it with the robots.txt report in Search Console, which replaced the old robots.txt tester tool in December 2023.
 
 ### HTTPS and Security
 The entire site must load over HTTPS with a valid SSL certificate. Mixed content warnings (HTTP resources loaded on HTTPS pages) must be resolved. HTTP URLs must 301 redirect to their HTTPS equivalents.
@@ -74,7 +74,7 @@ All images must have descriptive alt text that aids accessibility and provides c
 ### Internal Links
 Every page must link to its parent hub page and to two or three related pages within its topical cluster, following a deliberate [internal linking strategy](/learn/internal-linking-strategy/). Anchor text should be descriptive and keyword-relevant, not generic ("click here", "read more").
 
-Check for orphan pages — pages with no internal links pointing to them. Every indexable page should be reachable through at least one contextual internal link.
+Check for orphan pages: pages with no internal links pointing to them. Every indexable page should be reachable through at least one contextual internal link.
 
 ## Schema Markup
 
@@ -116,6 +116,8 @@ Verify that all interactive elements (links, buttons, forms) are accessible via 
 ### Colour Contrast
 Text must meet WCAG AA contrast ratios: 4.5:1 for normal text, 3:1 for large text. Test with a browser extension or online contrast checker.
 
+Low contrast text is the most common failure: our [website accessibility statistics](/learn/website-accessibility-statistics/) show it on 83.9% of the one million home pages WebAIM tested in February 2026.
+
 ### Semantic HTML
 Pages should use semantic elements (`<nav>`, `<main>`, `<article>`, `<section>`, `<footer>`) rather than generic `<div>` wrappers. ARIA labels should supplement, not replace, semantic structure.
 
@@ -125,7 +127,7 @@ Pages should use semantic elements (`<nav>`, `<main>`, `<article>`, `<section>`,
 Test every page template on mobile, tablet, and desktop viewports. Text should be readable without zooming. Touch targets should be large enough to tap accurately. No horizontal scrolling.
 
 ### Open Graph Tags
-Verify `og:title`, `og:description`, `og:image`, and `og:url` tags on every page. Test social sharing previews using Facebook's Sharing Debugger and Twitter's Card Validator.
+Verify `og:title`, `og:description`, `og:image`, and `og:url` tags on every page. Test social sharing previews using Facebook's Sharing Debugger. X (formerly Twitter) retired its official Card Validator, so preview X shares with a current third-party card preview tool instead.
 
 ### Analytics Setup
 Google Analytics (GA4) or a privacy-focused alternative should be installed and verified as tracking pageviews. Google Search Console should be connected and the sitemap submitted.
@@ -134,7 +136,7 @@ Google Analytics (GA4) or a privacy-focused alternative should be installed and 
 A custom 404 page should exist with navigation links and a search function (if applicable). Users who reach a dead URL should be guided back into the site, not stranded.
 
 ### Legal Pages
-Privacy policy, cookie policy, and terms of service pages should be present and linked from the footer. These are required for Google AdSense eligibility and build user trust.
+Privacy policy, cookie policy, and terms of service pages should be present and linked from the footer. A privacy policy is a stated requirement for Google AdSense eligibility, and all three build user trust.
 
 ## Post-Launch Actions
 

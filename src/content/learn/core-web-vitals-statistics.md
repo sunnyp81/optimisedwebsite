@@ -30,6 +30,36 @@ faqs:
     a: "The evidence is observational, not experimental, so it shows association rather than proof of cause. Google's Renault case study used regression on a four-month, 33-country dataset and estimated that a 1 second LCP improvement is associated with a 13% increase in conversions on Renault's landing pages when LCP is around 1 second. The older Milliseconds Make Millions study, run by 55 and Deloitte Digital and commissioned by Google, directly monitored sessions on 37 sites and found a 0.1 second speed improvement across four metrics was associated with retail consumers spending 9.2% more. Both are observational findings from specific datasets, not controlled experiments or guarantees for any other site."
 datePublished: "2026-09-26"
 dateModified: "2026-09-26"
+citation: false
+charts:
+  - title: "Origins passing all three Core Web Vitals, mobile (2021-2025)"
+    source: "Web Almanac 2025 Performance chapter"
+    sourceUrl: "https://almanac.httparchive.org/en/2025/performance"
+    date: "2021-2025 (July 2025 dataset)"
+    unit: "%"
+    rows:
+      - label: "2021"
+        value: 32
+      - label: "2022"
+        value: 31
+      - label: "2023"
+        value: 36
+      - label: "2024"
+        value: 44
+      - label: "2025"
+        value: 48
+  - title: "Core Web Vitals metric pass rates (global, Aug 2026)"
+    source: "CrUX release notes"
+    sourceUrl: "https://developer.chrome.com/docs/crux/release-notes"
+    date: "August 2026"
+    unit: "%"
+    rows:
+      - label: "LCP"
+        value: 68.1
+      - label: "CLS"
+        value: 81.5
+      - label: "INP"
+        value: 85.3
 ---
 
 55.6% of origins passed all three Core Web Vitals in the August 2026 Chrome UX Report (CrUX) dataset, published 8 September 2026, according to Google's own CrUX release notes. Individually, 68.1% of origins passed Largest Contentful Paint (LCP), 81.5% passed Cumulative Layout Shift (CLS) and 85.3% passed Interaction to Next Paint (INP), the metric that replaced First Input Delay (FID) in March 2024.

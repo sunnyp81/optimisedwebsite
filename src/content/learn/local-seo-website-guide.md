@@ -17,21 +17,21 @@ faqs:
   - q: "What is local SEO?"
     a: "Local SEO optimises your website and online presence to rank in location-specific search results. It targets searches like 'plumber in Reading' or 'solicitor near me' by combining on-site location signals with Google Business Profile and local citations."
   - q: "Do I need a separate page for each location I serve?"
-    a: "Yes. Each location you actively serve should have its own page with unique content about that area — local landmarks, service specifics and area-relevant testimonials. Avoid thin location pages that only swap the city name in a template."
+    a: "Generally yes. Each location you actively serve should have its own page with unique content about that area, local landmarks, service specifics and area-relevant testimonials. Avoid thin location pages that only swap the city name in a template."
   - q: "What is NAP consistency and why does it matter?"
     a: "NAP stands for Name, Address, Phone number. Google cross-references your NAP across your website, Google Business Profile, directories and citations. Inconsistent NAP data confuses Google and weakens your local ranking signals."
   - q: "How do I set up Google Business Profile for local SEO?"
-    a: "Create or claim your listing at business.google.com. Verify your business via postcard, phone or email. Complete every field: categories, services, hours, photos, service area and business description. Post updates weekly and respond to all reviews."
+    a: "Create or claim your listing at business.google.com. Verify your business via the method Google offers you (postcard, phone, email or video, depending on your business type). Complete every field: categories, services, hours, photos, service area and business description. Post updates regularly and respond to reviews."
   - q: "What schema markup do local businesses need?"
     a: "Local businesses need LocalBusiness schema (or a specific subtype like Plumber, Restaurant or LegalService) on their homepage or location pages. Include name, address, telephone, openingHours, geo coordinates, areaServed and sameAs links."
   - q: "How important are Google reviews for local SEO?"
-    a: "Google reviews directly influence local pack rankings. Businesses with more reviews, higher average ratings and recent review activity rank higher in local results. Review response rate also signals active business engagement."
+    a: "Google reviews influence local pack rankings as part of the prominence signal. Businesses with more reviews, higher average ratings and recent review activity tend to rank higher in local results. Review response rate also signals active business engagement."
   - q: "Can I rank locally without a physical office?"
     a: "Service-area businesses without a physical shopfront can rank locally using Google Business Profile's service area settings. Hide your address if you do not serve customers at your premises. Focus on service area pages and local citations instead."
   - q: "How long does local SEO take to show results?"
-    a: "Local SEO improvements typically show results within 3-6 months. Google Business Profile optimisations can impact local pack rankings within weeks. Website changes and citation building take longer to compound."
+    a: "There is no fixed timeline, but many local SEO improvements show results within 3-6 months. Google Business Profile optimisations can affect local pack rankings faster than that, sometimes within weeks. Website changes and citation building tend to take longer to compound."
 datePublished: "2026-05-14"
-dateModified: "2026-05-14"
+dateModified: "2026-09-26"
 ---
 
 Local SEO connects UK businesses with customers searching for services in specific areas. A plumber in Reading, a solicitor in Manchester or a restaurant in Bristol all depend on local search visibility to generate enquiries and bookings.
@@ -42,13 +42,13 @@ Your website is the foundation of local SEO. Google Business Profile, citations 
 
 Google serves local results through two primary formats: the local pack (map with three business listings) and standard organic results filtered by location relevance.
 
-The local pack appears for queries with local intent — "near me" searches, "[service] in [city]" queries and searches Google determines have implicit local intent based on the user's location.
+The local pack appears for queries with local intent: "near me" searches, "[service] in [city]" queries and searches Google determines have implicit local intent based on the user's location.
 
 Organic local results rank based on the same factors as standard results (content quality, backlinks, E-E-A-T) plus location-specific signals: Google Business Profile data, NAP citations, local backlinks and on-page location content.
 
 ### The Three Local Ranking Factors
 
-Google identifies three primary local ranking factors: relevance, distance and prominence.
+Google names three primary local ranking factors: relevance, distance and prominence.
 
 Relevance measures how well your business matches the search query. Complete Business Profile data, accurate categories and detailed service descriptions improve relevance.
 
@@ -62,17 +62,17 @@ Location pages tell Google which areas you serve. Each page targets a specific t
 
 ### What Makes a Strong Location Page
 
-A strong location page contains 800-1,500 words of genuinely unique content about serving that specific area. Swap-the-city-name template pages provide no unique value and Google recognises them as thin content.
+A strong location page contains genuinely unique content about serving that specific area, typically several hundred words or more depending on how much there genuinely is to say. Swap-the-city-name template pages provide no unique value and Google's systems can recognise them as thin, near-duplicate content.
 
 Include area-specific details: local landmarks near your premises, transport links for customers visiting you, common service requirements in that area and local regulations or considerations that affect your work.
 
-Reference local entities by name. Mention specific roads, neighbourhoods, council areas and nearby businesses. These entity references help Google map your page to its Knowledge Graph for that location.
+Reference local entities by name. Mention specific roads, neighbourhoods, council areas and nearby businesses. These entity references help Google associate your page with that location.
 
 ### Location Page Structure
 
 Use a clear heading hierarchy targeting your service plus location.
 
-**H1:** "[Service] in [Location]" — e.g., "Plumbing Services in Reading"
+**H1:** "[Service] in [Location]", for example "Plumbing Services in Reading"
 
 **H2s covering:**
 - Services available in that area
@@ -85,21 +85,21 @@ Add [LocalBusiness schema](/learn/schema-markup-guide/) to each location page wi
 
 ### Avoiding Thin Location Pages
 
-Google penalises sites with dozens of near-identical location pages. Each page must justify its existence with unique content that a reader in that area would find specifically relevant.
+Sites with dozens of near-identical location pages risk being treated as thin or duplicate content. Each page must justify its existence with unique content that a reader in that area would find specifically relevant.
 
-A site with 50 location pages where only the city name changes in otherwise identical text will perform worse than a site with 10 location pages containing genuine area-specific content.
+A site with 50 location pages where only the city name changes in otherwise identical text will generally perform worse than a site with 10 location pages containing genuine area-specific content.
 
 Remove location pages for areas where you cannot write genuinely unique content. Better to have fewer strong pages than many weak ones.
 
 ## NAP Consistency
 
-NAP (Name, Address, Phone number) consistency is a core local ranking signal. Google cross-references your business details across every source it can find — your website, Google Business Profile, directories, social profiles and data aggregators.
+NAP (Name, Address, Phone number) consistency is a core local ranking signal. Google cross-references your business details across every source it can find: your website, Google Business Profile, directories, social profiles and data aggregators.
 
 ### Setting Your Canonical NAP
 
 Choose one exact format for your business name, address and phone number. Use this identical format everywhere.
 
-Decide on abbreviations and stick with them. "Road" or "Rd." — pick one. "Suite 4" or "Ste 4" — pick one. "0118 xxx xxxx" or "+44 118 xxx xxxx" — pick one.
+Decide on abbreviations and stick with them. "Road" or "Rd." Pick one. "Suite 4" or "Ste 4." Pick one. A consistent phone number format, whichever you choose.
 
 Display your NAP in your website footer so it appears on every page. Mark it up with Organisation schema.
 
@@ -116,21 +116,21 @@ Fix inconsistencies starting with the highest-authority sources: Google Business
 
 ### Data Aggregators
 
-UK data aggregators distribute your business information to hundreds of directories. Submit your correct NAP to the three main UK aggregators:
+Data aggregators distribute your business information to directories, apps and platforms, though which specific platforms each one feeds changes over time and is worth checking directly with the aggregator before you rely on it. Aggregators worth knowing about for a UK business include:
 
-- **Central Index** — feeds Yell, Scoot, 118 and many local directories
-- **Factual** — feeds Apple Maps, Facebook, Bing and others
-- **Infogroup / Data.com** — feeds US-centric directories with UK coverage
+- **Central Index**: a UK-focused aggregator serving UK directories
+- **Foursquare** (formerly Factual, which merged into Foursquare in 2020): a location-data aggregator with major platform integrations
+- **Data Axle** (formerly Infogroup): a large US-based business data aggregator with some international coverage
 
-Getting your NAP correct in these aggregators prevents inconsistencies from propagating across the directory ecosystem.
+Getting your NAP correct in these aggregators helps prevent inconsistencies from propagating across the directory ecosystem. Ask each provider which directories and apps it currently feeds for UK businesses before paying for a submission service, since these integrations change.
 
 ## Google Business Profile Optimisation
 
-Google Business Profile (GBP) is the single most important local SEO asset outside your website. GBP listings appear in the local pack, Google Maps and the knowledge panel.
+Google Business Profile (GBP) is one of the most important local SEO assets outside your website. GBP listings appear in the local pack, Google Maps and the knowledge panel.
 
 ### Complete Every Field
 
-Fill in every available field in your GBP dashboard. Incomplete profiles rank lower than fully completed ones.
+Fill in every available field in your GBP dashboard. Incomplete profiles tend to rank lower than fully completed ones.
 
 **Primary category:** Choose the most specific category that matches your main service. A locksmith should select "Locksmith" not "Home Services."
 
@@ -138,13 +138,13 @@ Fill in every available field in your GBP dashboard. Incomplete profiles rank lo
 
 **Services:** List every service you offer with descriptions. These surface in search results for specific service queries.
 
-**Business description:** Write 750 characters describing your business, services and unique selling points. Include your primary service area and key services naturally.
+**Business description:** Write up to 750 characters describing your business, services and unique selling points. Include your primary service area and key services naturally.
 
-**Photos:** Upload at least 10 high-quality photos showing your premises, team, completed work and service delivery. Businesses with photos receive 42% more direction requests and 35% more website clicks than those without.
+**Photos:** Upload high-quality photos showing your premises, team, completed work and service delivery. Google has said in the past that profiles with photos get more engagement (direction requests, website clicks) than profiles without, though it no longer publishes a specific figure, so treat any exact percentage you see quoted elsewhere as dated.
 
 ### Google Business Profile Posts
 
-Publish GBP posts weekly. Posts appear on your knowledge panel and signal active business engagement to Google.
+Publish GBP posts regularly. Posts appear on your knowledge panel and signal active business engagement to Google.
 
 Post types that perform well:
 - Completed project showcases with before/after photos
@@ -154,21 +154,21 @@ Post types that perform well:
 
 ### Managing Reviews
 
-Reviews directly influence local pack rankings. More reviews, higher ratings and recent review activity all strengthen your local visibility.
+Reviews influence local pack rankings as part of the prominence signal. More reviews, higher ratings and recent review activity all help your local visibility.
 
-Ask every satisfied customer for a Google review. Send a direct link to your GBP review page (found in your GBP dashboard under "Ask for reviews") via email or SMS after completing a job.
+Ask every satisfied customer for a Google review. Send a direct link to your GBP review form (found in your GBP dashboard) via email or SMS after completing a job.
 
-Respond to every review within 48 hours. Thank positive reviewers specifically for what they mentioned. Address negative reviews professionally — acknowledge the concern, explain any resolution and invite offline follow-up.
+Respond to reviews promptly. Thank positive reviewers specifically for what they mentioned. Address negative reviews professionally: acknowledge the concern, explain any resolution and invite offline follow-up.
 
-Never buy fake reviews or incentivise reviews with discounts. Google detects review manipulation and penalises businesses with review suspensions that are extremely difficult to reverse.
+Never buy fake reviews or incentivise reviews with discounts. Google detects review manipulation and can suspend the ability to display reviews on profiles that break its policies, which is difficult to reverse.
 
 ## LocalBusiness Schema Markup
 
-LocalBusiness schema provides Google with structured data about your business location, services, contact details and operating hours. This markup supports rich results and reinforces your local ranking signals.
+LocalBusiness schema provides Google with structured data about your business location, services, contact details and operating hours. This markup helps Google parse your local details correctly. It does not itself generate a rich result, but adding BreadcrumbList schema alongside it can produce breadcrumb trails in search results, and Review or AggregateRating schema (where your content genuinely qualifies, per the rules covered in our [schema markup guide](/learn/schema-markup-guide/)) can support review star display.
 
 ### Basic LocalBusiness Schema
 
-Use the most specific LocalBusiness subtype for your business. Google recognises over 100 subtypes: Plumber, Electrician, Restaurant, LegalService, Dentist, RealEstateAgent and many more.
+Use the most specific LocalBusiness subtype for your business. Google recognises a large number of subtypes: Plumber, Electrician, Restaurant, LegalService, Dentist, RealEstateAgent and many more.
 
 ```json
 {
@@ -232,7 +232,7 @@ Local backlinks from businesses, organisations and publications in your service 
 
 ### Local Content That Earns Links
 
-Publish local guides, area statistics or community resources that local organisations want to reference. A solicitor publishing a "Guide to Planning Permission in [County]" attracts links from local estate agents, architects and council information pages.
+Publish local guides, area statistics or community resources that local organisations want to reference. A solicitor publishing a "Guide to Planning Permission in [County]" can attract links from local estate agents, architects and council information pages.
 
 Create resources that serve your local community beyond your commercial services. These pages attract natural local links and reinforce your geographic authority. If you would rather have the location pages, schema and internal structure built for you, see our [SEO website build pricing](/pricing/).
 
@@ -264,17 +264,18 @@ Monitor which pages appear for local queries. Unexpected pages ranking for local
 
 ### Google Business Profile Insights
 
-GBP insights show how customers find and interact with your listing. Track:
+GBP insights (now shown under the Performance tab) show how customers find and interact with your listing. Track:
 
 - Search queries triggering your listing
-- Direct vs discovery searches
-- Website clicks, direction requests and phone calls
-- Photo views compared to competitors
+- Website clicks, direction requests, calls and message requests
+- How customers found you (search vs maps), where this breakdown is available for your profile
+
+Google removed the older direct-vs-discovery-vs-branded search split and the photo-views-vs-competitors comparison from Insights in February 2023, so do not rely on guides that reference those metrics as if they were still there.
 
 ### Rank Tracking
 
 Track rankings for "[service] in [location]" queries across your primary service areas. Monitor both local pack positions (1-3) and organic positions (1-10) separately.
 
-Local rankings fluctuate more than national rankings due to proximity weighting. Track from multiple locations within your service area to get an accurate picture.
+Local rankings can fluctuate more than national rankings due to proximity weighting. Track from multiple locations within your service area to get an accurate picture.
 
 Consistent NAP data, complete GBP optimisation, genuine location content and local link building create the foundation for sustained local search visibility. These signals compound over time as Google builds confidence in your business's local relevance and authority.

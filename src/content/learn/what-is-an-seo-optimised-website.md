@@ -14,16 +14,16 @@ faqs:
   - q: "Is an SEO-optimised website different from a normal website with SEO plugins?"
     a: "Yes. Plugins add meta tags and sitemaps after the fact, but they cannot fix poor information architecture, missing topical depth, or incorrect heading hierarchy. An SEO-optimised website addresses these structural elements during the build phase, not as an afterthought."
   - q: "How long does it take for an SEO-optimised website to start ranking?"
-    a: "Most new domains begin picking up impressions within 4-8 weeks if the site has proper schema, internal linking, and targets realistic keywords. Competitive terms take longer, but a well-structured site accelerates the timeline compared to retrofitting SEO onto an existing build."
+    a: "Timelines vary by niche competition and cannot be guaranteed, but new domains with clean schema, internal linking, and realistic keyword targets often start gathering impressions within weeks rather than months. Competitive terms take longer, and a well-structured site accelerates the timeline compared to retrofitting SEO onto an existing build."
   - q: "Can I convert my existing website into an SEO-optimised one?"
-    a: "Sometimes. If the current site has sound content and a logical URL structure, adding schema, fixing heading hierarchy, and improving internal links can produce results. If the architecture is fundamentally flawed — flat navigation, duplicate content, no topical clustering — a rebuild is usually faster and cheaper."
+    a: "Sometimes. If the current site has sound content and a logical URL structure, adding schema, fixing heading hierarchy, and improving internal links can produce results. If the architecture is fundamentally flawed, with flat navigation, duplicate content, and no topical clustering, a rebuild is usually faster and cheaper."
   - q: "Do I need ongoing SEO work after launching an SEO-optimised website?"
     a: "The site itself is built to rank without continuous intervention. However, competitive niches benefit from fresh content, backlink acquisition, and periodic technical audits. The foundation reduces the ongoing effort required compared to a standard build."
 datePublished: "2026-05-13"
-dateModified: "2026-05-13"
+dateModified: "2026-09-26"
 ---
 
-An SEO-optimised website is a site designed, structured, and coded specifically to perform well in organic search results. Rather than treating search engine optimisation as a layer applied after the design is finished, every decision — from URL structure to heading hierarchy to internal linking — is made with ranking performance as a primary objective.
+An SEO-optimised website is a site designed, structured, and coded specifically to perform well in organic search results. Rather than treating search engine optimisation as a layer applied after the design is finished, every decision, from URL structure to heading hierarchy to internal linking, is made with ranking performance as a primary objective.
 
 This approach stands in contrast to the way most websites are built. A typical web design project starts with visual mockups, moves into development, and only considers SEO once the site is live. By that point, fundamental architectural decisions have already been made, and retrofitting proper optimisation becomes expensive, slow, and often incomplete.
 
@@ -47,7 +47,7 @@ The technical layer of an SEO-optimised website covers several areas that standa
 
 **Canonical URLs** prevent duplicate content issues. Every page declares its canonical URL in the HTML head, telling search engines which version of the page to index. Without this, parameter variations, trailing slashes, and HTTP/HTTPS versions can split ranking signals across multiple URLs.
 
-**Structured data markup** using JSON-LD schema helps search engines understand entities, relationships, and page types. A service page might carry ProfessionalService schema with price ranges, area served, and provider details. An article page carries Article schema with publication dates and author information. FAQ sections carry FAQPage schema that can trigger rich results in search.
+**Structured data markup** using JSON-LD schema helps search engines understand entities, relationships, and page types. A service page might carry ProfessionalService schema with price ranges, area served, and provider details. An article page carries Article schema with publication dates and author information. FAQ sections carry FAQPage schema, which structures the Q&A content for search engines even though Google stopped showing the dedicated FAQ rich result in Search from May 2026 onwards.
 
 **XML sitemaps** list every indexable page and their last modification dates. The sitemap is submitted to Google Search Console and Bing Webmaster Tools, giving crawlers a direct map of the site's content.
 
@@ -73,7 +73,7 @@ The anchor text used in internal links matters. Rather than "click here" or "rea
 
 Page speed and user experience metrics directly affect rankings. An SEO-optimised website prioritises performance from the start by choosing lightweight frameworks, optimising images, minimising JavaScript, and serving pages from edge networks.
 
-Core Web Vitals — Largest Contentful Paint, Cumulative Layout Shift, and Interaction to Next Paint — are measured and optimised during development, not after launch. Static site generators like Astro produce HTML-first pages that consistently score well on these metrics without the overhead of client-side rendering frameworks.
+Core Web Vitals (Largest Contentful Paint, Cumulative Layout Shift, and Interaction to Next Paint) are measured and optimised during development, not after launch. Static site generators like Astro produce HTML-first pages that consistently score well on these metrics without the overhead of client-side rendering frameworks.
 
 ## Why This Matters for Your Business
 

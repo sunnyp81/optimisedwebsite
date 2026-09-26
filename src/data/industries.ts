@@ -36,7 +36,7 @@ export const industries: Industry[] = [
       'BreadcrumbList schema for clear site hierarchy signals',
     ],
     faqs: [
-      { q: 'Do you write the product reviews?', a: 'Yes. Every review is written from research — feature analysis, price comparison, and genuine editorial recommendations. No scraped specs or manufacturer copy.' },
+      { q: 'Do you write the product reviews?', a: 'Yes. Every review is written from research: feature analysis, price comparison, and genuine editorial recommendations. No scraped specs or manufacturer copy.' },
       { q: 'How do you handle YMYL requirements?', a: 'Health content gets stricter quality signals: clear authorship, evidence-based claims, proper schema, and no exaggerated promises. We structure pages to meet Google\'s quality rater guidelines.' },
       { q: 'Can you add affiliate links?', a: 'Yes. Affiliate links are included with proper rel attributes (nofollow sponsored) and structured in BuyBox components that enhance rather than harm SEO.' },
     ],
@@ -64,7 +64,7 @@ export const industries: Industry[] = [
       'BreadcrumbList schema connecting service area hierarchy',
     ],
     faqs: [
-      { q: 'How many location pages do you create?', a: 'As many as your service area requires. Each page has unique content — not template copy with the town name swapped.' },
+      { q: 'How many location pages do you create?', a: 'As many as your service area requires. Each page has unique content, not template copy with the town name swapped.' },
       { q: 'Do location pages work for SEO?', a: 'Unique location pages with genuine content rank well. Template pages with identical copy and a swapped location name get filtered or penalised.' },
       { q: 'Do you set up Google Business Profile?', a: 'We build the website. GBP setup is a separate service. The site structure supports GBP linking through proper NAP consistency and LocalBusiness schema.' },
     ],
@@ -93,7 +93,7 @@ export const industries: Industry[] = [
     ],
     faqs: [
       { q: 'How do you handle thousands of vehicle pages?', a: 'Programmatic generation with quality gates. Pages below a content or data threshold are set to noindex until they earn enough content to be worth crawling.' },
-      { q: 'Do you pull data from vehicle APIs?', a: 'We can integrate with vehicle data sources. The site architecture handles data at any scale — the content quality gates ensure only substantive pages get indexed.' },
+      { q: 'Do you pull data from vehicle APIs?', a: 'We can integrate with vehicle data sources. The site architecture handles data at any scale; the content quality gates ensure only substantive pages get indexed.' },
     ],
   },
   {
@@ -104,9 +104,9 @@ export const industries: Industry[] = [
     description: 'SEO-optimised websites for SaaS products and online tools. Interactive tool pages, educational content hubs, and product-led SEO architecture that drives organic signups.',
     metaDescription: 'SEO websites for SaaS and online tools. Interactive tool pages, educational hubs, product-led SEO, and full schema markup. Organic traffic that converts to signups.',
     portfolioSite: 'calculator.place',
-    intro: 'SaaS products need organic traffic that converts. A marketing site with five feature pages does not build enough topical depth to rank. We build content architectures around the problems your tool solves — educational guides, interactive calculators, comparison pages — creating the search presence that drives signups.',
+    intro: 'SaaS products need organic traffic that converts. A marketing site with five feature pages does not build enough topical depth to rank. We build content architectures around the problems your tool solves: educational guides, interactive calculators, comparison pages, creating the search presence that drives signups.',
     challenges: [
-      'Feature pages alone do not rank — Google rewards educational depth',
+      'Feature pages alone do not rank; Google rewards educational depth',
       'Competing against established SaaS brands with massive domain authority',
       'Product-led content needs to demonstrate value without friction',
       'Tool pages need unique per-page content, not just an embedded widget',
@@ -131,12 +131,12 @@ export const industries: Industry[] = [
     description: 'SEO-optimised websites for developer tools and documentation sites. Error code guides, API references, and technical content architectures that rank for developer search queries.',
     metaDescription: 'SEO websites for developer tools. Error code guides, documentation structure, TechArticle schema, and topical authority architecture. Rank for developer search queries.',
     portfolioSite: 'fixerror.dev',
-    intro: 'Developer documentation and error reference sites need precise technical structure. Developers search for specific error codes, API methods, and troubleshooting steps. We build sites that organise technical content into a hierarchy search engines can parse — with TechArticle schema and cross-referenced error guides.',
+    intro: 'Developer documentation and error reference sites need precise technical structure. Developers search for specific error codes, API methods, and troubleshooting steps. We build sites that organise technical content into a hierarchy search engines can parse, with TechArticle schema and cross-referenced error guides.',
     challenges: [
       'Competing against Stack Overflow and official documentation',
-      'Technical content needs accuracy — developers leave immediately if wrong',
+      'Technical content needs accuracy; developers leave immediately if wrong',
       'Error codes span multiple services and versions',
-      'Content must be scannable — developers want answers in seconds',
+      'Content must be scannable; developers want answers in seconds',
     ],
     solutions: [
       'Service → Error Code hierarchy with clean URL patterns',
@@ -147,7 +147,7 @@ export const industries: Industry[] = [
     ],
     faqs: [
       { q: 'Do you write the technical content?', a: 'Yes. We research error codes, document causes, and write step-by-step fixes. Each page is editorially reviewed for technical accuracy.' },
-      { q: 'Can you cover multiple programming languages?', a: 'Yes. The site architecture supports any number of service categories — each with its own error code hierarchy.' },
+      { q: 'Can you cover multiple programming languages?', a: 'Yes. The site architecture supports any number of service categories, each with its own error code hierarchy.' },
     ],
   },
   {
@@ -157,7 +157,7 @@ export const industries: Industry[] = [
     keyword: 'ecommerce seo website',
     description: 'SEO-optimised websites for ecommerce stores. Product category hubs, buying guides, and content commerce architecture that ranks for product and comparison search queries.',
     metaDescription: 'SEO websites for ecommerce stores. Category hubs, buying guides, Product schema, and topical authority architecture. Rank for product search queries in the UK.',
-    intro: 'Ecommerce SEO is category architecture. Product pages alone compete against Amazon, eBay, and every marketplace aggregator. Stores that rank build editorial content around their categories — buying guides, comparison pages, and expert recommendations that earn the topical authority product pages cannot build on their own.',
+    intro: 'Ecommerce SEO is category architecture. Product pages alone compete against Amazon, eBay, and every marketplace aggregator. Stores that rank build editorial content around their categories: buying guides, comparison pages, and expert recommendations that earn the topical authority product pages cannot build on their own.',
     challenges: [
       'Competing against Amazon and marketplace giants for product terms',
       'Product pages alone lack the content depth to build authority',
@@ -172,7 +172,7 @@ export const industries: Industry[] = [
       'Internal linking from editorial content to product pages',
     ],
     faqs: [
-      { q: 'Do you build the full ecommerce store?', a: 'We build the SEO content layer — category architecture, buying guides, product pages. For checkout and payment processing, we integrate with your existing platform or recommend Shopify.' },
+      { q: 'Do you build the full ecommerce store?', a: 'We build the SEO content layer: category architecture, buying guides, product pages. For checkout and payment processing, we integrate with your existing platform or recommend Shopify.' },
       { q: 'How do you handle product schema?', a: 'Every product page gets Product, Offer, and PriceSpecification schema. Category pages get ItemList schema linking to individual products.' },
     ],
   },
@@ -183,7 +183,7 @@ export const industries: Industry[] = [
     keyword: 'tradesman website seo',
     description: 'SEO-optimised websites for tradespeople, plumbers, electricians, and contractors. Service pages, location coverage, and local SEO architecture that captures trade search queries.',
     metaDescription: 'SEO websites for tradespeople and contractors. Service pages, location coverage, LocalBusiness schema, and topical authority architecture. Rank in your service area.',
-    intro: 'Tradespeople lose work to directory sites and competitors with better search presence. A single-page website with a phone number does not rank. We build multi-page sites with service-specific content, location coverage, and proper LocalBusiness schema — the structure that captures "plumber near me" and "electrician in [town]" queries.',
+    intro: 'Tradespeople lose work to directory sites and competitors with better search presence. A single-page website with a phone number does not rank. We build multi-page sites with service-specific content, location coverage, and proper LocalBusiness schema: the structure that captures "plumber near me" and "electrician in [town]" queries.',
     challenges: [
       'Directory sites (Checkatrade, MyBuilder) dominate the local pack',
       'Most trade websites are single-page brochures with no SEO depth',
@@ -198,7 +198,7 @@ export const industries: Industry[] = [
       'FAQ sections addressing common customer questions per service',
     ],
     faqs: [
-      { q: 'I only serve a small area. Do I need location pages?', a: 'Yes. Even covering 5-10 nearby towns gives you pages that rank for "[trade] in [town]" — queries your competitors with one-page sites cannot target.' },
+      { q: 'I only serve a small area. Do I need location pages?', a: 'Yes. Even covering 5-10 nearby towns gives you pages that rank for "[trade] in [town]", queries your competitors with one-page sites cannot target.' },
       { q: 'Can I update the site myself after delivery?', a: 'You receive full source code. The Astro framework uses Markdown files that are straightforward to edit. We include documentation on how to add pages.' },
     ],
   },
@@ -209,7 +209,7 @@ export const industries: Industry[] = [
     keyword: 'hospitality website seo',
     description: 'SEO-optimised websites for hotels, restaurants, pubs, and hospitality businesses. Menu pages, event hubs, and local SEO architecture that captures booking and visit-intent queries.',
     metaDescription: 'SEO websites for hospitality businesses. Menu pages, event hubs, LocalBusiness schema, and SEO architecture. Rank for hotel, restaurant, and pub search queries.',
-    intro: 'Hospitality businesses compete against booking platforms and review aggregators for their own brand searches. A website that ranks for your venue name plus relevant service queries — "rooftop bar Manchester", "Sunday lunch near Reading" — reduces dependency on commission-heavy platforms. We build the page structures and schema that make your venue findable.',
+    intro: 'Hospitality businesses compete against booking platforms and review aggregators for their own brand searches. A website that ranks for your venue name plus relevant service queries, such as "rooftop bar Manchester" or "Sunday lunch near Reading", reduces dependency on commission-heavy platforms. We build the page structures and schema that make your venue findable.',
     challenges: [
       'Booking platforms (Booking.com, OpenTable) dominate hospitality SERPs',
       'Menus and events change frequently but need stable URL structures',
@@ -220,7 +220,7 @@ export const industries: Industry[] = [
       'Menu pages with MenuItem schema and clean URL structure',
       'Event pages with Event schema for rich calendar results',
       'LocalBusiness, Restaurant, or LodgingBusiness schema per venue type',
-      'Image optimisation pipeline — WebP/AVIF, lazy loading, explicit dimensions',
+      'Image optimisation pipeline: WebP/AVIF, lazy loading, explicit dimensions',
       'Location-specific content targeting "[venue type] in [area]" queries',
     ],
     faqs: [
@@ -278,7 +278,7 @@ export const industries: Industry[] = [
     ],
     faqs: [
       { q: 'Do I need a qualified nutritionist to review the content?', a: 'For YMYL nutrition content, we recommend professional review. We build the site structure and write the content. Clinical review is an additional step we can arrange.' },
-      { q: 'Can you build recipe pages with proper schema?', a: 'Yes. Recipe pages include full Recipe schema — prep time, cook time, ingredients, instructions, nutrition info — structured for rich results in Google Search.' },
+      { q: 'Can you build recipe pages with proper schema?', a: 'Yes. Recipe pages include full Recipe schema: prep time, cook time, ingredients, instructions, nutrition info, structured for rich results in Google Search.' },
     ],
   },
 ];

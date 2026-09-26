@@ -25,6 +25,36 @@ faqs:
     a: "Yes. The UK Business Data Survey 2026 found website ownership rises with size: 76% of sole traders, 84% of micro businesses, 92% of small businesses (10 to 49 employees), 97% of medium businesses (50 to 249) and 99% of large businesses (250+)."
 datePublished: "2026-09-26"
 dateModified: "2026-09-26"
+citation: false
+charts:
+  - title: "UK businesses with a website, by size band"
+    source: "DSIT, UK Business Data Survey 2026"
+    sourceUrl: "https://www.gov.uk/government/statistics/uk-business-data-survey-2026/uk-business-data-survey-2026"
+    date: "18 June 2026"
+    unit: "%"
+    rows:
+      - label: "Sole traders"
+        value: 76
+      - label: "Micro"
+        value: 84
+      - label: "Small"
+        value: 92
+      - label: "Medium"
+        value: 97
+      - label: "Large"
+        value: 99
+  - title: "SME employers using tech to sell or manage business"
+    source: "DBT, Longitudinal Small Business Survey"
+    sourceUrl: "https://www.gov.uk/government/statistics/small-business-survey-2024-businesses-with-employees/longitudinal-small-business-survey-2024-sme-employers-businesses-with-1-to-249-employees"
+    date: "25 September 2025"
+    unit: "%"
+    rows:
+      - label: "2022"
+        value: 50
+      - label: "2023"
+        value: 61
+      - label: "2024"
+        value: 69
 ---
 
 92% of UK small businesses with 10 to 49 employees had a website as of the survey fieldwork in late 2025 and early 2026, according to the government's UK Business Data Survey 2026 (DSIT, published 18 June 2026). The figure was 84% for micro businesses, 76% for sole traders, and 78% across all UK businesses. Ownership rises with size up to 97% for medium businesses and 99% for large ones.

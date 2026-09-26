@@ -31,7 +31,7 @@ This concept has become central to modern SEO because Google's ranking systems h
 
 Google's mission is to return the most helpful results for every query. A site that covers a topic in depth signals to Google's algorithms that it is likely to have accurate, detailed information on any individual subtopic within that area.
 
-Consider two websites competing for the keyword "how to install underfloor heating". Website A has one page on the topic, surrounded by unrelated content about home decor and gardening. Website B has 25 pages covering underfloor heating — types of systems, costs by room size, compatibility with different floor materials, running costs, installation guides for specific systems, and comparisons between manufacturers.
+Consider two websites competing for the keyword "how to install underfloor heating". Website A has one page on the topic, surrounded by unrelated content about home decor and gardening. Website B has 25 pages covering underfloor heating: types of systems, costs by room size, compatibility with different floor materials, running costs, installation guides for specific systems, and comparisons between manufacturers.
 
 Google's systems recognise that Website B has deeper expertise on underfloor heating. Even if Website A's single page is well-written, it lacks the supporting content that demonstrates genuine authority on the subject. Website B's broader coverage creates what SEO professionals call a topical cluster, and Google rewards this comprehensiveness with higher rankings across the entire cluster.
 
@@ -47,7 +47,7 @@ A topical cluster consists of three elements: a hub page, supporting pages, and 
 
 ## Building Authority Layer by Layer
 
-Topical authority is not binary — you do not suddenly "have" it after publishing a certain number of pages. It builds gradually as you add content and Google crawls, indexes, and evaluates your site over time.
+Topical authority is not binary. You do not suddenly "have" it after publishing a certain number of pages. It builds gradually as you add content and Google crawls, indexes, and evaluates your site over time.
 
 The most effective approach is to build authority one cluster at a time. Choose your primary topic and publish a complete cluster, hub page plus all supporting pages, before moving to a second topic. Planning this in advance is the job of a deliberate [content architecture](/services/content-architecture/). A complete cluster on one subject is more valuable than half-finished clusters on three subjects.
 
@@ -63,7 +63,7 @@ Padding content with unnecessary words harms quality. Every sentence should add 
 
 ## The Role of Entity Relationships
 
-Google's Knowledge Graph maps relationships between entities — people, places, organisations, concepts, and things. When your content consistently references and contextualises entities within your topic, you strengthen the semantic connections Google draws between your site and that subject.
+Google's Knowledge Graph maps relationships between entities: people, places, organisations, concepts, and things. When your content consistently references and contextualises entities within your topic, you strengthen the semantic connections Google draws between your site and that subject.
 
 For a site covering kitchen renovations, entity-rich content references specific materials (quartz, granite, Corian), brands (Howdens, Wren, Wickes), processes (fitting, tiling, plumbing), and standards (Part P electrical regulations, Building Control sign-off). These entity references create a dense semantic footprint that generic content lacks.
 

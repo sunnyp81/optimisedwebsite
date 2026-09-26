@@ -6,7 +6,7 @@ import GrowthChart from '../../components/GrowthChart.astro';
 import StatDelta from '../../components/StatDelta.astro';
 import RankingBreakdown from '../../components/RankingBreakdown.astro';
 import { site } from '../../data/site';
-import { caseStudies } from '../../data/caseStudies';
+import { caseStudies, DATA_WINDOW } from '../../data/caseStudies';
 
 export function getStaticPaths() {
   return caseStudies.map((study) => ({
@@ -20,6 +20,7 @@ const chartColors = ['#10b981', '#7c3aed', '#3b82f6', '#f59e0b', '#ef4444'];
 const studyIndex = caseStudies.findIndex((s) => s.slug === study.slug);
 const otherStudies = caseStudies.filter((s) => s.slug !== study.slug).slice(0, 3);
 const publicationDate = '2026-09-01';
+const dataModifiedDate = '2026-09-26';
 
 const schemaNodes = [
   {
@@ -32,7 +33,7 @@ const schemaNodes = [
     author: { '@id': `${site.url}/#organization` },
     publisher: { '@id': `${site.url}/#organization` },
     datePublished: publicationDate,
-    dateModified: publicationDate,
+    dateModified: dataModifiedDate,
     about: {
       '@type': 'CreativeWork',
       name: study.name,
@@ -59,7 +60,7 @@ const schemaNodes = [
       <div class="mono text-[12px] mb-2" style="color: var(--color-ink-3); letter-spacing: 0.08em;">Case study {String(studyIndex + 1).padStart(2, '0')} / {study.niche}</div>
       <h1 class="section-title">{study.name}: SEO Website Case Study</h1>
       <p class="mt-4 text-lg leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">{study.description}</p>
-      <p class="mt-3 text-xs font-mono" style="color: var(--color-ink-3);">Published 1 September 2026</p>
+      <p class="mt-3 text-xs font-mono" style="color: var(--color-ink-3);">Published 1 September 2026. Figures last checked against Search Console on 26 September 2026.</p>
       <div class="flex flex-wrap gap-2 mt-6">
         <span class="chip">{study.pageCount} pages</span>
         <span class="chip chip-ok">{study.metric}</span>
@@ -100,8 +101,8 @@ const schemaNodes = [
         </div>
 
         <div class="card !p-7 flex flex-col">
-          <div class="mono text-[11px] uppercase mb-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">12-month growth</div>
-          <div class="text-[15px] font-semibold mb-3" style="color: var(--color-ink);">Climbing from zero to {study.metric}</div>
+          <div class="mono text-[11px] uppercase mb-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">First-12-months trend (unverified)</div>
+          <div class="text-[15px] font-semibold mb-3" style="color: var(--color-ink);">Monthly impressions since launch</div>
           <div class="flex-1 flex items-center">
             <GrowthChart data={study.growth} label={study.growthLabel} color={chartColors[studyIndex % chartColors.length]} height={170} />
           </div>
@@ -131,7 +132,7 @@ const schemaNodes = [
             ))}
           </div>
           <h3 class="text-[11px] font-bold uppercase tracking-wider mb-3" style="color: var(--color-ink-3);">Schema coverage</h3>
-          <p class="text-sm leading-relaxed" style="color: var(--color-ink-2);">{study.schemaCoverage} of pages carry validated schema markup.</p>
+          <p class="text-sm leading-relaxed" style="color: var(--color-ink-2);">{study.schemaCoverage} of pages carry schema markup, as coded at build time (not independently re-audited in the most recent fact check).</p>
         </div>
       </div>
     </section>
@@ -140,10 +141,10 @@ const schemaNodes = [
     <section class="py-10 reveal">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">Methodology</h2>
       <p class="text-sm leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
-        Clicks, impressions, and average position figures come directly from Google Search Console for {study.url.replace('https://', '')}. Page-indexed counts come from the same property's coverage report. Ranking position buckets group the keywords we track for this site by average position. No third-party rank tracker, panel data, or estimate is used.
+        Clicks, impressions, and average position figures come directly from Google Search Console for {study.url.replace('https://', '')}, pulled for the trailing 28 days from {DATA_WINDOW.start} to {DATA_WINDOW.end}. Page-indexed counts come from the same property's coverage report and were not re-checked in the most recent pass. Ranking position buckets group the keywords we track for this site by average position and were also not re-checked in the most recent pass. No third-party rank tracker, panel data, or estimate is used for the clicks, impressions or position figures.
       </p>
       <p class="text-sm leading-relaxed max-w-3xl mt-3" style="color: var(--color-ink-2);">
-        These figures are stored first-party snapshots from our own Search Console data, not a live feed. They show performance as recorded, not the site's current position today.
+        These figures are a dated snapshot from our own Search Console data, last checked on {dataModifiedDate}, not a live feed. They show performance as recorded for that window, not the site's current position today.
       </p>
     </section>
 

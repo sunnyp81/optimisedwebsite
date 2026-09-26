@@ -25,6 +25,30 @@ faqs:
     a: "No controlled study found in the sources reviewed for this page isolates schema markup's effect on click-through rate. Google has published case studies where sites added VideoObject markup alongside other technical fixes and saw large increases in video clicks, but video volume and indexing fixes changed at the same time, so schema cannot be credited alone. Treat any CTR claim tied to schema markup as observational, not proven causal."
 datePublished: "2026-09-26"
 dateModified: "2026-09-26"
+citation: false
+charts:
+  - title: "Structured data format share on homepages (2025)"
+    source: "HTTP Archive Web Almanac"
+    sourceUrl: "https://almanac.httparchive.org/en/2025/seo"
+    date: "2025"
+    unit: "%"
+    rows:
+      - label: "JSON-LD"
+        value: 43.0
+      - label: "Microdata"
+        value: 17.0
+      - label: "RDFa"
+        value: 1.0
+  - title: "Homepages with any structured data (desktop)"
+    source: "HTTP Archive Web Almanac"
+    sourceUrl: "https://almanac.httparchive.org/en/2025/seo"
+    date: "2024 vs 2025"
+    unit: "%"
+    rows:
+      - label: "2024"
+        value: 48.0
+      - label: "2025"
+        value: 50.0
 ---
 
 50% of homepages carried structured data in 2025, up from 48% on desktop and 49% on mobile in 2024, according to the HTTP Archive Web Almanac published 15 January 2026. JSON-LD is the leading format at 43% of homepages. Google has restricted or removed FAQ and HowTo rich results since 2023, and FAQPage markup use still grew through the latest year the Web Almanac has measured.

@@ -18,7 +18,7 @@ faqs:
   - q: "Which is better for a blog: WordPress or a static site?"
     a: "WordPress is easier for non-technical bloggers who want to write and publish without touching code. Static sites are better for SEO-focused content sites where performance and schema control matter more than ease of publishing. If you are willing to edit Markdown files or use a headless CMS, a static site produces a faster, leaner blog."
 datePublished: "2026-05-13"
-dateModified: "2026-05-13"
+dateModified: "2026-09-26"
 ---
 
 WordPress and static site generators represent two fundamentally different approaches to building websites, and each has distinct implications for SEO performance. An SEO-optimised website can be built on either platform, but the path to achieving strong rankings differs significantly between them.
@@ -37,14 +37,14 @@ This architectural difference creates cascading effects across every SEO-relevan
 
 Static sites have an inherent speed advantage. Pre-built HTML files served from a CDN load faster than dynamically generated pages from a WordPress server. There is no database query time, no PHP execution time, and no plugin overhead.
 
-A typical Astro site achieves 95-100 on Google PageSpeed Insights (mobile) without any performance optimisation effort. A typical WordPress site with a page builder and five plugins scores 40-70 on the same test. Our guide to [site speed and Core Web Vitals](/learn/site-speed-and-core-web-vitals/) explains why static HTML passes these metrics by default.
+A well-built Astro site tends to score well on Google PageSpeed Insights (mobile) with little dedicated performance effort, because there is no server-rendering step or plugin overhead to slow the page down. A WordPress site running a heavy page builder and several plugins tends to score lower on the same test unless it has been actively optimised. Our guide to [site speed and Core Web Vitals](/learn/site-speed-and-core-web-vitals/) covers how to test and improve your own score rather than relying on a generic benchmark.
 
-WordPress can close this gap with caching (WP Rocket, LiteSpeed Cache), image optimisation (ShortPixel), and lightweight themes. A well-optimised WordPress site can score 85-95 on PageSpeed. But reaching that score requires deliberate effort, ongoing maintenance, and discipline about which plugins to install.
+WordPress can close this gap with caching (WP Rocket, LiteSpeed Cache), image optimisation (ShortPixel), and lightweight themes. A well-optimised WordPress site can perform close to a static site on PageSpeed, but reaching that level requires deliberate effort, ongoing maintenance, and discipline about which plugins to install.
 
 For Core Web Vitals specifically:
-- **LCP (Largest Contentful Paint)**: Static sites routinely achieve under 1.5 seconds. WordPress sites average 2.5-4 seconds without caching optimisation.
-- **CLS (Cumulative Layout Shift)**: Static sites produce near-zero CLS because the HTML is complete before the page renders. WordPress sites often have layout shifts from lazy-loaded ads, dynamically injected widgets, and web font loading.
-- **INP (Interaction to Next Paint)**: Static sites with minimal JavaScript respond instantly to interactions. WordPress sites with jQuery, plugin scripts, and page builder code have measurably slower interaction responses.
+- **LCP (Largest Contentful Paint)**: Static sites tend to load their main content quickly because there is no database query or server-side rendering step in the way. Unoptimised WordPress sites often run slower until caching and image optimisation are applied.
+- **CLS (Cumulative Layout Shift)**: Static sites tend to produce low CLS because the HTML is largely complete before the page renders. WordPress sites more often have layout shifts from lazy-loaded ads, dynamically injected widgets, and web font loading.
+- **INP (Interaction to Next Paint)**: Static sites with minimal JavaScript tend to respond quickly to interactions. WordPress sites carrying jQuery, plugin scripts, and page builder code often have measurably slower interaction responses.
 
 ## HTML Output Quality
 
@@ -60,7 +60,7 @@ Clean HTML matters for SEO because search engines parse HTML to understand page 
 
 **WordPress** relies on plugins for schema. RankMath and Yoast generate Organization, Article, BreadcrumbList, and FAQPage schema automatically. Custom schema beyond these types requires either coding JSON-LD into the theme's `<head>` or using a plugin like Schema Pro.
 
-The practical difference appears when you need schema types that plugins do not support out of the box, such as ProfessionalService with specific pricing, Event with performer details, HowTo with step-by-step schema, or complex connected graphs with multiple `@id` references. Our [schema markup service](/services/schema-markup/) builds these connected graphs natively. Static sites handle them directly, whereas WordPress requires theme customisation or additional plugins.
+The practical difference appears when you need schema types that plugins do not support out of the box, such as ProfessionalService with specific pricing, Event with performer details, or complex connected graphs with multiple `@id` references. Our [schema markup service](/services/schema-markup/) builds these connected graphs natively. Static sites handle them directly, whereas WordPress requires theme customisation or additional plugins.
 
 ## Content Management and Editorial Workflow
 
@@ -72,19 +72,19 @@ Headless CMS platforms bridge this gap by providing a web-based editor that writ
 
 ## Security
 
-Static sites are inherently more secure because there is no server-side code to exploit, no database to breach, and no login page to brute-force. The attack surface is essentially zero — the site is just files on a CDN.
+Static sites carry meaningfully less security risk because there is no server-side application code to exploit and no database to breach. The main remaining exposure sits with the CDN, DNS and build pipeline configuration rather than the site itself, so keeping those locked down still matters.
 
-WordPress is a frequent target for attacks because of its market share and its reliance on third-party plugins. Plugin vulnerabilities are discovered regularly, and outdated plugins are the most common entry point for WordPress compromises. Maintaining security requires keeping WordPress core, themes, and plugins updated — a recurring maintenance task that static sites do not require.
+WordPress is a frequent target for attacks because of its market share and its reliance on third-party plugins. Plugin vulnerabilities are discovered regularly, and outdated plugins are a common entry point for WordPress compromises. Maintaining security requires keeping WordPress core, themes, and plugins updated, a recurring maintenance task that static sites do not require.
 
 ## Hosting and Deployment
 
 Static sites deploy to free or low-cost edge platforms. Cloudflare Pages, Vercel, and Netlify offer free tiers that handle significant traffic volumes. The sites are served from global CDN nodes, providing fast load times worldwide.
 
-WordPress requires a web server with PHP and MySQL. Quality WordPress hosting (Cloudways, Kinsta, WP Engine) costs £20-100/month. Budget shared hosting (£3-10/month) often produces poor performance that undermines SEO efforts.
+WordPress requires a web server with PHP and MySQL. Managed WordPress hosting entry plans start from roughly £9-14/month (Cloudways from around $11/month, WP Engine's Lite plan from around $17/£14/month) and rise toward £30/month or more for more capable plans (Kinsta and WP Engine Startup both list around $35/month, or about $30/month billed annually), with higher tiers costing considerably more. Budget shared hosting (£3-10/month) often produces poor performance that undermines SEO efforts.
 
 ## The Verdict for SEO
 
-Static site generators produce the technically superior SEO foundation: faster pages, cleaner code, full schema control, and zero security maintenance. The trade-off is that they require developer skills and lack a built-in editorial interface.
+Static site generators produce the technically stronger SEO foundation: faster pages by default, cleaner code, full schema control, and lower security maintenance. The trade-off is that they require developer skills and lack a built-in editorial interface.
 
 WordPress provides a more accessible platform with a mature SEO plugin ecosystem and familiar editorial tools. The trade-off is that achieving comparable technical SEO performance requires careful theme selection, plugin management, and ongoing maintenance.
 

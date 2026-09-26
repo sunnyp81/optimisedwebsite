@@ -65,21 +65,21 @@ const testimonials = [
   {
     scoreBefore: 42,
     scoreAfter: 100,
-    quote: "1,082 organic clicks/month and 60.8k impressions across 49 area pages. Position 8.0 average, ranking for 'water hardness' queries in every UK region. No backlinks, no ads.",
+    quote: "1,642 organic clicks/month and 85.0k impressions across 49 area pages. Position 10.4 average, ranking for 'water hardness' queries across UK regions.",
     author: "WaterHard.uk",
     role: "Home & Utilities, 49 pages"
   },
   {
     scoreBefore: 0,
     scoreAfter: 100,
-    quote: "437 clicks/month from 36.2k impressions. Top page ranks position 7.0 for 'dead hang time by age' with 22.8k impressions alone. 53 pages, all indexing within weeks.",
+    quote: "3,035 clicks/month from 107.2k impressions. Top query 'dead hang time by age' ranks position 2.2 with 1.6k impressions. 53 pages, all indexing within weeks.",
     author: "DeadHangs.com",
     role: "Health & Fitness, 53 pages"
   },
   {
     scoreBefore: 0,
     scoreAfter: 100,
-    quote: "85.8k impressions/month across 211 pages, the largest impression volume in our network. 512 clicks/month ranking for hundreds of long-tail Slimming World queries.",
+    quote: "29.6k impressions/month across 211 pages. 192 clicks/month ranking for hundreds of long-tail Slimming World queries.",
     author: "SheCooksSheEats.co.uk",
     role: "Food & Diet, 211 pages"
   }
@@ -147,7 +147,7 @@ const schemaNodes = [
           </h1>
 
           <p class="text-[18px] leading-[1.6] mb-8 max-w-[480px] animate-fade-up" style="color: var(--color-ink-2); animation-delay: 0.2s;">
-            Websites built to rank — not just look good. Static-first performance, lean pages, and SEO architecture designed to turn search traffic into enquiries. From £1,500. Live in one week.
+            Websites built to rank, not just look good. Static-first performance, lean pages, and SEO architecture designed to turn search traffic into enquiries. From £1,500. Live in one week.
           </p>
 
           <div class="flex gap-3 flex-wrap animate-fade-up" style="animation-delay: 0.3s;">
@@ -221,7 +221,7 @@ const schemaNodes = [
               <div class="space-y-2">
                 {[
                   { label: 'LCP', value: '0.8s', ok: true },
-                  { label: 'FID', value: '12ms', ok: true },
+                  { label: 'INP', value: '12ms', ok: true },
                   { label: 'CLS', value: '0.00', ok: true }
                 ].map((m) => (
                   <div class="flex justify-between items-center">
@@ -389,7 +389,7 @@ const schemaNodes = [
               </li>
             ))}
           </ul>
-          <a href="/order/" class="btn btn-ghost w-full justify-center">Get free plan — Essential</a>
+          <a href="/order/" class="btn btn-ghost w-full justify-center">Get free plan: Essential</a>
         </div>
 
         <!-- Pro (dark) -->
@@ -407,7 +407,7 @@ const schemaNodes = [
               </li>
             ))}
           </ul>
-          <a href="/order/" class="btn btn-accent w-full justify-center">Get free plan — Pro</a>
+          <a href="/order/" class="btn btn-accent w-full justify-center">Get free plan: Pro</a>
         </div>
       </div>
 
@@ -486,7 +486,7 @@ const schemaNodes = [
           <div class="eyebrow" style="color: rgba(248,250,252,0.6);">Under the hood</div>
           <h2 style="color: var(--color-on-dark);">Why Our Sites Load <br class="hidden md:inline">in Half a Second</h2>
           <p class="text-[15px] leading-[1.65] mt-4 mb-8" style="color: rgba(248,250,252,0.55);">
-            No bloated plugins. No slow databases. Just static HTML served from the nearest edge server to your visitor. The result: instant page loads that Google rewards with higher rankings.
+            No bloated plugins. No slow databases. Just static HTML served from the nearest edge server to your visitor. The result: fast page loads that support the page experience signals Google's ranking systems take into account.
           </p>
           <SpeedRace />
         </div>
@@ -513,7 +513,7 @@ const schemaNodes = [
       <div class="reveal mb-12 text-center">
         <div class="eyebrow" style="justify-content: center;">Performance</div>
         <h2>Performance Checked Before Handover</h2>
-        <p class="text-[15px] mt-4 max-w-[560px] mx-auto" style="color: var(--color-ink-2);">You receive a launch audit for the site we actually built — not an uncited platform average or a score we cannot control after third-party scripts are added.</p>
+        <p class="text-[15px] mt-4 max-w-[560px] mx-auto" style="color: var(--color-ink-2);">You receive a launch audit for the site we actually built, not an uncited platform average or a score we cannot control after third-party scripts are added.</p>
       </div>
 
       <ol class="max-w-[760px] mx-auto reveal" style="border-top: 1px solid var(--color-rule);">
@@ -618,11 +618,11 @@ const schemaNodes = [
   <script>
   // Social proof toast
   const toasts = [
-    { title: 'waterhard.uk', sub: '1,082 clicks/mo · pos 8.0' },
-    { title: 'shecookssheeats.co.uk', sub: '85.8k impressions/mo · 211 pages' },
-    { title: 'deadhangs.com', sub: '437 clicks/mo · pos 7.6' },
-    { title: 'rentalyield.uk', sub: '37.9k impressions/mo · growing' },
-    { title: 'bestvibrationplates.co.uk', sub: '135 pages · 6.7k impr/mo' },
+    { title: 'waterhard.uk', sub: '1,642 clicks/mo · pos 10.4' },
+    { title: 'shecookssheeats.co.uk', sub: '29.6k impressions/mo · 211 pages' },
+    { title: 'deadhangs.com', sub: '3,035 clicks/mo · pos 6.8' },
+    { title: 'rentalyield.uk', sub: '17.7k impressions/mo · growing' },
+    { title: 'bestvibrationplates.co.uk', sub: '135 pages · 14.6k impr/mo' },
   ];
   const toast = document.getElementById('toast');
   const tTitle = document.getElementById('toastTitle');

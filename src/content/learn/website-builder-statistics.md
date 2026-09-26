@@ -27,6 +27,36 @@ faqs:
     a: "Wix reported 304.2 million total registered users as of 31 December 2025, up from 282.4 million a year earlier, according to its Form 20-F annual filing for fiscal year 2025."
 datePublished: "2026-09-26"
 dateModified: "2026-09-26"
+citation: false
+charts:
+  - title: "CMS market share of all websites (W3Techs, 26 Sep 2026)"
+    source: "W3Techs"
+    sourceUrl: "https://w3techs.com/technologies/overview/content_management"
+    date: "26 September 2026"
+    unit: "%"
+    rows:
+      - label: "WordPress"
+        value: 40.2
+      - label: "Shopify"
+        value: 5.4
+      - label: "Wix"
+        value: 4.2
+      - label: "Squarespace"
+        value: 2.4
+  - title: "Core Web Vitals mobile pass rate by platform (2025)"
+    source: "HTTP Archive Web Almanac 2025 CMS chapter"
+    sourceUrl: "https://almanac.httparchive.org/en/2025/cms"
+    date: "2025"
+    unit: "%"
+    rows:
+      - label: "Duda"
+        value: 85
+      - label: "TYPO3 CMS"
+        value: 79
+      - label: "Wix"
+        value: 74
+      - label: "WordPress"
+        value: 45
 ---
 
 WordPress runs 40.2% of all websites and 58.7% of websites that use a content management system, according to W3Techs data dated 26 September 2026. That share is falling: WordPress held 43.2% of all websites in December 2025, so it has lost 3.0 percentage points in nine months while Wix, Shopify, Squarespace and Webflow have each gained ground.

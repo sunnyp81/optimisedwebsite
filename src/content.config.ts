@@ -20,6 +20,21 @@ const pageSchema = z.object({
   })).default([]),
   datePublished: z.string(),
   dateModified: z.string(),
+  // Optional citability additions (playbook step 6). Absent on existing
+  // pages, so they stay valid: charts default to an empty array and
+  // citation defaults to false, both no-ops in [slug].astro.
+  charts: z.array(z.object({
+    title: z.string(),
+    source: z.string(),
+    sourceUrl: z.string(),
+    date: z.string(),
+    unit: z.string().optional(),
+    rows: z.array(z.object({
+      label: z.string(),
+      value: z.number(),
+    })),
+  })).default([]),
+  citation: z.boolean().default(false),
 });
 
 export const collections = {

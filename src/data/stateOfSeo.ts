@@ -11,6 +11,14 @@
 // Nothing here invents precise stats beyond what the existing network supports.
 // Comparative platform figures (WordPress, Squarespace, Wix) are marked as
 // placeholders because they are NOT measured from our own GSC data.
+//
+// 2026-09-26 fact-audit note: the clicks/impressions/position figures in
+// caseStudies.ts were re-verified against Google Search Console (via the SEO
+// Gets MCP) for a trailing 28-day window (2026-08-29 to 2026-09-25) and
+// corrected where they no longer matched. See caseStudies.ts DATA_WINDOW and
+// each study's stats for the current source figures. The ranking-distribution
+// buckets and Lighthouse/schema-coverage figures were NOT re-verified in this
+// pass; treat them as pending confirmation.
 // ---------------------------------------------------------------------------
 
 import { portfolio } from './portfolio';
@@ -26,9 +34,6 @@ export const networkPages = sum(portfolio.map((p) => p.pageCount)); // 568
 export const networkSites = portfolio.length; // 5
 
 // Clicks/impressions are parsed from the case-study stat blocks where present.
-// Where a site does not report a click figure (newest build, impressions-only
-// phase) it contributes 0 to the click total. This is honest: the total is
-// "clicks we can evidence", not an estimate.
 const statValue = (slug: string, label: string): number => {
   const study = caseStudies.find((s) => s.slug === slug);
   const stat = study?.stats.find((st) => st.label === label);
@@ -39,7 +44,12 @@ export const networkClicks =
   statValue('water-hardness-uk', 'Clicks / month') +
   statValue('she-cooks-she-eats', 'Clicks / month') +
   statValue('dead-hangs', 'Clicks / month') +
-  statValue('rental-yield-uk', 'Clicks / month'); // 2,129 (Best Vibration Plates is impressions-only)
+  statValue('rental-yield-uk', 'Clicks / month') +
+  statValue('best-vibration-plates', 'Clicks / month');
+// Re-verified 2026-09-26 against Google Search Console (SEO Gets MCP), trailing
+// 28 days (2026-08-29 to 2026-09-25). Best Vibration Plates now earns measurable
+// clicks and is included here; it was previously excluded as "impressions-only",
+// which was no longer accurate at the time of this check.
 
 export const networkImpressionsK =
   Math.round(
@@ -49,10 +59,12 @@ export const networkImpressionsK =
       statValue('rental-yield-uk', 'Impressions / month') +
       statValue('best-vibration-plates', 'Impressions / month')) *
       10,
-  ) / 10; // 227.4 (thousands/month)
+  ) / 10; // re-derived from the corrected 28-day case-study figures
 
 // Ranking keyword distribution, aggregated across every case study's
 // RankingBreakdown buckets. Same source the case-study pages render.
+// UNVERIFIED as of 2026-09-26: not re-audited against a full keyword-position
+// export in this pass. See caseStudies.ts.
 const rankTotals = caseStudies.reduce(
   (acc, study) => {
     study.ranks.forEach((bucket, i) => {
@@ -68,12 +80,14 @@ export const rankingDistribution = [
   { label: 'Positions 4 to 10', count: rankTotals[1], color: '#7c3aed' },
   { label: 'Positions 11 to 20', count: rankTotals[2], color: '#fbbf24' },
   { label: 'Positions 21 plus', count: rankTotals[3], color: '#9ca3af' },
-]; // totals: 134 / 604 / 1074 / 654 = 2,466 keywords
+]; // totals: 134 / 604 / 1074 / 654 = 2,466 keywords -- UNVERIFIED, see note above
 
-export const totalRankingKeywords = sum(rankTotals); // 2,466
-export const top10Keywords = rankTotals[0] + rankTotals[1]; // 738
+export const totalRankingKeywords = sum(rankTotals); // 2,466 -- UNVERIFIED, see note above
+export const top10Keywords = rankTotals[0] + rankTotals[1]; // 738 -- UNVERIFIED, see note above
 
 // Average Lighthouse across the network, from each study's measured score.
+// NOT re-verified in the 2026-09-26 pass -- no PageSpeed Insights re-check was
+// run. Treat as pending confirmation.
 export const avgLighthouse =
   Math.round((sum(caseStudies.map((s) => s.lighthouse)) / caseStudies.length) * 10) / 10; // 98.8
 export const minLighthouse = Math.min(...caseStudies.map((s) => s.lighthouse)); // 97
@@ -81,15 +95,17 @@ export const minLighthouse = Math.min(...caseStudies.map((s) => s.lighthouse)); 
 // --- Headline counters for the AnimatedCounters strip -------------------------
 export const headlineCounters = [
   { value: networkSites, suffix: '', label: 'Live sites studied' },
-  { value: networkPages, suffix: '', label: 'Indexed pages analysed' },
+  { value: networkPages, suffix: '', label: 'Pages built across the network' },
   { value: totalRankingKeywords, suffix: '', label: 'Ranking keywords tracked' },
   { value: avgLighthouse, suffix: '', label: 'Average Lighthouse score' },
 ];
 
 // --- Indexing-timeline benchmark ----------------------------------------------
 // Each site's 12-point growth array is a monthly impressions curve (thousands),
-// straight from portfolio.ts. We expose them here as named series so the report
-// can plot the "time to traction" benchmark without re-typing any numbers.
+// straight from portfolio.ts. NOT re-verified in the 2026-09-26 pass -- these
+// could not be reproduced against a dated GSC export in the time available.
+// Treat as unconfirmed until checked against a per-site monthly Performance
+// export from each site's launch date.
 export const indexingCurves = portfolio.map((p) => ({
   name: p.name,
   niche: p.niche,
@@ -101,26 +117,27 @@ export const indexingCurves = portfolio.map((p) => ({
 }));
 
 // Indexing-speed claim. The case studies state pages indexed "within weeks"
-// (Dead Hangs) and full indexation in year one. We surface the qualitative
-// claim and flag the precise median for owner confirmation.
+// (Dead Hangs) and full indexation in year one. NOT re-verified in the
+// 2026-09-26 pass -- flagged here as still pending a Coverage export.
 export const indexingBenchmark = {
   // PLACEHOLDER: replace with the real median days-to-first-impression pulled
   // from GSC Coverage + Performance export across all 568 pages.
   medianDaysToFirstImpression: 14, // SOURCE/PLACEHOLDER -- confirm from GSC
-  fullIndexationWindow: 'within the first 12 months', // DERIVED from case studies
-  pagesIndexedClaim: '100% of submitted pages indexed', // DERIVED -- every study reports n/n indexed
+  fullIndexationWindow: 'within the first 12 months', // UNVERIFIED -- pending Coverage export
+  pagesIndexedClaim: 'full indexation reported by each site, pending a Coverage export re-check', // UNVERIFIED
 };
 
 // --- Lighthouse-by-platform benchmark -----------------------------------------
-// "us" column is DERIVED (our measured network average, rounded).
-// wordpress / squarespace columns are SOURCE/PLACEHOLDER industry figures.
-// They are NOT from our GSC data and MUST be replaced with a cited source
-// (e.g. HTTPArchive Web Almanac, or owner's own lab tests) before publishing.
+// "us" column is DERIVED (our measured network average, rounded) but NOT
+// re-verified in the 2026-09-26 pass. wordpress / squarespace columns are
+// SOURCE/PLACEHOLDER industry figures. They are NOT from our GSC data and MUST
+// be replaced with a cited source (e.g. HTTPArchive Web Almanac, or owner's own
+// lab tests) before publishing.
 export const lighthouseByPlatform = [
   { label: 'Performance', us: Math.round(avgLighthouse), wordpress: 52, squarespace: 61 }, // wordpress/squarespace = PLACEHOLDER
   { label: 'Accessibility', us: 98, wordpress: 80, squarespace: 84 }, // us = PLACEHOLDER (not yet aggregated), comparators = PLACEHOLDER
-  { label: 'Best Practices', us: 100, wordpress: 79, squarespace: 88 }, // comparators = PLACEHOLDER
-  { label: 'SEO', us: 100, wordpress: 83, squarespace: 90 }, // comparators = PLACEHOLDER
+  { label: 'Best Practices', us: 100, wordpress: 79, squarespace: 88 }, // us = PLACEHOLDER (not re-verified 2026-09-26), comparators = PLACEHOLDER
+  { label: 'SEO', us: 100, wordpress: 83, squarespace: 90 }, // us = PLACEHOLDER (not re-verified 2026-09-26), comparators = PLACEHOLDER
 ];
 
 // --- Page-load speed race ------------------------------------------------------
@@ -128,7 +145,7 @@ export const lighthouseByPlatform = [
 // edge-cached static builds; the rest are illustrative platform medians and
 // must be replaced with cited WebPageTest runs before the report ships.
 export const speedRacers = [
-  { name: 'Astro static (our stack)', loadTime: 0.4, color: '#10b981', icon: '⟡' }, // DERIVED from our stack; confirm exact FCP
+  { name: 'Astro static (our stack)', loadTime: 0.4, color: '#10b981', icon: '⟡' }, // PLACEHOLDER -- not re-measured 2026-09-26, confirm exact FCP with a live WebPageTest/Lighthouse run
   { name: 'Next.js', loadTime: 1.2, color: '#3b82f6', icon: '▲' }, // PLACEHOLDER
   { name: 'WordPress', loadTime: 3.8, color: '#7c3aed', icon: 'W' }, // PLACEHOLDER
   { name: 'Squarespace', loadTime: 4.2, color: '#f59e0b', icon: '■' }, // PLACEHOLDER
@@ -179,10 +196,11 @@ export const costBenchmarks: CostBenchmark[] = [
 ];
 
 // --- Schema coverage benchmark ------------------------------------------------
-// DERIVED: every case study reports 100% schema coverage. Comparator is a
-// qualitative claim, flagged as placeholder.
+// DERIVED: every case study reports 100% schema coverage (NOT re-verified in
+// the 2026-09-26 pass). Comparator is a qualitative claim, flagged as
+// placeholder.
 export const schemaCoverage = {
-  ourNetwork: 100, // DERIVED -- every study reports 100%
+  ourNetwork: 100, // UNVERIFIED in this pass -- every study reports 100%, not re-audited
   // PLACEHOLDER: typical share of pages on a generic CMS build carrying valid
   // structured data. Replace with a cited crawl figure.
   typicalCmsBuild: 38, // SOURCE/PLACEHOLDER
@@ -191,19 +209,21 @@ export const schemaCoverage = {
 // --- Methodology --------------------------------------------------------------
 export const methodology = {
   windowDescription:
-    'Figures cover a five-site live network built and operated by OptimisedWebsite, measured over the first twelve months from launch of each domain.',
+    'Clicks, impressions and average position figures reflect a trailing 28-day Google Search Console snapshot (29 August to 25 September 2026) for each of five live sites in the network, re-verified on 2026-09-26. Page counts, growth curves, Lighthouse scores, schema coverage and ranking-position buckets were not re-verified in this pass; see the notes below.',
   derivedSources: [
-    'Network totals (sites, pages, clicks, impressions, ranking keywords, Lighthouse) are aggregated directly from the live case-study data in this repository, which mirrors Google Search Console performance and Coverage reports.',
-    'Growth curves are monthly impression series (in thousands) for each site across its first twelve months.',
-    'Ranking distribution is the count of tracked keywords by average position bucket, summed across all five sites.',
+    'Clicks, impressions and average position are pulled directly from Google Search Console (via the SEO Gets MCP) for each site\'s sc-domain property, trailing 28 days as of 2026-09-25.',
+    'Network totals (sites, pages, clicks, impressions) are aggregated directly from the live case-study data in this repository, which mirrors that Google Search Console pull.',
     'Pricing is taken from the published one-time build range with no ongoing fees.',
   ],
   placeholderSources: [
+    'Growth curves (monthly impression series, first 12 months per site) were not re-verified in the 2026-09-26 pass and are pending a per-site monthly export from each site\'s launch date.',
+    'Ranking-position bucket counts (2,466 tracked keywords) were not re-verified in the 2026-09-26 pass and are pending a full keyword-position export.',
+    'Lighthouse scores and schema-coverage percentages were not re-verified in the 2026-09-26 pass and are pending a PageSpeed Insights / crawl re-check.',
     'Median days-to-first-impression is a working estimate pending a full GSC Coverage export.',
     'WordPress, Squarespace, Wix and Next.js performance and load-time figures are illustrative platform comparisons, not measured from our network, and require a cited source (for example the HTTPArchive Web Almanac or owner lab tests) before publication.',
     'Comparator cost ranges and the typical-CMS schema-coverage figure are market estimates pending a cited source.',
   ],
   honestyNote:
-    'Where a site reports impressions but not yet a stable click figure, it contributes zero clicks to network totals rather than an estimate. No figure is rounded up beyond its measured precision.',
-  lastReviewed: '2026-06-05',
+    'Where a figure could not be re-verified against a dated primary-source pull in this audit pass, it is labelled UNVERIFIED or PLACEHOLDER above rather than presented as confirmed. No figure is rounded up beyond its measured precision.',
+  lastReviewed: '2026-09-26',
 };
