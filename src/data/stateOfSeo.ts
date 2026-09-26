@@ -4,13 +4,8 @@
 // Every figure here is either:
 //   (a) DERIVED directly from the live network data in portfolio.ts and
 //       caseStudies.ts (the source of truth, kept in sync below), or
-//   (b) a clearly labelled SOURCE/PLACEHOLDER that the owner must replace with
-//       a real Google Search Console / WebPageTest / industry export before
-//       this report is published or pitched for links.
-//
-// Nothing here invents precise stats beyond what the existing network supports.
-// Comparative platform figures (WordPress, Squarespace, Wix) are marked as
-// placeholders because they are NOT measured from our own GSC data.
+//   (b) labelled UNVERIFIED where it has not been re-checked against a dated export.
+// Uncited platform comparisons and market cost ranges were removed on 2026-09-27.
 //
 // 2026-09-26 fact-audit note: the clicks/impressions/position figures in
 // caseStudies.ts were re-verified against Google Search Console (via the SEO
@@ -120,90 +115,14 @@ export const indexingCurves = portfolio.map((p) => ({
 // (Dead Hangs) and full indexation in year one. NOT re-verified in the
 // 2026-09-26 pass -- flagged here as still pending a Coverage export.
 export const indexingBenchmark = {
-  // PLACEHOLDER: replace with the real median days-to-first-impression pulled
-  // from GSC Coverage + Performance export across all 568 pages.
-  medianDaysToFirstImpression: 14, // SOURCE/PLACEHOLDER -- confirm from GSC
   fullIndexationWindow: 'within the first 12 months', // UNVERIFIED -- pending Coverage export
   pagesIndexedClaim: 'full indexation reported by each site, pending a Coverage export re-check', // UNVERIFIED
 };
 
-// --- Lighthouse-by-platform benchmark -----------------------------------------
-// "us" column is DERIVED (our measured network average, rounded) but NOT
-// re-verified in the 2026-09-26 pass. wordpress / squarespace columns are
-// SOURCE/PLACEHOLDER industry figures. They are NOT from our GSC data and MUST
-// be replaced with a cited source (e.g. HTTPArchive Web Almanac, or owner's own
-// lab tests) before publishing.
-export const lighthouseByPlatform = [
-  { label: 'Performance', us: Math.round(avgLighthouse), wordpress: 52, squarespace: 61 }, // wordpress/squarespace = PLACEHOLDER
-  { label: 'Accessibility', us: 98, wordpress: 80, squarespace: 84 }, // us = PLACEHOLDER (not yet aggregated), comparators = PLACEHOLDER
-  { label: 'Best Practices', us: 100, wordpress: 79, squarespace: 88 }, // us = PLACEHOLDER (not re-verified 2026-09-26), comparators = PLACEHOLDER
-  { label: 'SEO', us: 100, wordpress: 83, squarespace: 90 }, // us = PLACEHOLDER (not re-verified 2026-09-26), comparators = PLACEHOLDER
-];
-
-// --- Page-load speed race ------------------------------------------------------
-// SOURCE/PLACEHOLDER comparative figures. The Astro figure reflects our own
-// edge-cached static builds; the rest are illustrative platform medians and
-// must be replaced with cited WebPageTest runs before the report ships.
-export const speedRacers = [
-  { name: 'Astro static (our stack)', loadTime: 0.4, color: '#10b981', icon: '⟡' }, // PLACEHOLDER -- not re-measured 2026-09-26, confirm exact FCP with a live WebPageTest/Lighthouse run
-  { name: 'Next.js', loadTime: 1.2, color: '#3b82f6', icon: '▲' }, // PLACEHOLDER
-  { name: 'WordPress', loadTime: 3.8, color: '#7c3aed', icon: 'W' }, // PLACEHOLDER
-  { name: 'Squarespace', loadTime: 4.2, color: '#f59e0b', icon: '■' }, // PLACEHOLDER
-  { name: 'Wix', loadTime: 5.1, color: '#ef4444', icon: '✦' }, // PLACEHOLDER
-];
-
-// --- Cost benchmark ------------------------------------------------------------
-// Our own pricing is DERIVED from site.ts / pricing.astro (£1,500 to £3,000,
-// one-time, no ongoing fees). Comparator costs are SOURCE/PLACEHOLDER typical
-// market ranges and must carry a citation before publishing.
-export interface CostBenchmark {
-  model: string;
-  upfront: string;
-  ongoing: string;
-  note: string;
-  source: 'derived' | 'placeholder';
-}
-
-export const costBenchmarks: CostBenchmark[] = [
-  {
-    model: 'SEO website build (our model)',
-    upfront: '£1,500 to £3,000',
-    ongoing: '£0 / month',
-    note: 'One-time build, owned outright, no CMS licence or mandatory retainer.',
-    source: 'derived', // from site.ts priceRange + pricing.astro
-  },
-  {
-    model: 'Agency retainer',
-    upfront: '£0 to £1,000 setup',
-    ongoing: '£1,000 to £3,000 / month',
-    note: 'Typical UK SEO agency retainer. PLACEHOLDER market range -- cite a source.',
-    source: 'placeholder',
-  },
-  {
-    model: 'DIY site builder',
-    upfront: '£0 to £300',
-    ongoing: '£18 to £50 / month',
-    note: 'Subscription platform plus templates. PLACEHOLDER market range -- cite a source.',
-    source: 'placeholder',
-  },
-  {
-    model: 'Freelance one-off site',
-    upfront: '£800 to £5,000',
-    ongoing: '£0 to variable',
-    note: 'Wide spread by scope and SEO depth. PLACEHOLDER market range -- cite a source.',
-    source: 'placeholder',
-  },
-];
-
 // --- Schema coverage benchmark ------------------------------------------------
-// DERIVED: every case study reports 100% schema coverage (NOT re-verified in
-// the 2026-09-26 pass). Comparator is a qualitative claim, flagged as
-// placeholder.
+// Every case study reports 100% schema coverage (not re-verified in the 2026-09-26 pass).
 export const schemaCoverage = {
-  ourNetwork: 100, // UNVERIFIED in this pass -- every study reports 100%, not re-audited
-  // PLACEHOLDER: typical share of pages on a generic CMS build carrying valid
-  // structured data. Replace with a cited crawl figure.
-  typicalCmsBuild: 38, // SOURCE/PLACEHOLDER
+  ourNetwork: 100,
 };
 
 // --- Methodology --------------------------------------------------------------
@@ -213,17 +132,13 @@ export const methodology = {
   derivedSources: [
     'Clicks, impressions and average position are pulled directly from Google Search Console (via the SEO Gets MCP) for each site\'s sc-domain property, trailing 28 days as of 2026-09-25.',
     'Network totals (sites, pages, clicks, impressions) are aggregated directly from the live case-study data in this repository, which mirrors that Google Search Console pull.',
-    'Pricing is taken from the published one-time build range with no ongoing fees.',
   ],
   placeholderSources: [
     'Growth curves (monthly impression series, first 12 months per site) were not re-verified in the 2026-09-26 pass and are pending a per-site monthly export from each site\'s launch date.',
     'Ranking-position bucket counts (2,466 tracked keywords) were not re-verified in the 2026-09-26 pass and are pending a full keyword-position export.',
     'Lighthouse scores and schema-coverage percentages were not re-verified in the 2026-09-26 pass and are pending a PageSpeed Insights / crawl re-check.',
-    'Median days-to-first-impression is a working estimate pending a full GSC Coverage export.',
-    'WordPress, Squarespace, Wix and Next.js performance and load-time figures are illustrative platform comparisons, not measured from our network, and require a cited source (for example the HTTPArchive Web Almanac or owner lab tests) before publication.',
-    'Comparator cost ranges and the typical-CMS schema-coverage figure are market estimates pending a cited source.',
   ],
   honestyNote:
-    'Where a figure could not be re-verified against a dated primary-source pull in this audit pass, it is labelled UNVERIFIED or PLACEHOLDER above rather than presented as confirmed. No figure is rounded up beyond its measured precision.',
+    'Where a figure could not be re-verified against a dated primary-source pull in this audit pass, it is listed under estimates to confirm rather than presented as confirmed. No figure is rounded up beyond its measured precision.',
   lastReviewed: '2026-09-26',
 };

@@ -4,10 +4,10 @@ import CTA from '../components/CTA.astro';
 import AnimatedCounters from '../components/AnimatedCounters.astro';
 import InteractiveTimeline from '../components/InteractiveTimeline.astro';
 import PageAnatomy from '../components/PageAnatomy.astro';
-import SpeedRace from '../components/SpeedRace.astro';
 import GrowthChart from '../components/GrowthChart.astro';
 import { site } from '../data/site';
 import { caseStudies } from '../data/caseStudies';
+import { networkPages, networkClicks, networkImpressionsK } from '../data/stateOfSeo';
 
 const chartColors = ['#10b981', '#7c3aed', '#3b82f6', '#f59e0b', '#ef4444'];
 
@@ -72,7 +72,7 @@ const testimonials = [
   {
     scoreBefore: 0,
     scoreAfter: 100,
-    quote: "3,035 clicks/month from 107.2k impressions. Top query 'dead hang time by age' ranks position 2.2 with 1.6k impressions. 53 pages, all indexing within weeks.",
+    quote: "3,035 clicks/month from 107.2k impressions. Top query 'dead hang time by age' ranks position 2.2 with 1.6k impressions. 53 pages.",
     author: "DeadHangs.com",
     role: "Health & Fitness, 53 pages"
   },
@@ -251,9 +251,9 @@ const schemaNodes = [
 
   <!-- ===== NETWORK STATS (animated counters) ===== -->
   <AnimatedCounters counters={[
-    { value: 568, suffix: '+', label: 'Pages built' },
-    { value: 227, suffix: 'k', label: 'Monthly impressions' },
-    { value: 2129, suffix: '+', label: 'Monthly clicks' },
+    { value: networkPages, suffix: '', label: 'Pages across 5 case studies' },
+    { value: networkImpressionsK, suffix: 'k', label: 'Impressions, 28 days to 25 Sep 2026' },
+    { value: networkClicks, suffix: '', label: 'Clicks, 28 days to 25 Sep 2026' },
     { value: 44, suffix: '+', label: 'Sites in network' }
   ]} />
 
@@ -484,11 +484,10 @@ const schemaNodes = [
         <!-- Left: copy + code block -->
         <div class="reveal">
           <div class="eyebrow" style="color: rgba(248,250,252,0.6);">Under the hood</div>
-          <h2 style="color: var(--color-on-dark);">Why Our Sites Load <br class="hidden md:inline">in Half a Second</h2>
+          <h2 style="color: var(--color-on-dark);">Why Our Sites <br class="hidden md:inline">Load Fast</h2>
           <p class="text-[15px] leading-[1.65] mt-4 mb-8" style="color: rgba(248,250,252,0.55);">
             No bloated plugins. No slow databases. Just static HTML served from the nearest edge server to your visitor. The result: fast page loads that support the page experience signals Google's ranking systems take into account.
           </p>
-          <SpeedRace />
         </div>
 
         <!-- Right: 2x3 grid of tech -->

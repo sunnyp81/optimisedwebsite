@@ -4,8 +4,6 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 import CTA from '../components/CTA.astro';
 import AnimatedCounters from '../components/AnimatedCounters.astro';
 import GrowthChart from '../components/GrowthChart.astro';
-import SeoScoreComparison from '../components/SeoScoreComparison.astro';
-import SpeedRace from '../components/SpeedRace.astro';
 import RankingBreakdown from '../components/RankingBreakdown.astro';
 import StatDelta from '../components/StatDelta.astro';
 import { site } from '../data/site';
@@ -20,10 +18,6 @@ import {
   avgLighthouse,
   minLighthouse,
   indexingCurves,
-  indexingBenchmark,
-  lighthouseByPlatform,
-  speedRacers,
-  costBenchmarks,
   rankingDistribution,
   schemaCoverage,
   methodology,
@@ -36,9 +30,9 @@ const pageUrl = `${site.url}/state-of-seo-websites/`;
 // Headline stats for the StatDelta strip, all derived from the network data.
 const headlineStats = [
   { label: 'Live sites', value: networkSites },
-  { label: 'Pages indexed', value: networkPages },
-  { label: 'Clicks / month', value: networkClicks },
-  { label: 'Impressions / month', value: networkImpressionsK, suffix: 'k', decimals: 1 },
+  { label: 'Pages built', value: networkPages },
+  { label: 'Clicks, 28 days to 25 Sep 2026', value: networkClicks },
+  { label: 'Impressions, 28 days to 25 Sep 2026', value: networkImpressionsK, suffix: 'k', decimals: 1 },
 ];
 
 const schemaNodes = [
@@ -67,7 +61,7 @@ const schemaNodes = [
     '@id': `${pageUrl}#dataset`,
     name: 'OptimisedWebsite SEO network performance dataset',
     description:
-      'Aggregated Google Search Console performance for a five-site network: 568 indexed pages, 2,466 tracked ranking keywords, monthly clicks and impressions, and Lighthouse scores by site.',
+      'Aggregated Google Search Console performance for a five-site network: 568 pages, 2,466 tracked ranking keywords, monthly clicks and impressions, and Lighthouse scores by site.',
     url: pageUrl,
     license: 'https://creativecommons.org/licenses/by/4.0/',
     creator: { '@id': `${site.url}/#organization` },
@@ -81,7 +75,7 @@ const schemaNodes = [
       'organic impressions',
     ],
     variableMeasured: [
-      'Indexed pages',
+      'Pages built',
       'Monthly organic clicks',
       'Monthly organic impressions',
       'Ranking keywords by position bucket',
@@ -94,7 +88,7 @@ const schemaNodes = [
 ---
 <Base
   title="The State of SEO Websites 2026 | OptimisedWebsite"
-  description="Original-data report: how purpose-built SEO websites index, rank and perform. Five live sites, 568 indexed pages, 2,466 ranking keywords, and the benchmarks behind them."
+  description="Original-data report: how purpose-built SEO websites index, rank and perform. Five live sites, 568 pages, 2,466 ranking keywords, and the benchmarks behind them."
   canonicalPath="/state-of-seo-websites/"
   schemaNodes={schemaNodes}
 >
@@ -110,12 +104,12 @@ const schemaNodes = [
       <h1 class="section-title">The State of <span class="gradient-text">SEO Websites</span> 2026</h1>
       <p class="section-desc" style="max-width: 640px;">
         How do purpose-built SEO websites actually index, rank and perform? We pulled the numbers from our own
-        live network of {networkSites} sites, {networkPages} indexed pages and {totalRankingKeywords.toLocaleString()} tracked
-        keywords. This is what the data shows, with every figure sourced and every estimate flagged.
+        live network of {networkSites} sites, {networkPages} pages and {totalRankingKeywords.toLocaleString()} tracked
+        keywords. The methodology below shows which figures were re-checked in September 2026 and which were not.
       </p>
       <div class="flex flex-wrap gap-2 mt-7">
         <span class="chip">{networkSites} live sites</span>
-        <span class="chip chip-ok">{networkPages} pages indexed</span>
+        <span class="chip chip-ok">{networkPages} pages built</span>
         <span class="chip chip-violet">Avg Lighthouse {avgLighthouse}</span>
         <span class="chip chip-accent">CC BY 4.0 data</span>
       </div>
@@ -134,18 +128,18 @@ const schemaNodes = [
         {[
           {
             stat: `${networkImpressionsK}k`,
-            label: 'organic impressions per month',
-            body: `Across ${networkPages} pages, the network earns ${networkImpressionsK}k impressions and ${networkClicks.toLocaleString()} clicks every month, built entirely from content and architecture with no paid links.`,
+            label: 'organic impressions in 28 days',
+            body: `Across ${networkPages} pages, the network earned ${networkImpressionsK}k impressions and ${networkClicks.toLocaleString()} clicks in the 28 days to 25 September 2026.`,
           },
           {
             stat: `${top10Keywords.toLocaleString()}`,
             label: 'keywords in the top 10',
-            body: `Of ${totalRankingKeywords.toLocaleString()} tracked keywords, ${top10Keywords.toLocaleString()} sit on page one. The long tail compounds as each domain ages and internal links mature.`,
+            body: `Of ${totalRankingKeywords.toLocaleString()} tracked keywords, ${top10Keywords.toLocaleString()} sat on page one when last recorded. These bucket counts have not been re-checked since the September 2026 review.`,
           },
           {
             stat: `${avgLighthouse}`,
             label: 'average Lighthouse score',
-            body: `Every site scores ${minLighthouse} or higher on Lighthouse performance. Static builds on the edge make near-perfect Core Web Vitals the default, not a project.`,
+            body: `Each case study recorded a Lighthouse performance score of ${minLighthouse} or higher at build. These scores have not been re-measured since.`,
           },
         ].map((f) => (
           <div class="card !p-7">
@@ -167,9 +161,9 @@ const schemaNodes = [
       <div class="section-tag">Benchmark 01</div>
       <h2 class="text-2xl md:text-[34px] font-bold leading-tight mb-4" style="color: var(--color-ink);">How fast do new SEO sites gain traction?</h2>
       <p class="text-base leading-relaxed mb-8" style="color: var(--color-ink-2); max-width: 680px;">
-        Every site below started from zero authority. The curves track monthly organic impressions across the first twelve
+        The curves track monthly organic impressions across the first twelve
         months. The pattern is consistent: a slow first quarter while pages index, then a compounding climb as the long tail
-        matures. Full indexation lands {indexingBenchmark.fullIndexationWindow}, with {indexingBenchmark.pagesIndexedClaim}.
+        matures.
       </p>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {indexingCurves.map((curve, i) => (
@@ -186,46 +180,7 @@ const schemaNodes = [
         ))}
       </div>
       <p class="mono text-[11px] mt-5" style="color: var(--color-ink-3);">
-        Source: Google Search Console impressions, first 12 months per site. Median days to first impression:
-        approximately {indexingBenchmark.medianDaysToFirstImpression} (estimate pending full Coverage export).
-      </p>
-    </section>
-
-    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
-
-    <!-- 2. LIGHTHOUSE BY PLATFORM -->
-    <section class="py-12 reveal">
-      <div class="section-tag">Benchmark 02</div>
-      <h2 class="text-2xl md:text-[34px] font-bold leading-tight mb-4" style="color: var(--color-ink);">Lighthouse scores by build platform</h2>
-      <p class="text-base leading-relaxed mb-8" style="color: var(--color-ink-2); max-width: 680px;">
-        Core Web Vitals are a ranking input and a conversion lever. The chart compares our measured network average against
-        typical scores for the two most common DIY platforms. Static, edge-cached HTML wins on every axis because there is
-        no database query, no plugin stack and no render-blocking theme to slow first paint. See our approach to
-        <a href="/services/technical-seo-setup/" class="underline" style="color: var(--violet-text);">technical SEO setup</a>.
-      </p>
-      <SeoScoreComparison rows={lighthouseByPlatform} />
-      <p class="mono text-[11px] mt-5" style="color: var(--color-ink-3);">
-        Our column is the measured network average. WordPress and Squarespace columns are illustrative platform estimates
-        (SOURCE/PLACEHOLDER) pending a cited benchmark such as the HTTPArchive Web Almanac.
-      </p>
-    </section>
-
-    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
-
-    <!-- 3. SPEED (dark section) -->
-    <section class="py-12 reveal">
-      <div class="section-tag">Benchmark 03</div>
-      <h2 class="text-2xl md:text-[34px] font-bold leading-tight mb-4" style="color: var(--color-ink);">First paint, platform by platform</h2>
-      <p class="text-base leading-relaxed mb-8" style="color: var(--color-ink-2); max-width: 680px;">
-        Speed is where architecture shows. A static page served from the edge paints in a fraction of the time a
-        plugin-heavy CMS needs to assemble the same HTML. Lower is better.
-      </p>
-      <div class="section-dark rounded-2xl p-5 md:p-7">
-        <SpeedRace racers={speedRacers} />
-      </div>
-      <p class="mono text-[11px] mt-5" style="color: var(--color-ink-3);">
-        The Astro figure reflects our edge-cached static stack. Other platform load times are illustrative
-        (SOURCE/PLACEHOLDER) and require cited WebPageTest runs before publication.
+        Source: Google Search Console impressions, first 12 months per site, as recorded at the time. Not re-checked against a dated export in the September 2026 review.
       </p>
     </section>
 
@@ -233,11 +188,11 @@ const schemaNodes = [
 
     <!-- 4. RANKING DISTRIBUTION -->
     <section class="py-12 reveal">
-      <div class="section-tag">Benchmark 04</div>
-      <h2 class="text-2xl md:text-[34px] font-bold leading-tight mb-4" style="color: var(--color-ink);">Where the keywords actually rank</h2>
+      <div class="section-tag">Benchmark 02</div>
+      <h2 class="text-2xl md:text-[34px] font-bold leading-tight mb-4" style="color: var(--color-ink);">Where the tracked keywords ranked</h2>
       <p class="text-base leading-relaxed mb-8" style="color: var(--color-ink-2); max-width: 680px;">
-        Aggregating every tracked keyword across the network shows the shape of a healthy long-tail strategy: a strong
-        page-one core, with a deep bench of positions 11 to 20 that lift over time. The full breakdowns sit in the
+        These position buckets were recorded on each case study and have not been re-checked against a full keyword export
+        since the September 2026 review. The full breakdowns sit in the
         <a href="/case-studies/" class="underline" style="color: var(--violet-text);">case studies</a>.
       </p>
       <div class="grid gap-6 lg:grid-cols-[1fr_0.9fr] items-start">
@@ -245,65 +200,14 @@ const schemaNodes = [
         <div class="card !p-7">
           <h3 class="text-[11px] font-bold uppercase tracking-wider mb-3" style="color: var(--color-ink-3);">Schema coverage</h3>
           <p class="text-sm leading-relaxed mb-5" style="color: var(--color-ink-2);">
-            Structured data is what wins rich results and AI citations. Every page in the network carries
-            {schemaCoverage.ourNetwork}% valid schema coverage, against a typical CMS build estimated near
-            {schemaCoverage.typicalCmsBuild}% (SOURCE/PLACEHOLDER). Learn how we build the
+            Every case-study site reports {schemaCoverage.ourNetwork}% of pages carrying structured data. This figure was
+            not re-audited in the September 2026 review. Learn how we build the
             <a href="/services/schema-markup/" class="underline" style="color: var(--violet-text);">schema graph</a>.
           </p>
-          <div class="flex items-end gap-4">
-            <div>
-              <div class="font-display text-4xl font-bold" style="color: var(--color-ok);">{schemaCoverage.ourNetwork}%</div>
-              <div class="mono text-[11px] uppercase mt-1" style="color: var(--color-ink-3);">Our network</div>
-            </div>
-            <div>
-              <div class="font-display text-4xl font-bold" style="color: var(--color-ink-3);">{schemaCoverage.typicalCmsBuild}%</div>
-              <div class="mono text-[11px] uppercase mt-1" style="color: var(--color-ink-3);">Typical CMS</div>
-            </div>
-          </div>
+          <div class="font-display text-4xl font-bold" style="color: var(--color-ok);">{schemaCoverage.ourNetwork}%</div>
+          <div class="mono text-[11px] uppercase mt-1" style="color: var(--color-ink-3);">Our network</div>
         </div>
       </div>
-    </section>
-
-    <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
-
-    <!-- 5. COST BENCHMARK -->
-    <section class="py-12 reveal">
-      <div class="section-tag">Benchmark 05</div>
-      <h2 class="text-2xl md:text-[34px] font-bold leading-tight mb-4" style="color: var(--color-ink);">What an SEO website costs to own</h2>
-      <p class="text-base leading-relaxed mb-8" style="color: var(--color-ink-2); max-width: 680px;">
-        The headline figure for any web project is upfront cost, but the figure that matters is total cost of ownership.
-        A one-time build you own outright behaves very differently from a monthly retainer or a subscription platform.
-        Our full breakdown is on the <a href="/pricing/" class="underline" style="color: var(--violet-text);">pricing page</a>.
-      </p>
-      <div class="card !p-0 overflow-x-auto">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr style="border-bottom: 1px solid var(--color-rule);">
-              <th class="p-4 text-[11px] font-bold uppercase tracking-wider" style="color: var(--color-ink-3);">Model</th>
-              <th class="p-4 text-[11px] font-bold uppercase tracking-wider" style="color: var(--color-ink-3);">Upfront</th>
-              <th class="p-4 text-[11px] font-bold uppercase tracking-wider" style="color: var(--color-ink-3);">Ongoing</th>
-              <th class="p-4 text-[11px] font-bold uppercase tracking-wider hidden md:table-cell" style="color: var(--color-ink-3);">Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            {costBenchmarks.map((row, i) => (
-              <tr style={i < costBenchmarks.length - 1 ? 'border-bottom: 1px solid var(--color-rule);' : ''}>
-                <td class="p-4 text-sm font-semibold" style="color: var(--color-ink);">
-                  {row.model}
-                  {row.source === 'derived' && <span class="chip chip-ok ml-2 align-middle">Measured</span>}
-                </td>
-                <td class="p-4 text-sm mono" style="color: var(--color-ink-2);">{row.upfront}</td>
-                <td class="p-4 text-sm mono" style="color: var(--color-ink-2);">{row.ongoing}</td>
-                <td class="p-4 text-sm hidden md:table-cell" style="color: var(--color-ink-3);">{row.note}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <p class="mono text-[11px] mt-5" style="color: var(--color-ink-3);">
-        Our model is taken from the published build price. Comparator ranges are market estimates (SOURCE/PLACEHOLDER)
-        pending a cited source.
-      </p>
     </section>
 
     <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
@@ -345,8 +249,8 @@ const schemaNodes = [
     <section class="py-16 text-center">
       <h2 class="text-2xl md:text-[30px] font-bold leading-tight mb-3" style="color: var(--color-ink);">Want a site that ranks like these?</h2>
       <p class="mb-6" style="color: var(--color-ink-2);">
-        See the full <a href="/case-studies/" class="underline" style="color: var(--violet-text);">case studies</a>, browse the
-        <a href="/services/" class="underline" style="color: var(--violet-text);">services</a>, or check the
+        See the full <a href="/case-studies/" class="underline" style="color: var(--violet-text);">case studies</a>, browse the{' '}
+        <a href="/services/" class="underline" style="color: var(--violet-text);">services</a>, or check the{' '}
         <a href="/pricing/" class="underline" style="color: var(--violet-text);">pricing</a>.
       </p>
       <CTA href="/order/" label="Order Your SEO Website" />
