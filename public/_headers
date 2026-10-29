@@ -30,3 +30,8 @@
 /hummingbird5/*
   X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
   Cache-Control: private, no-store
+
+# Client design previews: keep out of every search index
+/showcase/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+  Cache-Control: private, no-store
