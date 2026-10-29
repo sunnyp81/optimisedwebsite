@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 190" fill="none" stroke-linejoin="round" stroke-linecap="round">
+  <defs>
+    <g id="sh">
+      <rect x="22" y="0" width="176" height="48" rx="10" stroke="#1d3446" stroke-width="4"/>
+      <path d="M82 2l28 22 28-22" fill="#fff" stroke="#1d3446" stroke-width="3.5"/>
+      <path d="M92 2l18 10 18-10" stroke="#1d3446" stroke-width="2"/>
+      <path d="M110 24v24" stroke="#1d3446" stroke-width="2.5"/>
+      <circle cx="110" cy="31" r="3" fill="#1d3446"/>
+      <circle cx="110" cy="43" r="3" fill="#1d3446"/>
+      <path d="M34 10v30M186 10v30" stroke="#1d3446" stroke-width="2" stroke-dasharray="3 5"/>
+    </g>
+  </defs>
+  <g transform="translate(0 132)"><rect x="22" y="0" width="176" height="48" rx="10" fill="#cfe1ee"/><use href="#sh"/></g>
+  <g transform="translate(-6 80)"><rect x="22" y="0" width="176" height="48" rx="10" fill="#dcedc8"/><use href="#sh"/></g>
+  <g transform="translate(4 28)"><rect x="22" y="0" width="176" height="48" rx="10" fill="#fff"/><use href="#sh"/><path d="M128 0v-18q0-8 8-8h24" stroke="#538aaf" stroke-width="3"/><rect x="156" y="-32" width="30" height="14" rx="3" fill="#6ca822" stroke="#1d3446" stroke-width="2.5"/></g>
+</svg>

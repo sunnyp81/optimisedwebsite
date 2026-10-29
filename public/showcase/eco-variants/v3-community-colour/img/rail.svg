@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" fill="none" stroke-linejoin="round" stroke-linecap="round">
+  <!-- wall brackets and rail -->
+  <path d="M60 0v40M1140 0v40" stroke="#1d3446" stroke-width="8"/>
+  <rect x="20" y="34" width="1160" height="12" rx="6" fill="#1d3446"/>
+  <rect x="40" y="36" width="1120" height="3" rx="1.5" fill="#8fb4cf"/>
+  <circle cx="20" cy="40" r="10" fill="#538aaf" stroke="#1d3446" stroke-width="3"/>
+  <circle cx="1180" cy="40" r="10" fill="#538aaf" stroke="#1d3446" stroke-width="3"/>
+
+  <!-- 1: shirt in clear poly cover -->
+  <g transform="translate(160 0)">
+    <path d="M0 72V58c0-8-10-10-10-17 0-8 13-11 17-3" stroke="#1d3446" stroke-width="3.5"/>
+    <path d="M-56 96 0 70l56 26" stroke="#1d3446" stroke-width="4"/>
+    <path d="M-54 96l32-14h44l32 14 12 54-20 6-2 94h-88l-2-94-20-6z" fill="#fff" stroke="#1d3446" stroke-width="3"/>
+    <path d="M-66 150l20 6M66 150l-20 6" stroke="#538aaf" stroke-width="3"/>
+    <path d="M-22 82 0 106l22-24-8-7L0 92l-14-17z" fill="#eaf2f8" stroke="#1d3446" stroke-width="3"/>
+    <path d="M0 106v144" stroke="#1d3446" stroke-width="2"/>
+    <g fill="#538aaf" stroke="#1d3446" stroke-width="1.2"><circle cy="122" r="3.4"/><circle cy="148" r="3.4"/><circle cy="174" r="3.4"/><circle cy="200" r="3.4"/><circle cy="226" r="3.4"/></g>
+    <rect x="12" y="126" width="22" height="24" rx="3" stroke="#1d3446" stroke-width="2"/>
+    <path d="M-36 100l6 30M36 100l-6 30" stroke="#cfe1ee" stroke-width="2"/>
+    <path d="M-72 64Q0 50 72 64l8 210q-80 14-160 0z" fill="#eaf2f8" fill-opacity=".38" stroke="#538aaf" stroke-width="2.5"/>
+    <path d="M-60 86l-6 150M58 96l4 90M48 210l2 40" stroke="#fff" stroke-width="5" stroke-opacity=".9"/>
+    <path d="M-80 274h160" stroke="#538aaf" stroke-width="2" stroke-dasharray="3 5"/>
+  </g>
+
+  <!-- 2: suit in green garment bag -->
+  <g transform="translate(400 0)">
+    <path d="M0 74V58c0-8-10-10-10-17 0-8 13-11 17-3" stroke="#1d3446" stroke-width="3.5"/>
+    <rect x="-76" y="74" width="152" height="200" rx="22" fill="#6ca822" stroke="#1d3446" stroke-width="3"/>
+    <rect x="-66" y="84" width="132" height="180" rx="16" stroke="#f2f8ea" stroke-width="2" stroke-dasharray="6 6" stroke-opacity=".8"/>
+    <rect x="-48" y="94" width="96" height="74" rx="12" fill="#eaf2f8" stroke="#1d3446" stroke-width="2.5"/>
+    <path d="M-48 124l28-22 20 44 20-44 28 22v44h-96z" fill="#2c5f82" stroke="#1d3446" stroke-width="2"/>
+    <path d="M-14 102 0 146l14-44z" fill="#fff" stroke="#1d3446" stroke-width="1.5"/>
+    <path d="M-4 108h8l3 26-7 10-7-10z" fill="#3d6b12" stroke="#1d3446" stroke-width="1.5"/>
+    <path d="M-20 102l-6 20 12 4M20 102l6 20-12 4" stroke="#8fb4cf" stroke-width="1.5"/>
+    <path d="M-38 112l8-4" stroke="#fff" stroke-width="3" stroke-opacity=".8"/>
+    <path d="M0 168v100" stroke="#3d6b12" stroke-width="4" stroke-dasharray="3 3"/>
+    <rect x="-5" y="172" width="10" height="18" rx="3" fill="#fbfaf6" stroke="#1d3446" stroke-width="2"/>
+    <circle cy="185" r="1.6" fill="#1d3446"/>
+  </g>
+
+  <!-- 3: spotted day dress -->
+  <g transform="translate(640 0)">
+    <path d="M0 72V58c0-8-10-10-10-17 0-8 13-11 17-3" stroke="#1d3446" stroke-width="3.5"/>
+    <path d="M-50 98 0 70l50 28" stroke="#1d3446" stroke-width="4"/>
+    <path d="M-24 92l-2 20M24 92l2 20" stroke="#2c5f82" stroke-width="4"/>
+    <path d="M-28 110q28 10 56 0l4 40h-64z" fill="#538aaf" stroke="#1d3446" stroke-width="3"/>
+    <path d="M-32 150h64l46 112q-78 16-156 0z" fill="#538aaf" stroke="#1d3446" stroke-width="3"/>
+    <path d="M-12 156l-22 108M12 156l22 108M0 156v112" stroke="#2c5f82" stroke-width="2"/>
+    <rect x="-33" y="144" width="66" height="11" rx="4" fill="#fbfaf6" stroke="#1d3446" stroke-width="2"/>
+    <path d="M0 150l-12-8v16zM0 150l12-8v16z" fill="#6ca822" stroke="#1d3446" stroke-width="1.5"/>
+    <g fill="#eaf2f8"><circle cx="-14" cy="124" r="3"/><circle cx="12" cy="130" r="3"/><circle cx="-40" cy="190" r="3.5"/><circle cx="-18" cy="214" r="3.5"/><circle cx="20" cy="186" r="3.5"/><circle cx="46" cy="222" r="3.5"/><circle cx="-56" cy="246" r="3.5"/><circle cx="4" cy="246" r="3.5"/><circle cx="58" cy="252" r="3.5"/><circle cx="-6" cy="176" r="3"/><circle cx="34" cy="206" r="3"/><circle cx="-34" cy="226" r="3"/></g>
+  </g>
+
+  <!-- 4: trousers on a clip hanger -->
+  <g transform="translate(860 0)">
+    <path d="M0 72V58c0-8-10-10-10-17 0-8 13-11 17-3" stroke="#1d3446" stroke-width="3.5"/>
+    <rect x="-56" y="70" width="112" height="9" rx="4.5" fill="#1d3446"/>
+    <rect x="-50" y="76" width="14" height="18" rx="3" fill="#cfe1ee" stroke="#1d3446" stroke-width="2"/>
+    <rect x="36" y="76" width="14" height="18" rx="3" fill="#cfe1ee" stroke="#1d3446" stroke-width="2"/>
+    <path d="M-46 88h92l6 182h-40L2 140h-4L-14 270h-40z" fill="#2c5f82" stroke="#1d3446" stroke-width="3"/>
+    <path d="M-46 102h92" stroke="#1d3446" stroke-width="2.5"/>
+    <path d="M-30 88v14M-6 88v14M18 88v14M38 88v14" stroke="#1d3446" stroke-width="2"/>
+    <path d="M-40 106q12 16 16 0M40 106q-12 16-16 0" stroke="#8fb4cf" stroke-width="2"/>
+    <path d="M-32 112l-2 156M32 112l2 156" stroke="#8fb4cf" stroke-width="1.6"/>
+    <path d="M0 102v34" stroke="#1d3446" stroke-width="2"/>
+    <circle cx="6" cy="96" r="2.6" fill="#fbfaf6"/>
+  </g>
+
+  <!-- 5: kurta with embroidered collar and hem -->
+  <g transform="translate(1066 0)">
+    <path d="M0 72V58c0-8-10-10-10-17 0-8 13-11 17-3" stroke="#1d3446" stroke-width="3.5"/>
+    <path d="M-50 98 0 70l50 28" stroke="#1d3446" stroke-width="4"/>
+    <path d="M-30 84h60l32 22 12 86-20 4-4-54v138h-100V138l-4 54-20-4 12-86z" fill="#3d6b12" stroke="#1d3446" stroke-width="3"/>
+    <rect x="-15" y="78" width="30" height="13" rx="5" fill="#fde7a8" stroke="#1d3446" stroke-width="2"/>
+    <rect x="-6" y="91" width="12" height="82" rx="3" fill="#fde7a8" stroke="#1d3446" stroke-width="1.6"/>
+    <g fill="#3d6b12"><circle cy="102" r="2.6"/><circle cy="120" r="2.6"/><circle cy="138" r="2.6"/><circle cy="156" r="2.6"/></g>
+    <g fill="#fde7a8"><circle cx="-26" cy="110" r="2.2"/><circle cx="-30" cy="118" r="1.6"/><circle cx="-22" cy="118" r="1.6"/><circle cx="26" cy="110" r="2.2"/><circle cx="30" cy="118" r="1.6"/><circle cx="22" cy="118" r="1.6"/></g>
+    <path d="M-50 262h100" stroke="#fde7a8" stroke-width="2"/>
+    <g fill="#fde7a8"><circle cx="-42" cy="270" r="2.6"/><circle cx="-28" cy="270" r="2.6"/><circle cx="-14" cy="270" r="2.6"/><circle cy="270" r="2.6"/><circle cx="14" cy="270" r="2.6"/><circle cx="28" cy="270" r="2.6"/><circle cx="42" cy="270" r="2.6"/></g>
+    <path d="M-72 184l18 4M72 184l-18 4" stroke="#fde7a8" stroke-width="2.4" stroke-dasharray="2 4"/>
+  </g>
+</svg>

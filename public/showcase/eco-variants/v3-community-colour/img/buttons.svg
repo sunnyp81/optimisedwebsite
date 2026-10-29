@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 120" fill="none">
+  <defs>
+    <g id="b">
+      <circle r="20" stroke="#1d3446" stroke-width="3.5"/>
+      <circle r="13" stroke="#1d3446" stroke-width="1.6" stroke-opacity=".5"/>
+      <g fill="#1d3446"><circle cx="-4.5" cy="-4.5" r="2.8"/><circle cx="4.5" cy="-4.5" r="2.8"/><circle cx="-4.5" cy="4.5" r="2.8"/><circle cx="4.5" cy="4.5" r="2.8"/></g>
+    </g>
+  </defs>
+  <g transform="translate(34 40)"><circle r="20" fill="#6ca822"/><use href="#b"/><path d="M-4.5-4.5l9 9M4.5-4.5l-9 9" stroke="#fbfaf6" stroke-width="1.6"/></g>
+  <g transform="translate(92 76) scale(.8)"><circle r="20" fill="#fde7a8"/><use href="#b"/></g>
+  <g transform="translate(150 36) scale(1.1)"><circle r="20" fill="#538aaf"/><use href="#b"/></g>
+  <g transform="translate(206 84) scale(.7)"><circle r="20" fill="#fff"/><use href="#b"/></g>
+  <path d="M34 40q30 40 58 36t58-40 56 48" stroke="#3d6b12" stroke-width="2" stroke-dasharray="5 5"/>
+</svg>
