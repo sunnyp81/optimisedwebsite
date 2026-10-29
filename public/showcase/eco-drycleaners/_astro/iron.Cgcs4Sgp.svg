@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 220" fill="none" stroke-linejoin="round" stroke-linecap="round">
+  <style>
+    .s{animation:rise 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center bottom}
+    .s2{animation-delay:.9s}.s3{animation-delay:1.8s}
+    @keyframes rise{0%{opacity:0;transform:translateY(10px)}35%{opacity:1}100%{opacity:0;transform:translateY(-14px)}}
+    @media (prefers-reduced-motion:reduce){.s{animation:none;opacity:1}}
+  </style>
+  <path class="s" d="M44 108c-12-12 4-22-6-34s4-22-4-32" stroke="#8fb4cf" stroke-width="6"/>
+  <path class="s s2" d="M68 102c-10-12 6-20-4-32s6-22-2-32" stroke="#8fb4cf" stroke-width="6"/>
+  <path class="s s3" d="M24 118c-12-10 2-20-8-30" stroke="#8fb4cf" stroke-width="6"/>
+  <path d="M120 70q6-44 54-44h50q20 0 20 20v28" stroke="#1d3446" stroke-width="16"/>
+  <path d="M120 70q6-44 54-44h50q20 0 20 20v28" stroke="#6ca822" stroke-width="9"/>
+  <path d="M28 168q8-60 92-98h128q14 0 14 14v84z" fill="#538aaf" stroke="#1d3446" stroke-width="5"/>
+  <path d="M60 140q20-40 70-58h40" stroke="#eaf2f8" stroke-width="6" stroke-opacity=".8"/>
+  <path d="M20 168h246q6 0 6 6v8q0 6-6 6H30q-14 0-14-10 0-10 4-10z" fill="#dfe8ef" stroke="#1d3446" stroke-width="5"/>
+  <g fill="#1d3446"><circle cx="70" cy="178" r="2.4"/><circle cx="100" cy="178" r="2.4"/><circle cx="130" cy="178" r="2.4"/><circle cx="160" cy="178" r="2.4"/><circle cx="190" cy="178" r="2.4"/><circle cx="220" cy="178" r="2.4"/></g>
+  <circle cx="206" cy="122" r="22" fill="#fbfaf6" stroke="#1d3446" stroke-width="4"/>
+  <path d="M206 122l10-12" stroke="#1d3446" stroke-width="4"/>
+  <g fill="#3d6b12"><circle cx="190" cy="140" r="2.2"/><circle cx="206" cy="146" r="2.2"/><circle cx="222" cy="140" r="2.2"/></g>
+  <rect x="244" y="98" width="10" height="44" rx="5" fill="#fde7a8" stroke="#1d3446" stroke-width="3"/>
+</svg>

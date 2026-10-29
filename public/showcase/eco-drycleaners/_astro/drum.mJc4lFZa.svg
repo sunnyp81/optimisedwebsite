@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 340" fill="none" stroke-linejoin="round" stroke-linecap="round">
+  <style>
+    .tumble{animation:spin 14s linear infinite;transform-origin:150px 196px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @media (prefers-reduced-motion:reduce){.tumble{animation:none}}
+  </style>
+  <rect x="34" y="324" width="34" height="12" rx="4" fill="#1d3446"/>
+  <rect x="232" y="324" width="34" height="12" rx="4" fill="#1d3446"/>
+  <rect x="16" y="10" width="268" height="318" rx="28" fill="#fbfaf6" stroke="#1d3446" stroke-width="6"/>
+  <path d="M16 74h268" stroke="#1d3446" stroke-width="5"/>
+  <rect x="34" y="28" width="70" height="30" rx="8" fill="#eaf2f8" stroke="#1d3446" stroke-width="4"/>
+  <path d="M46 40h46" stroke="#538aaf" stroke-width="3"/>
+  <circle cx="234" cy="42" r="18" fill="#538aaf" stroke="#1d3446" stroke-width="4"/>
+  <path d="M234 42l8-10" stroke="#fbfaf6" stroke-width="4"/>
+  <g fill="#6ca822" stroke="#1d3446" stroke-width="2.5"><circle cx="146" cy="42" r="7"/><circle cx="174" cy="42" r="7"/></g>
+  <circle cx="150" cy="196" r="108" fill="#538aaf" stroke="#1d3446" stroke-width="6"/>
+  <circle cx="150" cy="196" r="84" fill="#eaf2f8" stroke="#1d3446" stroke-width="5"/>
+  <clipPath id="g"><circle cx="150" cy="196" r="80"/></clipPath>
+  <g clip-path="url(#g)">
+    <path d="M60 214q22-14 44 0t46 0 46 0 46 0v80H60z" fill="#cfe1ee"/>
+    <g class="tumble">
+      <path d="M96 150q30-22 62-6l-6 30q-26-10-50 6z" fill="#6ca822" stroke="#1d3446" stroke-width="3"/>
+      <path d="M160 200q28-6 44 14l-20 22q-14-14-34-10z" fill="#fde7a8" stroke="#1d3446" stroke-width="3"/>
+      <path d="M100 210q10 26 40 30l2 22q-40-2-60-40z" fill="#2c5f82" stroke="#1d3446" stroke-width="3"/>
+      <path d="M170 132q24 4 36 26l-16 8q-10-14-26-16z" fill="#fff" stroke="#1d3446" stroke-width="3"/>
+    </g>
+    <g stroke="#fff" stroke-width="2.5"><circle cx="120" cy="250" r="7"/><circle cx="182" cy="262" r="5"/><circle cx="200" cy="236" r="4"/><circle cx="136" cy="270" r="4"/></g>
+  </g>
+  <path d="M96 140q20-28 54-34" stroke="#fff" stroke-width="7" stroke-opacity=".85"/>
+  <rect x="254" y="176" width="14" height="40" rx="6" fill="#dfe8ef" stroke="#1d3446" stroke-width="4"/>
+</svg>
