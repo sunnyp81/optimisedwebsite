@@ -11,7 +11,7 @@ const pill = (x, y, w, accent, dot, text, label) => `
     <g transform="translate(${x},${y})">
       <rect width="${w}" height="52" rx="26" fill="${accent}" fill-opacity="0.14" stroke="${accent}" stroke-opacity="0.5" stroke-width="1.5"/>
       <circle cx="30" cy="26" r="5.5" fill="${dot}"/>
-      <text x="52" y="34" font-family="DejaVu Sans Mono, monospace" font-size="21" font-weight="700" fill="${text}">${label}</text>
+      <text x="52" y="34" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="21" font-weight="700" fill="${text}">${label}</text>
     </g>`;
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
@@ -49,7 +49,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   <g transform="translate(72,58)">
     <rect x="0" y="0" width="46" height="46" rx="12" fill="#fbbf24"/>
     <polyline points="11,32 20,23 27,27 35,15" fill="none" stroke="#7c3aed" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="62" y="31" font-family="Liberation Sans, DejaVu Sans, sans-serif" font-size="26" font-weight="700" fill="#f8fafc" letter-spacing="-0.5">OptimisedWebsite</text>
+    <text x="62" y="31" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="26" font-weight="700" fill="#f8fafc" letter-spacing="-0.5">OptimisedWebsite</text>
   </g>
 
   <!-- Lighthouse-style gauge (right) -->
@@ -59,7 +59,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
     <circle r="98" fill="none" stroke="#10b981" stroke-width="13" stroke-linecap="round"
             stroke-dasharray="604 616" transform="rotate(-90)"/>
     <text x="0" y="16" text-anchor="middle" font-family="Bitstream Charter, Georgia, serif" font-size="74" font-weight="700" fill="#f8fafc">100</text>
-    <text x="0" y="150" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="19" fill="#94a3b8" letter-spacing="3">LIGHTHOUSE</text>
+    <text x="0" y="150" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="19" fill="#94a3b8" letter-spacing="3">LIGHTHOUSE</text>
   </g>
 
   <!-- Headline -->
@@ -69,16 +69,16 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   </g>
 
   <!-- Subhead -->
-  <text x="74" y="416" font-family="Liberation Sans, DejaVu Sans, sans-serif" font-size="28" fill="#cbd5e1" letter-spacing="-0.3">Built to rank, not just to look good. Live in 7 days.</text>
+  <text x="74" y="416" font-family="Liberation Sans, DejaVu Sans, Arial, sans-serif" font-size="28" fill="#cbd5e1" letter-spacing="-0.3">Built to rank, not just to look good.</text>
 
   <!-- Pills (generous gaps; widths sized to fit the mono text) -->
   ${pill(72, 462, 250, '#10b981', '#34d399', '#6ee7b7', 'Lighthouse 100')}
-  ${pill(346, 462, 250, '#fbbf24', '#fbbf24', '#fcd34d', '7-day delivery')}
-  ${pill(620, 462, 216, '#a78bfa', '#a78bfa', '#c4b5fd', 'From &#163;1,500')}
+  ${pill(346, 462, 250, '#fbbf24', '#fbbf24', '#fcd34d', 'Priced by scope')}
+  ${pill(620, 462, 250, '#a78bfa', '#a78bfa', '#c4b5fd', 'Code you own')}
 
   <!-- Footer -->
-  <text x="74" y="566" font-family="DejaVu Sans Mono, monospace" font-size="22" fill="#94a3b8" letter-spacing="1">optimisedwebsite.com</text>
-  <text x="1128" y="566" text-anchor="end" font-family="DejaVu Sans Mono, monospace" font-size="19" fill="#64748b" letter-spacing="1">Built in Britain</text>
+  <text x="74" y="566" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="22" fill="#94a3b8" letter-spacing="1">optimisedwebsite.com</text>
+  <text x="1128" y="566" text-anchor="end" font-family="DejaVu Sans Mono, Consolas, monospace" font-size="19" fill="#64748b" letter-spacing="1">Built in Britain</text>
 </svg>`;
 
 const png = await sharp(Buffer.from(svg)).png({ compressionLevel: 9 }).toBuffer();

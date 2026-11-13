@@ -1,7 +1,7 @@
 ---
 title: "How Much Does an SEO Website Cost in the UK?"
 metaTitle: "SEO Website Cost UK: What You Should Expect to Pay (2026) | OptimisedWebsite"
-metaDescription: "UK pricing for SEO-optimised websites in 2026. Breakdown of costs by site size, build type, and what drives the price from £1,500 to £10,000+."
+metaDescription: "UK pricing for SEO-optimised websites in 2026. Breakdown of costs by site size, build type, and what drives the price from £1,500 to £15,000."
 h1: "How Much Does an SEO Website Cost in the UK?"
 targetKeyword: "how much does an seo website cost uk"
 intent: "commercial"
@@ -11,7 +11,7 @@ hubBacklink:
   anchor: "SEO website guide"
   href: "/learn/"
 faqs:
-  - q: "Why do some SEO websites cost £1,500 and others cost £10,000?"
+  - q: "Why do some SEO websites cost £1,500 and others cost £15,000?"
     a: "The main cost drivers are page count, content depth, custom design, and schema complexity. A 15-page site with templated design and standard schema costs significantly less than a 60-page site with bespoke design, custom illustrations, and advanced schema covering multiple entity types."
   - q: "Should I pay monthly for SEO or a one-off fee for an SEO website?"
     a: "An SEO-optimised website is a one-off build that gives you a ranking-ready foundation. Monthly SEO retainers cover ongoing content creation, backlink building, and performance monitoring. They serve different purposes. Most businesses benefit from the build first and then decide whether ongoing SEO support is needed."
@@ -23,19 +23,19 @@ datePublished: "2026-05-13"
 dateModified: "2026-09-26"
 ---
 
-An SEO-optimised website in the UK costs between £1,500 and £10,000 for most small-to-medium businesses, with the exact price determined by the number of pages, the depth of content, the complexity of the schema markup, and whether the design is templated or bespoke.
+Our SEO-optimised website builds cost between £1,500 and £15,000, with the exact price determined by the number of pages, the number of premises, the depth of content, any migration from an existing site, and the tools the site connects to.
 
 This guide breaks down where the money goes, what drives costs up or down, and how to evaluate whether a quoted price represents genuine value or overcharging.
 
 ## The Price Spectrum in 2026
 
-UK pricing for SEO-focused website builds falls into three broad tiers.
+We price SEO website builds in three levels. Other UK providers set their own rates, so treat these as one reference point.
 
-**Starter tier (£1,500-£3,000)**: A 15-30 page website built on a static site generator or lightweight CMS. This is the bracket our own [SEO website build pricing](/pricing/) sits in. Includes keyword research, topical mapping, content writing for all pages, per-page JSON-LD schema, technical SEO setup, and deployment. Uses a professional but templated design. Suitable for local service businesses, consultancies, and niche e-commerce brands targeting specific keyword clusters.
+**Starter tier (£1,500 to £3,000)**: A website of up to 25 pages built on a static site generator or lightweight CMS. This is Level 1 on our [SEO website build pricing](/pricing/) page. Includes keyword research, topical mapping, content writing for all pages, per-page JSON-LD schema, technical SEO setup, and deployment. Uses a professional but templated design. Suitable for local service businesses, consultancies, and niche e-commerce brands targeting specific keyword clusters.
 
-**Mid-range tier (£3,000-£6,000)**: A 30-50 page website with more extensive topical coverage, custom design elements, advanced schema (multiple entity types, product schema for e-commerce, event schema for venues), and potentially a content management system for ongoing self-publishing. Suitable for businesses in moderately competitive niches that need broader keyword coverage.
+**Mid-range tier (£3,000 to £6,000)**: A 25 to 100 page website with more extensive topical coverage, custom design elements, advanced schema (multiple entity types, product schema for e-commerce, event schema for venues), and potentially a content management system for ongoing self-publishing. Suitable for businesses in moderately competitive niches that need broader keyword coverage.
 
-**Premium tier (£6,000-£10,000+)**: A 50-100+ page website with bespoke design, extensive content production, complex schema graphs, multi-location or multi-service architectures, and integration with CRM or booking systems. Suitable for competitive industries, multi-location businesses, and companies with complex service offerings.
+**Premium tier (£6,000 to £15,000)**: A website of 100 pages to several hundred with bespoke design, extensive content production, complex schema graphs, multi-location or multi-service architectures, redirects from an existing site, team editing, and integration with CRM or booking systems. Suitable for competitive industries, multi-location businesses, and companies with complex service offerings.
 
 These ranges assume the build includes content creation. If you supply your own content, expect costs to drop by 30-40%, though the quality of self-written content directly affects ranking performance.
 

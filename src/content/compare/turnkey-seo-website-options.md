@@ -16,7 +16,7 @@ faqs:
   - q: "Are turnkey SEO websites customised for my business?"
     a: "Genuine turnkey SEO websites are customised with your business details, location, services, and target keywords. Template-based offerings that swap out a logo and company name without changing the underlying keyword strategy or content are not truly customised and rarely produce results."
   - q: "How fast can a turnkey SEO website be delivered?"
-    a: "Delivery time depends on the individual provider, the number of pages, and whether the content is pre-written from templates or created from scratch; there is no reliable published market-wide figure. As a rule of thumb, faster delivery often indicates template-based content, which carries higher risk of duplicate content issues. Our own build is delivered in 7-14 days depending on page count."
+    a: "Delivery time depends on the individual provider, the number of pages, and whether the content is pre-written from templates or created from scratch; there is no reliable published market-wide figure. As a rule of thumb, faster delivery often indicates template-based content, which carries higher risk of duplicate content issues. Our own local site build is delivered in 1 to 2 weeks, and larger builds take longer."
   - q: "Do I own the website after delivery?"
     a: "This varies by provider. Some deliver full ownership of code, content, and domain. Others retain hosting control or require ongoing subscriptions. Always confirm ownership terms before purchasing. You should own the source code, content, and domain registration outright."
 datePublished: "2026-05-13"
@@ -50,7 +50,7 @@ The turnkey SEO market includes several distinct provider types, with quality va
 ### Specialist SEO Website Builders
 These providers focus exclusively on building websites designed to rank. They typically have SEO expertise first and web development skills second. The keyword research and content strategy are informed by actual ranking experience across multiple niches.
 
-There is no reliable published market figure for this category as a whole; pricing and delivery time depend heavily on the individual provider. Quality tends to be highest within the turnkey category because SEO is the core competence. Our own [SEO website build](/seo-web-design/) sits in this category, priced at £1,500-£3,000 and delivered in 7-14 days depending on page count, as set out on our [pricing page](/pricing/).
+There is no reliable published market figure for this category as a whole; pricing and delivery time depend heavily on the individual provider. Quality tends to be highest within the turnkey category because SEO is the core competence. Our own [SEO website build](/seo-web-design/) sits in this category, priced from £1,500 to £3,000 for a local site delivered in 1 to 2 weeks, with larger builds priced by requirement, as set out on our [pricing page](/pricing/).
 
 ### Web Design Agencies with SEO Packages
 Many web design agencies offer an "SEO package" alongside their standard builds. This usually means adding a Yoast or RankMath plugin, writing meta descriptions, and submitting a sitemap. The underlying site may look professional but lack the architectural foundations (topical clustering, internal linking strategy, per-page schema) that drive organic rankings.
@@ -97,4 +97,4 @@ A turnkey SEO website provides the foundation for organic search performance. It
 
 The turnkey site gives you a head start over a standard website because the architectural and technical foundations are already in place. Adding content, earning backlinks, and monitoring Search Console data after launch will determine how quickly the site reaches its ranking potential.
 
-If a specialist build is the route you want, you can [order your SEO website](/order/) and receive a fully optimised site in 7-14 days depending on page count.
+If a specialist build is the route you want, you can [order your SEO website](/order/) and receive a fully optimised local site in 1 to 2 weeks, or a larger build on a timescale agreed in your plan.

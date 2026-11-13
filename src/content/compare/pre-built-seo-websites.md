@@ -59,9 +59,9 @@ Not all pre-built sites are equal. Several markers distinguish genuine products 
 
 ## Pre-Built vs Custom-Built: A Realistic Comparison
 
-**Delivery speed**: Pre-built sites can launch within a few days because the base is already constructed. Custom-build delivery times vary by provider and scope; our own [SEO website build](/seo-web-design/) delivers in 7-14 days depending on page count. For businesses that need a site immediately, pre-built still has a speed edge over a slower custom process.
+**Delivery speed**: Pre-built sites can launch within a few days because the base is already constructed. Custom-build delivery times vary by provider and scope; our own [SEO website build](/seo-web-design/) delivers a local site in 1 to 2 weeks, and larger builds over a longer agreed timescale. For businesses that need a site immediately, pre-built still has a speed edge over a slower custom process.
 
-**Cost**: There is no reliable published market figure for pre-built site pricing, since providers do not disclose comparable data; expect meaningful variation by quality and niche. Our own custom build is priced at £1,500-£3,000 as set out on our [pricing page](/pricing/). Any cost saving from pre-built is real when it exists, but it varies with content originality: the cheapest pre-built options often save money by recycling content.
+**Cost**: There is no reliable published market figure for pre-built site pricing, since providers do not disclose comparable data; expect meaningful variation by quality and niche. Our own custom build starts at £1,500 to £3,000 for a local site, with larger builds priced by requirement, as set out on our [pricing page](/pricing/). Any cost saving from pre-built is real when it exists, but it varies with content originality: the cheapest pre-built options often save money by recycling content.
 
 **Keyword precision**: Custom builds research keywords specifically for your business through dedicated [keyword research](/services/keyword-research/), considering your exact services, location, competitive picture, and business goals. Pre-built sites target the most common keywords in a niche, which may not align perfectly with your specific offerings.
 

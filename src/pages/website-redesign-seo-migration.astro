@@ -20,7 +20,7 @@ const faqs = [
   { q: 'Will I lose rankings during the migration?', a: 'Google has said publicly that migrations carry some short-term ranking volatility, and no agency can honestly promise otherwise. Our process, redirect mapping, staging review, and launch controls, is built to minimise that volatility, not eliminate it. See Google\'s own guidance on site moves with URL changes further down this page for the detail behind that.' },
   { q: 'How do you handle old URLs?', a: 'We crawl and export every currently indexed URL before starting, then map each one against the new site. Where a genuine equivalent page exists, it gets a 301 redirect. Redirecting a URL to an irrelevant page can itself get flagged as a soft 404, so we do not redirect everything by default. Content that has genuinely been removed and has no equivalent is allowed to return a 404 or 410 where that is the accurate outcome.' },
   { q: 'Can I keep my current URL structure?', a: 'Yes, if it is already working. We only recommend changing URL structure where the current one is actively working against you, for example duplicate content or unclear hierarchy. Any change is discussed and agreed before it happens.' },
-  { q: 'How long does a migration take?', a: 'Typically 7 to 14 days depending on site size, plus the 30-day post-launch monitoring window included in every build.' },
+  { q: 'How long does a migration take?', a: 'It depends on the size of the existing site. A small replacement of up to 25 pages takes 1 to 2 weeks, 25 to 100 pages takes 3 to 5 weeks, and a full migration of several hundred pages or many premises takes 6 to 12 weeks. Every migration includes Search Console checks at day 14 and day 30.' },
   { q: 'What happens to pages you decide not to redirect?', a: 'If a page has no genuine equivalent on the new site, we do not force a redirect to an unrelated page just to avoid a 404. Depending on the page, it either returns a proper 404 or 410, or, if the content still has value, it is rebuilt on the new site and redirected once it exists.' },
   { q: 'Do you submit every old URL to Google again after launch?', a: 'No. The old URLs are redirected, not resubmitted. What gets submitted after launch is the new sitemap, listing the new site\'s indexable URLs, so Google can find and re-crawl them through the redirects already in place.' },
 ];
@@ -36,7 +36,7 @@ const schemaNodes = [
     offers: {
       '@type': 'Offer',
       priceCurrency: 'GBP',
-      priceSpecification: { '@type': 'PriceSpecification', minPrice: '1500', maxPrice: '3000', priceCurrency: 'GBP' },
+      priceSpecification: { '@type': 'PriceSpecification', minPrice: '1500', maxPrice: '15000', priceCurrency: 'GBP' },
     },
   },
   {
@@ -48,7 +48,7 @@ const schemaNodes = [
 ---
 <Base
   title="Website Redesign & SEO Migration | OptimisedWebsite"
-  description="Redesigning a site that already ranks? Full redirect mapping, staging review, and new-sitemap submission, built to minimise ranking disruption. From £1,500."
+  description="Redesigning a site that already ranks? Full redirect mapping, staging review, and new-sitemap submission, built to minimise ranking disruption. Priced by site size."
   canonicalPath="/website-redesign-seo-migration/"
   schemaNodes={schemaNodes}
 >
@@ -62,7 +62,7 @@ const schemaNodes = [
       <div class="section-tag">Redesign & Migration</div>
       <h1 class="section-title">Website Redesign and SEO Migration</h1>
       <p class="mt-4 text-lg leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
-        A redesign risks the rankings your current site has already earned if URLs, content, or structure change without a plan. This service is for businesses replacing an existing indexed site: old URLs are inventoried and mapped to redirects where a genuine equivalent exists, and the new site's indexable URLs go into a fresh sitemap at launch, with a monitoring window to catch issues early. From &pound;1,500.
+        A redesign risks the rankings your current site has already earned if URLs, content, or structure change without a plan. This service is for businesses replacing an existing indexed site: old URLs are inventoried and mapped to redirects where a genuine equivalent exists, and the new site's indexable URLs go into a fresh sitemap at launch, with a monitoring window to catch issues early. The price follows the size of the existing site: from &pound;1,500 for a small site, and &pound;6,000 to &pound;15,000 for several hundred pages or many premises.
       </p>
       <div class="mt-8 flex flex-wrap gap-4">
         <CTA href="/free-website-growth-review/" label="Get a Free Growth Review" analyticsEvent="cta_click" analyticsLabel="migration-hero" />

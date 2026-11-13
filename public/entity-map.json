@@ -8,7 +8,7 @@
       "url": "https://optimisedwebsite.com",
       "logo": "https://optimisedwebsite.com/favicon.svg",
       "image": "https://optimisedwebsite.com/og-default.png",
-      "description": "OptimisedWebsite builds SEO-optimised Astro websites for UK businesses. Builds include 15 to 50 pages, topical authority architecture, relevant JSON-LD schema, and performance testing. Fixed price 1,500 to 3,000 GBP, delivered in 5 to 7 days.",
+      "description": "OptimisedWebsite builds SEO-optimised Astro websites for UK businesses. Builds range from single-location sites to multi-location builds and migrations, with topical authority architecture, relevant JSON-LD schema, and performance testing. Priced in three levels from 1,500 to 15,000 GBP, fixed before work starts.",
       "areaServed": {
         "@type": "Country",
         "name": "United Kingdom"
@@ -121,7 +121,7 @@
       "@id": "https://optimisedwebsite.com/#service-seo-website-build",
       "name": "SEO Website Build",
       "serviceType": "SEO-optimised website build",
-      "description": "Complete Astro website with hub-and-spoke content architecture, relevant JSON-LD schema, and performance testing. 15 to 50 pages.",
+      "description": "Complete Astro website with hub-and-spoke content architecture, relevant JSON-LD schema, and performance testing. Three levels: up to 25 pages, 25 to 100 pages, and 100 pages to several hundred.",
       "provider": {
         "@id": "https://optimisedwebsite.com/#organization"
       },
@@ -135,7 +135,7 @@
         "priceSpecification": {
           "@type": "PriceSpecification",
           "minPrice": 1500,
-          "maxPrice": 3000,
+          "maxPrice": 15000,
           "priceCurrency": "GBP"
         }
       },

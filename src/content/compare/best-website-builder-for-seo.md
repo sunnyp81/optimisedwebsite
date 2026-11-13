@@ -137,4 +137,4 @@ For sites where design quality outweighs SEO priority: **Squarespace** is the ea
 
 For quick launches targeting low-competition local keywords: **Wix** is functional if speed-to-market matters more than long-term SEO ceiling.
 
-If you want the Astro performance ceiling without the developer overhead, you can [order an SEO website build](/order/) and have a fully optimised static site delivered in seven days.
+If you want the Astro performance ceiling without the developer overhead, you can [order an SEO website build](/order/) and have a fully optimised static site delivered in 1 to 2 weeks for a local site.

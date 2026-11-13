@@ -16,7 +16,7 @@ faqs:
   - q: "Is a regular website with an SEO plugin the same as an SEO-optimised website?"
     a: "No. SEO plugins add meta tag fields and generate sitemaps, but they cannot redesign your information architecture, rewrite your content for search intent, create topical clusters, or implement per-page JSON-LD schema. These structural elements are what separate an SEO-optimised website from a standard site with a plugin installed."
   - q: "How much does an SEO-optimised website cost compared to a regular website?"
-    a: "There is no single published market price for a standard business website, since web designers set their own rates, so a direct like-for-like comparison is not possible. What we can state is our own price: £1,500-£3,000 for an SEO-optimised website build, as set out on our pricing page, covering keyword research, content architecture, SEO copywriting, and schema implementation: elements a standard web design brief typically does not include at all."
+    a: "There is no single published market price for a standard business website, since web designers set their own rates, so a direct like-for-like comparison is not possible. What we can state is our own price: £1,500 to £3,000 for a local SEO-optimised website build, with larger and multi-location builds priced by requirement as set out on our pricing page, covering keyword research, content architecture, SEO copywriting, and schema implementation: elements a standard web design brief typically does not include at all."
 datePublished: "2026-05-13"
 dateModified: "2026-09-26"
 ---

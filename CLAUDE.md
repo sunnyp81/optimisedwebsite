@@ -4,7 +4,7 @@
 
 ## Current state
 
-- **What:** optimisedwebsite.com — a standalone-brand (NO Sunny Patel branding) marketing site for a build-to-order SEO website service (£1,500-3,000 per site). The marketing site ranks for buying-intent keywords and feeds leads into an automated Astro-site-builder pipeline. Central entity throughout: "SEO-optimised website".
+- **What:** optimisedwebsite.com — a standalone-brand (NO Sunny Patel branding) marketing site for a build-to-order SEO website service (three levels, £1,500 to £15,000; ladder lives in `src/data/pricing.ts`). The marketing site ranks for buying-intent keywords and feeds leads into an automated Astro-site-builder pipeline. Central entity throughout: "SEO-optimised website".
 - **Stack:** Astro 5 + Tailwind 4, Cloudflare Pages. JSON-LD schema per page (entity-interconnected @graph), Satori OG images, @astrojs/sitemap.
 - **Repo:** `sunnyp81/optimisedwebsite`, branch `master`. Local `C:\Users\sunny\repos\optimisedwebsite`. CF Pages auto-deploys from master.
 - **Architecture:** hub-and-spoke. Hubs = `/services/` (transactional, 6), `/learn/` (informational, 10-14), `/compare/` (commercial, 8), plus planned `/industry/` (vertical, ~11). Core pages: home, how-it-works, portfolio, pricing, order, about, contact. ~31 pages live; topical map plans 52.

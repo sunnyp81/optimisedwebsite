@@ -57,9 +57,9 @@ Technical implementation follows a tested workflow. Schema is built as a connect
 
 **DIY cost**: Platform hosting (£5-30/month), domain (£10-15/year), optional SEO tools (£0-100/month), and your time. If you value your time at £30/hour and spend 120 hours on the build, the true cost is £3,600 plus hosting and tools.
 
-**Professional cost**: our own [SEO website build](/seo-web-design/) is priced at £1,500-£3,000 for a 15-50 page build including keyword research, content, design, development, schema, and technical SEO setup, as set out on our [pricing page](/pricing/). Other agencies and freelancers price similar builds differently, so treat this as one reference point rather than a market-wide figure.
+**Professional cost**: our own [SEO website build](/seo-web-design/) is priced at £1,500 to £3,000 for a local site of up to 25 pages including keyword research, content, design, development, schema, and technical SEO setup, as set out on our [pricing page](/pricing/). Larger and multi-location builds cost more. Other agencies and freelancers price similar builds differently, so treat this as one reference point rather than a market-wide figure.
 
-The monetary cost of a professional build is often comparable to the time cost of a DIY build. A build with us takes 7-14 days from order to delivery depending on page count, while a DIY build commonly stretches across 2-6 months of part-time work alongside running your business.
+The monetary cost of a professional build is often comparable to the time cost of a DIY build. A local site build with us takes 1 to 2 weeks from the agreed plan to delivery, while a DIY build commonly stretches across 2-6 months of part-time work alongside running your business.
 
 ## Quality Differences
 
@@ -85,7 +85,7 @@ Side projects, hobby businesses, and portfolio sites are good candidates for DIY
 
 Hire a professional if your business depends on organic leads. The cost difference between a DIY build that ranks poorly and a professional build that ranks well is often measured in thousands of pounds of lost revenue per month.
 
-Hire a professional if your time is more valuable than the build cost. A business owner billing £75/hour who spends 120 hours on a DIY website has invested £9,000 in opportunity cost, roughly three times what our own professional build costs.
+Hire a professional if your time is more valuable than the build cost. A business owner billing £75/hour who spends 120 hours on a DIY website has invested £9,000 in opportunity cost, well above the price of our own local site build.
 
 Hire a professional if you are in a competitive niche. Moderate-to-high competition keywords require precise keyword selection, deep content, clean technical implementation, and strategic internal linking. DIY efforts in competitive niches rarely produce results because the margin for error is too small.
 
@@ -95,4 +95,4 @@ Some business owners take a middle path: hiring a professional for the technical
 
 For this approach to work, the professional must provide clear content briefs for every page: target keyword, search intent, required heading structure, minimum word count, key subtopics to cover, and internal linking targets. The business owner then writes to the brief rather than from scratch, which significantly improves content quality compared to unguided writing.
 
-If a professional build is the right call for your business, our [SEO website build](/seo-web-design/) covers the keyword research, architecture, schema and technical setup as a single fixed-price package.
+If a professional build is the right call for your business, our [SEO website build](/seo-web-design/) covers the keyword research, architecture, schema and technical setup at a price fixed before work starts.

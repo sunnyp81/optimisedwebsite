@@ -1,9 +1,9 @@
 export const site = {
   name: 'OptimisedWebsite',
   url: 'https://optimisedwebsite.com',
-  description: 'SEO-optimised website builds for UK businesses. 15-50 pages, full schema, topical authority architecture. Delivered in 5-7 days.',
+  description: 'SEO-optimised website builds for UK businesses, from single-location sites to multi-location builds and migrations. Priced by scope, from £1,500.',
   email: 'hello@optimisedwebsite.com',
-  priceRange: '£1,500 to £3,000',
+  priceRange: '£1,500 to £15,000',
   entity: 'SEO-optimised website',
   gaId: 'G-P6J32MG468',
   consentStorageKey: 'ow-consent-v1'

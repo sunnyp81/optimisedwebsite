@@ -12,11 +12,11 @@ hubBacklink:
   href: "/compare/"
 faqs:
   - q: "How many pages does a small business SEO website need?"
-    a: "Most small businesses benefit from 15-30 pages covering core services, location pages (if serving multiple areas), and supporting informational content. A plumber serving three towns might need 20-25 pages: a homepage, 5 service pages, 3 location pages, and 10-15 informational articles supporting the service topics."
+    a: "Most single-premises small businesses benefit from 15 to 25 pages covering core services, pages for the areas served, and supporting informational content. A plumber serving three towns might need 20-25 pages: a homepage, 5 service pages, 3 location pages, and 10-15 informational articles supporting the service topics."
   - q: "Do small businesses need local SEO or national SEO?"
     a: "Businesses serving specific geographic areas need local SEO: targeting keywords with location modifiers and optimising for Google's local pack. Businesses selling products or services nationally need broader keyword targeting. Many small businesses benefit from both: local SEO for immediate-area customers and national SEO for broader reach."
   - q: "What is the minimum budget for a small business SEO website?"
-    a: "A functional SEO-optimised website for a small business costs £1,500-3,000, covering keyword research, original content, schema markup, and technical setup for anywhere from 15 up to 50 pages depending on scope; most small businesses need towards the lower end of that range, around 15-25 pages. Below £1,000, providers typically cut corners on content quality or keyword research, reducing the site's ability to rank."
+    a: "A functional SEO-optimised website for a small business costs £1,500 to £3,000, covering keyword research, original content, schema markup, and technical setup for up to 25 pages; most single-premises small businesses need 15 to 25 pages. Businesses with several premises or a large existing site need a bigger build. Below £1,000, providers typically cut corners on content quality or keyword research, reducing the site's ability to rank."
   - q: "How long before my small business website starts getting organic leads?"
     a: "For local keywords in low-competition areas, expect initial leads within 2-4 months. For more competitive local markets, 4-8 months is realistic. National keywords typically take 6-12 months. Google's own SEO Starter Guide says changes can take anywhere from hours to several months to be crawled and evaluated, and advises waiting several weeks before judging the effect of a change, so treat these figures as planning assumptions rather than guarantees, and only valid if the site has proper content depth, technical setup, and targets achievable keywords."
 datePublished: "2026-05-13"
@@ -35,7 +35,7 @@ Small business SEO differs from enterprise SEO in three important ways.
 
 **Customer lifetime value determines ROI thresholds.** A solicitor where each client is worth £2,000+ can justify a larger website build because one organic lead pays it back. A window cleaner where each customer is worth £30 per visit needs a lower-cost build that still targets the right keywords. The investment must match the revenue potential.
 
-**Fewer pages, tighter focus.** Small businesses do not need 100 pages. They need 15-30 pages that thoroughly cover their service area and topic. Depth within a narrow focus builds topical authority faster than breadth across multiple unrelated topics.
+**Fewer pages, tighter focus.** Small businesses do not need 100 pages. They need 15 to 25 pages that thoroughly cover their service area and topic. Depth within a narrow focus builds topical authority faster than breadth across multiple unrelated topics.
 
 ## The Minimum Viable SEO Website
 
@@ -77,7 +77,7 @@ Local SEO elements are critical for businesses serving specific geographic areas
 
 ## Budget Allocation for Small Businesses
 
-With a typical small business budget of £1,500-3,000, here is how the investment breaks down:
+With a typical small business budget of £1,500 to £3,000, here is how the investment breaks down:
 
 **Keyword research and planning (15%)**: £225-450. Dedicated [keyword research](/services/keyword-research/) identifies target keywords, maps the site structure, and creates content briefs. This is the most important 15% of the budget, because wrong keyword targets waste everything else.
 
@@ -111,4 +111,4 @@ Track these metrics monthly through Google Search Console:
 
 **Enquiry volume from organic traffic**: Ultimately, the website exists to generate business. Track form submissions, phone calls, and emails that originate from organic search visitors. This is the metric that determines whether the website investment has paid off.
 
-Our [SEO website build](/seo-web-design/) is priced for exactly this small business budget, with the £1,500 to £3,000 range broken down on our [pricing page](/pricing/).
+Our [SEO website build](/seo-web-design/) covers this small business budget at Level 1, £1,500 to £3,000, with all three levels broken down on our [pricing page](/pricing/).

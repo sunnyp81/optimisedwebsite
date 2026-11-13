@@ -4,6 +4,7 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 import FAQSection from '../components/FAQSection.astro';
 import CTA from '../components/CTA.astro';
 import { site } from '../data/site';
+import { priceLevels } from '../data/pricing';
 
 const deliverables = [
   { title: 'Keyword research before design starts', desc: 'Every page target is set from search data first. Layout and content structure follow the keywords, not the other way round.' },
@@ -12,10 +13,7 @@ const deliverables = [
   { title: 'Technical SEO built in', desc: 'Canonical URLs, XML sitemap, heading hierarchy, and Core Web Vitals checked before handover, not bolted on afterwards.' },
 ];
 
-const packages = [
-  { tier: '15-page package', price: '£1,500', pages: 'Up to 15 pages', fit: 'A single service or single-location business with a focused page list' },
-  { tier: '50-page package', price: '£3,000', pages: 'Up to 50 pages', fit: 'Multiple services, multiple areas, or a topical map that needs more coverage' },
-];
+const packages = priceLevels.map((l) => ({ tier: `${l.level}: ${l.name}`, price: l.price, pages: l.pages, fit: l.fits }));
 
 const clientSupplies = [
   'Business name, contact details, and any existing branding (logo, colours) if you have them',
@@ -36,7 +34,7 @@ const faqs = [
   { q: 'How is this different from a normal web design service?', a: 'A standard web design service prioritises look and feel, then may add basic on-page SEO at the end. We start with keyword research and topical mapping, then design the site to fit that structure. The visual design still matters, but it is built on top of an SEO-first architecture.' },
   { q: 'How is this different from paying someone to do on-page SEO on my existing site?', a: 'On-page SEO work (title tags, meta descriptions, heading tweaks) improves a site that already exists, within whatever structure it already has. SEO web design sets the structure itself: which pages exist, how they link to each other, and what each one targets. If the underlying architecture is wrong, on-page tweaks alone will not fix it.' },
   { q: 'Do you guarantee rankings?', a: 'No. Nobody can guarantee a specific ranking position, and any agency that promises one is not being straight with you. What we can control is the structure, content, and technical foundation, which is what we build and hand over.' },
-  { q: 'How long does an SEO web design project take?', a: 'Most builds are delivered in 7 days for up to 15 pages, or up to 14 days for larger 50-page builds. Timeline is confirmed before work starts.' },
+  { q: 'How long does an SEO web design project take?', a: 'A local site takes 1 to 2 weeks, a growth site 3 to 5 weeks, and a multi-location or full migration project 6 to 12 weeks. The timescale is written into your build plan before work starts.' },
   { q: 'What do I need to provide before you start?', a: 'A list of the services or products you want covered, and any existing branding, content, or photos you want reused. If you do not have branding yet, we can work from your business name and industry.' },
   { q: 'Do I need to already have a domain?', a: 'No. If you do not have one yet, you can register it yourself with any registrar and we will help you connect it to the new site. If you already have a domain with existing rankings, the migration process is different, see our website redesign and SEO migration service instead.' },
 ];
@@ -52,7 +50,7 @@ const schemaNodes = [
     offers: {
       '@type': 'Offer',
       priceCurrency: 'GBP',
-      priceSpecification: { '@type': 'PriceSpecification', minPrice: '1500', maxPrice: '3000', priceCurrency: 'GBP' },
+      priceSpecification: { '@type': 'PriceSpecification', minPrice: '1500', maxPrice: '15000', priceCurrency: 'GBP' },
     },
   },
   {
@@ -64,7 +62,7 @@ const schemaNodes = [
 ---
 <Base
   title="SEO Web Design for UK Businesses | OptimisedWebsite"
-  description="SEO web design built from keyword research first: hub-and-spoke architecture, per-page schema, and technical SEO. £1,500 to £3,000, delivered in 7 to 14 days."
+  description="SEO web design built from keyword research first: hub-and-spoke architecture, per-page schema, and technical SEO. Three levels from £1,500, priced by scope."
   canonicalPath="/seo-web-design/"
   schemaNodes={schemaNodes}
 >
@@ -78,7 +76,7 @@ const schemaNodes = [
       <div class="section-tag">SEO Web Design</div>
       <h1 class="section-title">SEO Web Design for UK Businesses</h1>
       <p class="mt-4 text-lg leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
-        SEO web design means the website is structured for search from the first page, not designed first and optimised afterwards. Keyword research sets the page list, topical mapping sets the internal linking, and schema markup ties every page to a single entity graph. From &pound;1,500, delivered in 7 to 14 days.
+        SEO web design means the website is structured for search from the first page, not designed first and optimised afterwards. Keyword research sets the page list, topical mapping sets the internal linking, and schema markup ties every page to a single entity graph. Local sites start at &pound;1,500, and larger builds are priced by what they need.
       </p>
       <div class="mt-8 flex flex-wrap gap-4">
         <CTA href="/free-website-growth-review/" label="Get a Free Growth Review" analyticsEvent="cta_click" analyticsLabel="seo-web-design-hero" />
@@ -111,16 +109,16 @@ const schemaNodes = [
     <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
 
     <section class="py-12 reveal">
-      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">What's the Difference Between the £1,500 and £3,000 Package?</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">What's the Difference Between the Three Levels?</h2>
       <p class="leading-relaxed max-w-3xl mb-6" style="color: var(--color-ink-2);">
-        The two packages differ in page count, not in build quality. Every project gets the same keyword research, schema, and technical SEO approach, applied across whichever page count you need. The choice comes down to how many services, products, or areas your business needs a page for.
+        The three levels differ in scope, not in build quality. Every project gets the same keyword research, schema, and technical SEO approach. Four requirements set the level: page count, number of premises, the redirects an existing site needs, and any booking or CRM tool to connect.
       </p>
       <p class="text-[12px] mb-2 sm:hidden" style="color: var(--color-ink-3);">Scroll right to see the full comparison &rarr;</p>
-      <div class="overflow-x-auto" tabindex="0" role="region" aria-label="Package comparison table">
+      <div class="overflow-x-auto" tabindex="0" role="region" aria-label="Level comparison table">
         <table class="w-full text-left border-collapse min-w-[560px]">
           <thead>
             <tr style="border-bottom: 2px solid var(--color-rule);">
-              <th class="py-3 pr-4 font-semibold" style="color: var(--color-ink);">Package</th>
+              <th class="py-3 pr-4 font-semibold" style="color: var(--color-ink);">Level</th>
               <th class="py-3 pr-4 font-semibold" style="color: var(--color-ink);">Price</th>
               <th class="py-3 pr-4 font-semibold" style="color: var(--color-ink);">Page count</th>
               <th class="py-3 font-semibold" style="color: var(--color-ink);">Typical fit</th>
@@ -139,7 +137,7 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[13px] mt-4" style="color: var(--color-ink-3);">
-        Full package details and what's included at each tier are on the <a href="/pricing/" style="color: var(--color-accent-2); font-weight: 500;">pricing page</a>.
+        Full details of what each level includes are on the <a href="/pricing/" style="color: var(--color-accent-2); font-weight: 500;">pricing page</a>.
       </p>
     </section>
 
@@ -187,7 +185,7 @@ const schemaNodes = [
           <ul class="space-y-3">
             {[
               'UK businesses building a new site or replacing one that has never targeted search intent',
-              'Sites with 15 to 50 pages, priced between £1,500 and £3,000',
+              'Sites from a few pages to several hundred, priced in three levels from £1,500',
               'Businesses that want the source code and no ongoing retainer',
             ].map((c) => (
               <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-ink-2);"><span class="font-bold shrink-0" style="color: var(--color-accent-2);">&check;</span><span>{c}</span></li>
@@ -199,8 +197,8 @@ const schemaNodes = [
           <ul class="space-y-3">
             {[
               'Large ecommerce catalogues needing bespoke checkout or inventory systems',
-              'Sites needing custom software features beyond content pages',
-              'Projects needing bespoke applications or custom integrations, which require separate scoping and may not fit the fixed packages',
+              'Sites needing custom software built from scratch, beyond a hookup to an existing booking or CRM tool',
+              'Projects needing bespoke applications, which are scoped and quoted separately',
             ].map((c) => (
               <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--color-ink-2);"><span class="text-red-400 font-bold shrink-0">&times;</span><span>{c}</span></li>
             ))}
@@ -224,7 +222,7 @@ const schemaNodes = [
         </a>
         <a href="/free-website-growth-review/" class="block rounded-[16px] p-6 no-underline" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
           <h3 class="font-bold mb-1.5" style="color: var(--color-ink);">Free Website Growth Review</h3>
-          <p class="text-[13px]" style="color: var(--color-ink-2);">Get a written diagnosis before choosing a package.</p>
+          <p class="text-[13px]" style="color: var(--color-ink-2);">Get a written diagnosis before choosing a level.</p>
         </a>
       </div>
     </section>

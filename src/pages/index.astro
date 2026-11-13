@@ -5,6 +5,7 @@ import AnimatedCounters from '../components/AnimatedCounters.astro';
 import InteractiveTimeline from '../components/InteractiveTimeline.astro';
 import PageAnatomy from '../components/PageAnatomy.astro';
 import GrowthChart from '../components/GrowthChart.astro';
+import PriceLadder from '../components/PriceLadder.astro';
 import { site } from '../data/site';
 import { caseStudies } from '../data/caseStudies';
 import { networkPages, networkClicks, networkImpressionsK } from '../data/stateOfSeo';
@@ -17,8 +18,8 @@ const faqs = [
     a: 'Astro outputs static HTML by default, with no database or plugin chain to maintain. We performance-test each build before handover and add client-side JavaScript only where it has a clear purpose.'
   },
   {
-    q: 'Do you offer ongoing SEO retainers?',
-    a: 'No. We build the foundation: architecture, schema, content, technical SEO, then hand it over. Structured to rank without agency fees.'
+    q: 'Do I need an ongoing SEO retainer?',
+    a: 'No retainer is required. We build the foundation: architecture, schema, content and technical SEO, then hand it over. Ongoing SEO support is available separately if you want it.'
   },
   {
     q: 'What if I already have a domain?',
@@ -30,15 +31,15 @@ const faqs = [
   },
   {
     q: 'What do I need to provide?',
-    a: 'Your niche, location, and services. A ten-minute brief. We handle everything else.'
+    a: 'Your niche, location, and services in a ten-minute brief. Larger builds also need access to the current site and the tools it connects to.'
   },
   {
     q: 'How long does delivery actually take?',
-    a: 'Seven days from brief to live. For Pro builds (50 pages), up to fourteen days. We set a deadline before work starts and hit it.'
+    a: 'A local site takes 1 to 2 weeks, a growth site 3 to 5 weeks, and a multi-location or full migration project 6 to 12 weeks. The timescale is written into your build plan before work starts.'
   },
   {
     q: 'What if I\'m not happy with the result?',
-    a: 'You get a live staging link to review before launch. Revisions are included: 30 days for Essential, 90 days for Pro. If the final site doesn\'t meet the brief, we rebuild the pages in question at no extra cost.'
+    a: 'You get a live staging link to review before launch. Every build includes 30 days of revisions after launch. If the final site doesn\'t meet the brief, we rebuild the pages in question at no extra cost.'
   }
 ];
 
@@ -46,19 +47,7 @@ const marqueItems = [
   'Performance-tested at launch', 'Sub-second load target', 'AVIF + WebP fallbacks',
   'Edge-cached globally', 'Zero JS by default', 'WCAG 2.2 AA',
   'Core Web Vitals optimised', 'Cloudflare edge hosting', 'From £1,500',
-  '7-day delivery', 'Source code yours forever'
-];
-
-const essentialItems = [
-  'Up to 15 pages', '5 service hubs', 'Bespoke design system',
-  'Launch performance audit', 'All copywriting included', 'Entity-linked JSON-LD schema',
-  'Cloudflare edge hosting', '7-day delivery', '30 days of polish'
-];
-
-const proItems = [
-  'Up to 50 pages', 'Full topical authority map', 'CMS integration',
-  'Multi-locale support', 'Custom SVG illustrations', 'Cloudflare hosting',
-  '90 days polish included', '1 free redesign at 12 months', 'Priority support'
+  'Price fixed before work starts', 'Source code yours forever'
 ];
 
 const testimonials = [
@@ -139,7 +128,7 @@ const schemaNodes = [
       <div class="grid md:grid-cols-[1.05fr_1fr] gap-16 items-center">
         <!-- Left: text -->
         <div>
-          <div class="eyebrow animate-fade-up">Built in Britain &middot; Shipping in 7 days</div>
+          <div class="eyebrow animate-fade-up">Built in Britain &middot; Fixed price up front</div>
 
           <h1 class="animate-fade-up mb-6" style="animation-delay: 0.1s;">
             SEO Websites That<br>
@@ -147,7 +136,7 @@ const schemaNodes = [
           </h1>
 
           <p class="text-[18px] leading-[1.6] mb-8 max-w-[480px] animate-fade-up" style="color: var(--color-ink-2); animation-delay: 0.2s;">
-            Websites built to rank, not just look good. Static-first performance, lean pages, and SEO architecture designed to turn search traffic into enquiries. From £1,500. Live in one week.
+            Websites built to rank, not just look good. Static-first performance, lean pages, and SEO architecture designed to turn search traffic into enquiries. Local sites from £1,500. Multi-location builds and migrations priced by what they need.
           </p>
 
           <div class="flex gap-3 flex-wrap animate-fade-up" style="animation-delay: 0.3s;">
@@ -170,8 +159,8 @@ const schemaNodes = [
               <div class="mono text-[10px] uppercase mt-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">Page target</div>
             </div>
             <div>
-              <div class="text-[28px] font-semibold tracking-[-0.04em] tnum" style="color: var(--color-ink);">7 days</div>
-              <div class="mono text-[10px] uppercase mt-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">Delivered</div>
+              <div class="text-[28px] font-semibold tracking-[-0.04em] tnum" style="color: var(--color-ink);">3 levels</div>
+              <div class="mono text-[10px] uppercase mt-1" style="color: var(--color-ink-3); letter-spacing: 0.08em;">Priced by scope</div>
             </div>
           </div>
         </div>
@@ -314,7 +303,7 @@ const schemaNodes = [
       <div class="reveal text-center mb-14">
         <div class="eyebrow" style="justify-content: center;">How it works</div>
         <h2>How Your SEO Website Build Works</h2>
-        <p class="text-[15px] mt-4 max-w-[480px] mx-auto" style="color: var(--color-ink-2);">Click each step to see exactly what happens and what you get.</p>
+        <p class="text-[15px] mt-4 max-w-[480px] mx-auto" style="color: var(--color-ink-2);">Click each step to see exactly what happens and what you get. Days shown are the fastest Level 1 local site. Most local sites take 1 to 2 weeks, and larger builds follow the same steps over more weeks.</p>
       </div>
 
       <div class="reveal">
@@ -367,52 +356,19 @@ const schemaNodes = [
   </section>
 
   <!-- ===== PRICING ===== -->
-  <section class="section">
+  <section class="section" id="pricing">
     <div class="wrap">
-      <div class="reveal text-center mb-14">
-        <div class="eyebrow" style="justify-content: center;">Pricing</div>
+      <div class="reveal mb-12 max-w-[640px]">
         <h2>SEO Website Pricing</h2>
-        <p class="text-[17px] mt-4 max-w-[520px] mx-auto" style="color: var(--color-ink-2);">Two tiers. Fixed price. No retainers, no hidden fees.</p>
+        <p class="text-[17px] mt-4" style="color: var(--color-ink-2);">Three levels, set by what the site has to do. Your price is fixed in a written build plan before work starts.</p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-6 max-w-[860px] mx-auto reveal">
-        <!-- Essential -->
-        <div class="pricing-card-wrap">
-          <div class="mono text-[11px] uppercase mb-4" style="color: var(--color-ink-3); letter-spacing: 0.1em;">Essential</div>
-          <div class="text-[52px] font-semibold tracking-[-0.04em] leading-none mb-2" style="color: var(--color-ink);">£1,500</div>
-          <p class="text-[14px] mb-8" style="color: var(--color-ink-2);">Fixed price. Confirmed before work starts.</p>
-          <ul class="space-y-2.5 text-left mb-10 pb-8" style="border-bottom: 1px solid var(--color-rule);">
-            {essentialItems.map((item) => (
-              <li class="flex items-center gap-2.5 text-[14px]" style="color: var(--color-ink-2);">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-                {item}
-              </li>
-            ))}
-          </ul>
-          <a href="/order/" class="btn btn-ghost w-full justify-center">Get free plan: Essential</a>
-        </div>
-
-        <!-- Pro (dark) -->
-        <div class="pricing-card-dark relative" style="box-shadow: inset 0 0 0 1px rgba(251,191,36,0.2), 0 20px 60px rgba(30,41,59,0.2), 0 0 60px rgba(251,191,36,0.08);">
-          <!-- Most popular badge -->
-          <div class="absolute top-5 right-5 chip chip-accent">Most popular</div>
-          <div class="mono text-[11px] uppercase mb-4" style="color: rgba(248,250,252,0.6); letter-spacing: 0.1em;">Pro</div>
-          <div class="text-[52px] font-semibold tracking-[-0.04em] leading-none mb-2" style="color: var(--color-on-dark);">£3,000</div>
-          <p class="text-[14px] mb-8" style="color: rgba(248,250,252,0.55);">Everything in Essential, plus full topical authority.</p>
-          <ul class="space-y-2.5 text-left mb-10 pb-8" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
-            {proItems.map((item) => (
-              <li class="flex items-center gap-2.5 text-[14px]" style="color: rgba(248,250,252,0.7);">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-                {item}
-              </li>
-            ))}
-          </ul>
-          <a href="/order/" class="btn btn-accent w-full justify-center">Get free plan: Pro</a>
-        </div>
+      <div class="reveal">
+        <PriceLadder />
       </div>
 
-      <p class="text-center mt-8 text-[15px] reveal" style="color: var(--color-ink-2);">
-        Need bespoke? <a href="/contact/" class="font-semibold" style="color: var(--color-accent-2);">Get a custom quote</a>, typically £6k to £15k.
+      <p class="mt-8 text-[15px] reveal" style="color: var(--color-ink-2);">
+        Not sure which level fits? <a href="/pricing/" class="font-semibold" style="color: var(--color-accent-2);">See what every level includes</a> or <a href="/order/" class="font-semibold" style="color: var(--color-accent-2);">ask for a free build plan</a>.
       </p>
     </div>
   </section>
@@ -584,12 +540,12 @@ const schemaNodes = [
         <div class="relative z-[1]">
           <div class="flex items-center justify-center gap-2 mb-6">
             <span class="chip chip-ok">Performance-tested</span>
-            <span class="chip chip-accent">7-day delivery</span>
+            <span class="chip chip-accent">Price fixed up front</span>
             <span class="chip chip-violet">Source code yours</span>
           </div>
-          <h2 class="mb-4">Two weeks from now, you could<br>have a site built for search and speed.</h2>
+          <h2 class="mb-4">A local site built for search and speed<br>can be live in 1 to 2 weeks.</h2>
           <p class="text-[16px] mb-8 max-w-[480px] mx-auto" style="color: rgba(248,250,252,0.65);">
-            Start with a free five-minute growth review. If you like what you see, we research, build, and deploy. No lock-in. No retainer.
+            Start with a free five-minute growth review. If you like what you see, we research, build, and deploy. No lock-in. No retainer required.
           </p>
           <div class="flex gap-3 justify-center flex-wrap">
             <a href="/free-website-growth-review/" class="btn btn-accent" data-analytics-event="cta_click" data-analytics-label="final-review">Get your free growth review &rarr;</a>
