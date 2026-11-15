@@ -1,325 +1,205 @@
 (function () {
   'use strict';
-  var $ = function (s, r) { return (r || document).querySelector(s); };
-  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var doc = document, root = doc.documentElement;
+  var $ = function (s, r) { return (r || doc).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || doc).querySelectorAll(s)); };
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var ARROW = '<svg class="arw" viewBox="0 0 20 16" aria-hidden="true" focusable="false"><path d="M1 8h15M10 2l6 6-6 6"/></svg>';
-  var NEWTAB = '<span class="sr-only"> (opens in a new tab)</span>';
-  var gbp = function (n) { return '£' + n.toLocaleString('en-GB'); };
+  var gbp = function (n) { return '£' + Number(n).toLocaleString('en-GB'); };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var NEW = ' target="_blank" rel="noopener noreferrer"', NT = '<span class="sr-only"> (opens in a new tab)</span>';
+  var ARW = '<svg class="arw" viewBox="0 0 20 16" aria-hidden="true" focusable="false"><path d="M1 8h15M10 2l6 6-6 6"/></svg>';
 
-  /* Menu */
-  var menu = $('.menu-btn'), nav = $('#nav');
-  if (menu && nav) {
-    menu.addEventListener('click', function () {
-      var open = nav.classList.toggle('open');
-      menu.setAttribute('aria-expanded', open ? 'true' : 'false');
-      menu.textContent = open ? 'Close' : 'Menu';
+  /* First-screen comparison and type candidates: ?v=c, ?font=outfit or ?font=jakarta */
+  var qs = new URLSearchParams(location.search);
+  var v = qs.get('v'), f = qs.get('font');
+  if (v === 'c') root.setAttribute('data-v', v);
+  if (f === 'outfit' || f === 'jakarta') root.setAttribute('data-font', f);
+  if (v === 'c') { var cd = $('.care-doors'), sc = $('.stage-c'); if (cd && sc) sc.appendChild(cd); }
+
+  var DATA = JSON.parse($('#data').textContent);
+  var byId = {}; DATA.clinics.forEach(function (c) { byId[c.id] = c; });
+  var svcById = {}; DATA.services.forEach(function (s) { svcById[s.id] = s; });
+
+  /* Today's hours, as listed on each clinic's own page. London time. */
+  var DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  var dayName = new Intl.DateTimeFormat('en-GB', { weekday: 'long', timeZone: 'Europe/London' }).format(new Date());
+  var di = Math.max(0, DAYS.indexOf(dayName));
+  function today(c) {
+    if (c.soon) return 'Coming soon';
+    var h = c.hours ? c.hours[di] : '';
+    if (h && h !== 'Closed') return 'Today: ' + h;
+    var lead = h === 'Closed' ? 'Closed today. ' : dayName + ' hours not listed. ';
+    for (var k = 1; k < 7; k++) { var n = c.hours ? c.hours[(di + k) % 7] : ''; if (n && n !== 'Closed') return lead + DAYS[(di + k) % 7] + ': ' + n; }
+    return 'Call for opening hours';
+  }
+  function gpPrice(c) { return c.tesco ? 45 : 75; }
+
+  var state = { clinic: 'fulham', svc: 'gp' };
+  try { var saved = localStorage.getItem('mhc-clinic'); if (saved && byId[saved]) state.clinic = saved; } catch (e) {}
+
+  /* ===== The door: the chosen clinic and the chosen appointment ===== */
+  var door = $('.door'), dImg = $('#door-img'), dNo = $('#door-nophoto');
+  var clinicSel = $('#pick-clinic'), svcSel = $('#pick-svc');
+  function miles(a, b) { var r = Math.PI / 180, x = Math.sin((b.lat - a.lat) * r / 2), y = Math.sin((b.lon - a.lon) * r / 2); return 7918 * Math.asin(Math.sqrt(x * x + Math.cos(a.lat * r) * Math.cos(b.lat * r) * y * y)); }
+  function paintDoor(c, animate) {
+    if (!door) return;
+    var s = svcById[state.svc];
+    var apply = function () {
+      if (c.photo) { dImg.src = c.photo.file; dImg.alt = c.photo.alt; dImg.hidden = false; dNo.hidden = true; }
+      else { dImg.hidden = true; dNo.hidden = false; dNo.innerHTML = '<span>A photo of the ' + esc(c.name) + ' clinic goes here.</span>'; }
+      $('#door-name').textContent = c.name;
+      $('#door-addr').textContent = c.addr;
+      var price = s.id === 'gp' ? gpPrice(c) : s.price;
+      $('#door-price').innerHTML = '<b>' + (price ? gbp(price) : 'Free') + '</b><span>' + esc(s.name) + ', ' + (s.was ? 'usually ' + gbp(s.was) : esc(s.len.toLowerCase())) + '</span>';
+      var t = today(c), chips = ['<span class="chip ' + (t.indexOf('Today') === 0 ? 'chip-leaf' : 'chip-quiet') + '">' + esc(t) + '</span>'];
+      if (c.dental && s.dept !== 'dent') chips.push('<span class="chip chip-extra">Dentist here too</span>');
+      if (s.id === 'dental') chips.push('<span class="chip">Monday to Friday</span>');
+      if (c.tesco) chips.push('<span class="chip">Inside Tesco Extra</span>');
+      $('#door-chips').innerHTML = chips.join('');
+      $('#door-act').innerHTML = s.where === 'none'
+        ? '<a class="btn btn-leaf btn-sm" href="tel:' + DATA.phone.tel + '">Call ' + DATA.phone.label + ' to book</a><span class="plate-hint">Online appointments are booked by phone.</span>'
+        : '<a class="btn btn-leaf btn-sm" href="' + DATA.book[s.link] + '"' + NEW + '>Book this appointment' + ARW + NT + '</a><span class="plate-hint">Choose ' + esc(c.name) + ' on the booking page.</span>';
+      $('#door-credit').innerHTML = c.photo ? 'Photo: ' + esc(c.photo.shows) + ', not the clinic itself. ' + esc(c.photo.author) + ', <a href="' + c.photo.page + '"' + NEW + '>' + esc(c.photo.licence) + NT + '</a>.' : 'This concept has no licensed photo for ' + esc(c.name) + ' yet.';
+    };
+    if (animate && !reduce && c.photo && dImg.getAttribute('src') !== c.photo.file) {
+      var pre = new Image();
+      pre.onload = pre.onerror = function () { door.classList.remove('swap', 'tick'); apply(); void door.offsetWidth; door.classList.add('swap'); };
+      pre.src = c.photo.file;
+    } else { apply(); if (animate && !reduce) { door.classList.remove('swap', 'tick'); void door.offsetWidth; door.classList.add('tick'); } }
+  }
+
+  /* ===== One clinic, everywhere on the page ===== */
+  var mine = $('#mine'), dialBtns = $$('.dial-list button'), pts = $$('.map .pt'), rows = $$('.clist li');
+  function clinicsFor(s) { return DATA.clinics.filter(function (c) { return !c.soon && (s.where !== 'dental' || c.dental); }); }
+  function fitSelect(sel) {
+    if (!sel) return;
+    var m = fitSelect.m || (fitSelect.m = doc.body.appendChild(doc.createElement('span')));
+    var cs = getComputedStyle(sel);
+    m.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;left:-9999px;top:0;font-family:' + cs.fontFamily + ';font-size:' + cs.fontSize + ';font-weight:' + cs.fontWeight + ';letter-spacing:' + cs.letterSpacing;
+    m.textContent = sel.options[sel.selectedIndex] ? sel.options[sel.selectedIndex].text : '';
+    sel.style.width = Math.ceil(m.getBoundingClientRect().width + parseFloat(cs.fontSize) * 1.6 + 16) + 'px';
+  }
+  function syncSentence() {
+    if (!svcSel) return;
+    var s = svcById[state.svc], list = clinicsFor(s);
+    svcSel.value = state.svc;
+    $('#say-where').hidden = s.where === 'none';
+    clinicSel.innerHTML = list.map(function (c) { return '<option value="' + c.id + '">' + esc(c.name) + '</option>'; }).join('');
+    clinicSel.value = state.clinic;
+    fitSelect(svcSel); fitSelect(clinicSel);
+  }
+  function setClinic(id, opts) {
+    var c = byId[id]; if (!c || c.soon) return;
+    opts = opts || {};
+    var m0 = $('#dial-msg'); if (m0) m0.textContent = '';
+    state.clinic = id;
+    if (svcById[state.svc].where === 'dental' && !c.dental) state.svc = 'gp';
+    try { localStorage.setItem('mhc-clinic', id); } catch (e) {}
+    syncSentence();
+    paintDoor(c, opts.animate !== false);
+    if (mine) { mine.textContent = 'My clinic: ' + c.short; mine.title = c.name; }
+    dialBtns.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-id') === id ? 'true' : 'false'); });
+    pts.forEach(function (p) { p.classList.toggle('is-on', p.getAttribute('data-id') === id); });
+    rows.forEach(function (li) {
+      var on = li.getAttribute('data-id') === id; li.classList.toggle('is-on', on);
+      var b = $('button', li); if (b) b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
-    nav.addEventListener('click', function (e) { if (e.target.closest('a')) { nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false'); menu.textContent = 'Menu'; } });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('open')) { nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false'); menu.textContent = 'Menu'; menu.focus(); } });
   }
-
-  /* Data */
-  var dataEl = $('#chooser-data');
-  var DATA = dataEl ? JSON.parse(dataEl.textContent) : null;
-  var byId = {};
-  if (DATA) DATA.clinics.forEach(function (c) { byId[c.id] = c; });
-
-  /* Finder height drives the map offset on wide screens */
-  var finder = $('#finder');
-  function setFinderH() { if (finder) document.documentElement.style.setProperty('--finder-h', (finder.offsetHeight + 18) + 'px'); }
-  setFinderH(); window.addEventListener('resize', setFinderH);
-  if (finder && window.ResizeObserver) new ResizeObserver(setFinderH).observe(finder);
-
-  /* ===== Map, finder and directory ===== */
-  var pts = $$('.map .pt');
-  var mapSvg = $('.map');
-  if (mapSvg && pts.length) {
-    mapSvg.setAttribute('role', 'group');
-    var d = $('#map-desc'); if (d) d.textContent += ' Use the arrow keys to move between clinics and Enter to choose one.';
-    pts.forEach(function (p) { p.setAttribute('role', 'button'); p.setAttribute('tabindex', '-1'); p.setAttribute('aria-label', p.getAttribute('data-label')); });
-  }
-  var items = $$('.clinic[data-id]');
-  var q = $('#q'), count = $('#finder-count'), none = $('#none'), picked = $('#picked');
-  var filter = 'all', selected = null;
-
-  function norm(t) { return String(t).toLowerCase().replace(/[\u2018\u2019\u02bc\u0060\u00b4']/g, '').replace(/[,]/g, ' ').replace(/\s+/g, ' ').trim(); }
-  var onSelect = null, onClear = null;
-  var regionsEl = $('#regions'), dirMore = null, dirOpen = false;
-  function matches(id) {
-    var li = $('#c-' + id), c = byId[id];
-    if (!c) return false;
-    var ok = filter === 'all' || (filter === 'gp' && !c.soon) || (filter === 'dental' && c.dental) || (filter === 'tesco' && c.tesco);
-    var term = q ? norm(q.value) : '';
-    if (ok && term) {
-      var hay = norm(li ? li.getAttribute('data-search') : c.name + ' ' + c.region);
-      ok = hay.indexOf(term) !== -1 || (/\d/.test(term) && hay.replace(/ /g, '').indexOf(term.replace(/ /g, '')) !== -1);
-    }
-    return ok;
-  }
-
-  function apply() {
-    if (!DATA) return;
-    var shown = [];
-    DATA.clinics.forEach(function (c) {
-      var ok = matches(c.id);
-      var li = $('#c-' + c.id);
-      if (li) li.hidden = !ok;
-      var pt = $('.map .pt[data-id="' + c.id + '"]');
-      if (pt) pt.classList.toggle('is-out', !ok);
-      if (ok) shown.push(c);
+  if (svcSel) {
+    svcSel.addEventListener('change', function () {
+      state.svc = svcSel.value;
+      var s = svcById[state.svc], cur = byId[state.clinic], list = clinicsFor(s);
+      if (list.indexOf(cur) === -1) {
+        var near = list.map(function (c) { return { c: c, d: miles(cur, c) }; }).sort(function (a, b) { return a.d - b.d; })[0];
+        setClinic(near.c.id);
+        var msg0 = $('#dial-msg'); if (msg0) msg0.textContent = cur.name + ' has no dentist, so this shows ' + near.c.name + ', the nearest clinic with one.';
+      } else setClinic(state.clinic);
     });
-    $$('.region').forEach(function (r) { r.hidden = !$('.clinic:not([hidden])', r); });
-    if (none) none.hidden = shown.length > 0;
-    var term = q && q.value.trim();
-    if (count) {
-      if (!term && filter === 'all') count.textContent = '17 clinics open and Reading coming soon.';
-      else if (!shown.length) count.textContent = 'No clinics match.';
-      else count.textContent = shown.length + (shown.length === 1 ? ' clinic: ' : ' clinics: ') + shown.map(function (c) { return c.short; }).join(', ') + '.';
-    }
-    if (selected && !matches(selected)) clearSelection();
-    if (term && shown.length === 1) select(shown[0].id, false);
-    updateDir(!!term || filter !== 'all');
-    rovingReset();
+    clinicSel.addEventListener('change', function () { setClinic(clinicSel.value); });
+    window.addEventListener('resize', function () { fitSelect(svcSel); fitSelect(clinicSel); });
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(function () { fitSelect(svcSel); fitSelect(clinicSel); });
   }
 
-  function clearSelection() {
-    selected = null;
-    pts.forEach(function (p) { p.classList.remove('is-on'); p.setAttribute('aria-pressed', 'false'); });
-    items.forEach(function (li) { li.classList.remove('is-on'); });
-    if (picked) picked.innerHTML = '<p class="picked-hint">Choose a clinic on the map or in the list to see its address.</p>';
-    if (onClear) onClear();
-  }
-
-  function updateDir(filtering) {
-    if (!regionsEl || !dirMore) return;
-    var collapsed = !dirOpen && !filtering;
-    regionsEl.classList.toggle('is-collapsed', collapsed);
-    dirMore.hidden = filtering;
-    dirMore.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-    dirMore.textContent = collapsed ? 'View all 18 clinics' : 'Show fewer clinics';
-  }
-  if (regionsEl && $$('.region', regionsEl).length > 1) {
-    dirMore = document.createElement('button');
-    dirMore.type = 'button'; dirMore.className = 'btn btn-line dir-more'; dirMore.setAttribute('aria-controls', 'regions');
-    dirMore.addEventListener('click', function () { dirOpen = !dirOpen; updateDir(false); if (!dirOpen) { var h2 = $('#dir-h'); if (h2) h2.scrollIntoView({ block: 'start' }); } });
-    regionsEl.parentNode.insertBefore(dirMore, regionsEl.nextSibling);
-  }
-
-  function select(id, focusPoint) {
-    selected = id;
-    if (!dirOpen && regionsEl && regionsEl.classList.contains('is-collapsed')) { var tl = $('#c-' + id); if (tl && tl.closest('.region') !== $('.region', regionsEl)) { dirOpen = true; updateDir(false); } }
-    pts.forEach(function (p) { var on = p.getAttribute('data-id') === id; p.classList.toggle('is-on', on); p.setAttribute('aria-pressed', on ? 'true' : 'false'); });
-    items.forEach(function (li) { li.classList.toggle('is-on', li.getAttribute('data-id') === id); });
-    var c = byId[id];
-    if (picked && c) {
-      var services = (c.dental ? 'GP and dentist' : 'GP') + (c.tesco ? ', inside Tesco Extra' : '');
-      var act = c.soon
-        ? '<a class="btn btn-line btn-sm" href="' + c.url + '" target="_blank" rel="noopener noreferrer">Clinic details' + NEWTAB + '</a><span>Coming soon. Not taking bookings yet.</span>'
-        : '<a class="btn btn-book btn-sm" href="' + DATA.book.main + '" target="_blank" rel="noopener noreferrer">Book' + ARROW + NEWTAB + '</a>' +
-          '<a href="' + c.url + '"' + (c.local ? '' : ' target="_blank" rel="noopener noreferrer"') + '>Clinic page' + (c.local ? '' : NEWTAB) + '</a>';
-      picked.innerHTML = '<h3>' + esc(c.name) + '</h3><p>' + esc(c.addr) + '</p><p>' + services + '</p><div class="pk-row">' + act + '</div>' + (c.soon ? '' : '<p class="pk-hint">Choose ' + esc(c.name) + ' on the booking page.</p>');
-    }
-    if (onSelect) onSelect(id);
-    if (focusPoint) { var p = $('.map .pt[data-id="' + id + '"]'); if (p) p.focus(); }
-  }
-
-  // Roving tabindex across visible map points, ordered north to south as drawn.
-  function visiblePts() { return pts.filter(function (p) { return !p.classList.contains('is-out'); }); }
-  function rovingReset() {
-    var vis = visiblePts();
-    pts.forEach(function (p) { p.setAttribute('tabindex', '-1'); });
-    var cur = vis.filter(function (p) { return p.getAttribute('data-id') === selected; })[0] || vis[0];
-    if (cur) cur.setAttribute('tabindex', '0');
-  }
-  if (pts.length) {
-    pts.sort(function (a, b) {
-      var ba = a.getBoundingClientRect ? 0 : 0; // stable order fallback
-      var ca = byId[a.getAttribute('data-id')], cb = byId[b.getAttribute('data-id')];
-      return DATA.clinics.indexOf(ca) - DATA.clinics.indexOf(cb) + ba;
+  /* ===== Dial and Near me ===== */
+  dialBtns.forEach(function (b) { b.addEventListener('click', function () { setClinic(b.getAttribute('data-id'), { from: 'dial' }); }); });
+  var msg = $('#dial-msg');
+  $$('.near').forEach(function (btn) {
+    if (!navigator.geolocation) { btn.hidden = true; return; }
+    btn.addEventListener('click', function () {
+      if (msg) msg.textContent = 'Finding your nearest clinic.';
+      navigator.geolocation.getCurrentPosition(function (p) {
+        var me = { lat: p.coords.latitude, lon: p.coords.longitude };
+        var best = DATA.clinics.filter(function (c) { return !c.soon; }).map(function (c) { return { c: c, d: miles(me, c) }; }).sort(function (a, b) { return a.d - b.d; })[0];
+        setClinic(best.c.id, { from: 'dial' });
+        if (msg) msg.textContent = best.c.name + ' is your nearest clinic, ' + (best.d < 1 ? 'less than 1 mile' : 'about ' + Math.round(best.d) + ' miles') + ' away in a straight line.';
+      }, function () { if (msg) msg.textContent = 'Your location was not shared. Choose a clinic below.'; }, { timeout: 8000 });
     });
-    pts.forEach(function (p) {
-      p.setAttribute('aria-pressed', 'false');
-      p.addEventListener('click', function () { select(p.getAttribute('data-id')); rovingReset(); });
-      p.addEventListener('keydown', function (e) {
-        var vis = visiblePts(), i = vis.indexOf(p), n = null;
-        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') n = vis[(i + 1) % vis.length];
-        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = vis[(i - 1 + vis.length) % vis.length];
-        else if (e.key === 'Home') n = vis[0];
-        else if (e.key === 'End') n = vis[vis.length - 1];
-        else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(p.getAttribute('data-id')); return; }
-        if (n) { e.preventDefault(); p.setAttribute('tabindex', '-1'); n.setAttribute('tabindex', '0'); n.focus(); }
-      });
-      p.addEventListener('mouseenter', function () { var li = $('#c-' + p.getAttribute('data-id')); if (li) li.classList.add('is-hover'); });
-      p.addEventListener('mouseleave', function () { var li = $('#c-' + p.getAttribute('data-id')); if (li) li.classList.remove('is-hover'); });
-    });
-    rovingReset();
-  }
-  items.forEach(function (li) {
-    var id = li.getAttribute('data-id');
-    var pt = function () { return $('.map .pt[data-id="' + id + '"]'); };
-    li.addEventListener('mouseenter', function () { var p = pt(); if (p) p.classList.add('is-hover'); });
-    li.addEventListener('mouseleave', function () { var p = pt(); if (p) p.classList.remove('is-hover'); });
-    li.addEventListener('focusin', function () { var p = pt(); if (p) p.classList.add('is-hover'); });
-    li.addEventListener('focusout', function () { var p = pt(); if (p) p.classList.remove('is-hover'); });
-    if (pt()) {
-      var b = document.createElement('button');
-      b.type = 'button'; b.className = 'btn-text show-map';
-      b.innerHTML = 'Show on map<span class="sr-only"> for ' + esc(byId[id].name) + '</span>';
-      b.addEventListener('click', function () {
-        select(id); rovingReset();
-        var a = $('#atlas'); if (a && window.innerWidth <= 1000) a.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
-      });
-      var act = $('.c-act', li); if (act) act.appendChild(b);
-    }
   });
-  $$('.flt').forEach(function (b) {
+  if (mine) mine.addEventListener('click', function () { var t = $('#clinics'); if (t) t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); });
+
+  /* ===== Map and list ===== */
+  var mapSvg = $('.map'), filter = 'all', expanded = false, countEl = $('#flt-count'), moreBtn = $('#clist-more');
+  function fits(c) { return filter === 'all' || (filter === 'dental' && c.dental) || (filter === 'tesco' && c.tesco); }
+  function applyFilter() {
+    var n = 0;
+    rows.forEach(function (li) { var ok = fits(byId[li.getAttribute('data-id')]); li.hidden = !ok; li.classList.toggle('show', expanded); if (ok) n++; });
+    pts.forEach(function (p) { p.classList.toggle('is-out', !fits(byId[p.getAttribute('data-id')])); });
+    if (countEl) countEl.textContent = filter === 'all' ? '17 clinics open. Reading is coming soon.' : filter === 'dental' ? n + ' clinics with a dentist, all in London.' : (n - 1) + ' clinics open inside Tesco Extra. Reading is coming soon.';
+    if (moreBtn) moreBtn.textContent = expanded ? 'Show fewer clinics' : 'Show all clinics';
+  }
+  $$('.flt button').forEach(function (b) {
     b.addEventListener('click', function () {
       filter = b.getAttribute('data-f');
-      $$('.flt').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-      apply();
+      $$('.flt button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      expanded = filter !== 'all' || expanded; applyFilter();
     });
   });
-  if (q) {
-    q.addEventListener('input', apply);
-    q.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') { e.preventDefault(); var first = $('.clinic:not([hidden])'); if (first) select(first.getAttribute('data-id')); }
+  if (moreBtn) moreBtn.addEventListener('click', function () { expanded = !expanded; applyFilter(); });
+  rows.forEach(function (li) {
+    var id = li.getAttribute('data-id'), b = $('button', li);
+    if (b) b.addEventListener('click', function () { setClinic(id, { from: 'map' }); });
+    li.addEventListener('mouseenter', function () { pts.forEach(function (p) { p.classList.toggle('is-hover', p.getAttribute('data-id') === id); }); });
+    li.addEventListener('mouseleave', function () { pts.forEach(function (p) { p.classList.remove('is-hover'); }); });
+    var h = $('.c-h', li); if (h) h.textContent = today(byId[id]);
+  });
+  if (mapSvg) {
+    mapSvg.setAttribute('role', 'group');
+    pts.forEach(function (p, i) {
+      p.setAttribute('role', 'button'); p.setAttribute('tabindex', i === 0 ? '0' : '-1'); p.setAttribute('aria-label', p.getAttribute('data-label'));
+      var id = p.getAttribute('data-id');
+      p.addEventListener('click', function () { setClinic(id, { from: 'map' }); });
+      p.addEventListener('mouseenter', function () { rows.forEach(function (li) { li.classList.toggle('is-hover', li.getAttribute('data-id') === id); }); });
+      p.addEventListener('mouseleave', function () { rows.forEach(function (li) { li.classList.remove('is-hover'); }); });
+      p.addEventListener('keydown', function (e) {
+        var vis = pts.filter(function (x) { return !x.classList.contains('is-out'); }), k = vis.indexOf(p), n = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') n = vis[(k + 1) % vis.length];
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = vis[(k - 1 + vis.length) % vis.length];
+        else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setClinic(id, { from: 'map' }); return; }
+        if (n) { e.preventDefault(); p.setAttribute('tabindex', '-1'); n.setAttribute('tabindex', '0'); n.focus(); }
+      });
     });
   }
-  /* Near me: uses the device's location, compares with the clinic coordinates baked into the page, sends nothing anywhere */
-  var flts = $('.filters');
-  if (flts && DATA && navigator.geolocation && (!document.featurePolicy || document.featurePolicy.allowsFeature('geolocation'))) {
-    var nb = document.createElement('button');
-    nb.type = 'button'; nb.className = 'near-me';
-    nb.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="5"/><path d="M8 0v4M8 12v4M0 8h4M12 8h4"/></svg>Near me';
-    flts.parentNode.insertBefore(nb, flts.nextSibling);
-    nb.addEventListener('click', function () {
-      count.textContent = 'Finding your location...';
-      navigator.geolocation.getCurrentPosition(function (pos) {
-        var la = pos.coords.latitude, lo = pos.coords.longitude, r = Math.PI / 180;
-        var mi = function (c) { var x = Math.sin((c.lat - la) * r / 2), y = Math.sin((c.lon - lo) * r / 2); return 7918 * Math.asin(Math.sqrt(x * x + Math.cos(la * r) * Math.cos(c.lat * r) * y * y)); };
-        var fl = filter, label = fl === 'dental' ? 'dentist ' : fl === 'tesco' ? 'Tesco Extra ' : fl === 'gp' ? 'GP ' : '';
-        var near = DATA.clinics.filter(function (c) { return !c.soon && (fl === 'all' || fl === 'gp' || (fl === 'dental' && c.dental) || (fl === 'tesco' && c.tesco)); }).map(function (c) { return { c: c, m: mi(c) }; }).sort(function (a, b) { return a.m - b.m; }).slice(0, 3);
-        if (q) q.value = '';
-        apply(); select(near[0].c.id); rovingReset();
-        count.textContent = 'Nearest ' + label + 'clinics to you: ' + near.map(function (n) { var m = Math.round(n.m); return n.c.short + ' (' + (n.m < 1 ? 'less than 1 mile)' : m + (m === 1 ? ' mile)' : ' miles)')); }).join(', ') + '. Straight-line distances.';
-      }, function () { count.textContent = 'Your location is not available. Type a town instead.'; }, { maximumAge: 600000, timeout: 10000 });
-    });
-  }
-  var reset = $('#reset');
-  if (reset) reset.addEventListener('click', function () { if (q) q.value = ''; filter = 'all'; $$('.flt').forEach(function (x) { x.setAttribute('aria-pressed', x.getAttribute('data-f') === 'all' ? 'true' : 'false'); }); apply(); if (q) q.focus(); });
 
-  /* ===== Chooser: service, clinic, price and Book ===== */
-  var body = $('#board-body');
-  if (body && DATA) {
-    var state = { svc: null, clinic: null };
-    var svcById = {}; DATA.services.forEach(function (s) { svcById[s.id] = s; });
-    var GO = '<svg class="go" viewBox="0 0 22 22" aria-hidden="true" focusable="false"><path d="M3 11h15M12 5l6 6-6 6"/></svg>';
-
-    function priceFor(s, c) { if (s.priceTesco && c && c.tesco) return s.priceTesco; return s.price; }
-    function priceHTML(p, was) { return (p === 0 ? 'Free' : gbp(p)) + (was ? '<small>usually ' + gbp(was) + '</small>' : ''); }
-    function steps(n) {
-      var labels = ['Service', 'Clinic', 'Price and book'];
-      return '<ol class="steps">' + labels.map(function (l, i) {
-        var cur = i + 1 === n ? ' aria-current="step"' : '';
-        return '<li class="' + (i + 1 < n ? 'done' : '') + '"' + cur + '><b>' + (i + 1) + '</b>' + l + '</li>';
-      }).join('') + '</ol>';
-    }
-    function render(step, focusSel) {
-      var h = '';
-      if (step === 1) {
-        h = steps(1) + '<div class="svc-list">' + DATA.services.map(function (s) {
-          var p = s.priceTesco ? '<small>' + gbp(s.priceTesco) + ' at Tesco Extra</small>' : (s.was ? '<small>usually ' + gbp(s.was) + '</small>' : '');
-          return '<button type="button" class="svc-pick" data-svc="' + s.id + '" data-dept="' + s.dept + '"><span class="sr-only">' + (s.dept === 'gp' ? 'GP' : 'Dentist') + ': </span>' +
-            '<span class="svc-name">' + s.name + '<small>' + s.len + '</small></span><span class="svc-price">' + (s.price === 0 ? 'Free' : gbp(s.price)) + p + '</span>' + GO + '</button>';
-        }).join('') + '</div>';
-      } else if (step === 2) {
-        var s = svcById[state.svc];
-        var list = DATA.clinics.filter(function (c) { return s.where === 'all' || c.dental; });
-        var groups = s.where === 'all'
-          ? [['On the high street, ' + gbp(s.price), list.filter(function (c) { return !c.tesco; })], ['Inside Tesco Extra, ' + gbp(s.priceTesco), list.filter(function (c) { return c.tesco; })]]
-          : [['London clinics with a dentist', list]];
-        h = steps(2) + '<div class="pane-title"><h3>Where would you like to go?</h3><button type="button" class="btn-text back" data-back="1">Change service</button></div>' +
-          '<div class="clinic-pick" role="group" aria-label="Clinics for ' + esc(s.short) + '">' + groups.map(function (g) {
-            return '<p class="grp">' + g[0] + '</p>' + g[1].map(function (c) {
-              return c.soon
-                ? '<button type="button" class="cp" disabled>' + esc(c.name) + '<span>Coming soon</span></button>'
-                : '<button type="button" class="cp" data-clinic="' + c.id + '">' + esc(c.name) + '<span>' + priceHTML(priceFor(s, c)).replace(/<small>.*<\/small>/, '') + '</span></button>';
-            }).join('');
-          }).join('') + '</div>';
-      } else {
-        var sv = svcById[state.svc], c = state.clinic ? byId[state.clinic] : null, p = priceFor(sv, c);
-        var online = sv.where === 'none';
-        var where = c ? 'At ' + esc(c.name) + '. ' + esc(c.addr) : 'Online appointment.';
-        h = steps(3) + '<div class="result"><div><p class="r-what">' + sv.name + '. ' + sv.len + '.</p>' +
-          '<p class="r-where">' + where + '</p><p class="r-note">' + sv.note + '</p></div>' +
-          '<p class="r-price">' + (p === 0 ? 'Free' : gbp(p)) + (sv.was ? '<small>usually ' + gbp(sv.was) + '</small>' : '') + '</p></div>' +
-          '<div class="result-act">' + (online
-            ? '<a class="btn btn-book" href="tel:' + DATA.phone.tel + '">Call to book' + ARROW + '<span class="sr-only"> an online GP appointment on ' + DATA.phone.label + '</span></a><span>' + DATA.phone.label + '</span>'
-            : '<a class="btn btn-book" href="' + DATA.book[sv.link] + '" target="_blank" rel="noopener noreferrer">Book ' + (p === 0 ? 'free ' : '') + 'appointment' + ARROW + NEWTAB + '</a>' +
-              '<a href="tel:' + DATA.phone.tel + '">Or call ' + DATA.phone.label + '</a>') +
-          '<button type="button" class="btn-text back" data-back="' + (sv.where === 'none' ? 1 : 2) + '">' + (sv.where === 'none' ? 'Change service' : 'Change clinic') + '</button>' +
-          (c ? '<p class="tip">The booking page opens in a new tab. Choose ' + esc(c.name) + ' as your clinic there.</p>' : '') + '</div>';
-      }
-      body.innerHTML = h;
-      body.setAttribute('data-step', step);
-      var f = focusSel ? $(focusSel, body) : null;
-      if (f) f.focus();
-      // light up eligible clinics on the map while choosing
-      pts.forEach(function (pt) { pt.classList.remove('is-dim'); });
-    }
-    onSelect = function (id) {
-      if (!state.svc || !state.clinic || state.clinic === id) return;
-      var sv = svcById[state.svc], c = byId[id];
-      if (c && !c.soon && (sv.where === 'all' || c.dental)) { state.clinic = id; render(3); }
-      else { state.clinic = null; render(2); }
-    };
-    onClear = function () {
-      if (!state.svc || !state.clinic) return;
-      state.clinic = null; render(2);
-    };
-    body.addEventListener('click', function (e) {
-      var b = e.target.closest('button'); if (!b) return;
-      if (b.hasAttribute('data-svc')) {
-        state.svc = b.getAttribute('data-svc'); state.clinic = null;
-        var s = svcById[state.svc];
-        if (s.where === 'none') render(3, '.result-act .btn');
-        else {
-          if (selected && byId[selected] && !byId[selected].soon && (s.where === 'all' || byId[selected].dental)) { state.clinic = selected; render(3, '.result-act .btn'); }
-          else render(2, '.cp:not([disabled])');
-        }
-      } else if (b.hasAttribute('data-clinic')) {
-        state.clinic = b.getAttribute('data-clinic'); select(state.clinic); rovingReset(); render(3, '.result-act .btn');
-      } else if (b.hasAttribute('data-back')) {
-        var to = +b.getAttribute('data-back');
-        render(to, to === 1 ? '.svc-pick[data-svc="' + state.svc + '"]' : '.cp:not([disabled])');
-      }
-    });
-    render(1);
-  }
-
-  /* ===== Implant explorer ===== */
+  /* ===== Implant estimator ===== */
   var chart = $('.chart');
   if (chart) {
     chart.setAttribute('role', 'group');
     chart.setAttribute('aria-label', 'Dental chart with 28 teeth. Choose the teeth you want to replace. Use the arrow keys to move and Space to choose.');
-    $$('.tooth', chart).forEach(function (t, i) { t.setAttribute('role', 'button'); t.setAttribute('tabindex', i === 6 ? '0' : '-1'); t.setAttribute('aria-pressed', 'false'); t.setAttribute('aria-label', t.getAttribute('data-label')); });
-    var teeth = $$('.tooth', chart), totalEl = $('#est-total'), countEl = $('#est-count'), noteEl = $('#est-note');
-    var ARCH = 9995;
-    function tier() { var r = $('input[name="tier"]:checked'); return { p: +r.value, n: r.getAttribute('data-name') }; }
-    function update() {
+    var teeth = $$('.tooth', chart), totalEl = $('#est-total'), countE = $('#est-count'), noteEl = $('#est-note'), ARCH = 9995;
+    teeth.forEach(function (t, i) { t.setAttribute('role', 'button'); t.setAttribute('tabindex', i === 6 ? '0' : '-1'); t.setAttribute('aria-pressed', 'false'); t.setAttribute('aria-label', t.getAttribute('data-label')); });
+    var tier = function () { var r = $('input[name="tier"]:checked'); return { p: +r.value, n: r.getAttribute('data-name') }; };
+    var update = function () {
       var on = teeth.filter(function (t) { return t.getAttribute('aria-pressed') === 'true'; });
       var up = on.filter(function (t) { return t.getAttribute('data-jaw') === 'upper'; }).length, lo = on.length - up, tr = tier();
       totalEl.textContent = gbp(on.length * tr.p);
-      countEl.textContent = on.length ? on.length + (on.length === 1 ? ' tooth' : ' teeth') + ' (' + up + ' upper, ' + lo + ' lower), ' + tr.n + ' at ' + gbp(tr.p) + ' each' : 'No teeth chosen yet';
+      countE.textContent = on.length ? on.length + (on.length === 1 ? ' tooth' : ' teeth') + ' (' + up + ' upper, ' + lo + ' lower), ' + tr.n + ' at ' + gbp(tr.p) + ' each' : 'No teeth chosen yet';
       var heavy = [['upper', up], ['lower', lo]].filter(function (j) { return j[1] * tr.p > ARCH; });
-      var perJaw = function (j) { return gbp(j[1] * tr.p); };
-      noteEl.textContent = !on.length ? 'Choose teeth on the chart to see a list-price total.'
-        : heavy.length === 2 ? 'Your selected implants cost ' + (up === lo ? perJaw(heavy[0]) + ' per jaw' : perJaw(heavy[0]) + ' for the upper jaw and ' + perJaw(heavy[1]) + ' for the lower jaw') + ' at list price. All-on-4 is listed at ' + gbp(ARCH) + ' per jaw. Ask your dentist to explain the treatment options.'
-        : heavy.length ? 'At list price, ' + heavy[0][1] + ' ' + tr.n + ' implants in your ' + heavy[0][0] + ' jaw cost more than All-on-4 for a whole jaw (£9,995). Ask which suits you at the free consultation.'
+      var per = function (j) { return gbp(j[1] * tr.p); };
+      noteEl.textContent = !on.length ? 'Tap teeth on the chart to see a list-price total.'
+        : heavy.length === 2 ? 'Your selected implants cost ' + (up === lo ? per(heavy[0]) + ' per jaw' : per(heavy[0]) + ' for the upper jaw and ' + per(heavy[1]) + ' for the lower jaw') + ' at list price. All-on-4 is listed at ' + gbp(ARCH) + ' per jaw. Ask your dentist to explain the treatment options.'
+        : heavy.length ? 'At list price, ' + heavy[0][1] + ' ' + tr.n + ' implants in your ' + heavy[0][0] + ' jaw cost more than All-on-4 for a whole jaw (' + gbp(ARCH) + '). Ask which suits you at the free consultation.'
         : 'List price before any offer. Your dentist confirms the plan and price at the free consultation.';
-    }
+    };
     teeth.forEach(function (t, i) {
       var toggle = function () { t.setAttribute('aria-pressed', t.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); teeth.forEach(function (x) { x.setAttribute('tabindex', x === t ? '0' : '-1'); }); update(); };
       t.addEventListener('click', toggle);
@@ -332,10 +212,40 @@
       });
     });
     $$('input[name="tier"]').forEach(function (r) { r.addEventListener('change', update); });
-    var clr = $('#teeth-clear');
-    if (clr) clr.addEventListener('click', function () { teeth.forEach(function (t) { t.setAttribute('aria-pressed', 'false'); }); update(); });
+    var clr = $('#teeth-clear'); if (clr) clr.addEventListener('click', function () { teeth.forEach(function (t) { t.setAttribute('aria-pressed', 'false'); }); update(); });
     update();
   }
 
-  if (DATA) apply();
+  /* ===== Membership: your household ===== */
+  var fam = { a: 1, c: 0 };
+  function paintFam() {
+    $('#fam-a').textContent = fam.a; $('#fam-c').textContent = fam.c;
+    var who = fam.a + (fam.a === 1 ? ' adult' : ' adults') + (fam.c ? ' and ' + fam.c + (fam.c === 1 ? ' child' : ' children') : '');
+    $$('.mem li').forEach(function (li) {
+      var t = fam.a * +li.getAttribute('data-a') + fam.c * +li.getAttribute('data-c');
+      $('.m-t', li).innerHTML = gbp(t) + ' <small>a month</small>';
+      $('.m-b', li).textContent = 'For ' + who + ', from the listed prices.';
+    });
+  }
+  $$('.step button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var k = b.getAttribute('data-k'), d = +b.getAttribute('data-d');
+      fam[k] = Math.max(k === 'a' ? 1 : 0, Math.min(6, fam[k] + d)); paintFam();
+    });
+  });
+  if ($('#fam-a')) paintFam();
+
+  /* ===== Review count rolls up once ===== */
+  var rn = $('.rev-n');
+  if (rn && !reduce && 'IntersectionObserver' in window) {
+    var target = +rn.getAttribute('data-n');
+    new IntersectionObserver(function (es, ob) {
+      if (!es[0].isIntersecting) return; ob.disconnect();
+      var t0 = performance.now();
+      (function tick(now) { var k = Math.min(1, (now - t0) / 1400), e = 1 - Math.pow(1 - k, 3); rn.textContent = Math.round(target * e).toLocaleString('en-GB'); if (k < 1) requestAnimationFrame(tick); })(t0);
+    }, { threshold: 0.4 }).observe(rn);
+  }
+
+  applyFilter();
+  setClinic(state.clinic, { animate: false });
 })();

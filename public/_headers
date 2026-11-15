@@ -14,3 +14,8 @@
 /showcase/*
   X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
   Cache-Control: private, no-store
+
+# This concept has a 'find my nearest clinic' button, which needs the visitor's location after a tap
+/showcase/myhealthcare-clinic/*
+  ! Permissions-Policy
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self)
