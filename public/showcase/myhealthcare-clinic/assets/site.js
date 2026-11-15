@@ -42,7 +42,7 @@
   var clinicSel = $('#pick-clinic'), svcSel = $('#pick-svc');
   function miles(a, b) { var r = Math.PI / 180, x = Math.sin((b.lat - a.lat) * r / 2), y = Math.sin((b.lon - a.lon) * r / 2); return 7918 * Math.asin(Math.sqrt(x * x + Math.cos(a.lat * r) * Math.cos(b.lat * r) * y * y)); }
   /* Where the subject sits in each photo, as a share of its height, so the crop keeps it in view */
-  var FOCUS = { balham: .45, chiswick: .5, clapham: .45, fulham: .5, marylebone: .6, 'swiss-cottage': .6, beaconsfield: .55, birmingham: .62, cannock: .45, newcastle: .5, hexham: .5, basingstoke: .6, 'west-durrington': .8 };
+  var FOCUS = {"balham": 0.5, "chiswick": 0.5, "clapham": 0.5, "fulham": 0.45, "marylebone": 0.5, "swiss-cottage": 0.6, "beaconsfield": 0.4, "cheshunt": 0.4, "reading": 0.4, "birmingham": 0.5, "cannock": 0.55, "harrogate": 0.5, "newcastle": 0.5, "hexham": 0.5, "basingstoke": 0.45, "west-durrington": 0.55};
   function aim() {
     if (!dImg || !dImg.naturalWidth || !dImg.clientWidth) return;
     var f = dImg.clientHeight / (dImg.clientWidth * dImg.naturalHeight / dImg.naturalWidth), s = +dImg.getAttribute('data-focus') || .5;
@@ -68,7 +68,7 @@
       $('#door-act').innerHTML = s.where === 'none'
         ? '<a class="btn btn-leaf btn-sm" href="tel:' + DATA.phone.tel + '">Call ' + DATA.phone.label + ' to book</a><span class="plate-hint">Online appointments are booked by phone.</span>'
         : '<a class="btn btn-leaf btn-sm" href="' + DATA.book[s.link] + '"' + NEW + '>Book this appointment' + ARW + NT + '</a><span class="plate-hint">Choose ' + esc(c.name) + ' on the booking page.</span>';
-      $('#door-credit').innerHTML = c.photo ? 'Photo: ' + esc(c.photo.shows) + ', not the clinic itself. ' + esc(c.photo.author) + ', <a href="' + c.photo.page + '"' + NEW + '>' + esc(c.photo.licence) + NT + '</a>.' : 'This concept has no licensed photo for ' + esc(c.name) + ' yet.';
+      $('#door-credit').innerHTML = c.photo ? (c.photo.own ? 'Photo: ' + esc(c.photo.shows) + '. From the <a href="' + c.photo.page + '"' + NEW + '>MyHealthcare Clinic website' + NT + '</a>.' : 'Photo: ' + esc(c.photo.shows) + ', not the clinic itself. ' + esc(c.photo.author) + ', <a href="' + c.photo.page + '"' + NEW + '>' + esc(c.photo.licence) + NT + '</a>.') : 'This concept has no photo for ' + esc(c.name) + ' yet.';
     };
     if (animate && !reduce && c.photo && dImg.getAttribute('src') !== c.photo.file) {
       var pre = new Image();
