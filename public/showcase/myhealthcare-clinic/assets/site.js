@@ -41,11 +41,20 @@
   var door = $('.door'), dImg = $('#door-img'), dNo = $('#door-nophoto');
   var clinicSel = $('#pick-clinic'), svcSel = $('#pick-svc');
   function miles(a, b) { var r = Math.PI / 180, x = Math.sin((b.lat - a.lat) * r / 2), y = Math.sin((b.lon - a.lon) * r / 2); return 7918 * Math.asin(Math.sqrt(x * x + Math.cos(a.lat * r) * Math.cos(b.lat * r) * y * y)); }
+  /* Where the subject sits in each photo, as a share of its height, so the crop keeps it in view */
+  var FOCUS = { balham: .45, chiswick: .5, clapham: .45, fulham: .5, marylebone: .6, 'swiss-cottage': .6, beaconsfield: .55, birmingham: .62, cannock: .45, newcastle: .5, hexham: .5, basingstoke: .6, 'west-durrington': .8 };
+  function aim() {
+    if (!dImg || !dImg.naturalWidth || !dImg.clientWidth) return;
+    var f = dImg.clientHeight / (dImg.clientWidth * dImg.naturalHeight / dImg.naturalWidth), s = +dImg.getAttribute('data-focus') || .5;
+    var p = f >= 1 ? .5 : Math.max(0, Math.min(1, (s - f / 2) / (1 - f)));
+    dImg.style.objectPosition = '50% ' + (p * 100).toFixed(1) + '%';
+  }
+  if (dImg) { dImg.addEventListener('load', aim); window.addEventListener('resize', aim); }
   function paintDoor(c, animate) {
     if (!door) return;
     var s = svcById[state.svc];
     var apply = function () {
-      if (c.photo) { dImg.src = c.photo.file; dImg.alt = c.photo.alt; dImg.hidden = false; dNo.hidden = true; }
+      if (c.photo) { dImg.setAttribute('data-focus', FOCUS[c.id] || .5); dImg.src = c.photo.file; aim(); dImg.alt = c.photo.alt; dImg.hidden = false; dNo.hidden = true; }
       else { dImg.hidden = true; dNo.hidden = false; dNo.innerHTML = '<span>A photo of the ' + esc(c.name) + ' clinic goes here.</span>'; }
       $('#door-name').textContent = c.name;
       $('#door-addr').textContent = c.addr;

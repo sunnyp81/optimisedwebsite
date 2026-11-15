@@ -94,13 +94,13 @@ html.js .nojs-only{display:none!important}
 /* The door: the chosen clinic */
 .door{position:relative;margin:0}
 .door-frame{position:relative;border-radius:260px 260px var(--r) var(--r);overflow:hidden;background:var(--green-land);display:flex;align-items:flex-end;margin-left:auto;width:100%;box-shadow:0 0 0 6px rgba(70,185,105,.35)}
-.door-frame img{position:absolute;inset:0 0 auto 0;width:100%;height:clamp(250px,25vw,350px);object-fit:cover;display:block}
+.door-frame img{position:absolute;inset:0 0 auto 0;width:100%;height:clamp(216px,21.2vw,306px);object-fit:cover;display:block}
 .door-frame{background:#12301F}
-.door-nophoto{position:absolute;inset:0 0 auto 0;height:clamp(250px,25vw,350px);margin:0;display:grid;place-items:start center;padding:70px 14% 0;text-align:center;color:var(--mint);font:600 1.05rem/1.35 var(--body);background:radial-gradient(circle at 50% 44px,var(--orange) 0 9px,#fff 9px 13px,transparent 13.5px),repeating-radial-gradient(circle at 50% 44px,rgba(134,214,160,0) 0 34px,rgba(134,214,160,.22) 34px 36px),var(--green-land)}
+.door-nophoto{position:absolute;inset:0 0 auto 0;height:clamp(216px,21.2vw,306px);margin:0;display:grid;place-items:start center;padding:70px 14% 0;text-align:center;color:var(--mint);font:600 1.05rem/1.35 var(--body);background:radial-gradient(circle at 50% 44px,var(--orange) 0 9px,#fff 9px 13px,transparent 13.5px),repeating-radial-gradient(circle at 50% 44px,rgba(134,214,160,0) 0 34px,rgba(134,214,160,.22) 34px 36px),var(--green-land)}
 .door-nophoto[hidden],.door-frame img[hidden]{display:none}
 .door-nophoto span{display:block;margin-top:36px;max-width:16em}
 .plate{color:#fff;position:relative;width:100%;z-index:2;padding:clamp(16px,2.4vw,28px);padding-top:clamp(24px,2.4vw,34px);margin-top:clamp(200px,20vw,290px);background:#12301F}
-.plate::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:70px;background:linear-gradient(180deg,rgba(18,48,31,0),#12301F)}
+.plate::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:36px;background:linear-gradient(180deg,rgba(18,48,31,0),#12301F)}
 .plate-name{font:700 clamp(1.9rem,3.6vw,3rem)/1 var(--display);letter-spacing:-.03em}
 .plate-addr{margin-top:6px;color:var(--mist)}
 .plate-price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:10px}
@@ -422,9 +422,9 @@ html[data-v="b"] .stage-cta,html[data-v="c"] .stage-cta{display:none}
   .trust-t{font-size:.92rem}.trust-t b{font-size:1.05rem}
   .stage-cta{margin-top:12px}.stage-cta a{display:none}.stage-cta .btn{min-height:44px;padding:9px 16px 6px;font-size:.98rem}
   .door-frame{border-radius:120px 120px 18px 18px;box-shadow:0 0 0 4px rgba(134,214,160,.28)}
-  .plate{padding:14px;padding-top:12px;margin-top:118px}
-  .plate::before{height:44px}
-  .door-frame img,.door-nophoto{height:170px}
+  .plate{padding:14px;padding-top:12px;margin-top:150px}
+  .plate::before{height:26px}
+  .door-frame img,.door-nophoto{height:164px}
   .chip-extra{display:none}
   .door-nophoto{padding-top:64px}.door-nophoto span{margin-top:0;font-size:.92rem}
   .stage-head,.stage-head>div:first-child{display:contents}
