@@ -35,6 +35,7 @@ const schemaNodes = [
     </section>
 
     <section class="py-10" id="order-form-section">
+      <p id="order-offer-note" class="hidden mb-6 text-[14px] rounded-[12px] px-4 py-3" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule); color: var(--color-ink-2);">Request for: <strong id="order-offer-name"></strong></p>
       <form id="order-form" class="space-y-6">
         <div>
           <label for="name" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Name <span class="text-red-500">*</span></label>
@@ -58,7 +59,7 @@ const schemaNodes = [
 
         <div>
           <label for="audience" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Target Audience <span class="font-normal" style="color: var(--color-ink-2);">(optional)</span></label>
-          <input type="text" id="audience" name="audience" placeholder="e.g. UK homeowners, B2B decision makers" class="w-full rounded-[12px] px-4 py-3 placeholder:text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);" />
+          <input type="text" id="audience" name="audience" maxlength="200" placeholder="e.g. UK homeowners, B2B decision makers" class="w-full rounded-[12px] px-4 py-3 placeholder:text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);" />
         </div>
 
         <div>
@@ -68,7 +69,7 @@ const schemaNodes = [
 
         <div>
           <label for="competitors" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Competitors <span class="font-normal" style="color: var(--color-ink-2);">(optional)</span></label>
-          <textarea id="competitors" name="competitors" rows="3" placeholder="List competitor websites, one per line" class="w-full rounded-[12px] px-4 py-3 placeholder:text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);"></textarea>
+          <textarea id="competitors" name="competitors" rows="3" maxlength="800" placeholder="List competitor websites, one per line" class="w-full rounded-[12px] px-4 py-3 placeholder:text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);"></textarea>
         </div>
 
         <div>
@@ -120,6 +121,7 @@ const schemaNodes = [
   </div>
 
   <script>
+  import { attributionFields, hasConsent } from '../scripts/attribution';
   const form = document.getElementById('order-form') as HTMLFormElement;
   const submitBtn = document.getElementById('order-submit') as HTMLButtonElement;
   const statusEl = document.getElementById('order-status') as HTMLDivElement;
@@ -129,6 +131,15 @@ const schemaNodes = [
     const w = window as unknown as { gtag?: (...a: unknown[]) => void };
     if (typeof w.gtag === 'function') w.gtag(...args);
   };
+
+  const offerNames: Record<string, string> = {
+    'website-redesign-seo-migration': 'Website redesign and SEO migration',
+  };
+  const offerKey = new URLSearchParams(location.search).get('offer') || '';
+  if (offerNames[offerKey]) {
+    document.getElementById('order-offer-name')!.textContent = offerNames[offerKey];
+    document.getElementById('order-offer-note')!.classList.remove('hidden');
+  }
 
   let startedTracked = false;
   form.addEventListener('focusin', () => {
@@ -147,12 +158,7 @@ const schemaNodes = [
 
     const body = Object.fromEntries(data.entries()) as Record<string, string>;
     body.landing_page = location.pathname;
-    body.referrer = document.referrer || '';
-    const params = new URLSearchParams(location.search);
-    (['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'] as const).forEach((key) => {
-      const value = params.get(key);
-      if (value) body[key] = value;
-    });
+    Object.assign(body, attributionFields('build-plan'));
 
     submitBtn.disabled = true;
     submitBtn.setAttribute('aria-busy', 'true');
@@ -163,6 +169,7 @@ const schemaNodes = [
       const res = await fetch('/api/intake', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        referrerPolicy: 'origin',
         body: JSON.stringify(body),
       });
       const result = await res.json().catch(() => ({ ok: false }));
@@ -172,7 +179,7 @@ const schemaNodes = [
       form.classList.add('hidden');
       successDiv.classList.remove('hidden');
       successDiv.focus();
-      gtag('event', 'generate_lead', { form_id: 'order-form' });
+      if (hasConsent()) gtag('event', 'generate_lead', { form_id: 'order-form' });
     } catch {
       statusEl.setAttribute('role', 'alert');
       statusEl.textContent = '';

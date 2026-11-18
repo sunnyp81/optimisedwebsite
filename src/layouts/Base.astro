@@ -90,6 +90,9 @@ const ogImageUrl = new URL(ogImage ?? '/og-default.png', site.url).href;
     <SchemaGraph nodes={schemaNodes} />
 
     <script>
+      import { initAttribution } from '../scripts/attribution';
+      initAttribution();
+
       // Reopen cookie preferences from footer/privacy links
       document.addEventListener('click', (e) => {
         if (!(e.target instanceof Element)) return;

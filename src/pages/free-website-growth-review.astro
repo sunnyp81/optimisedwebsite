@@ -182,7 +182,7 @@ const schemaNodes = [
 
         <div>
           <label for="review-message" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">What result do you want from your website? <span class="text-red-500">*</span></label>
-          <textarea id="review-message" name="message" rows="3" required placeholder="e.g. more phone calls from local searches" class="w-full rounded-[12px] px-4 py-3 placeholder:text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);"></textarea>
+          <textarea id="review-message" name="message" rows="3" required maxlength="2000" placeholder="e.g. more phone calls from local searches" class="w-full rounded-[12px] px-4 py-3 placeholder:text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);"></textarea>
         </div>
 
         <input type="hidden" name="source" value="optimisedwebsite.com/free-website-growth-review" />
@@ -213,6 +213,7 @@ const schemaNodes = [
   </div>
 
   <script>
+  import { attributionFields, hasConsent } from '../scripts/attribution';
   const form = document.getElementById('review-form') as HTMLFormElement;
   const submitBtn = document.getElementById('review-submit') as HTMLButtonElement;
   const statusEl = document.getElementById('review-status') as HTMLDivElement;
@@ -240,12 +241,7 @@ const schemaNodes = [
 
     const body = Object.fromEntries(data.entries()) as Record<string, string>;
     body.landing_page = location.pathname;
-    body.referrer = document.referrer || '';
-    const params = new URLSearchParams(location.search);
-    (['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'] as const).forEach((key) => {
-      const value = params.get(key);
-      if (value) body[key] = value;
-    });
+    Object.assign(body, attributionFields('free-growth-review'));
 
     submitBtn.disabled = true;
     submitBtn.setAttribute('aria-busy', 'true');
@@ -256,6 +252,7 @@ const schemaNodes = [
       const res = await fetch('/api/intake', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        referrerPolicy: 'origin',
         body: JSON.stringify(body),
       });
       const result = await res.json().catch(() => ({ ok: false }));
@@ -265,7 +262,7 @@ const schemaNodes = [
       form.classList.add('hidden');
       successDiv.classList.remove('hidden');
       successDiv.focus();
-      gtag('event', 'generate_lead', { form_id: 'review-form' });
+      if (hasConsent()) gtag('event', 'generate_lead', { form_id: 'review-form' });
     } catch {
       statusEl.setAttribute('role', 'alert');
       statusEl.textContent = '';

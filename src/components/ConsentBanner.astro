@@ -214,12 +214,14 @@ import { site } from '../data/site';
 
     acceptBtn.addEventListener('click', function () {
       writeConsent(true);
+      window.dispatchEvent(new CustomEvent('ow:consent', { detail: { analytics: true } }));
       loadAnalytics();
       hideBanner();
     });
 
     rejectBtn.addEventListener('click', function () {
       writeConsent(false);
+      window.dispatchEvent(new CustomEvent('ow:consent', { detail: { analytics: false } }));
       clearAnalyticsCookies();
       hideBanner();
     });

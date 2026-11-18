@@ -14,7 +14,8 @@ const MAX_FIELD_LENGTH = 5_000;
 const ALLOWED_FIELDS = new Set([
   'name', 'email', 'phone', 'niche', 'audience', 'domain',
   'competitors', 'budget', 'message', 'source', 'form_type',
-  'landing_page', 'referrer', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
+  'landing_page', 'entry_page', 'entry_referrer', 'form_url', 'offer', 'submission_id',
+  'entry_utm_source', 'entry_utm_medium', 'entry_utm_campaign', 'entry_utm_term', 'entry_utm_content',
 ]);
 
 const jsonResponse = (body: Record<string, unknown>, status: number) =>
@@ -99,6 +100,48 @@ export async function onRequestPost({ request }: PagesContext): Promise<Response
     return jsonResponse({ ok: false, error: 'Invalid form type' }, 400);
   }
 
+  // The upstream worker forwards only name, email, phone, message and referer,
+  // so fold the lead context into the message as readable labelled lines.
+  const cap = (v: string | undefined, n = 100) => (v ? v.slice(0, n) : v);
+  const submissionId = /^[A-Za-z0-9-]{8,64}$/.test(clean.submission_id || '') ? clean.submission_id : undefined;
+  const context = [
+    ['Submission ID', submissionId],
+    ['Form', clean.form_type],
+    ['Offer', cap(clean.offer) || 'unknown'],
+    ['Budget', cap(clean.budget)],
+    ['Industry', cap(clean.niche)],
+    ['Domain', cap(clean.domain, 300)],
+    ['Form page', cap(clean.form_url || clean.landing_page) || 'unknown'],
+    ['Entry page', cap(clean.entry_page) || 'unknown'],
+    ['Source', cap(clean.entry_referrer) || 'unknown'],
+    ['UTM source', cap(clean.entry_utm_source, 80)],
+    ['UTM medium', cap(clean.entry_utm_medium, 80)],
+    ['UTM campaign', cap(clean.entry_utm_campaign, 80)],
+    ['UTM term', cap(clean.entry_utm_term, 80)],
+    ['UTM content', cap(clean.entry_utm_content, 80)],
+  ]
+    .filter(([, v]) => v)
+    .map(([k, v]) => `${k}: ${v}`)
+    .join('\n');
+  const extras = [
+    clean.audience ? `Audience: ${clean.audience}` : '',
+    clean.competitors ? `Competitors: ${clean.competitors}` : '',
+  ].filter(Boolean).join('\n');
+  const original = [clean.message, extras].filter(Boolean).join('\n');
+  // Truncate the visitor's text first so the context block always survives.
+  const tail = `\n\n--- Lead context ---\n${context}`;
+  const room = Math.max(0, MAX_FIELD_LENGTH - tail.length);
+  clean.message = `${original.slice(0, room)}${original ? tail : tail.trimStart()}`;
+
+  // Forward the Referer without its query string.
+  let referer = `${new URL(request.url).origin}/`;
+  try {
+    const r = new URL(request.headers.get('Referer') || '');
+    referer = r.origin + r.pathname;
+  } catch {
+    /* keep default */
+  }
+
   try {
     const siteOrigin = new URL(request.url).origin;
     const upstream = await fetch(WORKER_URL, {
@@ -106,7 +149,7 @@ export async function onRequestPost({ request }: PagesContext): Promise<Response
       headers: {
         'Content-Type': 'application/json',
         'Origin': siteOrigin,
-        'Referer': request.headers.get('Referer') || `${siteOrigin}/`,
+        'Referer': referer,
       },
       body: JSON.stringify(clean),
     });

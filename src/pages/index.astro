@@ -50,25 +50,26 @@ const marqueItems = [
   'Price fixed before work starts', 'Source code yours forever'
 ];
 
+const lh = (slug: string) => caseStudies.find((c) => c.slug === slug)?.lighthouse ?? 0;
 const testimonials = [
   {
-    scoreBefore: 42,
-    scoreAfter: 100,
-    quote: "1,642 organic clicks/month and 85.0k impressions across 49 area pages. Position 10.4 average, ranking for 'water hardness' queries across UK regions.",
+    scoreBefore: 0,
+    scoreAfter: lh('water-hardness-uk'),
+    quote: "1,642 organic clicks and 85.0k impressions in the 28 days to 25 Sep 2026, across 49 area pages. Position 10.4 average, ranking for 'water hardness' queries across UK regions.",
     author: "WaterHard.uk",
     role: "Home & Utilities, 49 pages"
   },
   {
     scoreBefore: 0,
-    scoreAfter: 100,
-    quote: "3,035 clicks/month from 107.2k impressions. Top query 'dead hang time by age' ranks position 2.2 with 1.6k impressions. 53 pages.",
+    scoreAfter: lh('dead-hangs'),
+    quote: "3,035 clicks from 107.2k impressions in the 28 days to 25 Sep 2026. Top query 'dead hang time by age' ranks position 2.2. 53 pages.",
     author: "DeadHangs.com",
     role: "Health & Fitness, 53 pages"
   },
   {
     scoreBefore: 0,
-    scoreAfter: 100,
-    quote: "29.6k impressions/month across 211 pages. 192 clicks/month ranking for hundreds of long-tail Slimming World queries.",
+    scoreAfter: lh('she-cooks-she-eats'),
+    quote: "29.6k impressions and 192 clicks in the 28 days to 25 Sep 2026, across 211 pages, ranking for hundreds of long-tail Slimming World queries.",
     author: "SheCooksSheEats.co.uk",
     role: "Food & Diet, 211 pages"
   }
@@ -84,8 +85,7 @@ const techStack = [
 ];
 
 const trustNames = [
-  'WaterHard.uk', 'SheCooksSheEats', 'DeadHangs.com', 'RentalYield.uk',
-  'BestVibrationPlates', 'HeatPumpChecker', 'SolarHQ.uk', 'KnotweedCheck'
+  'WaterHard.uk', 'SheCooksSheEats', 'DeadHangs.com', 'RentalYield.uk', 'BestVibrationPlates'
 ];
 
 const schemaNodes = [
@@ -243,8 +243,11 @@ const schemaNodes = [
     { value: networkPages, suffix: '', label: 'Pages across 5 case studies' },
     { value: networkImpressionsK, suffix: 'k', label: 'Impressions, 28 days to 25 Sep 2026' },
     { value: networkClicks, suffix: '', label: 'Clicks, 28 days to 25 Sep 2026' },
-    { value: 44, suffix: '+', label: 'Sites in network' }
+    { value: 5, suffix: '', label: 'Owned sites in this example' }
   ]} />
+  <p class="text-center text-[14px] py-4" style="color: var(--color-ink-2);">
+    Figures come from five sites we own, not client results.
+  </p>
 
   <!-- ===== TEMPLATE GALLERY ===== -->
   <section class="section">
@@ -378,7 +381,7 @@ const schemaNodes = [
     <div class="wrap">
       <div class="flex items-center justify-center gap-3 mb-10">
         <div class="h-px flex-1 max-w-[80px]" style="background: linear-gradient(90deg, transparent, var(--color-rule));"></div>
-        <div class="mono text-[11px] uppercase" style="color: var(--color-ink-3); letter-spacing: 0.1em;">44+ sites in our network &middot; performance-tested before handover</div>
+        <div class="mono text-[11px] uppercase" style="color: var(--color-ink-3); letter-spacing: 0.1em;">Five owned sites &middot; Search Console, 28 days to 25 Sep 2026</div>
         <div class="h-px flex-1 max-w-[80px]" style="background: linear-gradient(90deg, var(--color-rule), transparent);"></div>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -397,7 +400,7 @@ const schemaNodes = [
     <div class="wrap">
       <div class="reveal mb-12">
         <div class="eyebrow">Results</div>
-        <h2>Verified Ranking Results From Our Network</h2>
+        <h2>Search Results From Five Owned Sites</h2>
       </div>
 
       <div class="grid md:grid-cols-3 gap-5 reveal">
@@ -573,11 +576,11 @@ const schemaNodes = [
   <script>
   // Social proof toast
   const toasts = [
-    { title: 'waterhard.uk', sub: '1,642 clicks/mo · pos 10.4' },
-    { title: 'shecookssheeats.co.uk', sub: '29.6k impressions/mo · 211 pages' },
-    { title: 'deadhangs.com', sub: '3,035 clicks/mo · pos 6.8' },
-    { title: 'rentalyield.uk', sub: '17.7k impressions/mo · growing' },
-    { title: 'bestvibrationplates.co.uk', sub: '135 pages · 14.6k impr/mo' },
+    { title: 'waterhard.uk', sub: '1,642 clicks, 28 days · pos 10.4' },
+    { title: 'shecookssheeats.co.uk', sub: '29.6k impressions, 28 days · 211 pages' },
+    { title: 'deadhangs.com', sub: '3,035 clicks, 28 days · top query pos 2.2' },
+    { title: 'rentalyield.uk', sub: '17.7k impressions, 28 days' },
+    { title: 'bestvibrationplates.co.uk', sub: '135 pages · 14.6k impressions, 28 days' },
   ];
   const toast = document.getElementById('toast');
   const tTitle = document.getElementById('toastTitle');

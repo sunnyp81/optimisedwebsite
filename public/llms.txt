@@ -12,7 +12,7 @@ OptimisedWebsite (https://optimisedwebsite.com) designs and builds SEO-optimised
 
 ## Key facts and stats
 - Founder: Sunny Patel, SEO Consultant, Reading, UK
-- Sites built and ranked: 44+ across health, automotive, home services, developer tools, food, and SaaS verticals
+- Proof: five owned sites, Google Search Console, 28 days to 25 September 2026: 5,168 clicks and 254.1k impressions across 568 pages (https://optimisedwebsite.com/state-of-seo-websites/). These are Sunny Patel's own sites, not client results
 - Performance: tested before handover, with Core Web Vitals considered throughout the build
 - Delivery time: 1 to 2 weeks (Local site), 3 to 5 weeks (Growth site), 6 to 12 weeks (Multi-location and migration)
 - Price: 1,500 to 15,000 GBP across three levels, fixed before work starts (no recurring platform fee from OptimisedWebsite)

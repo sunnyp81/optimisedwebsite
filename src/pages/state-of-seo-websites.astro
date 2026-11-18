@@ -41,7 +41,7 @@ const schemaNodes = [
     '@id': `${pageUrl}#article`,
     headline: 'The State of SEO Websites 2026',
     description:
-      'An original-data report on how purpose-built SEO websites index, rank and perform, drawn from a five-site live network covering 568 pages and 2,466 ranking keywords.',
+      'An original-data report on how purpose-built SEO websites index, rank and perform, drawn from a five-site live network covering 568 pages.',
     url: pageUrl,
     datePublished: '2026-06-05',
     dateModified: methodology.lastReviewed,
@@ -61,7 +61,7 @@ const schemaNodes = [
     '@id': `${pageUrl}#dataset`,
     name: 'OptimisedWebsite SEO network performance dataset',
     description:
-      'Aggregated Google Search Console performance for a five-site network: 568 pages, 2,466 tracked ranking keywords, monthly clicks and impressions, and Lighthouse scores by site.',
+      'Aggregated Google Search Console clicks and impressions for a five-site network of 568 pages, for the 28 days to 25 September 2026. Keyword counts and Lighthouse scores in the report are not covered by this date range.',
     url: pageUrl,
     license: 'https://creativecommons.org/licenses/by/4.0/',
     creator: { '@id': `${site.url}/#organization` },
@@ -76,19 +76,17 @@ const schemaNodes = [
     ],
     variableMeasured: [
       'Pages built',
-      'Monthly organic clicks',
-      'Monthly organic impressions',
-      'Ranking keywords by position bucket',
-      'Lighthouse performance score',
+      'Organic clicks, 28 days to 25 September 2026',
+      'Organic impressions, 28 days to 25 September 2026',
     ],
-    temporalCoverage: '2025/2026',
+    temporalCoverage: '2026-08-29/2026-09-25',
     spatialCoverage: { '@type': 'Country', name: 'United Kingdom' },
   },
 ];
 ---
 <Base
   title="The State of SEO Websites 2026 | OptimisedWebsite"
-  description="Original-data report: how purpose-built SEO websites index, rank and perform. Five live sites, 568 pages, 2,466 ranking keywords, and the benchmarks behind them."
+  description="Original-data report: how purpose-built SEO websites index, rank and perform. Five live sites, 568 pages, and the benchmarks behind them."
   canonicalPath="/state-of-seo-websites/"
   schemaNodes={schemaNodes}
 >
@@ -103,8 +101,8 @@ const schemaNodes = [
       <div class="section-tag">Original data report</div>
       <h1 class="section-title">The State of <span class="gradient-text">SEO Websites</span> 2026</h1>
       <p class="section-desc" style="max-width: 640px;">
-        How do purpose-built SEO websites actually index, rank and perform? We pulled the numbers from our own
-        live network of {networkSites} sites, {networkPages} pages and {totalRankingKeywords.toLocaleString()} tracked
+        How do purpose-built SEO websites actually index, rank and perform? We pulled the numbers from five sites
+        we own and run, covering {networkPages} pages and {totalRankingKeywords.toLocaleString()} tracked
         keywords. The methodology below shows which figures were re-checked in September 2026 and which were not.
       </p>
       <div class="flex flex-wrap gap-2 mt-7">
@@ -113,6 +111,9 @@ const schemaNodes = [
         <span class="chip chip-violet">Avg Lighthouse {avgLighthouse}</span>
         <span class="chip chip-accent">CC BY 4.0 data</span>
       </div>
+      <p class="mt-5 text-[15px]" style="color: var(--color-ink-2);">
+        These are our own sites, not client results. See what a build for your site costs on the <a href="/pricing/" class="underline" style="color: var(--violet-text);">pricing page</a>.
+      </p>
     </header>
   </div>
 

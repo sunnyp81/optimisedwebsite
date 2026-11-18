@@ -36,11 +36,11 @@ const statValue = (slug: string, label: string): number => {
 };
 
 export const networkClicks =
-  statValue('water-hardness-uk', 'Clicks / month') +
-  statValue('she-cooks-she-eats', 'Clicks / month') +
-  statValue('dead-hangs', 'Clicks / month') +
-  statValue('rental-yield-uk', 'Clicks / month') +
-  statValue('best-vibration-plates', 'Clicks / month');
+  statValue('water-hardness-uk', 'Clicks, 28 days') +
+  statValue('she-cooks-she-eats', 'Clicks, 28 days') +
+  statValue('dead-hangs', 'Clicks, 28 days') +
+  statValue('rental-yield-uk', 'Clicks, 28 days') +
+  statValue('best-vibration-plates', 'Clicks, 28 days');
 // Re-verified 2026-09-26 against Google Search Console (SEO Gets MCP), trailing
 // 28 days (2026-08-29 to 2026-09-25). Best Vibration Plates now earns measurable
 // clicks and is included here; it was previously excluded as "impressions-only",
@@ -48,11 +48,11 @@ export const networkClicks =
 
 export const networkImpressionsK =
   Math.round(
-    (statValue('water-hardness-uk', 'Impressions / month') +
-      statValue('she-cooks-she-eats', 'Impressions / month') +
-      statValue('dead-hangs', 'Impressions / month') +
-      statValue('rental-yield-uk', 'Impressions / month') +
-      statValue('best-vibration-plates', 'Impressions / month')) *
+    (statValue('water-hardness-uk', 'Impressions, 28 days') +
+      statValue('she-cooks-she-eats', 'Impressions, 28 days') +
+      statValue('dead-hangs', 'Impressions, 28 days') +
+      statValue('rental-yield-uk', 'Impressions, 28 days') +
+      statValue('best-vibration-plates', 'Impressions, 28 days')) *
       10,
   ) / 10; // re-derived from the corrected 28-day case-study figures
 
@@ -91,7 +91,7 @@ export const minLighthouse = Math.min(...caseStudies.map((s) => s.lighthouse)); 
 export const headlineCounters = [
   { value: networkSites, suffix: '', label: 'Live sites studied' },
   { value: networkPages, suffix: '', label: 'Pages built across the network' },
-  { value: totalRankingKeywords, suffix: '', label: 'Ranking keywords tracked' },
+  { value: totalRankingKeywords, suffix: '', label: 'Keywords tracked (not re-checked)' },
   { value: avgLighthouse, suffix: '', label: 'Average Lighthouse score' },
 ];
 
