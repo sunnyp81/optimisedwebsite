@@ -12,6 +12,7 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import SchemaGraph from '../components/SchemaGraph.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
+import QuickEnquiry from '../components/QuickEnquiry.astro';
 
 interface Props {
   title: string;
@@ -21,9 +22,13 @@ interface Props {
   canonicalPath: string;
   schemaNodes?: Record<string, unknown>[];
   noindex?: boolean;
+  hideQuickEnquiry?: boolean;
 }
 
-const { title, description, ogTitle, ogImage, canonicalPath, schemaNodes, noindex } = Astro.props;
+const { title, description, ogTitle, ogImage, canonicalPath, schemaNodes, noindex, hideQuickEnquiry } = Astro.props;
+// Pages that already carry a full form, plus the 404 page, skip the quick form.
+const QUICK_FORM_EXCLUDED = ['/order/', '/contact/', '/free-website-growth-review/', '/404/'];
+const showQuickEnquiry = !hideQuickEnquiry && !QUICK_FORM_EXCLUDED.includes(canonicalPath);
 const canonical = `${site.url}${canonicalPath}`;
 const displayOgTitle = ogTitle ?? title;
 // Default social share image (1200x630) so WhatsApp/Twitter/Facebook always
@@ -85,7 +90,8 @@ const ogImageUrl = new URL(ogImage ?? '/og-default.png', site.url).href;
     <main id="main" class="flex-1 relative z-[2]">
       <slot />
     </main>
-    <Footer />
+    {showQuickEnquiry && <QuickEnquiry />}
+    <Footer hideCta={showQuickEnquiry} />
     <ConsentBanner />
     <SchemaGraph nodes={schemaNodes} />
 

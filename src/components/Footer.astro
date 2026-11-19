@@ -2,14 +2,16 @@
 import { site } from '../data/site';
 import { footerNav } from '../data/navigation';
 
+interface Props { hideCta?: boolean; }
+const { hideCta = false } = Astro.props;
 const year = new Date().getFullYear();
 ---
 <footer class="relative z-[2] overflow-hidden" style="background: #0f172a;">
   <!-- Top glow -->
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[200px] pointer-events-none" style="background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(251,191,36,0.08) 0%, transparent 60%);"></div>
 
-  <!-- CTA strip -->
-  <div class="relative" style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+  <!-- CTA strip, hidden where the quick form already sits above the footer -->
+  {!hideCta && <div class="relative" style="border-bottom: 1px solid rgba(255,255,255,0.06);">
     <div class="wrap py-12 flex flex-col md:flex-row items-center justify-between gap-6">
       <div>
         <h2 class="text-[20px] font-semibold tracking-[-0.02em]" style="color: #f8fafc;">Ready to rank?</h2>
@@ -20,7 +22,7 @@ const year = new Date().getFullYear();
         <a href="/contact/" class="text-[13px] font-medium no-underline px-4 h-[40px] inline-flex items-center rounded-full" style="color: rgba(248,250,252,0.7); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12); transition: background 0.2s, color 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'; this.style.color='#f8fafc';" onmouseout="this.style.background='transparent'; this.style.color='rgba(248,250,252,0.7)';">Talk to us</a>
       </div>
     </div>
-  </div>
+  </div>}
 
   <!-- Main footer grid -->
   <div class="wrap pt-14 pb-8">
@@ -48,8 +50,8 @@ const year = new Date().getFullYear();
             <div class="text-[10px] font-mono uppercase mt-0.5" style="color: rgba(248,250,252,0.55); letter-spacing: 0.06em;">Before handover</div>
           </div>
           <div>
-            <div class="text-[18px] font-semibold font-mono" style="color: #7c3aed;">7d</div>
-            <div class="text-[10px] font-mono uppercase mt-0.5" style="color: rgba(248,250,252,0.55); letter-spacing: 0.06em;">Delivery</div>
+            <div class="text-[18px] font-semibold font-mono" style="color: #a78bfa;">&pound;1,500</div>
+            <div class="text-[10px] font-mono uppercase mt-0.5" style="color: rgba(248,250,252,0.55); letter-spacing: 0.06em;">Builds from</div>
           </div>
         </div>
       </div>

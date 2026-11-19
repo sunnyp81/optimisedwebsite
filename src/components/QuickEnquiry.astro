@@ -1,0 +1,158 @@
+---
+import GlassCard from './GlassCard.astro';
+
+interface Props { idPrefix?: string; }
+const { idPrefix = 'qe' } = Astro.props;
+---
+<section class="qe-section" aria-labelledby={`${idPrefix}-heading`}>
+  <div class="wrap">
+    <h2 id={`${idPrefix}-heading`} class="text-2xl font-bold tracking-[-0.02em] mb-2" style="color: var(--color-ink);">Ask a quick question</h2>
+    <p class="mb-6 max-w-[620px]" style="color: var(--color-ink-2);">Name, email and one line. Want a written review of your site instead? <a href="/free-website-growth-review/" class="qe-link" data-analytics-event="cta_click" data-analytics-label="quick-enquiry-review">Get your free growth review</a>.</p>
+
+    <GlassCard>
+      <form id={`${idPrefix}-form`} class="qe-form" data-quick-enquiry>
+        <div class="qe-grid">
+          <div class="gf-field">
+            <label for={`${idPrefix}-name`} class="gf-label">Name <span class="text-red-500">*</span></label>
+            <div class="gf-wrap">
+              <span class="gf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+              <input type="text" id={`${idPrefix}-name`} name="name" required autocomplete="name" maxlength="100" class="gf-control" />
+            </div>
+          </div>
+          <div class="gf-field">
+            <label for={`${idPrefix}-email`} class="gf-label">Email <span class="text-red-500">*</span></label>
+            <div class="gf-wrap">
+              <span class="gf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+              <input type="email" id={`${idPrefix}-email`} name="email" required autocomplete="email" class="gf-control" />
+            </div>
+          </div>
+          <div class="gf-field">
+            <label for={`${idPrefix}-need`} class="gf-label">What do you need?</label>
+            <div class="gf-wrap">
+              <select id={`${idPrefix}-need`} name="need" class="gf-control">
+                <option value="New website">New website</option>
+                <option value="Redesign or migration">Redesign or migration</option>
+                <option value="Free growth review">Free growth review</option>
+                <option value="Something else">Something else</option>
+              </select>
+            </div>
+          </div>
+          <div class="gf-field qe-wide">
+            <label for={`${idPrefix}-message`} class="gf-label">Your question <span class="text-red-500">*</span></label>
+            <div class="gf-wrap">
+              <span class="gf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+              <input type="text" id={`${idPrefix}-message`} name="message" required maxlength="300" class="gf-control" />
+            </div>
+          </div>
+        </div>
+
+        <input type="hidden" name="source" value="optimisedwebsite.com/quick-enquiry" />
+        <input type="hidden" name="form_type" value="contact" />
+
+        <!-- Honeypot: submissions that fill this visually hidden field are discarded. -->
+        <div class="hidden" aria-hidden="true">
+          <label for={`${idPrefix}-website`}>Website</label>
+          <input type="text" id={`${idPrefix}-website`} name="website" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div class="qe-actions">
+          <button type="submit" class="gf-submit" data-qe-submit disabled>
+            <span>Send</span>
+            <svg class="gf-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <span class="gf-spinner" aria-hidden="true"></span>
+          </button>
+          <p class="gf-note">We reply within 24 hours on working days. <a href="/privacy/">Privacy</a></p>
+        </div>
+
+        <noscript><p class="gf-note mt-3">This form needs JavaScript. Email <a href="mailto:hello@optimisedwebsite.com">hello@optimisedwebsite.com</a> instead.</p></noscript>
+        <div data-qe-status role="status" aria-live="polite" aria-atomic="true" class="mt-3 text-[14px]"></div>
+      </form>
+
+      <div data-qe-success class="hidden py-6" tabindex="-1">
+        <h3 class="text-xl font-bold tracking-[-0.02em] mb-2">Message sent</h3>
+        <p class="leading-relaxed" style="color: var(--color-ink-2);">We will reply by email within 24 hours on working days.</p>
+      </div>
+    </GlassCard>
+  </div>
+</section>
+
+<script>
+  import { attributionFields, hasConsent } from '../scripts/attribution';
+
+  const gtag = (...args: unknown[]) => {
+    const w = window as unknown as { gtag?: (...a: unknown[]) => void };
+    if (typeof w.gtag === 'function') w.gtag(...args);
+  };
+
+  document.querySelectorAll<HTMLFormElement>('form[data-quick-enquiry]').forEach((form) => {
+    const formId = form.id;
+    const submitBtn = form.querySelector<HTMLButtonElement>('[data-qe-submit]')!;
+    const statusEl = form.querySelector<HTMLElement>('[data-qe-status]')!;
+    const successDiv = form.parentElement!.querySelector<HTMLElement>('[data-qe-success]')!;
+
+    let pending = false;
+    submitBtn.disabled = false;
+    form.addEventListener('focusin', () => gtag('event', 'form_start', { form_id: formId }), { once: true });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (pending) return;
+      const data = new FormData(form);
+      if (data.get('website')) return;
+      const question = String(data.get('message') || '').trim();
+      const invalid = (field: string, msg: string) => {
+        statusEl.setAttribute('role', 'alert');
+        statusEl.textContent = msg;
+        form.querySelector<HTMLElement>(`[name="${field}"]`)?.focus();
+      };
+      if (!String(data.get('name') || '').trim()) return invalid('name', 'Please type your name.');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(data.get('email') || '').trim())) return invalid('email', 'Please check your email address.');
+      if (!question) return invalid('message', 'Please type your question.');
+
+      const body = Object.fromEntries(data.entries()) as Record<string, string>;
+      const need = body.need || 'Something else';
+      delete body.need;
+      body.message = `Need: ${need}\n${question}`;
+      body.landing_page = location.pathname;
+      Object.assign(body, attributionFields('quick-enquiry'));
+
+      pending = true;
+      submitBtn.disabled = true;
+      submitBtn.setAttribute('aria-busy', 'true');
+      statusEl.setAttribute('role', 'status');
+      statusEl.textContent = 'Sending your message…';
+
+      try {
+        const res = await fetch('/api/intake', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          referrerPolicy: 'origin',
+          body: JSON.stringify(body),
+        });
+        const result = await res.json().catch(() => ({ ok: false }));
+        if (!res.ok || !result.ok) throw new Error(`${res.status}`);
+
+        statusEl.textContent = '';
+        form.classList.add('hidden');
+        successDiv.classList.remove('hidden');
+        successDiv.focus();
+        if (hasConsent()) gtag('event', 'generate_lead', { form_id: formId });
+      } catch {
+        statusEl.setAttribute('role', 'alert');
+        statusEl.textContent = '';
+        statusEl.append('Something went wrong sending your message. Please try again, or email ');
+        const link = document.createElement('a');
+        link.href = 'mailto:hello@optimisedwebsite.com';
+        link.className = 'qe-link';
+        link.textContent = 'hello@optimisedwebsite.com';
+        link.setAttribute('data-analytics-event', 'email_click');
+        link.setAttribute('data-analytics-label', 'quick-enquiry-error');
+        statusEl.append(link, ' directly.');
+        pending = false;
+        submitBtn.disabled = false;
+        submitBtn.removeAttribute('aria-busy');
+        gtag('event', 'form_error', { form_id: formId });
+      }
+    });
+  });
+</script>

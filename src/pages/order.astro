@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
+import GlassCard from '../components/GlassCard.astro';
 import { site } from '../data/site';
 
 const schemaNodes = [
@@ -30,56 +31,83 @@ const schemaNodes = [
       <div class="section-tag">Free Build Plan</div>
       <h1 class="section-title">Get Your Free SEO Website Build Plan</h1>
       <p class="mt-4 text-lg leading-relaxed" style="color: var(--color-ink-2);">
-        Tell us about your business below. We review every submission manually and reply within 24 hours with a proposed page count, timeline, and a fixed price. Local sites run from &pound;1,500 to &pound;3,000, larger sites from &pound;3,000 to &pound;6,000, and multi-location or full migration projects from &pound;6,000 to &pound;15,000. No payment and no obligation to proceed: it is a free plan, not an order. Prefer email? Send your brief to <a href={`mailto:${site.email}`} class="font-medium" style="color: var(--color-accent-2);" data-analytics-event="email_click" data-analytics-label="order-intro">{site.email}</a> instead.
+        Tell us about your business below. We review every submission manually and reply within 24 hours with a proposed page count, timeline, and a fixed price. Local sites run from &pound;1,500 to &pound;3,000, larger sites from &pound;3,000 to &pound;6,000, and multi-location or full migration projects from &pound;6,000 to &pound;15,000. No payment and no obligation to proceed: it is a free plan, not an order. Prefer email? Send your brief to <a href={`mailto:${site.email}`} class="font-medium underline" style="color: var(--violet-text);" data-analytics-event="email_click" data-analytics-label="order-intro">{site.email}</a> instead.
       </p>
     </section>
 
     <section class="py-10" id="order-form-section">
       <p id="order-offer-note" class="hidden mb-6 text-[14px] rounded-[12px] px-4 py-3" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule); color: var(--color-ink-2);">Request for: <strong id="order-offer-name"></strong></p>
+      <GlassCard>
       <form id="order-form" class="space-y-6">
-        <div>
-          <label for="name" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Name <span class="text-red-500">*</span></label>
-          <input type="text" id="name" name="name" required autocomplete="name" class="w-full rounded-[12px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);" />
+        <div class="gf-pair">
+        <div class="gf-field">
+          <label for="name" class="gf-label">Name <span class="text-red-500">*</span></label>
+          <div class="gf-wrap">
+            <span class="gf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+            <input class="gf-control" type="text" id="name" name="name" required autocomplete="name" />
+          </div>
         </div>
 
-        <div>
-          <label for="email" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Email <span class="text-red-500">*</span></label>
-          <input type="email" id="email" name="email" required autocomplete="email" class="w-full rounded-[12px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);" />
+        <div class="gf-field">
+          <label for="email" class="gf-label">Email <span class="text-red-500">*</span></label>
+          <div class="gf-wrap">
+            <span class="gf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+            <input class="gf-control" type="email" id="email" name="email" required autocomplete="email" />
+          </div>
+        </div>
         </div>
 
-        <div>
-          <label for="phone" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Phone <span class="font-normal" style="color: var(--color-ink-2);">(optional)</span></label>
-          <input type="tel" id="phone" name="phone" autocomplete="tel" class="w-full rounded-[12px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);" />
+        <div class="gf-pair">
+        <div class="gf-field">
+          <label for="phone" class="gf-label">Phone <span class="font-normal" style="color: var(--color-ink-2);">(optional)</span></label>
+          <div class="gf-wrap">
+            <span class="gf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <input class="gf-control" type="tel" id="phone" name="phone" autocomplete="tel" />
+          </div>
         </div>
 
-        <div>
-          <label for="niche" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Niche / Industry <span class="text-red-500">*</span></label>
-          <input type="text" id="niche" name="niche" required placeholder="e.g. Home insurance, Personal training, SaaS" class="w-full rounded-[12px] px-4 py-3 placeholder:text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);" />
+        <div class="gf-field">
+          <label for="domain" class="gf-label">Domain <span class="font-normal" style="color: var(--color-ink-2);">(optional)</span></label>
+          <div class="gf-wrap">
+            <span class="gf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg></span>
+            <input class="gf-control" type="text" id="domain" name="domain" placeholder="e.g. example.co.uk" />
+          </div>
+        </div>
         </div>
 
-        <div>
-          <label for="audience" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Target Audience <span class="font-normal" style="color: var(--color-ink-2);">(optional)</span></label>
-          <input type="text" id="audience" name="audience" maxlength="200" placeholder="e.g. UK homeowners, B2B decision makers" class="w-full rounded-[12px] px-4 py-3 placeholder:text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);" />
+        <div class="gf-field">
+          <label for="niche" class="gf-label">What does your business do? <span class="text-red-500">*</span></label>
+          <div class="gf-wrap">
+            <span class="gf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+            <input class="gf-control" type="text" id="niche" name="niche" required placeholder="e.g. Home insurance, Personal training, SaaS" />
+          </div>
         </div>
 
-        <div>
-          <label for="domain" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Domain <span class="font-normal" style="color: var(--color-ink-2);">(optional)</span></label>
-          <input type="text" id="domain" name="domain" placeholder="e.g. example.co.uk" class="w-full rounded-[12px] px-4 py-3 placeholder:text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);" />
+        <div class="gf-field">
+          <label for="audience" class="gf-label">Who are your customers? <span class="font-normal" style="color: var(--color-ink-2);">(optional)</span></label>
+          <div class="gf-wrap">
+            <span class="gf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <input class="gf-control" type="text" id="audience" name="audience" maxlength="200" placeholder="e.g. UK homeowners, B2B decision makers" />
+          </div>
         </div>
 
-        <div>
-          <label for="competitors" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Competitors <span class="font-normal" style="color: var(--color-ink-2);">(optional)</span></label>
-          <textarea id="competitors" name="competitors" rows="3" maxlength="800" placeholder="List competitor websites, one per line" class="w-full rounded-[12px] px-4 py-3 placeholder:text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);"></textarea>
+        <div class="gf-field">
+          <label for="competitors" class="gf-label">Competitor websites <span class="font-normal" style="color: var(--color-ink-2);">(optional)</span></label>
+          <div class="gf-wrap">
+            <textarea class="gf-control" id="competitors" name="competitors" rows="3" maxlength="800" placeholder="List competitor websites, one per line"></textarea>
+          </div>
         </div>
 
-        <div>
-          <label for="budget" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Budget</label>
-          <select id="budget" name="budget" class="w-full rounded-[12px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);">
+        <div class="gf-field">
+          <label for="budget" class="gf-label">Budget</label>
+          <div class="gf-wrap">
+            <select class="gf-control" id="budget" name="budget">
             <option value="1500-3000">&pound;1,500 to &pound;3,000 (local site)</option>
             <option value="3000-6000">&pound;3,000 to &pound;6,000 (growth site)</option>
             <option value="6000-15000">&pound;6,000 to &pound;15,000 (multi-location or full migration)</option>
             <option value="unsure">Not sure yet</option>
           </select>
+          </div>
         </div>
 
         <input type="hidden" name="source" value="optimisedwebsite.com" />
@@ -91,32 +119,27 @@ const schemaNodes = [
           <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
         </div>
 
-        <button type="submit" id="order-submit" class="btn-glow">
-          Request My Free Build Plan
+        <button type="submit" id="order-submit" class="gf-submit" disabled>
+          <span>Request My Free Build Plan</span>
+          <svg class="gf-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <span class="gf-spinner" aria-hidden="true"></span>
         </button>
 
+        <noscript><p class="gf-note">This form needs JavaScript. Email <a href="mailto:hello@optimisedwebsite.com">hello@optimisedwebsite.com</a> instead.</p></noscript>
         <div id="order-status" role="status" aria-live="polite" aria-atomic="true" class="mt-4 text-[14px]"></div>
 
-        <div class="mt-4 flex flex-wrap gap-4 text-[12px]" style="color: var(--color-ink-3);">
-          <span class="flex items-center gap-1.5">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            We reply within 24 hours
-          </span>
-          <span class="flex items-center gap-1.5">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            No payment, no obligation
-          </span>
-          <span class="flex items-center gap-1.5">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            Your data is never shared
-          </span>
-        </div>
+        <ul class="gf-trust">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Reply within 24 hours</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><a href="/pricing/">Fixed price before work starts</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><a href="/privacy/">How your details are used</a></li>
+        </ul>
       </form>
 
       <div id="order-success" class="hidden py-10" tabindex="-1">
         <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">Request received</h2>
         <p class="leading-relaxed" style="color: var(--color-ink-2);">We will review your brief and reply within 24 hours with your proposed page count, timeline, and price. Check your inbox (and spam folder) for our response.</p>
       </div>
+      </GlassCard>
     </section>
   </div>
 
@@ -124,6 +147,7 @@ const schemaNodes = [
   import { attributionFields, hasConsent } from '../scripts/attribution';
   const form = document.getElementById('order-form') as HTMLFormElement;
   const submitBtn = document.getElementById('order-submit') as HTMLButtonElement;
+  submitBtn.disabled = false;
   const statusEl = document.getElementById('order-status') as HTMLDivElement;
   const successDiv = document.getElementById('order-success') as HTMLDivElement;
 
@@ -187,7 +211,8 @@ const schemaNodes = [
       const link = document.createElement('a');
       link.href = 'mailto:hello@optimisedwebsite.com';
       link.className = 'font-medium';
-      link.style.color = 'var(--color-accent-2)';
+      link.style.color = 'var(--violet-text)';
+      link.style.textDecoration = 'underline';
       link.textContent = 'hello@optimisedwebsite.com';
       link.setAttribute('data-analytics-event', 'email_click');
       link.setAttribute('data-analytics-label', 'order-form-error');

@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
+import GlassCard from '../components/GlassCard.astro';
 import StatDelta from '../components/StatDelta.astro';
 import RankingBreakdown from '../components/RankingBreakdown.astro';
 import PageAnatomy from '../components/PageAnatomy.astro';
@@ -156,33 +157,48 @@ const schemaNodes = [
     <section class="py-10" id="review-form-section">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-2" style="color: var(--color-ink);">Request Your Free Review</h2>
       <p class="mb-8 leading-relaxed max-w-[560px]" style="color: var(--color-ink-2);">
-        Five fields. We reply within 24 hours with your written diagnosis. Prefer email? Send your site to <a href={`mailto:${site.email}`} class="font-medium" style="color: var(--color-accent-2);" data-analytics-event="email_click" data-analytics-label="review-intro">{site.email}</a> instead.
+        Five fields. We reply within 24 hours with your written diagnosis. Prefer email? Send your site to <a href={`mailto:${site.email}`} class="font-medium underline" style="color: var(--violet-text);" data-analytics-event="email_click" data-analytics-label="review-intro">{site.email}</a> instead.
       </p>
 
-      <form id="review-form" class="space-y-6 max-w-[560px]">
-        <div>
-          <label for="review-name" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Name <span class="text-red-500">*</span></label>
-          <input type="text" id="review-name" name="name" required autocomplete="name" class="w-full rounded-[12px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink); min-height: 44px;" />
+      <GlassCard class="max-w-[600px]">
+      <form id="review-form" class="space-y-6">
+        <div class="gf-field">
+          <label for="review-name" class="gf-label">Name <span class="text-red-500">*</span></label>
+          <div class="gf-wrap">
+            <span class="gf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+            <input class="gf-control" type="text" id="review-name" name="name" required autocomplete="name" />
+          </div>
         </div>
 
-        <div>
-          <label for="review-email" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Email <span class="text-red-500">*</span></label>
-          <input type="email" id="review-email" name="email" required autocomplete="email" class="w-full rounded-[12px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink); min-height: 44px;" />
+        <div class="gf-field">
+          <label for="review-email" class="gf-label">Email <span class="text-red-500">*</span></label>
+          <div class="gf-wrap">
+            <span class="gf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+            <input class="gf-control" type="email" id="review-email" name="email" required autocomplete="email" />
+          </div>
         </div>
 
-        <div>
-          <label for="review-domain" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Website / Domain <span class="text-red-500">*</span></label>
-          <input type="text" id="review-domain" name="domain" required placeholder="e.g. example.co.uk" autocomplete="url" class="w-full rounded-[12px] px-4 py-3 placeholder:text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink); min-height: 44px;" />
+        <div class="gf-field">
+          <label for="review-domain" class="gf-label">Website / Domain <span class="text-red-500">*</span></label>
+          <div class="gf-wrap">
+            <span class="gf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg></span>
+            <input class="gf-control" type="text" id="review-domain" name="domain" required placeholder="e.g. example.co.uk" autocomplete="url" />
+          </div>
         </div>
 
-        <div>
-          <label for="review-phone" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">Phone <span class="font-normal" style="color: var(--color-ink-2);">(optional)</span></label>
-          <input type="tel" id="review-phone" name="phone" autocomplete="tel" class="w-full rounded-[12px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink); min-height: 44px;" />
+        <div class="gf-field">
+          <label for="review-phone" class="gf-label">Phone <span class="font-normal" style="color: var(--color-ink-2);">(optional)</span></label>
+          <div class="gf-wrap">
+            <span class="gf-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <input class="gf-control" type="tel" id="review-phone" name="phone" autocomplete="tel" />
+          </div>
         </div>
 
-        <div>
-          <label for="review-message" class="block text-sm font-semibold mb-1" style="color: var(--color-ink);">What result do you want from your website? <span class="text-red-500">*</span></label>
-          <textarea id="review-message" name="message" rows="3" required maxlength="2000" placeholder="e.g. more phone calls from local searches" class="w-full rounded-[12px] px-4 py-3 placeholder:text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#7c3aed]" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); color: var(--color-ink);"></textarea>
+        <div class="gf-field">
+          <label for="review-message" class="gf-label">What result do you want from your website? <span class="text-red-500">*</span></label>
+          <div class="gf-wrap">
+            <textarea class="gf-control" id="review-message" name="message" rows="3" required maxlength="2000" placeholder="e.g. more phone calls from local searches"></textarea>
+          </div>
         </div>
 
         <input type="hidden" name="source" value="optimisedwebsite.com/free-website-growth-review" />
@@ -194,14 +210,17 @@ const schemaNodes = [
           <input type="text" id="review-website" name="website" tabindex="-1" autocomplete="off" />
         </div>
 
-        <button type="submit" id="review-submit" class="btn-glow">
-          Get My Free Growth Review
+        <button type="submit" id="review-submit" class="gf-submit" disabled>
+          <span>Get My Free Growth Review</span>
+          <svg class="gf-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <span class="gf-spinner" aria-hidden="true"></span>
         </button>
 
+        <noscript><p class="gf-note">This form needs JavaScript. Email <a href="mailto:hello@optimisedwebsite.com">hello@optimisedwebsite.com</a> instead.</p></noscript>
         <div id="review-status" role="status" aria-live="polite" aria-atomic="true" class="mt-4 text-[14px]"></div>
 
         <p class="text-[12px] leading-relaxed" style="color: var(--color-ink-3);">
-          We only use these details to prepare and send your review. See our <a href="/privacy/" style="color: var(--color-accent-2);">privacy policy</a> for how we handle your data.
+          We only use these details to prepare and send your review. See our <a href="/privacy/" class="underline" style="color: var(--violet-text);">privacy policy</a> for how we handle your data.
         </p>
       </form>
 
@@ -209,6 +228,7 @@ const schemaNodes = [
         <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">Request received</h2>
         <p class="leading-relaxed" style="color: var(--color-ink-2);">We will reply within 24 hours with your written growth review. Check your inbox (and spam folder) for our response.</p>
       </div>
+      </GlassCard>
     </section>
   </div>
 
@@ -216,6 +236,7 @@ const schemaNodes = [
   import { attributionFields, hasConsent } from '../scripts/attribution';
   const form = document.getElementById('review-form') as HTMLFormElement;
   const submitBtn = document.getElementById('review-submit') as HTMLButtonElement;
+  submitBtn.disabled = false;
   const statusEl = document.getElementById('review-status') as HTMLDivElement;
   const successDiv = document.getElementById('review-success') as HTMLDivElement;
 
@@ -270,7 +291,8 @@ const schemaNodes = [
       const link = document.createElement('a');
       link.href = 'mailto:hello@optimisedwebsite.com';
       link.className = 'font-medium';
-      link.style.color = 'var(--color-accent-2)';
+      link.style.color = 'var(--violet-text)';
+      link.style.textDecoration = 'underline';
       link.textContent = 'hello@optimisedwebsite.com';
       link.setAttribute('data-analytics-event', 'email_click');
       link.setAttribute('data-analytics-label', 'review-form-error');
