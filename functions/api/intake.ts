@@ -4,8 +4,14 @@
 
 interface PagesContext {
   request: Request;
+  env?: { INTAKE_PROXY_SECRET?: string };
+  waitUntil?: (promise: Promise<unknown>) => void;
 }
 
+// Delivery: emailit-worker stores every lead in KV, then emails it. Its site config is keyed by origin host.
+const DELIVERY_URL = 'https://emailit-worker.sunnypat81.workers.dev';
+const DELIVERY_ORIGIN = 'https://optimisedwebsite.com';
+// Legacy intake (Trafft customer record). Best effort only: its Hermes webhook host is dead.
 const WORKER_URL = 'https://aaa-intake.sunnypat81.workers.dev';
 const MAX_BODY_BYTES = 10_000;
 const MAX_FIELD_LENGTH = 5_000;
@@ -47,7 +53,8 @@ function sanitiseField(value: unknown): string | null {
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export async function onRequestPost({ request }: PagesContext): Promise<Response> {
+export async function onRequestPost(context: PagesContext): Promise<Response> {
+  const { request } = context;
   if (!isSameOrigin(request)) {
     return jsonResponse({ ok: false, error: 'Forbidden' }, 403);
   }
@@ -104,16 +111,18 @@ export async function onRequestPost({ request }: PagesContext): Promise<Response
   // so fold the lead context into the message as readable labelled lines.
   const cap = (v: string | undefined, n = 100) => (v ? v.slice(0, n) : v);
   const submissionId = /^[A-Za-z0-9-]{8,64}$/.test(clean.submission_id || '') ? clean.submission_id : undefined;
-  const context = [
+  const leadContext = [
     ['Submission ID', submissionId],
     ['Form', clean.form_type],
     ['Offer', cap(clean.offer) || 'unknown'],
     ['Budget', cap(clean.budget)],
     ['Industry', cap(clean.niche)],
     ['Domain', cap(clean.domain, 300)],
-    ['Form page', cap(clean.form_url || clean.landing_page) || 'unknown'],
+    ['Form page', cap(clean.form_url) || 'unknown'],
+    ['Landing page', cap(clean.landing_page)],
+    ['Site source', cap(clean.source)],
     ['Entry page', cap(clean.entry_page) || 'unknown'],
-    ['Source', cap(clean.entry_referrer) || 'unknown'],
+    ['Entry referrer', cap(clean.entry_referrer) || 'unknown'],
     ['UTM source', cap(clean.entry_utm_source, 80)],
     ['UTM medium', cap(clean.entry_utm_medium, 80)],
     ['UTM campaign', cap(clean.entry_utm_campaign, 80)],
@@ -129,7 +138,7 @@ export async function onRequestPost({ request }: PagesContext): Promise<Response
   ].filter(Boolean).join('\n');
   const original = [clean.message, extras].filter(Boolean).join('\n');
   // Truncate the visitor's text first so the context block always survives.
-  const tail = `\n\n--- Lead context ---\n${context}`;
+  const tail = `\n\n--- Lead context ---\n${leadContext}`;
   const room = Math.max(0, MAX_FIELD_LENGTH - tail.length);
   clean.message = `${original.slice(0, room)}${original ? tail : tail.trimStart()}`;
 
@@ -142,22 +151,44 @@ export async function onRequestPost({ request }: PagesContext): Promise<Response
     /* keep default */
   }
 
+  const formLabel: Record<string, string> = { order: 'Build plan request', contact: 'Enquiry' };
+  const label = clean.offer === 'quick-enquiry' ? 'Quick question' : clean.offer === 'free-website-growth-review' ? 'Free growth review' : (formLabel[clean.form_type || ''] || 'Enquiry');
+  const subject = `[OptimisedWebsite] ${label} from ${(clean.name || '').replace(/[\r\n]+/g, ' ').slice(0, 80)}`;
+
+  // Legacy intake runs alongside and never decides the visitor's result.
+  const legacy = fetch(WORKER_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Origin': new URL(request.url).origin, 'Referer': referer },
+    body: JSON.stringify(clean),
+  }).catch(() => undefined);
+  if (context.waitUntil) context.waitUntil(legacy);
+
+  const proxySecret = context.env?.INTAKE_PROXY_SECRET;
   try {
-    const siteOrigin = new URL(request.url).origin;
-    const upstream = await fetch(WORKER_URL, {
+    const delivery = await fetch(DELIVERY_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Origin': siteOrigin,
-        'Referer': referer,
+        'Origin': DELIVERY_ORIGIN,
+        // Lets emailit-worker rate-limit per visitor instead of per Cloudflare egress IP.
+        ...(proxySecret ? { 'X-Proxy-Secret': proxySecret, 'X-Client-IP': request.headers.get('CF-Connecting-IP') || '' } : {}),
       },
-      body: JSON.stringify(clean),
+      body: JSON.stringify({
+        name: clean.name,
+        email: clean.email,
+        phone: clean.phone || '',
+        message: clean.message,
+        subject,
+        page: referer,
+      }),
     });
-
-    if (!upstream.ok) {
+    const result = (await delivery.json().catch(() => ({}))) as { ok?: boolean };
+    if (delivery.status === 429) {
+      return jsonResponse({ ok: false, error: 'Too many submissions' }, 429);
+    }
+    if (!delivery.ok || !result.ok) {
       return jsonResponse({ ok: false, error: 'Delivery failed' }, 502);
     }
-
     return jsonResponse({ ok: true }, 200);
   } catch {
     return jsonResponse({ ok: false, error: 'Delivery failed' }, 502);
