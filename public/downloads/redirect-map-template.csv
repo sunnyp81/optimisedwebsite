@@ -1,0 +1,11 @@
+old_url,old_status,priority,clicks_12m,referring_domains,old_title,new_url,action,match_type,redirect_code,notes,test_status,tested_on
+https://www.example.com/index.php,200,High,,,Home,https://www.example.com/,Redirect,Exact,301,Old homepage file name,,
+https://www.example.com/boiler-repair.html,200,High,,,Boiler Repair,https://www.example.com/services/boiler-repair/,Redirect,Exact,301,Same service on a new path,,
+https://www.example.com/boiler-servicing.html,200,Medium,,,Boiler Servicing,https://www.example.com/services/boiler-servicing/,Redirect,Consolidated,301,Merged with annual-boiler-service.html,,
+https://www.example.com/annual-boiler-service.html,200,Low,,,Annual Boiler Service,https://www.example.com/services/boiler-servicing/,Redirect,Consolidated,301,Merged into boiler servicing page,,
+https://www.example.com/blog/2019/05/how-to-bleed-a-radiator/,200,High,,,How to Bleed a Radiator,https://www.example.com/guides/bleed-a-radiator/,Redirect,Exact,301,Guide moved and date removed from path,,
+https://www.example.com/areas/guildford.htm,200,Medium,,,Plumber in Guildford,https://www.example.com/areas/guildford/,Redirect,Exact,301,Location page kept,,
+https://www.example.com/about-us.html,200,Low,,,About Us,https://www.example.com/about/,Redirect,Exact,301,,,
+https://www.example.com/contact-us.php,200,Medium,,,Contact Us,https://www.example.com/contact/,Redirect,Exact,301,Check form tracking after launch,,
+https://www.example.com/gallery.html,200,Low,,,Gallery,https://www.example.com/projects/,Redirect,Equivalent,301,Gallery replaced by projects page,,
+https://www.example.com/summer-offer-2021.html,200,Low,,,Summer Offer 2021,,Remove,None,410,Expired offer with no equivalent page,,

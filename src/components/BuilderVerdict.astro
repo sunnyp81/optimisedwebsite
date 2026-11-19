@@ -1,0 +1,100 @@
+---
+import CTA from './CTA.astro';
+import { priceLevels } from '../data/pricing';
+import { builderSources, builderCheckedDate } from '../data/builderComparison';
+
+const level1 = priceLevels[0];
+---
+<section class="bv-wrap" aria-labelledby="bv-title">
+  <h2 id="bv-title" class="bv-h2">When a Builder Is Enough and When a Custom Build Pays</h2>
+  <p class="bv-lead">A builder is enough when the site is small and the search terms are easy. A custom build pays when each page has to win a contested query and you need control the builder will not give.</p>
+  <div class="bv-grid">
+    <div class="bv-col">
+      <h3>A builder is enough when</h3>
+      <ul>
+        <li>You need a handful of pages for one service in one town.</li>
+        <li>You or your team edit the site every week.</li>
+        <li>Your competitors rank with similar builder sites.</li>
+        <li>The plan's limits on schema, robots.txt and URL prefixes do not block a page you need.</li>
+      </ul>
+    </div>
+    <div class="bv-col bv-col-custom">
+      <h3>A custom build pays when</h3>
+      <ul>
+        <li>Your money pages target terms where the top results are fast, specialist sites.</li>
+        <li>You need schema types or schema graphs a plan caps or gates.</li>
+        <li>You want to choose every URL and set every redirect yourself.</li>
+        <li>You want to own the source code and host it anywhere.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="bv-offer" id="level-1-offer">
+    <p class="bv-offer-kicker">{level1.level}: {level1.name}</p>
+    <p class="bv-offer-price">{level1.price}</p>
+    <p class="bv-offer-text">{level1.fits} {level1.pages}, live in {level1.timescale}. {level1.payment}.</p>
+    <ul class="bv-offer-list">
+      {level1.included.map((item) => <li>{item}</li>)}
+    </ul>
+    <p class="bv-offer-up">{level1.movesUp}</p>
+    <div class="bv-offer-cta">
+      <CTA href="/pricing/#level-local" label={`See ${level1.level} pricing`} analyticsEvent="cta_click" analyticsLabel="builder-compare-level1" />
+      <CTA href="/seo-web-design/" label="How the SEO website build works" variant="secondary" />
+    </div>
+  </div>
+</section>
+
+<section class="bv-sources" aria-labelledby="bv-sources-title">
+  <h2 id="bv-sources-title" class="bv-h2 bv-h2-small">Sources</h2>
+  <p class="bv-sources-note">Each platform claim on this page was checked against that platform's own help pages on {builderCheckedDate}. W3Techs supplies the WordPress usage figure. The main sources are below. Plans and features change, so check the current page before you commit.</p>
+  <ul class="bv-source-list">
+    {builderSources.map((group) => (
+      <li>
+        <strong>{group.builder}:</strong>{' '}
+        {group.links.map((link, i) => (
+          <>
+            <a href={link.url} target="_blank" rel="noopener noreferrer">{link.label}</a>{i < group.links.length - 1 ? ' · ' : ''}
+          </>
+        ))}
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .bv-wrap { margin: 3rem 0 1rem; }
+  .bv-h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; color: var(--color-ink); margin: 0 0 0.75rem; line-height: 1.25; }
+  .bv-h2-small { font-size: 1.2rem; }
+  .bv-lead { color: var(--color-ink-2); font-size: 1.05rem; line-height: 1.7; margin: 0 0 1.5rem; }
+  .bv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .bv-col {
+    background: var(--color-paper);
+    border: 1px solid var(--color-rule);
+    border-radius: 14px;
+    padding: 1.1rem 1.25rem;
+  }
+  .bv-col-custom { border-color: var(--color-brand-border); background: var(--color-blue-soft); }
+  .bv-col h3 { font-size: 1rem; font-weight: 700; color: var(--color-ink); margin: 0 0 0.6rem; }
+  .bv-col ul { margin: 0; padding-left: 1.1rem; list-style: disc; }
+  .bv-col li { color: var(--color-ink-2); font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.35rem; }
+  .bv-offer {
+    margin-top: 1.5rem;
+    border-radius: 16px;
+    padding: 1.4rem 1.5rem;
+    border: 1px solid var(--color-rule);
+    background: var(--color-bg-2);
+  }
+  .bv-offer-kicker { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; color: var(--violet-text); margin: 0; }
+  .bv-offer-price { font-size: 1.9rem; font-weight: 700; color: var(--color-ink); margin: 0.2rem 0 0.4rem; letter-spacing: -0.02em; }
+  .bv-offer-text { color: var(--color-ink-2); margin: 0 0 0.75rem; line-height: 1.6; }
+  .bv-offer-list { margin: 0 0 0.75rem; padding-left: 1.1rem; list-style: disc; color: var(--color-ink-2); font-size: 0.95rem; line-height: 1.6; }
+  .bv-offer-up { font-size: 0.85rem; color: var(--color-ink-3); margin: 0 0 1rem; }
+  .bv-offer-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .bv-sources { margin: 2.5rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--color-rule); }
+  .bv-sources-note { font-size: 0.88rem; color: var(--color-ink-3); margin: 0 0 0.75rem; }
+  .bv-source-list { list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.7; color: var(--color-ink-2); }
+  .bv-source-list li { margin-bottom: 0.4rem; }
+  .bv-source-list a { color: var(--violet-text); text-decoration: underline; text-underline-offset: 2px; }
+  @media (max-width: 640px) {
+    .bv-grid { grid-template-columns: 1fr; }
+  }
+</style>

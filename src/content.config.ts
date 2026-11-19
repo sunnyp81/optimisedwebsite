@@ -35,6 +35,17 @@ const pageSchema = z.object({
     })),
   })).default([]),
   citation: z.boolean().default(false),
+  // Optional At a glance card (visual semantics rule) and one service CTA, rendered outside .prose.
+  glance: z.object({
+    points: z.array(z.string()).min(3).max(5),
+    action: z.object({ label: z.string(), href: z.string() }).optional(),
+    image: z.object({ src: z.string(), alt: z.string(), caption: z.string() }).optional(),
+  }).optional(),
+  serviceCta: z.object({
+    heading: z.string(),
+    label: z.string(),
+    href: z.string(),
+  }).optional(),
 });
 
 export const collections = {

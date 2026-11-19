@@ -1,0 +1,100 @@
+---
+import { builderRows, builderColumns, builderCheckedDate } from '../data/builderComparison';
+---
+<section class="bc-wrap" aria-labelledby="bc-title">
+  <p class="bc-answer">
+    <strong>The best website builder for SEO is the one that lets you control titles, URLs, redirects and schema on every page.</strong>{' '}
+    WordPress with an SEO plugin gives the widest control of the builders. Shopify fits online shops. A custom-coded Astro site gives full control of every tag for a business that edits rarely.
+  </p>
+  <div class="bc-card">
+    <div class="bc-head">
+      <h2 id="bc-title" class="bc-title">SEO control by platform</h2>
+      <p class="bc-meta">Checked against each platform's own help pages on {builderCheckedDate}. Sources are listed at the end of the page.</p>
+    </div>
+    <div class="bc-scroll" tabindex="0" role="region" aria-label="SEO control by platform table, scrolls sideways on small screens">
+    <table class="bc-table">
+      <caption class="sr-only">Website builders compared on SEO control: titles and meta, URLs and redirects, custom schema, code and hosting, cost and who each suits</caption>
+      <thead>
+        <tr>
+          <th scope="col">Platform</th>
+          {builderColumns.map((c) => <th scope="col">{c.label}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {builderRows.map((r) => (
+          <tr id={`builder-${r.id}`}>
+            <th scope="row">
+              <span class="bc-name">{r.name}</span>
+              <span class="bc-note">{r.note}</span>
+            </th>
+            {builderColumns.map((c) => (
+              <td data-label={c.label} class={c.key === 'suits' ? 'bc-suits' : undefined}>{r[c.key]}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bc-wrap { margin: 0 0 2.5rem; }
+  .bc-answer {
+    font-size: 1.125rem;
+    line-height: 1.65;
+    color: var(--color-ink-2);
+    margin: 0 0 1.5rem;
+    max-width: 720px;
+  }
+  .bc-answer strong { color: var(--color-ink); font-weight: 600; }
+  .bc-card {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1180px, calc(100vw - 40px));
+    background: var(--color-paper);
+    border: 1px solid var(--color-rule);
+    border-radius: 18px;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+  .bc-head { padding: 1.1rem 1.25rem 0.9rem; border-bottom: 1px solid var(--color-rule); }
+  .bc-title { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; color: var(--color-ink); margin: 0; }
+  .bc-meta { font-size: 0.8rem; color: var(--color-ink-3); margin: 0.25rem 0 0; }
+  .bc-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; line-height: 1.45; }
+  .bc-table thead th {
+    text-align: left;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-3);
+    font-weight: 600;
+    padding: 0.7rem 0.75rem;
+    background: var(--color-bg-2);
+    vertical-align: bottom;
+  }
+  .bc-table tbody th, .bc-table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid var(--color-rule);
+    color: var(--color-ink-2);
+    text-align: left;
+  }
+  .bc-table tbody th { width: 13%; }
+  .bc-name { display: block; font-weight: 700; color: var(--color-ink); font-size: 0.92rem; }
+  .bc-note { display: block; font-size: 0.74rem; color: var(--color-ink-3); font-weight: 400; margin-top: 0.15rem; }
+  .bc-suits { font-weight: 600; color: var(--color-ink); }
+  #builder-astro { background: var(--color-blue-soft); }
+
+  .bc-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .bc-scroll:focus-visible { outline: 2px solid var(--color-accent); outline-offset: -2px; }
+
+  @media (max-width: 860px) {
+    .bc-card { left: auto; transform: none; width: 100%; }
+    .bc-table { min-width: 760px; }
+    .bc-table tbody th { width: 8.5rem; position: sticky; left: 0; z-index: 1; background: var(--color-paper); }
+    .bc-table thead th:first-child { position: sticky; left: 0; z-index: 2; background: var(--color-bg-2); }
+    #builder-astro th { background: linear-gradient(var(--color-blue-soft), var(--color-blue-soft)), var(--color-paper); }
+  }
+</style>

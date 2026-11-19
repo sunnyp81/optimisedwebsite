@@ -5,6 +5,9 @@ import FAQSection from '../../components/FAQSection.astro';
 import CTA from '../../components/CTA.astro';
 import RelatedPages from '../../components/RelatedPages.astro';
 import Byline from '../../components/Byline.astro';
+import BuilderComparison from '../../components/BuilderComparison.astro';
+import BuilderVerdict from '../../components/BuilderVerdict.astro';
+import { builderComparisonSlug, builderRows } from '../../data/builderComparison';
 import { site } from '../../data/site';
 import { getCollection, render } from 'astro:content';
 
@@ -57,6 +60,25 @@ const schemaNodes: Record<string, unknown>[] = [
   },
 ];
 
+const isBuilderPage = article.id === builderComparisonSlug;
+
+if (isBuilderPage) {
+  schemaNodes.push({
+    '@type': 'ItemList',
+    '@id': `${site.url}/compare/${article.id}/#builders`,
+    name: 'Website builders compared for SEO',
+    numberOfItems: builderRows.length,
+    itemListElement: builderRows.map((r, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: r.name,
+      description: `${r.suits} Titles and meta: ${r.titles} Schema: ${r.schema}`,
+      url: `${site.url}/compare/${article.id}/#builder-${r.id}`,
+    })),
+  });
+  (schemaNodes[0] as Record<string, unknown>).mainEntity = { '@id': `${site.url}/compare/${article.id}/#builders` };
+}
+
 if (article.data.faqs.length > 0) {
   schemaNodes.push({
     '@type': 'FAQPage',
@@ -85,9 +107,11 @@ const breadcrumbs = [
     <Breadcrumb items={breadcrumbs} />
     <h1 class="section-title mb-4">{article.data.h1}</h1>
     <Byline />
+    {isBuilderPage && <BuilderComparison />}
     <div class="prose prose-lg prose-invert max-w-none">
       <Content />
     </div>
+    {isBuilderPage && <BuilderVerdict />}
     {article.data.faqs.length > 0 && <FAQSection faqs={article.data.faqs} />}
     <div class="flex flex-wrap gap-4 mt-10">
       <CTA href="/free-website-growth-review/" label="Get a Free Growth Review" analyticsEvent="cta_click" analyticsLabel="compare-article" />

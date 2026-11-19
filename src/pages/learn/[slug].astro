@@ -80,6 +80,7 @@ const breadcrumbs = [
 // Charts and the citation block render after the article body so the answer-first opening stays first.
 const hasCharts = article.data.charts.length > 0;
 const showCitation = article.data.citation;
+const { glance, serviceCta } = article.data;
 ---
 <Base
   title={article.data.metaTitle}
@@ -91,9 +92,37 @@ const showCitation = article.data.citation;
     <Breadcrumb items={breadcrumbs} />
     <h1 class="section-title mb-4">{article.data.h1}</h1>
     <Byline />
-    <div class="prose prose-lg max-w-none">
+    {glance && (
+      <section class="rounded-[16px] p-6 md:p-7 mb-10" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);" aria-labelledby="glance-h">
+        <p id="glance-h" class="eyebrow violet mb-4">At a glance</p>
+        {glance.image && (
+          <figure class="mb-5">
+            <img src={glance.image.src} alt={glance.image.alt} width="1200" height="675" loading="eager" decoding="async" class="block w-full h-auto rounded-[12px]" style="box-shadow: inset 0 0 0 1px var(--color-rule);" />
+            <figcaption class="mt-2 text-[13px]" style="color: var(--color-ink-3);">{glance.image.caption}</figcaption>
+          </figure>
+        )}
+        <ol class="space-y-3 list-none p-0 m-0">
+          {glance.points.map((point, i) => (
+            <li class="flex gap-4 text-[15px] leading-relaxed" style="color: var(--color-ink-2);">
+              <span class="font-extrabold shrink-0" style="color: var(--color-accent-2);">{String(i + 1).padStart(2, '0')}</span>
+              <span>{point}</span>
+            </li>
+          ))}
+        </ol>
+        {glance.action && (
+          <div class="mt-5"><CTA href={glance.action.href} label={glance.action.label} variant="secondary" analyticsEvent="download_click" analyticsLabel={`glance-${article.id}`} /></div>
+        )}
+      </section>
+    )}
+    <div class:list={["prose prose-lg max-w-none", { "learn-steps": glance }]}>
       <Content />
     </div>
+    {serviceCta && (
+      <section class="rounded-[16px] p-6 md:p-7 mt-10" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-accent-2), var(--shadow-sm);">
+        <p class="text-lg font-bold mb-4" style="color: var(--color-ink);">{serviceCta.heading}</p>
+        <CTA href={serviceCta.href} label={serviceCta.label} analyticsEvent="cta_click" analyticsLabel={`learn-${article.id}-build-plan`} />
+      </section>
+    )}
     {hasCharts && (
       <div class="stat-charts-block">
         {article.data.charts.map((chart) => <StatChart {...chart} />)}
