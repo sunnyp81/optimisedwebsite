@@ -19,11 +19,15 @@ const initials = name
   .toUpperCase();
 ---
 <div class="flex items-center gap-3 py-4 mb-6" style="border-bottom: 1px solid var(--color-rule);">
-  <span
-    class="w-10 h-10 rounded-full flex items-center justify-center text-[13px] font-bold shrink-0"
-    style="background: linear-gradient(135deg, #fbbf24 0%, #7c3aed 100%); color: #ffffff;"
-    aria-hidden="true"
-  >{initials}</span>
+  {name === 'Sunny Patel' ? (
+    <img src="/images/sunny-patel-96.webp" width="40" height="40" alt="" class="w-10 h-10 rounded-full shrink-0 object-cover" loading="lazy" />
+  ) : (
+    <span
+      class="w-10 h-10 rounded-full flex items-center justify-center text-[13px] font-bold shrink-0"
+      style="background: linear-gradient(135deg, #fbbf24 0%, #7c3aed 100%); color: #ffffff;"
+      aria-hidden="true"
+    >{initials}</span>
+  )}
   <span class="text-[14px] leading-tight" style="color: var(--color-ink-3);">
     By&nbsp;<a
       href={href}

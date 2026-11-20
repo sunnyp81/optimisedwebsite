@@ -21,7 +21,11 @@ const schemaNodes = [
     jobTitle: 'SEO Consultant & Founder',
     url: `${site.url}/about/`,
     worksFor: { '@id': `${site.url}/#organization` },
-    knowsAbout: ['SEO', 'Technical SEO', 'Schema Markup', 'Astro', 'Cloudflare Pages', 'Topical Authority']
+    image: `${site.url}/images/sunny-patel-480.webp`,
+    description: 'Independent SEO consultant based in Reading, Berkshire, with more than 16 years in SEO. Builds and rebuilds websites with search planned from the start.',
+    sameAs: ['https://sunnypatel.co.uk/', 'https://www.linkedin.com/in/sunny-patel-co-uk/'],
+    address: { '@type': 'PostalAddress', addressLocality: 'Reading', addressRegion: 'Berkshire', addressCountry: 'GB' },
+    knowsAbout: ['SEO', 'Technical SEO', 'Website migrations', 'Schema Markup', 'Astro', 'Cloudflare Pages', 'Topical Authority']
   }
 ];
 ---
@@ -40,21 +44,26 @@ const schemaNodes = [
     <section class="py-12">
       <div class="section-tag">About</div>
       <h1 class="section-title">Built by Sunny Patel</h1>
-      <div class="grid md:grid-cols-[200px_1fr] gap-8 mt-8 items-start">
-        <div class="w-[200px] h-[200px] rounded-2xl flex items-center justify-center" style="background: linear-gradient(135deg, #fbbf24 0%, #7c3aed 100%);">
-          <span class="text-[64px] font-bold" style="color: white;">SP</span>
-        </div>
+      <div class="grid md:grid-cols-[240px_1fr] gap-8 mt-8 items-start">
+        <figure class="m-0 w-[200px] md:w-[240px]">
+          <img src="/images/sunny-patel-480.webp" width="480" height="480" alt="Sunny Patel, SEO consultant, in a white shirt" class="w-full h-auto rounded-2xl block" style="border: 1px solid var(--color-rule);" fetchpriority="high" />
+          <figcaption class="mt-3 text-[13px] leading-snug" style="color: var(--color-ink-3);">Sunny Patel, Reading, Berkshire. <a href="https://www.linkedin.com/in/sunny-patel-co-uk/" target="_blank" rel="noopener noreferrer me" class="underline" style="color: var(--violet-text);">LinkedIn</a></figcaption>
+        </figure>
         <div>
           <p class="text-lg leading-relaxed mb-4" style="color: var(--color-ink-2);">
-            I'm Sunny Patel, an SEO consultant based in Reading, UK. I build websites that rank, and I rebuild existing ones with the URLs and redirects mapped so the rankings you have earned are protected. No template installs, no WordPress themes with plugins bolted on.
+            I'm Sunny Patel, an independent SEO consultant based in Reading, UK, with more than 16 years in SEO. I build websites that rank, and I rebuild existing ones with the URLs and redirects mapped so the rankings you have earned are protected. No template installs, no WordPress themes with plugins bolted on.
           </p>
           <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
             I own and run five sites across home and utilities, food and diet, fitness, property, and affiliate niches. Between 29 August and 25 September 2026 they earned 5,168 Google clicks and 254.1k impressions. Each build is performance-tested before handover and structured for topical authority from day one.
           </p>
           <p class="leading-relaxed mb-4" style="color: var(--color-ink-2);">
-            I run an SEO consultancy serving UK businesses. OptimisedWebsite is the website build arm: every build is priced by scope and fixed in writing before work starts.
+            I run an SEO consultancy for UK businesses at <a href="https://sunnypatel.co.uk/" target="_blank" rel="noopener noreferrer me" class="underline" style="color: var(--violet-text);">sunnypatel.co.uk</a>. OptimisedWebsite is the website build arm: every build is priced by scope and fixed in writing before work starts.
           </p>
           <div class="flex flex-wrap gap-4 mt-6">
+            <div class="text-center">
+              <div class="text-[24px] font-bold" style="color: var(--color-ink);">16+</div>
+              <div class="text-[11px] uppercase font-mono" style="color: var(--color-ink-3);">Years in SEO</div>
+            </div>
             <div class="text-center">
               <div class="text-[24px] font-bold" style="color: var(--color-ink);">5</div>
               <div class="text-[11px] uppercase font-mono" style="color: var(--color-ink-3);">Owned sites</div>
