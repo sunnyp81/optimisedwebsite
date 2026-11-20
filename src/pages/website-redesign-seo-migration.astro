@@ -29,6 +29,8 @@ const faqs = [
   { q: 'How long does a migration take?', a: 'Migration time depends on the size of the existing site. A small replacement of up to 25 pages takes 1 to 2 weeks. A site of 25 to 100 pages takes 3 to 5 weeks when it qualifies for Level 2. Any site where every address has to be kept or redirected is a Level 3 migration. A full migration of 100 pages to several hundred or more than 5 premises takes 6 to 12 weeks. Every migration includes Search Console checks at day 14 and day 30.' },
   { q: 'What happens to pages you decide not to redirect?', a: 'If a page has no genuine equivalent on the new site, we do not force a redirect to an unrelated page just to avoid a 404. Depending on the page, it either returns a proper 404 or 410, or, if the content still has value, it is rebuilt on the new site and redirected once it exists.' },
   { q: 'Do you submit every old URL to Google again after launch?', a: 'No. The old URLs are redirected, not resubmitted. What gets submitted after launch is the new sitemap, listing the new site\'s indexable URLs, so Google can find and re-crawl them through the redirects already in place.' },
+  { q: 'What is an SEO migration?', a: 'An SEO migration is the planning and testing that keeps the pages earning search traffic findable when a site changes. It covers the URL inventory, the redirect map, staging tests, the launch switch and checks after launch. It matters most when a redesign changes page addresses or the domain.' },
+  { q: 'Do I need SEO support if my URLs are not changing?', a: 'Less of it, but some. A redesign that keeps every address can still lose rankings if titles, headings or content that rank are cut or if a noindex rule from staging goes live. Comparing old and new page content and crawling staging before launch catches both.' },
 ];
 
 const schemaNodes = [
@@ -75,6 +77,9 @@ const schemaNodes = [
         <CTA href="/free-website-growth-review/" label="Get a Free Growth Review" variant="secondary" analyticsEvent="cta_click" analyticsLabel="migration-hero" />
         <CTA href="/pricing/" label="See Pricing" variant="secondary" />
       </div>
+      <p class="text-[13px] mt-6" style="color: var(--color-ink-3);">
+        OptimisedWebsite is run by <a href="/about/" style="color: var(--color-accent-2); font-weight: 500;">Sunny Patel</a>, an independent SEO consultant based in Reading with more than 16 years in SEO.
+      </p>
     </section>
 
     <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
@@ -117,7 +122,41 @@ const schemaNodes = [
     <div class="signal-break"><div class="signal-line"><div class="signal-dot"></div></div></div>
 
     <section class="py-12 reveal">
-      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-8" style="color: var(--color-ink);">How We Protect Existing Rankings</h2>
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">How We Protect Existing Rankings</h2>
+      <p class="leading-relaxed max-w-3xl mb-6" style="color: var(--color-ink-2);">
+        An SEO migration keeps the pages that earn search traffic findable when a website redesign changes the site. It runs in five stages. The old site stays live and unchanged until the launch switch.
+      </p>
+      <figure class="mb-8" style="overflow-x: auto;">
+        <svg viewBox="0 0 720 200" role="img" aria-labelledby="mig-t mig-d" style="width: 100%; min-width: 560px; height: auto; display: block; color: var(--color-ink);">
+          <title id="mig-t">SEO migration timeline for a website redesign</title>
+          <desc id="mig-d">Five stages in order: inventory every old URL, map each URL to an outcome, test redirects on staging, switch the site and redirects together on launch day, then check Search Console at day 14 and day 30.</desc>
+          <line x1="40" y1="120" x2="680" y2="120" stroke="var(--color-rule)" stroke-width="4" />
+          <rect x="20" y="40" width="124" height="48" rx="10" fill="var(--color-accent-2)" opacity="0.15" />
+          <text x="82" y="62" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor">1. Inventory</text>
+          <text x="82" y="80" text-anchor="middle" font-size="12" fill="currentColor">every old URL</text>
+          <rect x="158" y="40" width="124" height="48" rx="10" fill="var(--color-accent-2)" opacity="0.15" />
+          <text x="220" y="62" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor">2. Map</text>
+          <text x="220" y="80" text-anchor="middle" font-size="12" fill="currentColor">keep, 301 or remove</text>
+          <rect x="296" y="40" width="124" height="48" rx="10" fill="var(--color-accent-2)" opacity="0.15" />
+          <text x="358" y="62" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor">3. Staging</text>
+          <text x="358" y="80" text-anchor="middle" font-size="12" fill="currentColor">crawl and redirects</text>
+          <rect x="434" y="40" width="124" height="48" rx="10" fill="var(--color-accent)" opacity="0.35" />
+          <text x="496" y="62" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor">4. Launch</text>
+          <text x="496" y="80" text-anchor="middle" font-size="12" fill="currentColor">site and redirects</text>
+          <rect x="572" y="40" width="128" height="48" rx="10" fill="var(--color-accent-2)" opacity="0.15" />
+          <text x="636" y="62" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor">5. Monitor</text>
+          <text x="636" y="80" text-anchor="middle" font-size="12" fill="currentColor">day 14 and day 30</text>
+          <circle cx="82" cy="120" r="6" fill="var(--color-accent-2)" />
+          <circle cx="220" cy="120" r="6" fill="var(--color-accent-2)" />
+          <circle cx="358" cy="120" r="6" fill="var(--color-accent-2)" />
+          <circle cx="496" cy="120" r="9" fill="var(--color-accent)" />
+          <circle cx="636" cy="120" r="6" fill="var(--color-accent-2)" />
+          <text x="220" y="155" text-anchor="middle" font-size="13" fill="currentColor">Old site live and unchanged</text>
+          <text x="496" y="155" text-anchor="middle" font-size="13" fill="currentColor">Day 0</text>
+          <text x="636" y="155" text-anchor="middle" font-size="13" fill="currentColor">New site live</text>
+        </svg>
+        <figcaption class="text-[13px] mt-2 text-center" style="color: var(--color-ink-3);">The five stages of a migration, from the old URL inventory to the day 30 check.</figcaption>
+      </figure>
       <div class="grid md:grid-cols-2 gap-4">
         {deliverables.map((d, i) => (
           <div class="rounded-[16px] p-7" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
@@ -133,6 +172,48 @@ const schemaNodes = [
       </div>
       <p class="text-[13px] mt-6" style="color: var(--color-ink-3);">
         Migrations carry inherent short-term ranking volatility that Google itself acknowledges, see <a href="https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent-2); font-weight: 500;">Google's guidance on site moves with URL changes</a>. This process is built to minimise that volatility, not promise it away.
+      </p>
+    </section>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">Google's Rules for a Site Move and What We Do</h2>
+      <p class="leading-relaxed max-w-3xl mb-6" style="color: var(--color-ink-2);">
+        Google publishes its own guidance for moving a site with URL changes. Each step of our process follows it. Source: <a href="https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent-2); font-weight: 500;">Google Search Central, site moves with URL changes</a>, checked 20 November 2026.
+      </p>
+      <div class="rounded-[16px] p-7" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); overflow-x: auto;">
+        <table class="w-full text-sm leading-relaxed" style="color: var(--color-ink-2); border-collapse: collapse; min-width: 520px;">
+          <thead>
+            <tr>
+              <th class="text-left font-bold pb-3 pr-6" style="color: var(--color-ink); border-bottom: 2px solid var(--color-rule);">Google's guidance</th>
+              <th class="text-left font-bold pb-3" style="color: var(--color-ink); border-bottom: 2px solid var(--color-rule);">What we do</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="py-3 pr-6 align-top" style="border-bottom: 1px solid var(--color-rule);">Map the old site's URLs to the new site's URLs.</td>
+              <td class="py-3 align-top" style="border-bottom: 1px solid var(--color-rule);">Old URLs are listed from a crawl, the sitemap, Search Console and analytics. Each one gets an outcome before the build starts.</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-6 align-top" style="border-bottom: 1px solid var(--color-rule);">Use permanent redirects such as 301 or 308 and point each one straight at the final URL.</td>
+              <td class="py-3 align-top" style="border-bottom: 1px solid var(--color-rule);">Each mapped redirect is tested on staging and again after launch for chains and loops.</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-6 align-top" style="border-bottom: 1px solid var(--color-rule);">Do not redirect many old URLs to one unrelated page such as the homepage.</td>
+              <td class="py-3 align-top" style="border-bottom: 1px solid var(--color-rule);">A URL with no genuine equivalent returns a 404 or 410 or is rebuilt first.</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-6 align-top" style="border-bottom: 1px solid var(--color-rule);">Update internal links, canonical tags and sitemaps to the new URLs.</td>
+              <td class="py-3 align-top" style="border-bottom: 1px solid var(--color-rule);">Links and canonicals point at new URLs directly and the new sitemap is submitted at launch.</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-6 align-top">Keep redirects for as long as possible and generally at least 1 year.</td>
+              <td class="py-3 align-top">Redirects are monitored for 30 days on a full migration.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[13px] mt-6" style="color: var(--color-ink-3);">
+        Google also says a small to medium-sized site can take a few weeks for most pages to move, and that the time varies.
       </p>
     </section>
 
@@ -152,12 +233,65 @@ const schemaNodes = [
     </section>
 
     <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">Redesign, New Platform or New Domain: What Changes for SEO</h2>
+      <p class="leading-relaxed max-w-3xl mb-6" style="color: var(--color-ink-2);">
+        A redesign needs redirect work when page addresses change. A platform or hosting change can keep every address. The more that changes at once, the more there is to map and test.
+      </p>
+      <div class="rounded-[16px] p-7" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm); overflow-x: auto;">
+        <table class="w-full text-sm leading-relaxed" style="color: var(--color-ink-2); border-collapse: collapse; min-width: 560px;">
+          <thead>
+            <tr>
+              <th class="text-left font-bold pb-3 pr-6" style="color: var(--color-ink); border-bottom: 2px solid var(--color-rule);">Type of change</th>
+              <th class="text-left font-bold pb-3 pr-6" style="color: var(--color-ink); border-bottom: 2px solid var(--color-rule);">What moves</th>
+              <th class="text-left font-bold pb-3" style="color: var(--color-ink); border-bottom: 2px solid var(--color-rule);">SEO work needed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="py-3 pr-6 align-top font-semibold" style="color: var(--color-ink); border-bottom: 1px solid var(--color-rule);">New design, same addresses</td>
+              <td class="py-3 pr-6 align-top" style="border-bottom: 1px solid var(--color-rule);">Layout and copy</td>
+              <td class="py-3 align-top" style="border-bottom: 1px solid var(--color-rule);">Compare old and new content for pages that rank. Crawl staging before launch.</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-6 align-top font-semibold" style="color: var(--color-ink); border-bottom: 1px solid var(--color-rule);">New design, new addresses</td>
+              <td class="py-3 pr-6 align-top" style="border-bottom: 1px solid var(--color-rule);">Layout, copy and URLs</td>
+              <td class="py-3 align-top" style="border-bottom: 1px solid var(--color-rule);">All of the above plus a redirect map with every row tested.</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-6 align-top font-semibold" style="color: var(--color-ink); border-bottom: 1px solid var(--color-rule);">New platform</td>
+              <td class="py-3 pr-6 align-top" style="border-bottom: 1px solid var(--color-rule);">Templates and often metadata. URLs only if they change</td>
+              <td class="py-3 align-top" style="border-bottom: 1px solid var(--color-rule);">Content comparison plus checks on canonicals, noindex rules and the sitemap. A redirect map if URLs change.</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-6 align-top font-semibold" style="color: var(--color-ink);">New domain</td>
+              <td class="py-3 pr-6 align-top">Every address on the site</td>
+              <td class="py-3 align-top">A full redirect map plus the Change of Address tool in Search Console once the redirects are live.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="leading-relaxed max-w-3xl mt-6" style="color: var(--color-ink-2);">
+        Mapping the URLs yourself? The free <a href="/learn/redirect-map-template/">redirect map template</a> has the columns we use and a worked example.
+      </p>
+    </section>
+
+    <section class="py-12 reveal">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">What Happens on Launch Day</h2>
       <p class="leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
         Redirects are tested on staging before the domain is switched over, so they are active from the moment the new site goes live rather than added afterwards. Once live, the new sitemap, listing the new site's indexable URLs, is submitted to Google Search Console and Bing Webmaster Tools, and the post-launch monitoring window starts immediately so coverage and position changes are visible from day one, not discovered a month later.
       </p>
       <p class="leading-relaxed max-w-3xl mt-3" style="color: var(--color-ink-2);">
         Running the switch in-house instead? The <a href="/learn/website-redesign-seo-checklist/">website redesign SEO checklist</a> lists every pre-launch, launch-day and post-launch step with a pass test for each.
+      </p>
+    </section>
+
+    <section class="py-12 reveal">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">Already Redesigned and Lost Rankings?</h2>
+      <p class="leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
+        A bad migration can often be repaired. Common causes are missing redirects, redirect chains, lost content and a noindex or canonical mistake on the new pages. The guide to <a href="/learn/recover-rankings-after-site-migration/">recovering rankings after a site migration</a> walks through the five checks in order.
+      </p>
+      <p class="leading-relaxed max-w-3xl mt-3" style="color: var(--color-ink-2);">
+        Recovery is not guaranteed and it starts only after Google recrawls the corrected URLs. The build plan request below takes the old and new addresses if you want the diagnosis done for you.
       </p>
     </section>
 
