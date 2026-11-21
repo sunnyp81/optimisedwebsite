@@ -10,7 +10,7 @@ import { site } from '../data/site';
 import { caseStudies } from '../data/caseStudies';
 import { networkPages, networkClicks, networkImpressionsK } from '../data/stateOfSeo';
 
-const chartColors = ['#10b981', '#7c3aed', '#3b82f6', '#f59e0b', '#ef4444'];
+const chartColors = ['#10b981', '#7c3aed', '#3b82f6', '#f59e0b', '#0d9488'];
 
 const faqs = [
   {
@@ -276,7 +276,7 @@ const schemaNodes = [
                 </div>
                 <span class="chip chip-ok flex-shrink-0">{item.metric}</span>
               </div>
-              <GrowthChart data={item.growth} label="Impressions per month (k)" color={chartColors[i % chartColors.length]} height={108} />
+              <GrowthChart data={item.growth} label="Google impressions" color={chartColors[i % chartColors.length]} height={108} />
             </div>
             <!-- Card body -->
             <div class="p-5" style="border-top: 1px solid var(--color-rule);">

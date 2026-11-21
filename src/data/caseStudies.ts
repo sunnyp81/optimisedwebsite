@@ -66,7 +66,7 @@ export const caseStudies: CaseStudy[] = [
   {
     ...p['Water Hardness UK'],
     slug: 'water-hardness-uk',
-    growthLabel: 'Monthly impressions (thousands)',
+    growthLabel: 'Google impressions',
     challenge:
       'A brand-new domain with zero authority, competing for "water hardness" queries against water utility companies and Wikipedia. The head term is informational and high volume, but every result on page one was a regional supplier or an encyclopedia entry, not a focused resource.',
     approach:
@@ -89,7 +89,7 @@ export const caseStudies: CaseStudy[] = [
   {
     ...p['She Cooks She Eats'],
     slug: 'she-cooks-she-eats',
-    growthLabel: 'Monthly impressions (thousands)',
+    growthLabel: 'Google impressions',
     challenge:
       'Hundreds of "how many syns in" long-tail queries, each with low individual volume but huge aggregate demand. The existing results were thin, ad-heavy forum threads that buried the answer below the fold.',
     approach:
@@ -111,7 +111,7 @@ export const caseStudies: CaseStudy[] = [
   {
     ...p['Dead Hangs'],
     slug: 'dead-hangs',
-    growthLabel: 'Monthly impressions (thousands)',
+    growthLabel: 'Google impressions',
     challenge:
       'A fitness micro-niche dominated by YouTube videos and large publishers. Ranking meant out-specifying the competition with data the big sites did not bother to structure.',
     approach:
@@ -134,7 +134,7 @@ export const caseStudies: CaseStudy[] = [
   {
     ...p['Rental Yield UK'],
     slug: 'rental-yield-uk',
-    growthLabel: 'Monthly impressions (thousands)',
+    growthLabel: 'Google impressions',
     challenge:
       'A property-data niche built from a standing start, with no domain history and a head term ("rental yield") owned by established letting agents and portals.',
     approach:
@@ -157,7 +157,7 @@ export const caseStudies: CaseStudy[] = [
   {
     ...p['Best Vibration Plates'],
     slug: 'best-vibration-plates',
-    growthLabel: 'Monthly impressions (thousands)',
+    growthLabel: 'Google impressions',
     challenge:
       'A competitive affiliate niche where ranking depends on product schema, genuine comparison depth and trust signals that thin "best of" lists never earn.',
     approach:

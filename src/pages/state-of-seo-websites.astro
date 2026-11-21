@@ -23,7 +23,7 @@ import {
   methodology,
 } from '../data/stateOfSeo';
 
-const chartColors = ['#10b981', '#7c3aed', '#3b82f6', '#f59e0b', '#ef4444'];
+const chartColors = ['#10b981', '#7c3aed', '#3b82f6', '#f59e0b', '#0d9488'];
 
 const pageUrl = `${site.url}/state-of-seo-websites/`;
 
@@ -162,9 +162,9 @@ const schemaNodes = [
       <div class="section-tag">Benchmark 01</div>
       <h2 class="text-2xl md:text-[34px] font-bold leading-tight mb-4" style="color: var(--color-ink);">How fast do new SEO sites gain traction?</h2>
       <p class="text-base leading-relaxed mb-8" style="color: var(--color-ink-2); max-width: 680px;">
-        The curves track monthly organic impressions across the first twelve
-        months. The pattern is consistent: a slow first quarter while pages index, then a compounding climb as the long tail
-        matures.
+        Each line is one site's monthly Google impressions for the 12 complete months to October 2026. Water Hardness UK
+        and Rental Yield UK launched in March 2026 and showed impressions within weeks. Three sites grew over the year.
+        She Cooks She Eats and Rental Yield UK fell from earlier peaks, so the lines show the real ups and downs, not a forecast.
       </p>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {indexingCurves.map((curve, i) => (
@@ -175,13 +175,13 @@ const schemaNodes = [
             </div>
             <div class="mono text-[11px] uppercase mb-2" style="color: var(--color-ink-3); letter-spacing: 0.06em;">{curve.niche}</div>
             <div class="flex-1 flex items-center">
-              <GrowthChart data={curve.series} label="Impressions / month (thousands)" color={chartColors[i % chartColors.length]} height={140} />
+              <GrowthChart data={curve.series} label="Google impressions" color={chartColors[i % chartColors.length]} height={140} />
             </div>
           </div>
         ))}
       </div>
       <p class="mono text-[11px] mt-5" style="color: var(--color-ink-3);">
-        Source: Google Search Console impressions, first 12 months per site, as recorded at the time. Not re-checked against a dated export in the September 2026 review.
+        Source: Google Search Console, monthly web search impressions per site, November 2025 to October 2026, pulled 21 November 2026.
       </p>
     </section>
 

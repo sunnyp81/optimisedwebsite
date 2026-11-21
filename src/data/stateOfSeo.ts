@@ -96,16 +96,14 @@ export const headlineCounters = [
 ];
 
 // --- Indexing-timeline benchmark ----------------------------------------------
-// Each site's 12-point growth array is a monthly impressions curve (thousands),
-// straight from portfolio.ts. NOT re-verified in the 2026-09-26 pass -- these
-// could not be reproduced against a dated GSC export in the time available.
-// Treat as unconfirmed until checked against a per-site monthly Performance
-// export from each site's launch date.
+// Each site's 12-point growth array is real monthly GSC impressions (raw
+// counts), November 2025 to October 2026, straight from portfolio.ts (pulled
+// 2026-11-21).
 export const indexingCurves = portfolio.map((p) => ({
   name: p.name,
   niche: p.niche,
   pageCount: p.pageCount,
-  // The series is monthly impressions in thousands across the first 12 months.
+  // The series is monthly impressions (raw counts), November 2025 to October 2026.
   series: p.growth,
   startK: p.growth[0],
   endK: p.growth[p.growth.length - 1],
@@ -128,13 +126,13 @@ export const schemaCoverage = {
 // --- Methodology --------------------------------------------------------------
 export const methodology = {
   windowDescription:
-    'Clicks, impressions and average position figures reflect a trailing 28-day Google Search Console snapshot (29 August to 25 September 2026) for each of five live sites in the network, re-verified on 2026-09-26. Page counts, growth curves, Lighthouse scores, schema coverage and ranking-position buckets were not re-verified in this pass; see the notes below.',
+    'Clicks, impressions and average position figures reflect a trailing 28-day Google Search Console snapshot (29 August to 25 September 2026) for each of five live sites in the network, re-verified on 2026-09-26. Page counts, Lighthouse scores, schema coverage and ranking-position buckets were not re-verified in this pass; see the notes below.',
   derivedSources: [
     'Clicks, impressions and average position are pulled directly from Google Search Console (via the SEO Gets MCP) for each site\'s sc-domain property, trailing 28 days as of 2026-09-25.',
     'Network totals (sites, pages, clicks, impressions) are aggregated directly from the live case-study data in this repository, which mirrors that Google Search Console pull.',
   ],
   placeholderSources: [
-    'Growth curves (monthly impression series, first 12 months per site) were not re-verified in the 2026-09-26 pass and are pending a per-site monthly export from each site\'s launch date.',
+    'Growth curves are monthly web search impressions per site from Google Search Console for November 2025 to October 2026, pulled on 2026-11-21. They replace earlier illustrative curves.',
     'Ranking-position bucket counts (2,466 tracked keywords) were not re-verified in the 2026-09-26 pass and are pending a full keyword-position export.',
     'Lighthouse scores and schema-coverage percentages were not re-verified in the 2026-09-26 pass and are pending a PageSpeed Insights / crawl re-check.',
   ],
