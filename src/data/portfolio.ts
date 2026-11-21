@@ -13,11 +13,19 @@ export interface PortfolioItem {
 // (2026-08-29 to 2026-09-25). See src/data/caseStudies.ts for the same figures
 // with full context and src/pages/case-studies/[slug].astro for per-site pages.
 //
-// The `growth` arrays (illustrative first-12-months monthly impression curves,
-// in thousands) were NOT re-verified in this pass -- they were not reproducible
-// against a dated GSC export in the time available. Treat them as unconfirmed
-// until checked against a per-site monthly Performance export from each site's
-// launch date.
+// The `growth` arrays are real monthly Google Search Console impressions (raw
+// counts, web search) for the 12 complete months November 2025 to October 2026,
+// one value per month in `growthMonths` order. Pulled 21 November 2026 (GSC API
+// for waterhard.uk, deadhangs.com and rentalyield.uk; SEO Gets GSC data for
+// shecookssheeats.co.uk and bestvibrationplates.co.uk). Zeros are months before
+// the site had any impressions. Some sites fell after an earlier peak; the
+// charts show that as it is.
+export const growthMonths = [
+  '2025-11', '2025-12', '2026-01', '2026-02', '2026-03', '2026-04',
+  '2026-05', '2026-06', '2026-07', '2026-08', '2026-09', '2026-10',
+];
+export const growthSource = 'Google Search Console, monthly impressions, November 2025 to October 2026';
+
 export const portfolio: PortfolioItem[] = [
   {
     name: 'Water Hardness UK',
@@ -26,7 +34,7 @@ export const portfolio: PortfolioItem[] = [
     pageCount: 49,
     metric: '1,642 clicks, 28 days',
     description: '49 area and water-company pages ranking for "water hardness" queries across every UK region. Position 10.4 average, 85.0k impressions (28 days to 25 Sep 2026).',
-    growth: [2.1, 5.8, 12.4, 19.7, 28.3, 34.1, 39.6, 44.2, 49.8, 54.3, 57.9, 60.8]
+    growth: [0, 0, 0, 0, 136, 46374, 59566, 71143, 96886, 104987, 89754, 90884]
   },
   {
     name: 'She Cooks She Eats',
@@ -35,7 +43,7 @@ export const portfolio: PortfolioItem[] = [
     pageCount: 211,
     metric: '29.6k impressions, 28 days',
     description: '211 Slimming World syns pages and takeaway guides. 192 clicks (28 days to 25 Sep 2026), ranking for hundreds of "how many syns in" long-tail queries. Traffic is down sharply from its earlier peak; see the case study for detail.',
-    growth: [4.2, 11.6, 22.3, 35.8, 48.1, 56.4, 63.7, 71.2, 76.5, 80.1, 83.4, 85.8]
+    growth: [110024, 50860, 92059, 76086, 117008, 104962, 58350, 46252, 42278, 41713, 31683, 30054]
   },
   {
     name: 'Dead Hangs',
@@ -44,7 +52,7 @@ export const portfolio: PortfolioItem[] = [
     pageCount: 53,
     metric: '3,035 clicks, 28 days',
     description: '53 pages covering dead hang standards, world records, and training programmes. Top query "dead hang time by age" averages position 2.2, with the page it targets pulling 67.5k impressions on its own (28 days to 25 Sep 2026).',
-    growth: [1.8, 4.6, 9.2, 14.8, 19.3, 23.1, 26.8, 29.4, 31.7, 33.9, 35.1, 36.2]
+    growth: [0, 57, 66, 79, 32158, 36099, 39532, 69288, 93451, 114737, 113603, 162459]
   },
   {
     name: 'Rental Yield UK',
@@ -53,7 +61,7 @@ export const portfolio: PortfolioItem[] = [
     pageCount: 120,
     metric: '17.7k impressions, 28 days',
     description: '120 area-level rental yield pages with postcode data. 103 clicks at position 22.3 (28 days to 25 Sep 2026). Impressions and position have worsened since an earlier spring 2026 peak, not "growing steadily" as previously described.',
-    growth: [0.8, 2.4, 5.1, 8.9, 13.2, 17.6, 22.1, 26.3, 30.1, 33.4, 36.1, 37.9]
+    growth: [0, 0, 0, 0, 19058, 26348, 30597, 11739, 13235, 16465, 18111, 21254]
   },
   {
     name: 'Best Vibration Plates',
@@ -62,6 +70,6 @@ export const portfolio: PortfolioItem[] = [
     pageCount: 135,
     metric: '14.6k impressions, 28 days',
     description: '135-page affiliate site with BuyBox components, comparison pages, and full schema coverage. Now earning 196 clicks (28 days to 25 Sep 2026); no longer impressions-only.',
-    growth: [0.3, 0.9, 1.6, 2.4, 3.1, 3.8, 4.5, 5.1, 5.6, 6.0, 6.4, 6.7]
+    growth: [2917, 4328, 6140, 4993, 6110, 6407, 7020, 6733, 10360, 10420, 17578, 26962]
   },
 ];

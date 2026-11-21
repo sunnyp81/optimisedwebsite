@@ -16,7 +16,7 @@ export function getStaticPaths() {
 }
 
 const { study } = Astro.props;
-const chartColors = ['#10b981', '#7c3aed', '#3b82f6', '#f59e0b', '#ef4444'];
+const chartColors = ['#10b981', '#7c3aed', '#3b82f6', '#f59e0b', '#0d9488'];
 const studyIndex = caseStudies.findIndex((s) => s.slug === study.slug);
 const otherStudies = caseStudies.filter((s) => s.slug !== study.slug).slice(0, 3);
 const publicationDate = '2026-09-01';
