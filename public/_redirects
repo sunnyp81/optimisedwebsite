@@ -1,1 +1,5 @@
 /services/seo-website-build/ /seo-web-design/ 301
+/rsoma-1/* /showcase/rsoma-1/:splat 301
+/rsoma-2/* /showcase/rsoma-2/:splat 301
+/rsoma-1 /showcase/rsoma-1/ 301
+/rsoma-2 /showcase/rsoma-2/ 301
