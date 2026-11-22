@@ -15,6 +15,13 @@
   X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
   Cache-Control: private, no-store
 
+# Reading School of Martial Arts design previews: keep out of every search index
+/rsoma-1/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+
+/rsoma-2/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+
 # This concept has a 'find my nearest clinic' button, which needs the visitor's location after a tap
 /showcase/myhealthcare-clinic/*
   ! Permissions-Policy
