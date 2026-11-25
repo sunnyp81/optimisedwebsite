@@ -52,17 +52,17 @@ export const priceLevels: PriceLevel[] = [
       'Custom page templates',
       'An editing screen for your team'
     ],
-    movesUp: 'More than 100 pages, more than 5 premises, a booking or CRM hookup, or an existing site where every address has to be kept or redirected moves a project to Level 3.'
+    movesUp: 'More than 100 pages of new content, more than 5 premises, a booking or CRM hookup, or an existing site of more than 300 addresses moves a project to Level 3. Moving a site of up to 300 pages with the same content is priced as a migration.'
   },
   {
     id: 'multi-location',
     level: 'Level 3',
-    name: 'Multi-location and migration',
+    name: 'Multi-location and large site',
     low: 6000,
     high: 15000,
     price: '£6,000 to £15,000',
-    fits: 'More than 5 premises, a large existing site to move, or connected systems.',
-    pages: '100 pages to several hundred',
+    fits: 'More than 5 premises, an existing site of more than 300 addresses, or connected systems.',
+    pages: '100 pages of new content or more',
     timescale: '6 to 12 weeks',
     payment: 'Staged, usually half at design approval and half on launch',
     included: [
@@ -76,6 +76,18 @@ export const priceLevels: PriceLevel[] = [
     movesUp: 'Bespoke applications and ecommerce checkouts sit outside the ladder and are quoted separately.'
   }
 ];
+
+// Full migration of an existing site: every address kept or redirected. addOn 0 means included in Level 3.
+export const migrationTiers = [
+  { size: 'Up to 25 pages', build: 1500, addOn: 500 },
+  { size: '25 to 100 pages', build: 3000, addOn: 950 },
+  { size: '100 to 300 pages, same content moved', build: 3500, addOn: 1450 },
+  { size: 'More than 300 pages (Level 3)', build: 6000, addOn: 0 }
+];
+export const gbp = (n: number) => `£${n.toLocaleString('en-GB')}`;
+export const migrationFrom = migrationTiers[0].build + migrationTiers[0].addOn;
+export const migrationTimescale = '2 to 8 weeks';
+export const migrationIncludes = 'The migration price covers every current address kept or redirected and tested, a staged launch and 30 days of redirect monitoring. The first three sizes cover up to 300 addresses. More premises, new content or connected tools can move the build to a higher level.';
 
 export const priceLow = priceLevels[0].low;
 export const priceHigh = priceLevels[priceLevels.length - 1].high;

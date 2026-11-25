@@ -4,10 +4,10 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 import FAQSection from '../components/FAQSection.astro';
 import CTA from '../components/CTA.astro';
 import { site } from '../data/site';
-import { priceLevels } from '../data/pricing';
+import MigrationPrices from '../components/MigrationPrices.astro';
+import { priceLevels, migrationFrom, migrationTimescale, gbp } from '../data/pricing';
 
 const replacement = priceLevels[0];
-const migration = priceLevels[2];
 const fromPrice = (l: { low: number }) => `£${l.low.toLocaleString('en-GB')}`;
 
 const deliverables = [
@@ -26,7 +26,7 @@ const faqs = [
   { q: 'Will I lose rankings during the migration?', a: 'Google has said publicly that migrations carry some short-term ranking volatility, and no agency can honestly promise otherwise. Our process, redirect mapping, staging review, and launch controls, is built to minimise that volatility, not eliminate it. See Google\'s own guidance on site moves with URL changes further down this page for the detail behind that.' },
   { q: 'How do you handle old URLs?', a: 'We crawl and export every currently indexed URL before starting, then map each one against the new site. Where a genuine equivalent page exists, it gets a 301 redirect. Redirecting a URL to an irrelevant page can itself get flagged as a soft 404, so we do not redirect everything by default. Content that has genuinely been removed and has no equivalent is allowed to return a 404 or 410 where that is the accurate outcome.' },
   { q: 'Can I keep my current URL structure?', a: 'Yes when it already works. We only recommend changing URL structure where the current one is actively working against you, for example duplicate content or unclear hierarchy. Any change is discussed and agreed before it happens.' },
-  { q: 'How long does a migration take?', a: 'Migration time depends on the size of the existing site. A small replacement of up to 25 pages takes 1 to 2 weeks. A site of 25 to 100 pages takes 3 to 5 weeks when it qualifies for Level 2. Any site where every address has to be kept or redirected is a Level 3 migration. A full migration of 100 pages to several hundred or more than 5 premises takes 6 to 12 weeks. Every migration includes Search Console checks at day 14 and day 30.' },
+  { q: 'How long does a migration take?', a: 'Migration time depends on the size of the existing site. A small replacement of up to 25 pages takes 1 to 2 weeks. A full migration of up to 300 pages takes 2 to 8 weeks. A site of more than 300 pages or more than 5 premises takes 6 to 12 weeks. Every migration includes Search Console checks at day 14 and day 30.' },
   { q: 'What happens to pages you decide not to redirect?', a: 'If a page has no genuine equivalent on the new site, we do not force a redirect to an unrelated page just to avoid a 404. Depending on the page, it either returns a proper 404 or 410, or, if the content still has value, it is rebuilt on the new site and redirected once it exists.' },
   { q: 'Do you submit every old URL to Google again after launch?', a: 'No. The old URLs are redirected, not resubmitted. What gets submitted after launch is the new sitemap, listing the new site\'s indexable URLs, so Google can find and re-crawl them through the redirects already in place.' },
   { q: 'What is an SEO migration?', a: 'An SEO migration is the planning and testing that keeps the pages earning search traffic findable when a site changes. It covers the URL inventory, the redirect map, staging tests, the launch switch and checks after launch. It matters most when a redesign changes page addresses or the domain.' },
@@ -56,7 +56,7 @@ const schemaNodes = [
 ---
 <Base
   title="Redesign a Ranking Site Without Losing SEO | OptimisedWebsite"
-  description="How to redesign a ranking site without losing SEO: keep or redirect every URL that earns traffic and test on staging first. Replacement from £1,500, full migration from £6,000."
+  description="How to redesign a ranking site without losing SEO: keep or redirect every URL that earns traffic and test on staging first. Replacement from £1,500, full migration from £2,000."
   canonicalPath="/website-redesign-seo-migration/"
   schemaNodes={schemaNodes}
 >
@@ -70,7 +70,7 @@ const schemaNodes = [
       <div class="section-tag">Redesign & Migration</div>
       <h1 class="section-title">How to Redesign a Ranking Website Without Losing SEO</h1>
       <p class="mt-4 text-lg leading-relaxed max-w-3xl" style="color: var(--color-ink-2);">
-        Keep every URL that earns traffic or 301-redirect it to a page that answers the same question. Test the redirects on a staging copy before launch. This service is for businesses replacing an existing indexed site. Old URLs are inventoried and mapped before work starts. The new site's indexable URLs go into a fresh sitemap at launch. A monitoring window catches issues early. A small replacement starts from {fromPrice(replacement)}. A migration that must keep or redirect every address starts from {fromPrice(migration)}.
+        Keep every URL that earns traffic or 301-redirect it to a page that answers the same question. Test the redirects on a staging copy before launch. This service is for businesses replacing an existing indexed site. Old URLs are inventoried and mapped before work starts. The new site's indexable URLs go into a fresh sitemap at launch. A monitoring window catches issues early. A small replacement starts from {fromPrice(replacement)}. A migration that must keep or redirect every address starts from {gbp(migrationFrom)}.
       </p>
       <div class="mt-8 flex flex-wrap gap-4">
         <CTA href="/order/?offer=website-redesign-seo-migration" label="Request a Build Plan" analyticsEvent="cta_click" analyticsLabel="migration-hero-build-plan" />
@@ -87,7 +87,7 @@ const schemaNodes = [
     <section class="py-12 reveal">
       <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4" style="color: var(--color-ink);">Small Replacement or Full Migration?</h2>
       <p class="leading-relaxed max-w-3xl mb-8" style="color: var(--color-ink-2);">
-        The size of your current site and whether every old address has to survive decide the level. Prices come from the same ladder as the pricing page.
+        The size of your current site and whether every old address has to survive decide the price. Prices come from the same ladder as the pricing page.
       </p>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="rounded-[16px] p-7" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-rule), var(--shadow-sm);">
@@ -101,15 +101,19 @@ const schemaNodes = [
           </ul>
         </div>
         <div class="rounded-[16px] p-7" style="background: var(--color-paper); box-shadow: inset 0 0 0 1px var(--color-accent-2), var(--shadow-sm);">
-          <div class="mono text-[11px] uppercase mb-2" style="color: var(--color-ink-3); letter-spacing: 0.1em;">{migration.level}: full migration</div>
-          <div class="text-2xl font-bold mb-3" style="color: var(--color-ink);">From {fromPrice(migration)}</div>
+          <div class="mono text-[11px] uppercase mb-2" style="color: var(--color-ink-3); letter-spacing: 0.1em;">Full migration</div>
+          <div class="text-2xl font-bold mb-3" style="color: var(--color-ink);">From {gbp(migrationFrom)}</div>
           <ul class="space-y-2 text-sm leading-relaxed" style="color: var(--color-ink-2);">
             <li>An existing site where every address has to be kept or redirected</li>
-            <li>{migration.pages}, delivered in {migration.timescale}</li>
+            <li>Up to 300 pages, delivered in {migrationTimescale}</li>
             <li>Every current address kept or redirected and tested</li>
             <li>Staged launch and 30 days of redirect monitoring</li>
           </ul>
         </div>
+      </div>
+      <div class="mt-8">
+        <h3 class="text-lg font-bold mb-2" style="color: var(--color-ink);">Migration Prices by Site Size</h3>
+        <MigrationPrices />
       </div>
       <p class="text-[13px] mt-6" style="color: var(--color-ink-3);">
         {priceLevels[1].level} is the middle step, from {fromPrice(priceLevels[1])}. {replacement.movesUp} {priceLevels[1].movesUp} The build plan confirms the level and a fixed price before any work starts.

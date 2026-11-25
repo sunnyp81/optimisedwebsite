@@ -20,7 +20,7 @@ faqs:
   - q: "What ongoing costs should I budget for after the website is built?"
     a: "Hosting (£5-50/month depending on the platform), domain renewal (£10-30/year), and optional ongoing SEO support (typically £500-2,000/month for content and link building). The website itself has no recurring fees: you own the code and content outright."
 datePublished: "2026-05-13"
-dateModified: "2026-09-26"
+dateModified: "2026-11-25"
 ---
 
 Our SEO-optimised website builds cost between £1,500 and £15,000, with the exact price determined by the number of pages, the number of premises, the depth of content, any migration from an existing site, and the tools the site connects to.
@@ -35,7 +35,9 @@ We price SEO website builds in three levels. Other UK providers set their own ra
 
 **Mid-range tier (£3,000 to £6,000)**: A 25 to 100 page website with more extensive topical coverage, custom design elements, advanced schema (multiple entity types, product schema for e-commerce, event schema for venues), and potentially a content management system for ongoing self-publishing. Suitable for businesses in moderately competitive niches that need broader keyword coverage.
 
-**Premium tier (£6,000 to £15,000)**: A website of 100 pages to several hundred with bespoke design, extensive content production, complex schema graphs, multi-location or multi-service architectures, redirects from an existing site, team editing, and integration with CRM or booking systems. Suitable for competitive industries, multi-location businesses, and companies with complex service offerings.
+**Premium tier (£6,000 to £15,000)**: A website of 100 pages of new content or more with bespoke design, extensive content production, complex schema graphs, multi-location or multi-service architectures, redirects from an existing site of more than 300 addresses, team editing, and integration with CRM or booking systems. Suitable for competitive industries, multi-location businesses, and companies with complex service offerings.
+
+**Migration of an existing site (from £2,000)**: A full migration with every address kept or redirected costs from £2,000 for up to 25 pages. A site of 25 to 100 pages costs from £3,950. A site of 100 to 300 pages moved with the same content costs from £4,950. Each price includes the new build.
 
 These ranges assume the build includes content creation. If you supply your own content, expect costs to drop by 30-40%, though the quality of self-written content directly affects ranking performance.
 

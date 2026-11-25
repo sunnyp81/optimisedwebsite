@@ -4,6 +4,7 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 import FAQSection from '../components/FAQSection.astro';
 import CTA from '../components/CTA.astro';
 import PriceLadder from '../components/PriceLadder.astro';
+import MigrationPrices from '../components/MigrationPrices.astro';
 import { ladderOffers } from '../data/pricing';
 import { site } from '../data/site';
 
@@ -84,7 +85,7 @@ const deliverables = [
   },
   {
     category: 'Post-Launch Support and Revision Window',
-    prose: 'Every level includes 30 days of revisions after launch and Search Console checks at day 14 and day 30. Level 3 projects add 30 days of redirect monitoring in Google and Bing after the move.',
+    prose: 'Every level includes 30 days of revisions after launch and Search Console checks at day 14 and day 30. Full migrations add 30 days of redirect monitoring in Google and Bing after the move.',
     items: [
       '30 days of revisions for content tweaks and schema fixes',
       'GSC baseline snapshot at day 14 and day 30',
@@ -94,12 +95,12 @@ const deliverables = [
 ];
 
 const faqs = [
-  { q: 'Why is each level a price range?', a: 'Four requirements set the level: page count, number of premises, the redirects an existing site needs, and any booking or CRM tool to connect. Within a level, the price depends on page count and research depth. You get one fixed price in a written build plan before work starts.' },
-  { q: 'What moves a project up a level?', a: 'More than 25 pages, a second premises, or editing by your team moves a project from Level 1 to Level 2. More than 100 pages, more than 5 premises, a booking or CRM hookup, or an existing site where every address has to be kept or redirected moves it to Level 3.' },
-  { q: 'How long does each level take?', a: 'A local site takes 1 to 2 weeks, a growth site 3 to 5 weeks, and a multi-location or full migration project 6 to 12 weeks. The timescale is written into your build plan before work starts.' },
+  { q: 'Why is each level a price range?', a: 'Four requirements set the level: page count, number of premises, the size of any existing site, and any booking or CRM tool to connect. Within a level, the price depends on page count and research depth. You get one fixed price in a written build plan before work starts.' },
+  { q: 'What moves a project up a level?', a: 'More than 25 pages, a second premises, or editing by your team moves a project from Level 1 to Level 2. More than 100 pages of new content, more than 5 premises, a booking or CRM hookup, or an existing site of more than 300 addresses moves it to Level 3. A 100 to 300 page site that moves with the same content is priced as a migration from £4,950.' },
+  { q: 'How long does each level take?', a: 'A local site takes 1 to 2 weeks, a growth site 3 to 5 weeks, and a multi-location or large site 6 to 12 weeks. Migrating an existing site of up to 300 pages takes 2 to 8 weeks. The timescale is written into your build plan before work starts.' },
   { q: 'Are there any ongoing fees after delivery?', a: 'No fees are due to us after delivery. You pay once for the build and own the site outright, with no CMS licences or mandatory retainers. Cloudflare Pages and Vercel both offer free tiers that suit most static sites. A team editing system at Level 2 or Level 3 can carry a third-party running cost. Your build plan confirms that cost. Ongoing SEO support is available as a separate engagement if you want it.' },
   { q: 'What is not included in the price?', a: 'The price covers everything listed for your level. It does not include paid advertising setup, social media management, link building campaigns, photography, changes to third-party booking tools, or ongoing content writing beyond the initial build. These are quoted separately.' },
-  { q: 'How do I pay?', a: 'Level 1 and Level 2 builds are paid in two halves: half to start and half on launch. Level 3 projects are paid in stages set out in your build plan. The usual split is half at design approval and half on launch. Payment is by bank transfer or card invoice.' }
+  { q: 'How do I pay?', a: 'Level 1 and Level 2 builds are paid in two halves: half to start and half on launch. Level 3 projects are paid in stages set out in your build plan. The usual split is half at design approval and half on launch. Payment for a migration is set out in your build plan. Payment is by bank transfer or card invoice.' }
 ];
 
 const schemaNodes = [
@@ -125,7 +126,7 @@ const schemaNodes = [
 ---
 <Base
   title="SEO Website Pricing: 3 Levels From £1,500 | OptimisedWebsite"
-  description="SEO website pricing in three levels: local sites £1,500 to £3,000, growth sites £3,000 to £6,000, multi-location and migration projects £6,000 to £15,000."
+  description="SEO website pricing in three levels: local sites £1,500 to £3,000, growth sites £3,000 to £6,000, large sites £6,000 to £15,000. Migration from £2,000."
   canonicalPath="/pricing/"
   schemaNodes={schemaNodes}
 >
@@ -160,14 +161,20 @@ const schemaNodes = [
             </tr>
           </thead>
           <tbody style="color: var(--color-ink-2);">
-            <tr style="border-bottom: 1px solid var(--color-rule);"><th scope="row" class="py-3 pr-4 font-medium" style="color: var(--color-ink);">Pages</th><td class="py-3 pr-4">Up to 25</td><td class="py-3 pr-4">25 to 100</td><td class="py-3">100 to several hundred</td></tr>
+            <tr style="border-bottom: 1px solid var(--color-rule);"><th scope="row" class="py-3 pr-4 font-medium" style="color: var(--color-ink);">Pages</th><td class="py-3 pr-4">Up to 25</td><td class="py-3 pr-4">25 to 100</td><td class="py-3">100 pages of new content or more</td></tr>
             <tr style="border-bottom: 1px solid var(--color-rule);"><th scope="row" class="py-3 pr-4 font-medium" style="color: var(--color-ink);">Premises</th><td class="py-3 pr-4">One. Towns you travel to count as service areas</td><td class="py-3 pr-4">2 to 5</td><td class="py-3">More than 5</td></tr>
-            <tr style="border-bottom: 1px solid var(--color-rule);"><th scope="row" class="py-3 pr-4 font-medium" style="color: var(--color-ink);">Existing site</th><td class="py-3 pr-4">New site or small replacement</td><td class="py-3 pr-4">Replacement with a short redirect list</td><td class="py-3">Every current address kept or redirected and tested</td></tr>
+            <tr style="border-bottom: 1px solid var(--color-rule);"><th scope="row" class="py-3 pr-4 font-medium" style="color: var(--color-ink);">Existing site</th><td class="py-3 pr-4">New site or small replacement</td><td class="py-3 pr-4">Replacement with a short redirect list</td><td class="py-3">More than 300 addresses kept or redirected and tested</td></tr>
             <tr style="border-bottom: 1px solid var(--color-rule);"><th scope="row" class="py-3 pr-4 font-medium" style="color: var(--color-ink);">Connected tools</th><td class="py-3 pr-4">Contact form</td><td class="py-3 pr-4">Contact form and team editing</td><td class="py-3">Booking or CRM hookup, team editing with training</td></tr>
             <tr><th scope="row" class="py-3 pr-4 font-medium" style="color: var(--color-ink);">Timescale</th><td class="py-3 pr-4">1 to 2 weeks</td><td class="py-3 pr-4">3 to 5 weeks</td><td class="py-3">6 to 12 weeks</td></tr>
           </tbody>
         </table>
       </div>
+    </section>
+
+    <section class="py-8" id="migration-prices" style="border-top: 1px solid var(--color-rule);">
+      <h2 class="text-2xl font-bold tracking-[-0.02em] mb-4">How Much a Website Migration Costs</h2>
+      <p class="text-[15px] leading-[1.65] mb-6 max-w-3xl" style="color: var(--color-ink-2);">A full migration costs from £2,000 including the new site. The price follows the size of your existing site.</p>
+      <MigrationPrices />
     </section>
 
     <section class="pt-8">
@@ -187,7 +194,7 @@ const schemaNodes = [
     ))}
 
     <section class="py-10 text-center">
-      <p class="mb-4" style="color: var(--color-ink-2);">Every level includes every item listed above. Level 2 adds a full topic map, custom page templates and team editing. Level 3 adds redirects, a booking or CRM hookup and training.</p>
+      <p class="mb-4" style="color: var(--color-ink-2);">Every level includes every item listed above. Level 2 adds a full topic map, custom page templates and team editing. Level 3 adds full redirects, a booking or CRM hookup and training.</p>
       <CTA href="/order/" label="Get Your Free Build Plan" />
     </section>
 

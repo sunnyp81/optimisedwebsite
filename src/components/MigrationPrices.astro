@@ -1,0 +1,26 @@
+---
+import { migrationTiers, migrationIncludes, gbp } from '../data/pricing';
+---
+<div class="overflow-x-auto" tabindex="0" role="region" aria-label="Migration prices by site size">
+  <table class="w-full text-left border-collapse text-[14px] md:text-[15px]">
+    <thead>
+      <tr style="border-bottom: 2px solid var(--color-rule);">
+        <th scope="col" class="py-3 pr-3 font-semibold">Existing site</th>
+        <th scope="col" class="py-3 pr-3 font-semibold">Build from</th>
+        <th scope="col" class="py-3 pr-3 font-semibold">Migration</th>
+        <th scope="col" class="py-3 font-semibold">Total from</th>
+      </tr>
+    </thead>
+    <tbody style="color: var(--color-ink-2);">
+      {migrationTiers.map((t) => (
+        <tr style="border-bottom: 1px solid var(--color-rule);">
+          <th scope="row" class="py-3 pr-3 font-medium" style="color: var(--color-ink);">{t.size}</th>
+          <td class="py-3 pr-3 tnum">{gbp(t.build)}</td>
+          <td class="py-3 pr-3 tnum">{t.addOn ? gbp(t.addOn) : 'Included'}</td>
+          <td class="py-3 tnum font-semibold" style="color: var(--color-ink);">{gbp(t.build + t.addOn)}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+<p class="text-[14px] leading-[1.6] mt-4 max-w-3xl" style="color: var(--color-ink-2);">{migrationIncludes}</p>

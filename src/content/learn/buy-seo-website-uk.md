@@ -8,7 +8,7 @@ intent: "commercial"
 schemaTypes: ["Article", "FAQPage"]
 relatedSlugs: ["seo-website-cost-uk", "pre-built-seo-websites", "turnkey-seo-website-options"]
 datePublished: "2026-05-16"
-dateModified: "2026-09-26"
+dateModified: "2026-11-25"
 hubBacklink:
   anchor: "SEO learning hub"
   href: "/learn/"
@@ -51,6 +51,6 @@ When you buy an SEO-optimised website, the value is in the invisible architectur
 
 ## The OptimisedWebsite Approach
 
-Our [SEO website build](/seo-web-design/) is priced by what the site has to do: £1,500 to £3,000 for a local site of up to 25 pages, £3,000 to £6,000 for a larger site of 25 to 100 pages, and £6,000 to £15,000 for multi-location and migration projects, with the full breakdown on our [pricing page](/pricing/). A local site takes 1 to 2 weeks. You get keyword research, topical mapping, original content, per-page schema, performance testing, and full source code. No retainer required, no lock-in. When you are ready, you can [request a free build plan](/order/) and we begin after you approve the scope.
+Our [SEO website build](/seo-web-design/) is priced by what the site has to do: £1,500 to £3,000 for a local site of up to 25 pages, £3,000 to £6,000 for a larger site of 25 to 100 pages, and £6,000 to £15,000 for multi-location and large sites. A full migration of an existing site starts from £2,000, with the full breakdown on our [pricing page](/pricing/). A local site takes 1 to 2 weeks. You get keyword research, topical mapping, original content, per-page schema, performance testing, and full source code. No retainer required, no lock-in. When you are ready, you can [request a free build plan](/order/) and we begin after you approve the scope.
 
 We build on Astro (static HTML, zero JS overhead) and deploy to Cloudflare's global edge network. The result is a site that loads in under half a second and gives Google clear signals about your topical authority from the first crawl.

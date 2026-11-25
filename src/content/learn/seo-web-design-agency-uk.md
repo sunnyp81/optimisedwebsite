@@ -8,7 +8,7 @@ intent: "commercial"
 schemaTypes: ["Article", "FAQPage"]
 relatedSlugs: ["seo-website-cost-uk", "what-is-an-seo-optimised-website", "diy-vs-professional-seo-website"]
 datePublished: "2026-05-16"
-dateModified: "2026-05-16"
+dateModified: "2026-11-25"
 hubBacklink:
   anchor: "SEO learning hub"
   href: "/learn/"
@@ -16,7 +16,7 @@ faqs:
   - q: "What should an SEO web design agency deliver?"
     a: "At minimum: keyword research, topical mapping, internal linking architecture, per-page schema markup, and a site that scores 90+ on Lighthouse. If they hand you a WordPress theme with Yoast installed and call it 'SEO-optimised,' that is not SEO web design."
   - q: "How much does SEO web design cost in the UK?"
-    a: "Expect £1,500 to £3,000 for a local site of up to 25 pages with full SEO architecture, £3,000 to £6,000 for 25 to 100 pages, and £6,000 to £15,000 for a multi-location build or a migration of several hundred pages. The price follows the work required: page count, number of premises, redirects from an existing site, and connections to booking or CRM tools. Ask any agency at any price which of those the quote covers."
+    a: "Expect £1,500 to £3,000 for a local site of up to 25 pages with full SEO architecture, £3,000 to £6,000 for 25 to 100 pages, and £6,000 to £15,000 for a multi-location build or a migration of more than 300 pages. Smaller full migrations start from £2,000. The price follows the work required: page count, number of premises, redirects from an existing site, and connections to booking or CRM tools. Ask any agency at any price which of those the quote covers."
   - q: "Should I hire an SEO agency and a web design agency separately?"
     a: "Ideally no. When SEO and design are separate workstreams, architecture decisions get made for visual reasons and the SEO team has to retrofit structure after the fact. An SEO-first agency builds the architecture before the design. Every URL, heading, and link exists because the data justified it."
   - q: "How do I evaluate an SEO web design agency's portfolio?"
@@ -62,6 +62,6 @@ A genuine SEO web design agency will:
 
 ## How OptimisedWebsite Compares
 
-Our [SEO web design](/seo-web-design/) service is priced in three levels by requirement: £1,500 to £3,000 for a local site, £3,000 to £6,000 for a larger site, and £6,000 to £15,000 for multi-location and migration projects, set out in full on our [pricing page](/pricing/). The price is fixed in a written build plan before work starts. Every build includes keyword research, topical mapping, per-page schema, and Astro/Cloudflare deployment. No retainer required, no lock-in, source code yours forever.
+Our [SEO web design](/seo-web-design/) service is priced in three levels by requirement: £1,500 to £3,000 for a local site, £3,000 to £6,000 for a larger site, and £6,000 to £15,000 for multi-location and large sites. A full migration starts from £2,000, set out in full on our [pricing page](/pricing/). The price is fixed in a written build plan before work starts. Every build includes keyword research, topical mapping, per-page schema, and Astro/Cloudflare deployment. No retainer required, no lock-in, source code yours forever.
 
 The tradeoff: we do not build bespoke applications or ecommerce checkouts. If you need a React app or a custom checkout, we are not the right fit. If you need a site planned around keyword research before design starts, we are.
